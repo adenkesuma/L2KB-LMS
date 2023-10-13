@@ -1,7 +1,7 @@
 import Card from '@/components/card'
 import React from 'react'
 
-const Pelatihan = () => {
+const Courses = () => {
   return (
     <main>
         {/* header title pelatihan */}
@@ -11,7 +11,7 @@ const Pelatihan = () => {
             <input 
                 type="text" 
                 placeholder="Cari Pelatihan..." 
-                className='mt-4 border border-slate-400 py-2 px-4 rounded-3xl w-[40%] outline-[#29A398]'
+                className='mt-4 border border-opacity-cyan py-2 px-4 rounded-3xl w-[40%] outline-[#29A398]'
             />
         </div>
 
@@ -25,4 +25,4 @@ const Pelatihan = () => {
   )
 }
 
-export default Pelatihan
+export default Courses

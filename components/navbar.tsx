@@ -11,19 +11,15 @@ const Navbar: FC = () => {
         <nav className="py-4">
             <div className="flex justify-between items-center">
                 <Link href="/">
-                    <Image
-                        className="w-[80px] md:w-[80px]"
-                        src={PDKI}
-                        alt="logo WONCA (world family doctors caring for people 'ASIA FACIFIC')"
-                    />
+                    <span className="font-bold text-[50px]">PDKI</span>
                 </Link>
                 <div className="flex justify-center items-center gap-8">
                     <ul className="flex justify-center items-center gap-10">
                         <li>
-                            <a href="/panduan" className="hover:text-[#274698] font-medium">Panduan</a>
+                            <a href="/guide" className="hover:text-[#29A398] font-medium">Panduan</a>
                         </li>
                         <li>
-                            <a href="/pelatihan" className="hover:text-[#274698] font-medium">Pelatihan</a>
+                            <a href="/courses" className="hover:text-[#29A398] font-medium">Pelatihan</a>
                         </li>
                     </ul>
 
@@ -32,10 +28,10 @@ const Navbar: FC = () => {
 
                     {/* button signin and signup */}
                     <div className="flex justify-center gap-4 items-center">
-                        <button className="bg-white px-6 py-[4px] border-2 border-[#274698] duration-75 text-[#274698] md:py-[10px] md:px-8 rounded-3xl font-medium text-[12px] md:text-[14px]">
+                        <button className="bg-white px-6 py-[4px] border-2 border-[#29A398] duration-75 text-[#29A398] md:py-[10px] md:px-8 rounded-3xl font-medium text-[12px] md:text-[14px]">
                             Daftar
                         </button>
-                        <button className="bg-[#274698] px-6 py-[5px] duration-75 text-white md:py-[12px] md:px-8 rounded-3xl font-medium text-[12px] md:text-[14px]">
+                        <button className="bg-[#29A398] px-6 py-[5px] duration-75 text-white md:py-[12px] md:px-8 rounded-3xl font-medium text-[12px] md:text-[14px]">
                             Masuk
                         </button>
                     </div>

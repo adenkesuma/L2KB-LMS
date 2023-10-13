@@ -33,7 +33,7 @@ const Card: FC = () => {
             </div>
 
             {/* button detail */}
-            <Link href='/pelatihan/detail' className="text-center text-white font-medium mt-2 w-full p-2 rounded-xl bg-cyan">
+            <Link href='/courses/detail' className="text-center text-white font-medium mt-2 w-full p-2 rounded-xl bg-cyan">
                 Detail
             </Link>
         </div>

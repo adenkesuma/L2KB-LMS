@@ -2,6 +2,7 @@ import Image from 'next/image'
 import { FC } from 'react'
 
 import DummyImage from '@/public/assets/dummy.png'
+import Link from 'next/link'
 
 const PelatihanDetail: FC = () => {
   return (
@@ -52,9 +53,9 @@ const PelatihanDetail: FC = () => {
             </ul>
           </div>
 
-          <button className="mt-6 text-center text-white font-medium w-full p-2 rounded-xl bg-cyan">
+          <Link href="/courses/register" className="mt-6 text-center text-white font-medium w-full p-2 rounded-xl bg-cyan">
             Daftar Sekarang
-          </button>
+          </Link>
         </div>
       </div>
 
@@ -82,6 +83,36 @@ const PelatihanDetail: FC = () => {
           </li>
           <li className='font-regular text-sm text-gray-600'>
             F. Menandatangani surat pernyataan bersedia menjadi tim penguji jabatan fungsional kesehatan
+          </li>
+        </ul>
+      </div>
+
+      {/* kompetensi */}
+      <div className="w-[68%] mt-10">
+        <h2 className="font-semibold text-gray-800 text-[24px]">
+          Kompetensi
+        </h2>
+        <ul className='flex flex-col gap-3 mt-4'>
+          <li className='font-regular text-sm text-gray-600'>
+            1. Identifikasi risiko
+          </li>
+          <li className='font-regular text-sm text-gray-600'>
+            2. Pemeriksaan fisik bayi baru lahir
+          </li>
+          <li className='font-regular text-sm text-gray-600'>
+            3. Penilaian kesehatan untuk bayi yang baru lahir
+          </li>
+          <li className='font-regular text-sm text-gray-600'>
+            4. Pengukuran skrining seperti uji tes pendengaran dan penglihatan
+          </li>
+          <li className='font-regular text-sm text-gray-600'>
+            5. Perawatan bayi baru lahir
+          </li>
+          <li className='font-regular text-sm text-gray-600'>
+            6. Komunikasi dan Konseling dengan ibu dan keluarga tentang hasil skrining bayi
+          </li>
+          <li className='font-regular text-sm text-gray-600'>
+            7. Kolaborasi dengan tim kesehatan lainya 
           </li>
         </ul>
       </div>
