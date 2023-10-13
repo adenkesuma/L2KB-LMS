@@ -5,7 +5,7 @@ import DummyImage from '@/public/assets/dummy.png'
 
 const PelatihanDetail: FC = () => {
   return (
-    <main>
+    <main className='my-8'>
       <h1 className='mt-8 font-bold text-[34px]'>
         Pelatihan skrining bayi baru lahir, bagi Dokter dan Bidan
       </h1>
@@ -15,33 +15,119 @@ const PelatihanDetail: FC = () => {
       </div>
 
       <div className='flex gap-8 mt-4'>
-        <figure className='block w-[65%]'>
+        <figure className='block w-[68%]'>
           <Image 
             src={DummyImage}
             alt="banner image detail"
-            className='rounded-3xl h-full w-full'
+            className='rounded-3xl h-full bg-cover bg-center w-full'
           />
         </figure>
-        <div className='p-6 w-[35%] bg-white shadow-md rounded-3xl'>
-          <h2 className='font-semibold text-[24px] text-gray-800'>Tentang pelatihan ini</h2>
-          <ul className='flex flex-col justify-start mt-6 gap-2'>
-            <li className='font-reguler text-sm text-gray-600'>
-              Tahun Pelaksanaan: <span className='font-semibold text-cyan'>2023</span>
-            </li>
-            <li className='font-reguler text-sm text-gray-600'>
-              Jenis Pelatihan: <span className='font-semibold text-cyan'>Pelatihan Fungsional</span>
-            </li>
-            <li className='font-reguler text-sm text-gray-600'>
-              Gelombang / Batch: <span className='font-semibold text-cyan'>Gel. 5</span>
-            </li>
-            <li className='font-reguler text-sm text-gray-600'>
-              Periode Pendaftaran: <span className='font-semibold text-cyan'>21 Mei 2023 s/d 03 Juli 2023</span>
-            </li>
-            <li className='font-reguler text-sm text-gray-600'>
-              Periode Pelatihan: <span className='font-semibold text-cyan'>07 Agustus 2023 s/d 16 Agustus 2023</span>
-            </li>
-          </ul>
+
+        <div className='p-6 w-[32%] bg-white border border-opacity-cyan rounded-3xl flex justify-between flex-col'>
+          <div>
+            <h2 className='font-semibold text-[24px] text-gray-800'>Tentang pelatihan ini</h2>
+
+            <ul className='flex flex-col justify-start mt-6 gap-3'>
+              <li className='font-reguler text-sm text-gray-600'>
+                Tahun Pelaksanaan: <span className='font-semibold text-cyan'>2023</span>
+              </li>
+              <li className='font-reguler text-sm text-gray-600'>
+                Jenis Pelatihan: <span className='font-semibold text-cyan'>Pelatihan Fungsional</span>
+              </li>
+              <li className='font-reguler text-sm text-gray-600'>
+                Gelombang / Batch: <span className='font-semibold text-cyan'>Gel. 5</span>
+              </li>
+              <li className='font-reguler text-sm text-gray-600'>
+                Periode Pendaftaran: <span className='font-semibold text-cyan'>21 Mei 2023 s/d 03 Juli 2023</span>
+              </li>
+              <li className='font-reguler text-sm text-gray-600'>
+                Periode Pelatihan: <span className='font-semibold text-cyan'>07 Agustus 2023 s/d 16 Agustus 2023</span>
+              </li>
+              <li className='font-reguler text-sm text-gray-600'>
+                Tempat Penyelenggaraan: <span className='font-semibold text-cyan'>Jln Petisah Medan</span>
+              </li>
+              <li className='font-reguler text-sm text-gray-600'>
+                Biaya Pelatihan: <span className='font-semibold text-cyan'>Rp 2.150.000</span>
+              </li>
+            </ul>
+          </div>
+
+          <button className="mt-6 text-center text-white font-medium w-full p-2 rounded-xl bg-cyan">
+            Daftar Sekarang
+          </button>
         </div>
+      </div>
+
+      {/* kriteria peserta */}
+      <div className='mt-10 w-[68%]'>
+        <h2 className="font-semibold text-gray-800 text-[24px]">
+          Kriteria peserta harus terpenuhi semua, yaitu sebagai berikut
+        </h2>
+        
+        <ul className='flex flex-col gap-3 mt-4'>
+          <li className='font-regular text-sm text-gray-600'>
+            A. Pejabat fungsional kesehatan dengan kategori keahlian minimal jenjang Ahli Muda
+          </li>
+          <li className='font-regular text-sm text-gray-600'>
+            B. Pejabat fungsional kesehatan dengan kategori keterampilan minimal mahir
+          </li>
+          <li className='font-regular text-sm text-gray-600'>
+            C. Memiliki Surat Keputusan Jabatan Fungsional Kesehatan dan melakukan pekerjaan sesuai dengan jabatan fungsional yang di dudukinya
+          </li>
+          <li className='font-regular text-sm text-gray-600'>
+            D. Mendapat surat rekomendasi dari instansinya
+          </li>
+          <li className='font-regular text-sm text-gray-600'>
+            E. Batas usia maksimal 3 tahun sebelum usia pensiun
+          </li>
+          <li className='font-regular text-sm text-gray-600'>
+            F. Menandatangani surat pernyataan bersedia menjadi tim penguji jabatan fungsional kesehatan
+          </li>
+        </ul>
+      </div>
+
+      {/* Tujuan Pelatihan */}
+      <div className='mt-10 w-[68%]'>
+        <h2 className="font-semibold text-[24px] text-gray-800">
+          Tujuan Pelatihan
+        </h2>
+        <p className='mt-4 text-sm text-gray-600'>
+          Setelah mengikuti pelatihan ini peserta mampu memahami tentang semua yang telah dipelajari tentang skrining bayi
+        </p>
+      </div>
+
+      {/* catatan */}
+      <div className='mt-10 bg-opacity-cyan p-6 rounded-2xl w-[68%] mb-20'>
+        <h2 className='font-semibold text-cyan text-[24px]'>Catatan:</h2>
+        <ul className='flex flex-col gap-3 mt-4'>
+          <li className='font-regular text-sm text-cyan'>
+            - Silahkan lengkapi kelengkapan ADM seperti, SK Jabfung, surat pernyataan untuk menjadi bahan pertimbangan kami dalam menyeleksi
+          </li>
+          <li className='font-regular text-sm text-cyan'>
+            - Pendaftaran tidak otomatis menjadi peserta
+          </li>
+          <li className='font-regular text-sm text-cyan'>
+            - Calon peserta akan di seleksi dan diumumkan
+          </li>
+          <li className='font-regular text-sm text-cyan'>
+            - Pembayaran dilakukan setelah peserta dinyatakan lolos sebagai peserta
+          </li>
+          <li className='font-regular text-sm text-cyan'>
+            - Pastikan Bapak/Ibu telah membaca detail data pelatihan dengan seksama
+          </li>
+          <li className='font-regular text-sm text-cyan'>
+            - Pastikan Bapak/Ibu dapat melengkapi dokumen kelengkapan Administrasi yang diminta
+          </li>
+          <li className='font-regular text-sm text-cyan'>
+            - Pastikan Biodata Bapak/Ibu sudah benar, kesalahan pengisian biodata diluar tanggung jawab panitia
+          </li>
+          <li className='font-regular text-sm text-cyan'>
+            - Jika Bapak/Ibu telah ditetapkan menjadi peserta, selanjutnya Bapak/Ibu akan dihubungi melalui Email, Telepon atau Pengumumam di Portal SIMPLE-IT
+          </li>
+          <li className="font-regular text-sm text-cyan">
+            - Keputusan Panitia pelatihan tidak dapat diganggu gugat
+          </li>
+        </ul>
       </div>
     </main>
   )
