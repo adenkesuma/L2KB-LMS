@@ -11,11 +11,11 @@ const Pelatihan = () => {
             <input 
                 type="text" 
                 placeholder="Cari Pelatihan..." 
-                className='mt-4 border border-slate-400 py-2 px-4 rounded-3xl w-[40%] outline-[#274698]'
+                className='mt-4 border border-slate-400 py-2 px-4 rounded-3xl w-[40%] outline-[#29A398]'
             />
         </div>
 
-        <div className="grid grid-cols-4 gap-8 mt-12">
+        <div className="grid md:grid-cols-3 xl:grid-cols-4 gap-8 mt-12">
             <Card />
             <Card />
             <Card />
