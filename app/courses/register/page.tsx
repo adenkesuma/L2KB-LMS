@@ -83,7 +83,7 @@ const Register = () => {
                 <div className='flex flex-col gap-4 mt-12'>
                     <p className='text-sm italic text-cyan'>{` "Tunggu beberapa saat setelah anda mendaftar, admin akan memberikan informasi selanjutnya lerkait pendaftaran anda melalui notifikasi dan gmail anda" `}</p>
                     <button className="text-center w-[300px] text-white font-medium mt-2 p-2 rounded-xl bg-cyan">
-                        Daftar
+                        Daftar Pelatihan
                     </button>
                 </div>
             </div>
