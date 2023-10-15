@@ -30,10 +30,10 @@ const Navbar: FC = () => {
                         <div className="flex justify-center items-center gap-8">
                             <ul className="flex justify-center items-center gap-10">
                                 <li>
-                                    <a href="/guide" className="hover:text-green hover:border-b hover:border-green delay-75 font-medium text-gray-800">Panduan</a>
+                                    <a href="/guide" className={`${pathname === "/guide" ? "border-b text-green border-green" : ""} hover:text-green hover:border-b hover:border-green delay-75 font-medium text-gray-800`}>Panduan</a>
                                 </li>
                                 <li>
-                                    <a href="/courses" className="hover:text-green hover:border-b hover:border-green delay-75 font-medium text-gray-800">Pelatihan</a>
+                                    <a href="/courses" className={`${pathname === "/courses" ? "text-green border-b border-green" : ""} hover:text-green hover:border-b hover:border-green delay-75 font-medium text-gray-800`}>Pelatihan</a>
                                 </li>
                             </ul>
 
