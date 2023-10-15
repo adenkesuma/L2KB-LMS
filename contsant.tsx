@@ -1,14 +1,17 @@
 export const myCourse = [
     {
+        path: "/certificate",
         description: "Sertifikat Saya",
-        icon: "./public/assets/icons/certification.svg"
+        icon: "/assets/icons/certification.svg"
     },
     {
+        path: "/my-course",
         description: "Pelatihan yang sedang dijalankan",
-        icon: "./public/assets/icons/current-course.svg"
+        icon: "/assets/icons/current-course.svg"
     },
     {
+        path: "/history",
         description: "Pelatihan yang telah selesai",
-        icon: "./public/assets/icons/history.svg"
+        icon: "/assets/icons/history.svg"
     }
 ]

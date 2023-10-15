@@ -39,7 +39,7 @@ const Navbar: FC = () => {
 
                             {/* button signin and signup */}
                             <div className="flex justify-center gap-4 items-center">
-                                <Link href="/register" className="bg-white px-6 py-[4px] border-2 border-green duration-75 text-green md:py-[10px] md:px-8 rounded-3xl font-medium text-[12px] md:text-[14px]">
+                                <Link href="/register" className="bg-transparent px-6 py-[4px] border-2 border-green duration-75 text-green md:py-[10px] md:px-8 rounded-3xl font-medium text-[12px] md:text-[14px]">
                                     Daftar
                                 </Link>
                                 <Link href="/login" className="bg-green px-6 py-[5px] duration-75 text-white md:py-[12px] md:px-8 rounded-3xl font-medium text-[12px] md:text-[14px]">

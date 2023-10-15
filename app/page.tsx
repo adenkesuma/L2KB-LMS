@@ -20,13 +20,15 @@ export default function Home() {
     <main> 
       {login ? 
         (
-          <div className='mt-12 rounded-2xl bg-green p-8 pb-20'>
+          <div className='mt-12 rounded-2xl bg-banner-profile p-8 pb-20'>
             <h1 className='text-[38px] font-bold mb-4 text-white'>Pelatihan Saya</h1>
             
-            <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
+            <div className="grid grid-cols-3 gap-4 -mb-32">
               {myCourse.map((item, idx) => (
                 <UserCard 
                   key={idx*4}
+                  path={item.path}
+                  idx={idx}
                   icon={item.icon}
                   description={item.description}
                 />
@@ -39,7 +41,7 @@ export default function Home() {
         )
       }
 
-      <div className="mt-12">
+      <div className="mt-28">
         <div className='flex justify-between items-center mb-4'>
           <h2 className='font-bold text-[34px]'>Pelatihan Terbaru</h2>
           <Link href="/courses" className='text-md text-green font-semibold flex items-center gap-1'>
