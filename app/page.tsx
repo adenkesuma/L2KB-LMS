@@ -12,9 +12,23 @@ export const metadata: Metadata = {
 }
 
 export default function Home() {
+  const login: Boolean = true
+
   return (
     <main> 
-      <HeroBanner />  
+      {login ? 
+        (
+          <div className='mt-12 rounded-2xl bg-green p-8 pb-20'>
+            <h1 className='text-[38px] font-bold mb-4 text-white'>Pelatihan Saya</h1>
+            
+            <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
+            </div>
+          </div>
+        ) :
+        (
+          <HeroBanner />  
+        )
+      }
 
       <div className="mt-12">
         <div className='flex justify-between items-center mb-4'>
