@@ -14,7 +14,7 @@ const Register = () => {
                 </div>
                 <div className='flex flex-col gap-2'>
                     <label className='font-medium text-sm'>Ketikan No Surat SIP {"( Surat Izin Praktik )"}</label>
-                    <input type="text" className="border rounded-xl p-2 border-opacity-cyan" />
+                    <input type="text" className="border rounded-xl p-2 border-opacity-green" />
                 </div>
 
                 {/* STR */}
@@ -24,7 +24,7 @@ const Register = () => {
                 </div>
                 <div className='flex flex-col gap-2'>
                     <label className='font-medium text-sm'>Ketikan No Surat STR {"( Surat Tanda Registrasi )"}</label>
-                    <input type="text" className="border rounded-xl p-2 border-opacity-cyan" />
+                    <input type="text" className="border rounded-xl p-2 border-opacity-green" />
                 </div>
             
                 {/* SERKOM */}
@@ -34,7 +34,7 @@ const Register = () => {
                 </div>
                 <div className='flex flex-col gap-2'>
                     <label className='font-medium text-sm'>Ketikan No Surat SIP {"( Surat Izin Praktik )"}</label>
-                    <input type="text" className="border rounded-xl p-2 border-opacity-cyan" />
+                    <input type="text" className="border rounded-xl p-2 border-opacity-green" />
                 </div>
 
                 {/* Ijajah Pengakuan */}
@@ -44,7 +44,7 @@ const Register = () => {
                 </div>
                 <div className='flex flex-col gap-2'>
                     <label className='font-medium text-sm'>Ketikan No Ijajah {"( Surat Izin Praktik )"}</label>
-                    <input type="text" className="border rounded-xl p-2 border-opacity-cyan" />
+                    <input type="text" className="border rounded-xl p-2 border-opacity-green" />
                 </div>
             </div>
             <div className='flex flex-col gap-6'>
@@ -56,7 +56,7 @@ const Register = () => {
                 </div>
                 <div className='flex flex-col gap-2'>
                     <label className='font-medium text-sm'>Ketikan No Kartu Anggota PDKi <span className='text-end italic text-orange-400'>{"*( Opsional )*"}</span></label>
-                    <input type="text" className="border rounded-xl p-2 border-opacity-cyan" />
+                    <input type="text" className="border rounded-xl p-2 border-opacity-green" />
                 </div>
 
                 {/* KTP */}
@@ -66,7 +66,7 @@ const Register = () => {
                 </div>
                 <div className='flex flex-col gap-2'>
                     <label className='font-medium text-sm'>Ketikan No KTP {"( Kartu Tanda Penduduk )"}</label>
-                    <input type="text" className="border rounded-xl p-2 border-opacity-cyan" />
+                    <input type="text" className="border rounded-xl p-2 border-opacity-green" />
                 </div>
 
                 {/* Bukti pembayaran */}
@@ -76,13 +76,13 @@ const Register = () => {
                 </div>
                 <div className='flex flex-col gap-2'>
                     <label className='font-medium text-sm'>Ketikan No ATM  {"( Surat Izin Praktik )"}</label>
-                    <input type="text" className="border rounded-xl p-2 border-opacity-cyan" />
+                    <input type="text" className="border rounded-xl p-2 border-opacity-green" />
                 </div>
 
                 {/* button daftar */}
                 <div className='flex flex-col gap-4 mt-12'>
-                    <p className='text-sm italic text-cyan'>{` "Tunggu beberapa saat setelah anda mendaftar, admin akan memberikan informasi selanjutnya lerkait pendaftaran anda melalui notifikasi dan gmail anda" `}</p>
-                    <button className="text-center w-[300px] text-white font-medium mt-2 p-2 rounded-xl bg-cyan">
+                    <p className='text-sm italic text-green'>{` "Tunggu beberapa saat setelah anda mendaftar, admin akan memberikan informasi selanjutnya lerkait pendaftaran anda melalui notifikasi dan gmail anda" `}</p>
+                    <button className="text-center w-[300px] text-white font-medium mt-2 p-2 rounded-xl bg-green">
                         Daftar Pelatihan
                     </button>
                 </div>

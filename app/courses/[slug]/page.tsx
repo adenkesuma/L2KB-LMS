@@ -11,8 +11,8 @@ const PelatihanDetail: FC = () => {
         Pelatihan skrining bayi baru lahir, bagi Dokter dan Bidan
       </h1>
       <div className='flex items-center justify-start mt-10'>
-        <p className='font-regular text-sm text-gray-600 pr-6 border-r border-gray-400'>Kondisi: <span className='font-semibold text-cyan'>Pendaftaran Aktif</span></p>
-        <p className='font-regular text-sm text-gray-600 pl-6'>Kuota Peserta: <span className='font-semibold text-cyan'>40</span></p>
+        <p className='font-regular text-sm text-gray-600 pr-6 border-r border-gray-400'>Kondisi: <span className='font-semibold text-green'>Pendaftaran Aktif</span></p>
+        <p className='font-regular text-sm text-gray-600 pl-6'>Kuota Peserta: <span className='font-semibold text-green'>40</span></p>
       </div>
 
       <div className='flex gap-8 mt-4'>
@@ -24,36 +24,36 @@ const PelatihanDetail: FC = () => {
           />
         </figure>
 
-        <div className='p-6 w-[32%] bg-white border border-opacity-cyan rounded-3xl flex justify-between flex-col'>
+        <div className='p-6 w-[32%] bg-white border border-opacity-green rounded-3xl flex justify-between flex-col'>
           <div>
             <h2 className='font-semibold text-[24px] text-gray-800'>Tentang pelatihan ini</h2>
 
             <ul className='flex flex-col justify-start mt-6 gap-3'>
               <li className='font-reguler text-sm text-gray-600'>
-                Tahun Pelaksanaan: <span className='font-semibold text-cyan'>2023</span>
+                Tahun Pelaksanaan: <span className='font-semibold text-green'>2023</span>
               </li>
               <li className='font-reguler text-sm text-gray-600'>
-                Jenis Pelatihan: <span className='font-semibold text-cyan'>Pelatihan Fungsional</span>
+                Jenis Pelatihan: <span className='font-semibold text-green'>Pelatihan Fungsional</span>
               </li>
               <li className='font-reguler text-sm text-gray-600'>
-                Gelombang / Batch: <span className='font-semibold text-cyan'>Gel. 5</span>
+                Gelombang / Batch: <span className='font-semibold text-green'>Gel. 5</span>
               </li>
               <li className='font-reguler text-sm text-gray-600'>
-                Periode Pendaftaran: <span className='font-semibold text-cyan'>21 Mei 2023 s/d 03 Juli 2023</span>
+                Periode Pendaftaran: <span className='font-semibold text-green'>21 Mei 2023 s/d 03 Juli 2023</span>
               </li>
               <li className='font-reguler text-sm text-gray-600'>
-                Periode Pelatihan: <span className='font-semibold text-cyan'>07 Agustus 2023 s/d 16 Agustus 2023</span>
+                Periode Pelatihan: <span className='font-semibold text-green'>07 Agustus 2023 s/d 16 Agustus 2023</span>
               </li>
               <li className='font-reguler text-sm text-gray-600'>
-                Tempat Penyelenggaraan: <span className='font-semibold text-cyan'>Jln Petisah Medan</span>
+                Tempat Penyelenggaraan: <span className='font-semibold text-green'>Jln Petisah Medan</span>
               </li>
               <li className='font-reguler text-sm text-gray-600'>
-                Biaya Pelatihan: <span className='font-semibold text-cyan'>Rp 2.150.000</span>
+                Biaya Pelatihan: <span className='font-semibold text-green'>Rp 2.150.000</span>
               </li>
             </ul>
           </div>
 
-          <Link href="/courses/register" className="mt-6 text-center text-white font-medium w-full p-2 rounded-xl bg-cyan">
+          <Link href="/courses/register" className="mt-6 text-center text-white font-medium w-full p-2 rounded-xl bg-green">
             Daftar Sekarang
           </Link>
         </div>
@@ -128,34 +128,34 @@ const PelatihanDetail: FC = () => {
       </div>
 
       {/* catatan */}
-      <div className='mt-10 bg-opacity-cyan p-6 rounded-2xl w-[68%] mb-20'>
-        <h2 className='font-semibold text-cyan text-[24px]'>Catatan:</h2>
+      <div className='mt-10 bg-opacity-green p-6 rounded-2xl w-[68%] mb-20'>
+        <h2 className='font-semibold text-green text-[24px]'>Catatan:</h2>
         <ul className='flex flex-col gap-3 mt-4'>
-          <li className='font-regular text-sm text-cyan'>
+          <li className='font-regular text-sm text-green'>
             - Silahkan lengkapi kelengkapan ADM seperti, SK Jabfung, surat pernyataan untuk menjadi bahan pertimbangan kami dalam menyeleksi
           </li>
-          <li className='font-regular text-sm text-cyan'>
+          <li className='font-regular text-sm text-green'>
             - Pendaftaran tidak otomatis menjadi peserta
           </li>
-          <li className='font-regular text-sm text-cyan'>
+          <li className='font-regular text-sm text-green'>
             - Calon peserta akan di seleksi dan diumumkan
           </li>
-          <li className='font-regular text-sm text-cyan'>
+          <li className='font-regular text-sm text-green'>
             - Pembayaran dilakukan setelah peserta dinyatakan lolos sebagai peserta
           </li>
-          <li className='font-regular text-sm text-cyan'>
+          <li className='font-regular text-sm text-green'>
             - Pastikan Bapak/Ibu telah membaca detail data pelatihan dengan seksama
           </li>
-          <li className='font-regular text-sm text-cyan'>
+          <li className='font-regular text-sm text-green'>
             - Pastikan Bapak/Ibu dapat melengkapi dokumen kelengkapan Administrasi yang diminta
           </li>
-          <li className='font-regular text-sm text-cyan'>
+          <li className='font-regular text-sm text-green'>
             - Pastikan Biodata Bapak/Ibu sudah benar, kesalahan pengisian biodata diluar tanggung jawab panitia
           </li>
-          <li className='font-regular text-sm text-cyan'>
+          <li className='font-regular text-sm text-green'>
             - Jika Bapak/Ibu telah ditetapkan menjadi peserta, selanjutnya Bapak/Ibu akan dihubungi melalui Email, Telepon atau Pengumumam di Portal SIMPLE-IT
           </li>
-          <li className="font-regular text-sm text-cyan">
+          <li className="font-regular text-sm text-green">
             - Keputusan Panitia pelatihan tidak dapat diganggu gugat
           </li>
         </ul>

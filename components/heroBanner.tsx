@@ -5,7 +5,7 @@ import BannerImage from "@/public/assets/dummy.png"
 
 const HeroBanner: FC = () => {
   return (
-    <header>
+    <header className="mt-4">
         <div>
             <Image 
                 src={BannerImage}
