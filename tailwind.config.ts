@@ -14,18 +14,18 @@ const config: Config = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       backgroundColor: {
-        'cyan': '#29A398',
-        'opacity-cyan': 'rgba(41, 163, 152, 0.1)'
+        'green': '#015A36',
+        'opacity-green': 'rgba(41, 163, 152, 0.1)'
       },
       colors: {
-        'cyan': 'rgba(41, 163, 152, 0.1)'
+        'green': 'rgba(41, 163, 152, 0.1)'
       },
       textColor: {
-        'cyan': '#29A398'
+        'green': '#015A36'
       },
       borderColor: {
-        'cyan': '#29A398',
-        'opacity-cyan': 'rgba(41, 163, 152, 0.3)'
+        'green': '#015A36',
+        'opacity-green': 'rgba(41, 163, 152, 0.3)'
       }
     },
   },
