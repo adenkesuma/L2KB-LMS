@@ -5,6 +5,8 @@ import Link from 'next/link'
 import ArrowRight from '@/public/assets/icons/arrow-right.svg'
 import { Metadata } from 'next'
 import Image from 'next/image'
+import UserCard from '@/components/userCard'
+import { myCourse } from '@/contsant'
 
 export const metadata: Metadata = {
   title: 'LP2KB PDKI',
@@ -22,6 +24,13 @@ export default function Home() {
             <h1 className='text-[38px] font-bold mb-4 text-white'>Pelatihan Saya</h1>
             
             <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
+              {myCourse.map((item, idx) => (
+                <UserCard 
+                  key={idx*4}
+                  icon={item.icon}
+                  description={item.description}
+                />
+              ))}
             </div>
           </div>
         ) :

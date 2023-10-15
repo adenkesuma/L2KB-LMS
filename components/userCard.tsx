@@ -1,7 +1,12 @@
 import Image from 'next/image'
 import React, { FC } from 'react'
 
-const UserCard: FC = ({ icon, total, description}) => {
+interface Props {
+    icon: string
+    description: string
+}
+
+const UserCard = ({ icon, description}: Props) => {
   return (
     <div className='rounded-xl p-6 flex justify-start items-center gap-8 border border-white'>
         {/* icon */}
@@ -11,15 +16,9 @@ const UserCard: FC = ({ icon, total, description}) => {
                 alt="icon"
             />
         </figure>
-        <div>
-            <span>
-                {total}
-            </span>
-            <p>
-                {descrtiption}
-            </p>
-        </div>
-        
+        <p>
+            {description}
+        </p>
     </div>
   )
 }
