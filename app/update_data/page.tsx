@@ -19,7 +19,7 @@ const UpdateData = () => {
           className='w-20 block mx-auto'
         />
       </Link>
-      <h1 className='font-bold text-[38px] text-center mb-12'>Update Profil</h1>
+      <h1 className='mt-4 font-bold text-[38px] text-center mb-12'>Update Profil</h1>
 
       {/* form register */}
       <div className='grid grid-cols-2 gap-10'>
@@ -27,7 +27,10 @@ const UpdateData = () => {
         {/* left form */}
         <div className='flex flex-col gap-6'>
           <div className="flex flex-col gap-2">
-            <label className="font-medium text-sm">NPA PDKI</label>
+            <label className="font-medium text-sm flex justify-between items-center">
+              <span>NPA PDKI</span>
+              <span className='text-xs italic text-orange-500'>{`"opsional"`}</span>
+            </label>
             <input type="number" className="border rounded-xl p-2 border-opacity-green" />
           </div>
 
@@ -105,7 +108,7 @@ const UpdateData = () => {
           <div className='flex flex-col gap-2'>
               <label className='font-medium text-sm flex justify-between items-center'>
                 <span>Pas Foto {"( Latar belakang merah)"}</span>
-                <span className='text-sm italic text-orange-400'>{`"Kapasitas Maksimal 500kb"`}</span>
+                <span className='italic text-orange-500 text-xs'>{`"Kapasitas Maksimal 500kb"`}</span>
               </label>
               <input type="file" className="border rounded-xl p-2 border-opacity-green" />
           </div>
@@ -115,16 +118,11 @@ const UpdateData = () => {
           </div>         
 
           <div className="flex flex-col gap-2">
-            <label className="font-medium text-sm">Pangkat / Golongan</label>
-            <select name="status" id="status" className='border rounded-xl p-2 border-opacity-green bg-white'>
-              <option value="">- Pilih Pangkat / Golongan -</option>
-              <option value="sd">SD {"( Sekolah Dasar )"}</option>
-              <option value="sd">SMP {"( Sekolah Menengah Pertama )"}</option>
-              <option value="sd">SMA {"( Sekolah Menengah Atas )"}</option>
-              <option value="sd">S1 {"( Sarjana Strata 1 )"}</option>
-              <option value="sd">S2 {"( Sarjana Strata 2 )"}</option>
-              <option value="sd">S3 {"( Sarjana Strata 3 )"}</option>
-            </select>
+            <label className="font-medium text-sm flex justify-between items-center">
+              <span>Pangkat / Golongan</span>
+              <span className="text-xs text-orange-500 italic">{`"opsional"`}</span>
+            </label>
+            <input type="text" className="border rounded-xl p-2 border-opacity-green" />
           </div>
 
           <div className='flex flex-col gap-2'>
@@ -138,7 +136,10 @@ const UpdateData = () => {
           </div>
 
           <div className='flex flex-col gap-2'>
-              <label className='font-medium text-sm'>No Telepon Instansi</label>
+              <label className='font-medium text-sm flex justify-between items-center'>
+                <span>No Telepon Instansi</span>
+                <span className='text-xs italic text-orange-500'>{`"opsional"`}</span>
+              </label>
               <input type="number" className="border rounded-xl p-2 border-opacity-green" />
           </div>
           <div className='flex flex-col gap-2'>

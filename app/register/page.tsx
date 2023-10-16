@@ -20,7 +20,7 @@ const Register = () => {
           className='w-20 block mx-auto'
         />
       </Link>
-      <h1 className='font-bold text-[38px] text-center mb-12'>Daftar Akun</h1>
+      <h1 className='font-bold text-[38px] mt-4 text-center mb-12'>Daftar Akun</h1>
 
       {/* form register */}
       <div className='grid grid-cols-2 gap-10'>
@@ -52,7 +52,7 @@ const Register = () => {
           <div className='flex flex-col gap-2'>
               <label className='font-medium text-sm flex justify-between items-center'>
                 <span>No NPA PDKI</span>
-                <span className='italic text-orange-400'>{`"opsional"`}</span>
+                <span className='italic text-xs text-orange-500'>{`"opsional"`}</span>
               </label>
               <input type="number" className="border rounded-xl p-2 border-opacity-green" />
           </div>
