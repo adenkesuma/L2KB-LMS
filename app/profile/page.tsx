@@ -2,13 +2,29 @@ import Image from "next/image"
 import Link from "next/link"
 import Profile from "@/public/assets/user.png"
 import UploadIcon from "@/public/assets/icons/upload.svg"
+import { myCourse } from "@/contsant"
+import MyCourse from "@/components/myCourse"
 
 const UserProfile = () => {
   return (
     <main className='mt-12'>
-        <div>
-            <h1 className='text-[38px] font-bold text-gray-800'>Profil</h1>
-            <span className='text-sm text-gray-600'>Mohon masukkan data yang sesuai untuk memudahkan proses pelatihan</span>
+        <div className="flex justify-between items-end">
+            <div>
+                <h1 className='text-[38px] font-bold text-gray-800'>Profil</h1>
+                <span className='text-sm text-gray-600'>Mohon masukkan data yang sesuai untuk memudahkan proses pelatihan</span>
+            </div>
+
+            <ul className="flex justify-start items-center gap-12 mt-8">
+                <li>
+                    <Link className="text-green font-semibold text-md hover:border-b hover:border-green" href="/certificate">Sertifikat saya</Link>
+                </li>
+                <li>
+                    <Link className="text-green font-semibold text-md hover:border-b hover:border-green" href="/my-course">Pelatihan saya</Link>
+                </li>
+                <li>
+                    <Link className="text-green font-semibold text-md hover:border-b hover:border-green" href="/history">History pelatihan saya</Link>
+                </li>
+            </ul>
         </div>
         <div className='border border-opacity-green rounded-3xl mt-8'>
             {/* top profile */}
@@ -46,9 +62,6 @@ const UserProfile = () => {
                 <div className="flex flex-col gap-4">
                     <Link href="/forgot-password" className="text-center w-[240px] font-medium mt-2 p-2 rounded-xl border-green border text-green">
                         Ubah Kata Sandi
-                    </Link>
-                    <Link href="/sertificate" className="text-center w-[240px] text-white font-medium mt-2 p-2 rounded-xl bg-green">
-                        Lihat Sertifikat Saya
                     </Link>
                 </div>
             </div>

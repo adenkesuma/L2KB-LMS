@@ -10,22 +10,23 @@ interface Props {
 }
 
 const UserCard = ({ path, icon, description, idx}: Props) => {
-  return (
-    <Link href={path} className='hover:bg-light-green duration-75 delay-75 rounded-xl p-6 flex justify-center items-center bg-white gap-8 border border-opacity-green'>
-        {/* icon */}
-        <figure>
-            <Image 
-                src={icon} 
-                alt="icon"
-                width={idx === 0 ? 28 : 40}
-                height={10}
-            />
-        </figure>
-        <p className='text-green font-semibold text-sm'>
-            {description}
-        </p>
-    </Link>
-  )
+
+    return (
+      <Link href={path} className={`hover:bg-light-green duration-75 delay-75 rounded-xl p-6 flex justify-center items-center bg-white gap-8 border border-opacity-green`}>
+          {/* icon */}
+          <figure>
+              <Image 
+                  src={icon} 
+                  alt="icon"
+                  width={idx === 0 ? 28 : 40}
+                  height={10}
+              />
+          </figure>
+          <p className='text-green font-semibold text-sm'>
+              {description}
+          </p>
+      </Link>
+    )
 }
 
 export default UserCard

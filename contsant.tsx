@@ -13,5 +13,10 @@ export const myCourse = [
         path: "/history",
         description: "Pelatihan yang telah selesai",
         icon: "/assets/icons/history.svg"
+    },
+    {
+        path: "/profile",
+        description: "Profile Saya",
+        icon: "/assets/icons/user.svg"
     }
 ]

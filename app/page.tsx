@@ -1,12 +1,10 @@
 import Card from '@/components/card'
 import HeroBanner from '@/components/heroBanner'
-import Navbar from '@/components/navbar'
 import Link from 'next/link'
 import ArrowRight from '@/public/assets/icons/arrow-right.svg'
 import { Metadata } from 'next'
 import Image from 'next/image'
-import UserCard from '@/components/userCard'
-import { myCourse } from '@/contsant'
+import MyCourse from '@/components/myCourse'
 
 export const metadata: Metadata = {
   title: 'LP2KB PDKI',
@@ -20,21 +18,7 @@ export default function Home() {
     <main> 
       {login ? 
         (
-          <div className='mt-12 rounded-2xl bg-banner-profile p-8 pb-20'>
-            <h1 className='text-[38px] font-bold mb-4 text-white'>Pelatihan Saya</h1>
-            
-            <div className="grid grid-cols-3 gap-4 -mb-32">
-              {myCourse.map((item, idx) => (
-                <UserCard 
-                  key={idx*4}
-                  path={item.path}
-                  idx={idx}
-                  icon={item.icon}
-                  description={item.description}
-                />
-              ))}
-            </div>
-          </div>
+          <MyCourse />
         ) :
         (
           <HeroBanner />  
