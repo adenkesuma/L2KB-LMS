@@ -18,7 +18,7 @@ const Navbar: FC = () => {
             {pathname === "/register" || pathname === "/login" || pathname === "/update_data" ? 
                 <span />
                 : 
-                <nav className="py-4 bg-white">
+                <nav className="py-4">
                     <div className="flex justify-between items-center">
                         <Link href="/">
                             <Image 
