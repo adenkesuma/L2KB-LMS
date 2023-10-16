@@ -19,7 +19,7 @@ const UpdateData = () => {
           className='w-20 block mx-auto'
         />
       </Link>
-      <h1 className='font-bold text-[50px] text-center mb-12'>Update Profil</h1>
+      <h1 className='font-bold text-[38px] text-center mb-12'>Update Profil</h1>
 
       {/* form register */}
       <div className='grid grid-cols-2 gap-10'>
@@ -148,7 +148,7 @@ const UpdateData = () => {
 
           {/* button daftar */}
           <div className='flex flex-col gap-2 mt-4'>
-            <button className="text-center w-[300px] text-white font-medium mt-2 p-2 rounded-xl bg-green">
+            <button className="text-center w-[240px] text-white font-medium mt-2 p-2 rounded-xl bg-green">
               Kirim
             </button>
           </div>

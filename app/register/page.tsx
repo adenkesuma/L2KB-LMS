@@ -20,7 +20,7 @@ const Register = () => {
           className='w-20 block mx-auto'
         />
       </Link>
-      <h1 className='font-bold text-[50px] text-center mb-12'>Daftar Akun</h1>
+      <h1 className='font-bold text-[38px] text-center mb-12'>Daftar Akun</h1>
 
       {/* form register */}
       <div className='grid grid-cols-2 gap-10'>
@@ -120,7 +120,7 @@ const Register = () => {
           </div>
 
           {/* button daftar */}
-          <Link href="/login" className="text-center w-[300px] text-white font-medium mt-2 p-2 rounded-xl bg-green">
+          <Link href="/login" className="text-center w-[240px] text-white font-medium mt-2 p-2 rounded-xl bg-green">
             Daftar
           </Link>
           <p className='text-sm'>

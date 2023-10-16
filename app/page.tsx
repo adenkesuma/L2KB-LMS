@@ -43,7 +43,7 @@ export default function Home() {
 
       <div className="mt-28">
         <div className='flex justify-between items-center mb-4'>
-          <h2 className='font-bold text-[34px]'>Pelatihan Terbaru</h2>
+          <h2 className='font-bold text-[28px]'>Pelatihan Terbaru</h2>
           <Link href="/courses" className='text-md text-green font-semibold flex items-center gap-1'>
             <span>Lihat Semua Pelatihan</span>
             <Image 

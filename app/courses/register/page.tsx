@@ -3,7 +3,7 @@ import React from 'react'
 const Register = () => {
   return (
     <main className='mt-12 pb-8'>
-        <h1 className='font-bold text-[40px]'>Isikan seluruh data yang diperlukan</h1>
+        <h1 className='font-bold text-[38px]'>Isikan seluruh data yang diperlukan</h1>
 
         <div className='grid grid-cols-2 gap-20 mt-8'>
             <div className='flex flex-col gap-6'>
@@ -88,7 +88,7 @@ const Register = () => {
                 {/* button daftar */}
                 <div className='flex flex-col gap-4 mt-12'>
                     <p className='text-sm italic text-green'>{` "Tunggu beberapa saat setelah anda mendaftar, admin akan memberikan informasi selanjutnya lerkait pendaftaran anda melalui notifikasi dan gmail anda" `}</p>
-                    <button className="text-center w-[300px] text-white font-medium mt-2 p-2 rounded-xl bg-green">
+                    <button className="text-center w-[240px] text-white font-medium mt-2 p-2 rounded-xl bg-green">
                         Daftar Pelatihan
                     </button>
                 </div>
