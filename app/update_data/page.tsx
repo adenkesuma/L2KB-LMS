@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 const UpdateData = () => {
   return (
-    <main className='p-4 mt-4 mb-8'>
+    <main className='p-4 mt-4 mb-8 min-h-screen'>
       <Link href="/">
         <Image 
           src={Logo}

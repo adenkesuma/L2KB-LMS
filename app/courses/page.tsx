@@ -3,9 +3,9 @@ import React from 'react'
 
 const Courses = () => {
   return (
-    <main>
+    <main className='pt-12 min-h-screen'>
         {/* header title pelatihan */}
-        <div className='flex flex-col justify-center items-center gap-2 mt-12'>
+        <div className='flex flex-col justify-center items-center gap-2'>
             <h1 className='font-bold text-center text-[38px]'>Agenda Pelatihan</h1>
             <p className='font-regular text-[16px]'>Temukan pelatihan yang anda inginkan, dan kembangkan terus kemampuan anda</p>
             <input 

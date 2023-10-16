@@ -5,7 +5,7 @@ import Logo from "@/public/assets/logo/kolegium.png"
 
 const Login = () => {
   return (
-    <main className='h-[100vh] w-full flex flex-col items-center justify-center'>
+    <main className='h-screen w-full flex flex-col items-center justify-center'>
       <Link href="/">
         <Image 
           src={Logo}

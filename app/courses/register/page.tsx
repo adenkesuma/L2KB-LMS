@@ -2,7 +2,7 @@ import React from 'react'
 
 const Register = () => {
   return (
-    <main className='mt-12 pb-8'>
+    <main className='pt-12 min-h-screen pb-8'>
         <h1 className='font-bold text-[38px]'>Isikan seluruh data yang diperlukan</h1>
 
         <div className='grid grid-cols-2 gap-20 mt-8'>

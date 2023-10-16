@@ -1,7 +1,7 @@
 import { myCourse } from "@/contsant"
 import UserCard from "./userCard"
 
-const MyCourse = () => {
+const MyCourseBanner = () => {
     return (
       <div className='mt-12 rounded-2xl bg-banner-profile p-8 pb-20'>
           <h1 className='text-[38px] font-bold mb-4 text-white'>Pelatihan Saya</h1>
@@ -21,4 +21,4 @@ const MyCourse = () => {
     )
 }
 
-export default MyCourse
+export default MyCourseBanner

@@ -6,8 +6,8 @@ import Link from 'next/link'
 
 const PelatihanDetail: FC = () => {
   return (
-    <main className='my-8'>
-      <h1 className='mt-12 font-bold text-[38px]'>
+    <main className='pt-12 min-h-screen'>
+      <h1 className='font-bold text-[38px]'>
         Pelatihan skrining bayi baru lahir, bagi Dokter dan Bidan
       </h1>
       <div className='flex items-center justify-start mt-10'>

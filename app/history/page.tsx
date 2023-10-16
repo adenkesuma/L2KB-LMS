@@ -1,13 +1,13 @@
-import Link from 'next/link'
-import Card from '@/components/card'
+import Card from "@/components/card"
+import Link from "next/link"
 
-const MyCourse = () => {
+const History = () => {
   return (
     <main className='pt-12 min-h-screen'>
       <div className="flex justify-between items-end">
           <div className="flex flex-col">
-              <h1 className='text-[38px] font-bold text-gray-800'>Pelatihan Yang Sedang Saya Jalankan</h1>
-              <span className='text-sm text-gray-600'>Berikut adalah daftar pelatihan saya yang sedang saya ikuti</span>
+              <h1 className='text-[38px] font-bold text-gray-800'>Riwayat Pelatihan Saya</h1>
+              <span className='text-sm text-gray-600'>Berikut adalah daftar pelatihan saya yang pernah saya selesaikan</span>
 
               <ul className="flex justify-start items-center gap-12 mt-8">
                   <li>
@@ -17,13 +17,13 @@ const MyCourse = () => {
                       <Link className="text-green font-semibold text-md hover:border-b hover:border-green" href="/profile">Profil saya</Link>
                   </li>
                   <li>
-                      <Link className="text-green font-semibold text-md hover:border-b hover:border-green" href="/history">Riwayat pelatihan saya</Link>
+                      <Link className="text-green font-semibold text-md hover:border-b hover:border-green" href="/my-course">Pelatihan saya</Link>
                   </li>
               </ul>
           </div>
 
           <div className="flex flex-col gap-4">
-            <label className="text-sm text-gray-600">Cari Pelatihan Saya</label>
+            <label className="text-sm text-gray-600">Cari Riwayat Pelatihan</label>
             <input 
               type="text" 
               placeholder="Cari..." 
@@ -39,4 +39,4 @@ const MyCourse = () => {
   )
 }
 
-export default MyCourse
+export default History

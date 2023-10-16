@@ -18,7 +18,7 @@ const UserCard = ({ path, icon, description, idx}: Props) => {
               <Image 
                   src={icon} 
                   alt="icon"
-                  width={idx === 0 ? 28 : 40}
+                  width={idx === 0 ? 22 : 32}
                   height={10}
               />
           </figure>

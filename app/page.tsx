@@ -4,7 +4,7 @@ import Link from 'next/link'
 import ArrowRight from '@/public/assets/icons/arrow-right.svg'
 import { Metadata } from 'next'
 import Image from 'next/image'
-import MyCourse from '@/components/myCourse'
+import MyCourseBanner from '@/components/myCourseBanner'
 
 export const metadata: Metadata = {
   title: 'LP2KB PDKI',
@@ -15,10 +15,10 @@ export default function Home() {
   const login: Boolean = true
 
   return (
-    <main> 
+    <main className='min-h-screen'> 
       {login ? 
         (
-          <MyCourse />
+          <MyCourseBanner />
         ) :
         (
           <HeroBanner />  
