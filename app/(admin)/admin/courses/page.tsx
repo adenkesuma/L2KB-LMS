@@ -1,4 +1,6 @@
+import Image from "next/image"
 import Link from "next/link"
+import Edit from "@/public/assets/icons/edit.svg"
 
 const AdminCourses = () => {
   return (
@@ -12,49 +14,101 @@ const AdminCourses = () => {
         </div>
 
         <div className="flex justify-start items-center gap-8 mt-8">
-            <button className={`text-green focus:bg-green focus:text-white p-2 border border-opacity-green rounded-xl w-[180px] bg-light-green font-medium`}>
+            <button className={`text-green focus:bg-green focus:text-white p-2 border border-opacity-green rounded-xl w-[180px] bg-light-green font-medium text-sm`}>
                 Semua Pelatihan
             </button>
-            <button className="text-green focus:bg-green focus:text-white p-2 border border-opacity-green rounded-xl w-[180px] bg-light-green font-medium">
+            <button className="text-green focus:bg-green focus:text-white p-2 border border-opacity-green rounded-xl w-[180px] bg-light-green font-medium text-sm">
                 Draf
             </button>
         </div>
 
-        <div className='rounded-xl border border-gray-100 mt-8 bg-white'>
-            <div class="flex flex-col">
-              <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-                <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
-                  <div class="overflow-hidden">
-                    <table class="min-w-full text-left text-sm font-light">
-                      <thead class="border-b font-medium dark:border-neutral-500">
+        <div className='rounded-xl border border-gray-100 mt-8 bg-white p-4'>
+            <div className="flex flex-col">
+              <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+                  <div className="overflow-hidden">
+                    <table className="min-w-full text-left text-sm font-light">
+                      <thead className="border-b font-medium text-green text-base">
                         <tr>
-                          <th scope="col" class="px-6 py-4">#</th>
-                          <th scope="col" class="px-6 py-4">First</th>
-                          <th scope="col" class="px-6 py-4">Last</th>
-                          <th scope="col" class="px-6 py-4">Handle</th>
+                          <th scope="col" className="px-6 py-4">No</th>
+                          <th scope="col" className="px-6 py-4">Pembelajaran</th>
+                          <th scope="col" className="px-6 py-4">Kategori</th>
+                          <th scope="col" className="px-6 py-4">Penyelenggara</th>
+                          <th scope="col" className="px-6 py-4">Tanggal dibuat</th>
+                          <th scope="col" className="px-6 py-4">Edit</th>
                         </tr>
                       </thead>
-                      <tbody>
+                      <tbody className="text-gray-600 text-sm font-normal">
                         <tr
-                          class="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:border-neutral-500 dark:hover:bg-neutral-600">
-                          <td class="whitespace-nowrap px-6 py-4 font-medium">1</td>
-                          <td class="whitespace-nowrap px-6 py-4">Mark</td>
-                          <td class="whitespace-nowrap px-6 py-4">Otto</td>
-                          <td class="whitespace-nowrap px-6 py-4">@mdo</td>
+                          className="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:hover:bg-gray-100">
+                          <td className="whitespace-nowrap px-6 py-4 font-medium">1</td>
+                          <td className="whitespace-nowrap px-6 py-4">Pelatihan skrining bayi baru lahir, bagi Dokter dan Bidan</td>
+                          <td className="whitespace-nowrap px-6 py-4">Orientasi pada hasil, Kerjasama, Komunikasi</td>
+                          <td className="whitespace-nowrap px-6 py-4">Perhimpunan Dokter Keluarga Indonesia</td>
+                          <td className="whitespace-nowrap px-6 py-4">13 October 2023</td>
+                          <td className="whitespace-nowrap px-6 py-4">
+                            <Link href="/courses/edit" className="bg-green p-2 rounded-md flex justify-center items-center">
+                              <Image 
+                                src={Edit}
+                                alt="edit icon"
+                                className="w-4"
+                              />   
+                            </Link> 
+                          </td>
                         </tr>
+
                         <tr
-                          class="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:border-neutral-500 dark:hover:bg-neutral-600">
-                          <td class="whitespace-nowrap px-6 py-4 font-medium">2</td>
-                          <td class="whitespace-nowrap px-6 py-4">Jacob</td>
-                          <td class="whitespace-nowrap px-6 py-4">Thornton</td>
-                          <td class="whitespace-nowrap px-6 py-4">@fat</td>
+                          className="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:hover:bg-gray-100">
+                          <td className="whitespace-nowrap px-6 py-4 font-medium">2</td>
+                          <td className="whitespace-nowrap px-6 py-4">Pelatihan skrining bayi baru lahir, bagi Dokter dan Bidan</td>
+                          <td className="whitespace-nowrap px-6 py-4">Orientasi pada hasil, Kerjasama, Komunikasi</td>
+                          <td className="whitespace-nowrap px-6 py-4">Perhimpunan Dokter Keluarga Indonesia</td>
+                          <td className="whitespace-nowrap px-6 py-4">13 October 2023</td>
+                          <td className="whitespace-nowrap px-6 py-4">
+                            <Link href="/courses/edit" className="bg-green p-2 rounded-md flex justify-center items-center">
+                              <Image 
+                                src={Edit}
+                                alt="edit icon"
+                                className="w-4"
+                              />   
+                            </Link> 
+                          </td>
                         </tr>
+
                         <tr
-                          class="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:border-neutral-500 dark:hover:bg-neutral-600">
-                          <td class="whitespace-nowrap px-6 py-4 font-medium">3</td>
-                          <td class="whitespace-nowrap px-6 py-4">Larry</td>
-                          <td class="whitespace-nowrap px-6 py-4">Wild</td>
-                          <td class="whitespace-nowrap px-6 py-4">@twitter</td>
+                          className="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:hover:bg-gray-100">
+                          <td className="whitespace-nowrap px-6 py-4 font-medium">3</td>
+                          <td className="whitespace-nowrap px-6 py-4">Pelatihan skrining bayi baru lahir, bagi Dokter dan Bidan</td>
+                          <td className="whitespace-nowrap px-6 py-4">Orientasi pada hasil, Kerjasama, Komunikasi</td>
+                          <td className="whitespace-nowrap px-6 py-4">Perhimpunan Dokter Keluarga Indonesia</td>
+                          <td className="whitespace-nowrap px-6 py-4">13 October 2023</td>
+                          <td className="whitespace-nowrap px-6 py-4">
+                            <Link href="/courses/edit" className="bg-green p-2 rounded-md flex justify-center items-center">
+                              <Image 
+                                src={Edit}
+                                alt="edit icon"
+                                className="w-4"
+                              />   
+                            </Link> 
+                          </td>
+                        </tr>
+
+                        <tr
+                          className="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:hover:bg-gray-100">
+                          <td className="whitespace-nowrap px-6 py-4 font-medium">4</td>
+                          <td className="whitespace-nowrap px-6 py-4">Pelatihan skrining bayi baru lahir, bagi Dokter dan Bidan</td>
+                          <td className="whitespace-nowrap px-6 py-4">Orientasi pada hasil, Kerjasama, Komunikasi</td>
+                          <td className="whitespace-nowrap px-6 py-4">Perhimpunan Dokter Keluarga Indonesia</td>
+                          <td className="whitespace-nowrap px-6 py-4">13 October 2023</td>
+                          <td className="whitespace-nowrap px-6 py-4">
+                            <Link href="/courses/edit" className="bg-green p-2 rounded-md flex justify-center items-center">
+                              <Image 
+                                src={Edit}
+                                alt="edit icon"
+                                className="w-4"
+                              />   
+                            </Link> 
+                          </td>
                         </tr>
                       </tbody>
                     </table>
