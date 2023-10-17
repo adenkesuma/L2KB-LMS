@@ -15,7 +15,7 @@ const Navbar: FC = () => {
 
     return (
         <>
-            {pathname === "/register" || pathname === "/login" || pathname === "/update_data" ? 
+            {pathname === "/register" || pathname === "/login" || pathname === "/update_data" || pathname === "/admin" ? 
                 <span />
                 : 
                 <nav className="py-4">
