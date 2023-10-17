@@ -11,7 +11,7 @@ const Footer: FC = () => {
     const pathname = usePathname()
 
     const hiddenPath = pathname === "/register" || pathname === "/login" || pathname === "/update_data" || pathname === "/admin" 
-    const adminHiddenPath = pathname === "/admin/profile" || pathname === "/admin/courses" 
+    const adminHiddenPath = pathname === "/admin/profile" || pathname === "/admin/courses" || pathname === "/admin/courses/new-course"
 
     return (
         <>
