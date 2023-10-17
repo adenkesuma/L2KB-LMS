@@ -59,6 +59,16 @@ const PelatihanDetail: FC = () => {
         </div>
       </div>
 
+      {/* Target peserta */}
+      <div className="mt-10 w-[68%]">
+        <h2 className="font-semibold text-gray-800 text-[24px]">
+          Target Peserta
+        </h2>
+        <p className='mt-4 text-sm text-gray-600'>
+          Anggota Biasa : Sp KKLP
+        </p>
+      </div>
+
       {/* kriteria peserta */}
       <div className='mt-10 w-[68%]'>
         <h2 className="font-semibold text-gray-800 text-[24px]">
