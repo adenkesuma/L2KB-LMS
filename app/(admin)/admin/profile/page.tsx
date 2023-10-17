@@ -7,11 +7,11 @@ const AdminProfile = () => {
   return (
     <div className="p-12 min-h-screen">
         <h1 className='text-[38px] font-bold text-gray-800'>Profil Admin</h1>
-        <div className='shadow-md rounded-3xl mt-8 bg-white'>
+        <div className='rounded-3xl mt-8 bg-white'>
             {/* top profile */}
             <div className="flex justify-between items-start p-8">
                 <div className="flex flex-col gap-4">
-                    <h2 className='text-[28px] font-semibold text-gray-800'>Foto Profil</h2>
+                    <h2 className='text-[22px] font-semibold text-gray-800'>Foto Profil</h2>
                     <Image 
                         src={Profile}
                         alt="foto profil"
