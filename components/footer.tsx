@@ -10,9 +10,12 @@ import { usePathname } from "next/navigation"
 const Footer: FC = () => {
     const pathname = usePathname()
 
+    const hiddenPath = pathname === "/register" || pathname === "/login" || pathname === "/update_data" || pathname === "/admin" 
+    const adminHiddenPath = pathname === "/admin/profile" || pathname === "/admin/courses" 
+
     return (
         <>
-            {pathname === "/register" || pathname === "/login" || pathname === "/update_data" || pathname === "/admin" || pathname === "/admin/profile" ? 
+            {hiddenPath || adminHiddenPath ? 
                 <span />
                 : 
                 <footer className="w-full p-8 bg-green mt-12">

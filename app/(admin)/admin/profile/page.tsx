@@ -5,7 +5,7 @@ import UploadIcon from "@/public/assets/icons/upload.svg"
 
 const AdminProfile = () => {
   return (
-    <div className="p-12">
+    <div className="p-12 min-h-screen">
         <h1 className='text-[38px] font-bold text-gray-800'>Profil Admin</h1>
         <div className='shadow-md rounded-3xl mt-8 bg-white'>
             {/* top profile */}

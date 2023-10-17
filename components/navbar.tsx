@@ -13,9 +13,12 @@ const Navbar: FC = () => {
 
     const login: Boolean = true
 
+    const hiddenPath = pathname === "/register" || pathname === "/login" || pathname === "/update_data" || pathname === "/admin" 
+    const adminHiddenPath = pathname === "/admin/profile" || pathname === "/admin/courses" 
+
     return (
         <>
-            {pathname === "/register" || pathname === "/login" || pathname === "/update_data" || pathname === "/admin" || pathname === "/admin/profile" ? 
+            {hiddenPath || adminHiddenPath ? 
                 <span />
                 : 
                 <nav className="py-4">
