@@ -16,7 +16,7 @@ const config: Config = {
       backgroundColor: {
         'green': '#015A36',
         'opacity-green': 'rgba(41, 163, 152, 0.1)',
-        'light-green': '#E9FFF6',
+        'light-green': '#D9EFE6',
         'white-green': '#F6FFFB'
       },
       colors: {

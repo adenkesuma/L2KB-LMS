@@ -19,9 +19,11 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className={`${inter.className}`}>
-        <div className="container px-14 mx-auto">
+      <body className={`${inter.className} bg-slate-100`}>
+        <nav className='bg-white'>
           <Navbar />
+        </nav>
+        <div className="container px-14 mx-auto">
           {children}
         </div>
         <Footer />

@@ -27,7 +27,7 @@ const History = () => {
             <input 
               type="text" 
               placeholder="Cari..." 
-              className='border border-opacity-green py-2 px-4 rounded-3xl w-[440px] outline-[#29A398]'
+              className='border border-slate-300 py-2 px-4 rounded-3xl w-[440px] outline-[#015A39]'
             />
           </div>
       </div>

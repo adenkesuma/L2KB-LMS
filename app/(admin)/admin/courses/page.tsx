@@ -14,10 +14,10 @@ const AdminCourses = () => {
         </div>
 
         <div className="flex justify-start items-center gap-8 mt-8">
-            <button className={`text-green focus:bg-green focus:text-white p-2 border border-opacity-green rounded-xl w-[180px] bg-light-green font-medium text-sm`}>
+            <button className={`text-green focus:bg-green focus:text-white p-2 border border-green rounded-xl w-[180px] font-medium text-sm`}>
                 Semua Pelatihan
             </button>
-            <button className="text-green focus:bg-green focus:text-white p-2 border border-opacity-green rounded-xl w-[180px] bg-light-green font-medium text-sm">
+            <button className="text-green focus:bg-green focus:text-white p-2 border border-green rounded-xl w-[180px] font-medium text-sm">
                 Draf
             </button>
         </div>

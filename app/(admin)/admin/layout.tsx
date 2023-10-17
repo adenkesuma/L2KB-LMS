@@ -23,7 +23,7 @@ export default function RootLayout({
           <Sidebar />
           <section className='w-[85%]'>
             <AdminNavbar />
-            <span className='bg-white-green block'>
+            <span className='bg-slate-100 block'>
               {children}
             </span>
           </section>

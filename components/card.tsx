@@ -5,7 +5,7 @@ import Link from "next/link"
 
 const Card: FC = () => {
   return (
-    <div className="rounded-2xl border border-opacity-green p-4">
+    <div className="rounded-2xl bg-white p-4">
         <figure>
             <Image 
                 src={DummyImage}

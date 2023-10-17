@@ -4,7 +4,7 @@ import Profile from "@/public/assets/user.png"
 
 const AdminNavbar = () => {
   return (
-    <nav className="flex items-center justify-between py-4 px-12 border-b border-gray-100">
+    <nav className="flex bg-white items-center justify-between py-4 px-12 border-b border-gray-100">
         <h1 className="text-[20px] font-medium text-gray-600">
             Selamat Datang di Dashboard Admin
         </h1>

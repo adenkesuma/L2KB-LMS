@@ -24,7 +24,7 @@ const PelatihanDetail: FC = () => {
           />
         </figure>
 
-        <div className='p-6 w-[32%] bg-white border border-opacity-green rounded-3xl flex justify-between flex-col'>
+        <div className='p-6 w-[32%] bg-white rounded-3xl flex justify-between flex-col'>
           <div>
             <h2 className='font-semibold text-[24px] text-gray-800'>Tentang pelatihan ini</h2>
 

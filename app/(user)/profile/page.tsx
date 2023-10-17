@@ -23,7 +23,7 @@ const UserProfile = () => {
               </li>
           </ul>
         </div>
-        <div className='border border-opacity-green rounded-3xl mt-8'>
+        <div className='bg-white rounded-3xl mt-8'>
             {/* top profile */}
             <div className="flex justify-between items-start p-8">
                 <div className="flex flex-col gap-4">
@@ -63,10 +63,8 @@ const UserProfile = () => {
                 </div>
             </div>
 
-            <div className="border-opacity-green border-t mt-8" />
-
             {/* data profile */}
-            <div className='grid grid-cols-2 gap-10 pt-8 bg-opacity-green px-8 pb-8 rounded-br-3xl rounded-bl-3xl'>
+            <div className='grid grid-cols-2 gap-10 pt-8 px-8 pb-8 rounded-br-3xl rounded-bl-3xl'>
     
                 {/* left form */}
                 <div className='flex flex-col gap-6'>
