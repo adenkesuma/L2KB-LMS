@@ -12,7 +12,7 @@ const Footer: FC = () => {
 
     return (
         <>
-            {pathname === "/register" || pathname === "/login" || pathname === "/update_data" || pathname === "/admin" ? 
+            {pathname === "/register" || pathname === "/login" || pathname === "/update_data" || pathname === "/admin" || pathname === "/admin/profile" ? 
                 <span />
                 : 
                 <footer className="w-full p-8 bg-green mt-12">
