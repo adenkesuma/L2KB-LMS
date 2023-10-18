@@ -7,8 +7,8 @@ const ActivateUserDetail = () => {
 
         <div className='grid grid-cols-2 mt-8 gap-10 pt-8 px-8 pb-8 rounded-2xl bg-white'>
             <div className='flex justify-start gap-2 items-start flex-col'>
-                <h2 className="text-lg font-semibod text-gray-600">Nama Lengkap: <span className='font-bold text-green'>Abdul Salam</span></h2>
-                <h2 className="text-lg font-semibod text-gray-600">Nama Lengkap Beserta Gelar: <span className='font-bold text-green'>Abdul Salam</span></h2>
+                <h2 className="text-base font-semibod text-gray-600">Nama Lengkap: <span className='font-bold text-green'>Abdul Salam</span></h2>
+                <h2 className="text-base font-semibod text-gray-600">Nama Lengkap Beserta Gelar: <span className='font-bold text-green'>Abdul Salam</span></h2>
             </div>
         </div>
 
