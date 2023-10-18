@@ -6,15 +6,16 @@ import Logo from "@/public/assets/logo/kolegium.png"
 import Notification from "@/public/assets/icons/notification.svg"
 import Profile from "@/public/assets/user.png"
 
-import { usePathname } from "next/navigation"
+import { useParams, usePathname } from "next/navigation"
 
 const Navbar: FC = () => {
     const pathname = usePathname()
+    const params = useParams()
 
     const login: Boolean = true
 
     const hiddenPath = pathname === "/register" || pathname === "/login" || pathname === "/update_data" || pathname === "/admin" 
-    const adminHiddenPath = pathname === "/admin/profile" || pathname === "/admin/courses" || pathname === "/admin/courses/new-course"
+    const adminHiddenPath = pathname === "/admin/profile" || pathname === "/admin/courses" || pathname === "/admin/courses/new-course" || pathname === "/admin/activate-user" || pathname === `/admin/activate-user/${params.user}`
 
     return (
         <>

@@ -39,6 +39,16 @@ const NewCourse = () => {
                         </select>
                     </div>
 
+                    <div className="flex flex-col gap-2">
+                        <label className="font-medium text-sm">Sasaran Peserta <span className="text-red-600">*</span></label>
+                        <select name="status" id="status" className='border rounded-xl p-2 border-opacity-green bg-white'>
+                            <option value="" disabled selected>Pilih sararan peserta</option>
+                            <option value="anggota biasa">Anggota Biasa : Sp KKLP</option>
+                            <option value="anggota luar biasa">Anggota Luar Biasa {"(Umum)"} : Dokter yang bukan Sp KKLP</option>
+                            <option value="anggota muda">Anggota Muda : PPDS KKLP</option>
+                        </select>
+                    </div>
+
                     <div className='flex flex-col gap-2'>
                         <label className='font-medium text-sm'>Tujuan Pelatihan <span className="text-red-600">*</span></label>
                         <textarea rows={6} cols={50} className="border rounded-xl p-2 border-opacity-green"></textarea>
