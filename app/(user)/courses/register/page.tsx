@@ -8,43 +8,43 @@ const Register = () => {
         <div className='grid grid-cols-2 gap-20 mt-8'>
             <div className='flex flex-col gap-6'>
                 <div className='flex flex-col gap-2'>
-                    <label className='font-medium text-sm'>Ketikan Nama Lengkap</label>
-                    <input type="text" className="border rounded-xl p-2 border-opacity-green bg-white" />
-                </div> 
+                    <label className='font-medium text-sm'>Ketikan Nama Lengkap {"( Surat Izin Praktik )"}</label>
+                    <input type="text" className="border rounded-xl p-2 border-opacity-green" />
+                </div>
 
                 <div className='flex flex-col gap-2'>
-                    <label className='font-medium text-sm'>Ketikan Nama Lengkap Beserta Gelar</label>
-                    <input type="text" className="border rounded-xl p-2 border-opacity-green bg-white" />
+                    <label className='font-medium text-sm'>Ketikan Nama Lengkap Beserta Gelar {"( Surat Izin Praktik )"}</label>
+                    <input type="text" className="border rounded-xl p-2 border-opacity-green" />
                 </div>
 
                 {/* SIP */}
                 <div className='flex flex-col gap-2'>
                     <label className='font-medium text-sm'>SIP {"( Surat Izin Praktik )"}</label>
-                    <input type="file" className='border rounded-xl p-2 border-opacity-green bg-white'/>
+                    <input type="file" className='border rounded-xl p-2 border-opacity-green'/>
                 </div>
                 <div className='flex flex-col gap-2'>
                     <label className='font-medium text-sm'>Ketikan No Surat SIP {"( Surat Izin Praktik )"}</label>
-                    <input type="text" className="border rounded-xl p-2 border-opacity-green bg-white" />
+                    <input type="text" className="border rounded-xl p-2 border-opacity-green" />
                 </div>
 
                 {/* STR */}
                 <div className='flex flex-col gap-2'>
                     <label className='font-medium text-sm'>STR {"( Surat Tanda Registrasi )"}</label>
-                    <input type="file" className='border rounded-xl p-2 border-opacity-green bg-white' />
+                    <input type="file" className='border rounded-xl p-2 border-opacity-green' />
                 </div>
                 <div className='flex flex-col gap-2'>
                     <label className='font-medium text-sm'>Ketikan No Surat STR {"( Surat Tanda Registrasi )"}</label>
-                    <input type="text" className="border rounded-xl p-2 border-opacity-green bg-white" />
+                    <input type="text" className="border rounded-xl p-2 border-opacity-green" />
                 </div>
             
                 {/* SERKOM */}
                 <div className='flex flex-col gap-2'>
                     <label className='font-medium text-sm'>Upload SERKOM {"( Surtifikat Kompetensi )"}</label>
-                    <input type="file" className='border rounded-xl p-2 border-opacity-green bg-white' />
+                    <input type="file" className='border rounded-xl p-2 border-opacity-green' />
                 </div>
                 <div className='flex flex-col gap-2'>
-                    <label className='font-medium text-sm'>Ketikan No SERKOM</label>
-                    <input type="text" className="border rounded-xl p-2 border-opacity-green bg-white" />
+                    <label className='font-medium text-sm'>Ketikan No Surat SIP {"( Surat Izin Praktik )"}</label>
+                    <input type="text" className="border rounded-xl p-2 border-opacity-green" />
                 </div>
 
             </div>
@@ -52,11 +52,11 @@ const Register = () => {
                 {/* Ijajah Pengakuan */}
                 <div className='flex flex-col gap-2'>
                     <label className='font-medium text-sm'>Upload Ijajah Pengakuan Universitas/Institusi</label>
-                    <input type="file" className='border rounded-xl p-2 border-opacity-green bg-white' />
+                    <input type="file" className='border rounded-xl p-2 border-opacity-green' />
                 </div>
                 <div className='flex flex-col gap-2'>
-                    <label className='font-medium text-sm'>Ketikan No Ijajah</label>
-                    <input type="text" className="border rounded-xl p-2 border-opacity-green bg-white" />
+                    <label className='font-medium text-sm'>Ketikan No Ijajah {"( Surat Izin Praktik )"}</label>
+                    <input type="text" className="border rounded-xl p-2 border-opacity-green" />
                 </div>
 
                 {/* Kartu Anggota PDKI (opsional) */}
@@ -65,30 +65,34 @@ const Register = () => {
                         <span>Upload Kartu Anggota PDKI</span>
                         <span className='text-end italic text-xs text-orange-500'>{"*( Opsional )*"}</span>
                     </label>
-                    <input type="file"  className='border rounded-xl p-2 border-opacity-green bg-white'/>
+                    <input type="file"  className='border rounded-xl p-2 border-opacity-green'/>
                 </div>
                 <div className='flex flex-col gap-2'>
                     <label className='font-medium text-sm flex justify-between items-center'>
                         <span>Ketikan No Kartu Anggota PDKI</span> 
                         <span className='text-end italic text-xs text-orange-500'>{"*( Opsional )*"}</span>
                     </label>
-                    <input type="text" className="border rounded-xl p-2 border-opacity-green bg-white" />
+                    <input type="text" className="border rounded-xl p-2 border-opacity-green" />
                 </div>
 
                 {/* KTP */}
                 <div className='flex flex-col gap-2'>
                     <label className='font-medium text-sm'>Upload Foto KTP</label>
-                    <input type="file" className='border rounded-xl p-2 border-opacity-green bg-white' />
+                    <input type="file" className='border rounded-xl p-2 border-opacity-green' />
                 </div>
                 <div className='flex flex-col gap-2'>
                     <label className='font-medium text-sm'>Ketikan No KTP {"( Kartu Tanda Penduduk )"}</label>
-                    <input type="text" className="border rounded-xl p-2 border-opacity-green bg-white" />
+                    <input type="text" className="border rounded-xl p-2 border-opacity-green" />
                 </div>
 
                 {/* Bukti pembayaran */}
                 <div className='flex flex-col gap-2'>
                     <label className='font-medium text-sm'>Upload Bukti Pembayaran</label>
-                    <input type="file" className='border rounded-xl p-2 border-opacity-green bg-white' />
+                    <input type="file" className='border rounded-xl p-2 border-opacity-green' />
+                </div>
+                <div className='flex flex-col gap-2'>
+                    <label className='font-medium text-sm'>Ketikan No ATM  {"( Surat Izin Praktik )"}</label>
+                    <input type="text" className="border rounded-xl p-2 border-opacity-green" />
                 </div>
 
                 {/* button daftar */}

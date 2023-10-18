@@ -1,14 +1,24 @@
+import Image from "next/image"
 import Link from "next/link"
+import Sip from "@/public/assets/sip.jpg"
 
 const ActivateUserDetail = () => {
   return (
     <div className='p-12 min-h-screen'>
         <h1 className="font-bold text-[38px] text-gray-800">Aktivasi Sekarang</h1>
 
-        <div className='grid grid-cols-2 mt-8 gap-10 pt-8 px-8 pb-8 rounded-2xl bg-white'>
-            <div className='flex justify-start gap-2 items-start flex-col'>
-                <h2 className="text-base font-semibod text-gray-600">Nama Lengkap: <span className='font-bold text-green'>Abdul Salam</span></h2>
-                <h2 className="text-base font-semibod text-gray-600">Nama Lengkap Beserta Gelar: <span className='font-bold text-green'>Abdul Salam</span></h2>
+        <div className='mt-8 gap-10 pt-8 px-8 pb-8 rounded-2xl bg-white'>
+            <div className='flex justify-between gap-2 items-start flex-row w-full'>
+                <h2 className=" classname
+                flex flex-col gap-2 text-sm font-semibod text-gray-600">
+                    <span>Nama Lengkap: </span>
+                    <span className='font-bold text-base text-green'>Abdul Salam</span>
+                </h2>
+                <h2 className=" classname
+                flex flex-col gap-2 text-sm font-semibod text-gray-600">
+                    <span>Nama Lengkap Beserta Gelar:</span> 
+                    <span className='text-base font-bold text-green'>Abdul Salam Almansyur S.Kom S.pdi</span>
+                </h2>
             </div>
         </div>
 
@@ -21,29 +31,129 @@ const ActivateUserDetail = () => {
                       <thead className="border-b font-medium text-green text-base">
                         <tr>
                           <th scope="col" className="px-6 py-4">No</th>
-                          <th scope="col" className="px-6 py-4">Nama</th>
-                          <th scope="col" className="px-6 py-4">No SIP</th>
-                          <th scope="col" className="px-6 py-4">No STR</th>
-                          <th scope="col" className="px-6 py-4">No SERKOM</th>
-                          <th scope="col" className="px-6 py-4">Status</th>
-                          <th scope="col" className="px-6 py-4">Detail</th>
+                          <th scope="col" className="px-6 py-4">Foto</th>
                         </tr>
                       </thead>
                       <tbody className="text-gray-600 text-sm font-normal">
                         <tr
                           className="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:hover:bg-gray-100">
-                          <td className="whitespace-nowrap px-6 py-4 font-medium">1</td>
-                          <td className="whitespace-nowrap px-6 py-4">Abdul Salam</td>
-                          <td className="whitespace-nowrap px-6 py-4">413434123434234</td>
-                          <td className="whitespace-nowrap px-6 py-4">2342342342341234</td>
-                          <td className="whitespace-nowrap px-6 py-4">134234234234</td>
-                          <td className="whitespace-nowrap px-6 py-4">
-                            <span className="text-red-500 bg-red-100 rounded-md p-2 text-sm">Belum di Aktivasi</span>
+                          <td className="whitespace-nowrap px-6 py-4 font-medium w-2/4">
+                            <div className="flex flex-col gap-2">
+                                <span className="text-sm">No SIP:</span>
+                                <span className="text-base text-green font-semibold">213131313123132</span>
+                            </div>
                           </td>
-                          <td className="whitespace-nowrap px-6 py-4">
-                            <Link href="/admin/activate-user/abdul" className="bg-green p-2 rounded-md flex justify-center itesms-center text-white text-sm">Detail</Link>
+                          <td className="whitespace-nowrap px-6 py-4 w-2/4">
+                            <div className="flex flex-col gap-2">
+                                <span className="text-sm">Foto SIP</span>
+                                <Image 
+                                    src={Sip}
+                                    alt="foto sip"
+                                    className="w-52 bg-cover bg-bottom object-cover"
+                                />
+                            </div>
                           </td>
-                        </tr>
+                        </tr>   
+
+                        <tr
+                          className="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:hover:bg-gray-100">
+                          <td className="whitespace-nowrap px-6 py-4 font-medium w-2/4">
+                            <div className="flex flex-col gap-2">
+                                <span className="text-sm">No STR:</span>
+                                <span className="text-base text-green font-semibold">213131313123132</span>
+                            </div>
+                          </td>
+                          <td className="whitespace-nowrap px-6 py-4 w-2/4">
+                            <div className="flex flex-col gap-2">
+                                <span className="text-sm">Foto STR</span>
+                                <Image 
+                                    src={Sip}
+                                    alt="foto sip"
+                                    className="w-52 bg-cover bg-bottom object-cover"
+                                />
+                            </div>
+                          </td>
+                        </tr>  
+
+                        <tr
+                          className="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:hover:bg-gray-100">
+                          <td className="whitespace-nowrap px-6 py-4 font-medium w-2/4">
+                            <div className="flex flex-col gap-2">
+                                <span className="text-sm">No SERKOM:</span>
+                                <span className="text-base text-green font-semibold">213131313123132</span>
+                            </div>
+                          </td>
+                          <td className="whitespace-nowrap px-6 py-4 w-2/4">
+                            <div className="flex flex-col gap-2">
+                                <span className="text-sm">Foto SERKOM</span>
+                                <Image 
+                                    src={Sip}
+                                    alt="foto sip"
+                                    className="w-52 bg-cover bg-bottom object-cover"
+                                />
+                            </div>
+                          </td>
+                        </tr>  
+
+                        <tr
+                          className="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:hover:bg-gray-100">
+                          <td className="whitespace-nowrap px-6 py-4 font-medium w-2/4">
+                            <div className="flex flex-col gap-2">
+                                <span className="text-sm">No Ijazah:</span>
+                                <span className="text-base text-green font-semibold">213131313123132</span>
+                            </div>
+                          </td>
+                          <td className="whitespace-nowrap px-6 py-4 w-2/4">
+                            <div className="flex flex-col gap-2">
+                                <span className="text-sm">Foto Ijazah</span>
+                                <Image 
+                                    src={Sip}
+                                    alt="foto sip"
+                                    className="w-52 bg-cover bg-bottom object-cover"
+                                />
+                            </div>
+                          </td>
+                        </tr> 
+
+                        <tr
+                          className="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:hover:bg-gray-100">
+                          <td className="whitespace-nowrap px-6 py-4 font-medium w-2/4">
+                            <div className="flex flex-col gap-2">
+                                <span className="text-sm">No Kartu Anggota PDKI:</span>
+                                <span className="text-base text-green font-semibold">213131313123132</span>
+                            </div>
+                          </td>
+                          <td className="whitespace-nowrap px-6 py-4 w-2/4">
+                            <div className="flex flex-col gap-2">
+                                <span className="text-sm">Foto Kartu Anggota PDKI</span>
+                                <Image 
+                                    src={Sip}
+                                    alt="foto sip"
+                                    className="w-52 bg-cover bg-bottom object-cover"
+                                />
+                            </div>
+                          </td>
+                        </tr>  
+
+                        <tr
+                          className="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:hover:bg-gray-100">
+                          <td className="whitespace-nowrap px-6 py-4 font-medium w-2/4">
+                            <div className="flex flex-col gap-2">
+                                <span className="text-sm">No KTP:</span>
+                                <span className="text-base text-green font-semibold">213131313123132</span>
+                            </div>
+                          </td>
+                          <td className="whitespace-nowrap px-6 py-4 w-2/4">
+                            <div className="flex flex-col gap-2">
+                                <span className="text-sm">Foto KTP</span>
+                                <Image 
+                                    src={Sip}
+                                    alt="foto sip"
+                                    className="w-52 bg-cover bg-bottom object-cover"
+                                />
+                            </div>
+                          </td>
+                        </tr>  
                       </tbody>
                     </table>
                   </div>
