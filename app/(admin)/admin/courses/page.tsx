@@ -31,11 +31,11 @@ const AdminCourses = () => {
                       <thead className="border-b font-medium text-green text-base">
                         <tr>
                           <th scope="col" className="px-6 py-4">No</th>
-                          <th scope="col" className="px-6 py-4">Pembelajaran</th>
-                          <th scope="col" className="px-6 py-4">Kategori</th>
+                          <th scope="col" className="px-6 py-4">Judul Pelatihan</th>
                           <th scope="col" className="px-6 py-4">Penyelenggara</th>
                           <th scope="col" className="px-6 py-4">Tanggal dibuat</th>
                           <th scope="col" className="px-6 py-4">Edit</th>
+                          <th scope="col" className="px-6 py-4">Detail</th>
                         </tr>
                       </thead>
                       <tbody className="text-gray-600 text-sm font-normal">
@@ -43,7 +43,6 @@ const AdminCourses = () => {
                           className="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:hover:bg-gray-100">
                           <td className="whitespace-nowrap px-6 py-4 font-medium">1</td>
                           <td className="whitespace-nowrap px-6 py-4">Pelatihan skrining bayi baru lahir, bagi Dokter dan Bidan</td>
-                          <td className="whitespace-nowrap px-6 py-4">Orientasi pada hasil, Kerjasama, Komunikasi</td>
                           <td className="whitespace-nowrap px-6 py-4">Perhimpunan Dokter Keluarga Indonesia</td>
                           <td className="whitespace-nowrap px-6 py-4">13 October 2023</td>
                           <td className="whitespace-nowrap px-6 py-4">
@@ -54,6 +53,9 @@ const AdminCourses = () => {
                                 className="w-4"
                               />   
                             </Link> 
+                          </td>
+                          <td className="whitespace-nowrap px-6 py-4">
+                            <Link href="/courses/detail/:course" className="bg-green p-2 rounded-md flex justify-center itesms-center text-white text-sm">Detail</Link>
                           </td>
                         </tr>
 
@@ -61,7 +63,6 @@ const AdminCourses = () => {
                           className="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:hover:bg-gray-100">
                           <td className="whitespace-nowrap px-6 py-4 font-medium">2</td>
                           <td className="whitespace-nowrap px-6 py-4">Pelatihan skrining bayi baru lahir, bagi Dokter dan Bidan</td>
-                          <td className="whitespace-nowrap px-6 py-4">Orientasi pada hasil, Kerjasama, Komunikasi</td>
                           <td className="whitespace-nowrap px-6 py-4">Perhimpunan Dokter Keluarga Indonesia</td>
                           <td className="whitespace-nowrap px-6 py-4">13 October 2023</td>
                           <td className="whitespace-nowrap px-6 py-4">
@@ -72,6 +73,9 @@ const AdminCourses = () => {
                                 className="w-4"
                               />   
                             </Link> 
+                          </td>
+                          <td className="whitespace-nowrap px-6 py-4">
+                            <Link href="/courses/detail/:course" className="bg-green p-2 rounded-md flex justify-center itesms-center text-white text-sm">Detail</Link>
                           </td>
                         </tr>
 
@@ -79,7 +83,6 @@ const AdminCourses = () => {
                           className="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:hover:bg-gray-100">
                           <td className="whitespace-nowrap px-6 py-4 font-medium">3</td>
                           <td className="whitespace-nowrap px-6 py-4">Pelatihan skrining bayi baru lahir, bagi Dokter dan Bidan</td>
-                          <td className="whitespace-nowrap px-6 py-4">Orientasi pada hasil, Kerjasama, Komunikasi</td>
                           <td className="whitespace-nowrap px-6 py-4">Perhimpunan Dokter Keluarga Indonesia</td>
                           <td className="whitespace-nowrap px-6 py-4">13 October 2023</td>
                           <td className="whitespace-nowrap px-6 py-4">
@@ -91,13 +94,15 @@ const AdminCourses = () => {
                               />   
                             </Link> 
                           </td>
+                          <td className="whitespace-nowrap px-6 py-4">
+                            <Link href="/courses/detail/:course" className="bg-green p-2 rounded-md flex justify-center itesms-center text-white text-sm">Detail</Link>
+                          </td>
                         </tr>
 
                         <tr
                           className="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:hover:bg-gray-100">
                           <td className="whitespace-nowrap px-6 py-4 font-medium">4</td>
                           <td className="whitespace-nowrap px-6 py-4">Pelatihan skrining bayi baru lahir, bagi Dokter dan Bidan</td>
-                          <td className="whitespace-nowrap px-6 py-4">Orientasi pada hasil, Kerjasama, Komunikasi</td>
                           <td className="whitespace-nowrap px-6 py-4">Perhimpunan Dokter Keluarga Indonesia</td>
                           <td className="whitespace-nowrap px-6 py-4">13 October 2023</td>
                           <td className="whitespace-nowrap px-6 py-4">
@@ -108,6 +113,9 @@ const AdminCourses = () => {
                                 className="w-4"
                               />   
                             </Link> 
+                          </td>
+                          <td className="whitespace-nowrap px-6 py-4">
+                            <Link href="/courses/detail/:course" className="bg-green p-2 rounded-md flex justify-center itesms-center text-white text-sm">Detail</Link>
                           </td>
                         </tr>
                       </tbody>

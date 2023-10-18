@@ -1,5 +1,5 @@
 "use client"
-
+import { useParams } from "next/navigation"
 import Image from "next/image"
 import Link from "next/link"
 import { FC } from "react"
@@ -9,9 +9,10 @@ import { usePathname } from "next/navigation"
 
 const Footer: FC = () => {
     const pathname = usePathname()
+    const params = useParams()
 
     const hiddenPath = pathname === "/register" || pathname === "/login" || pathname === "/update_data" || pathname === "/admin" 
-    const adminHiddenPath = pathname === "/admin/profile" || pathname === "/admin/courses" || pathname === "/admin/courses/new-course"
+    const adminHiddenPath = pathname === "/admin/profile" || pathname === "/admin/courses" || pathname === "/admin/courses/new-course" || pathname === "/admin/activate-user" || pathname === `/admin/activate-user/${params.user}`
 
     return (
         <>
