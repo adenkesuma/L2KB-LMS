@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter}`}>
-        <div className='flex relative'>
+        <main className='flex relative'>
           <Sidebar />
           <section className='w-[84%]'>
             <AdminNavbar />
@@ -27,7 +27,7 @@ export default function RootLayout({
               {children}
             </span>
           </section>
-        </div>
+        </main>
       </body>
     </html>
   )

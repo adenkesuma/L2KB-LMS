@@ -46,7 +46,7 @@ const AdminCourses = () => {
                           <td className="whitespace-nowrap px-6 py-4">Perhimpunan Dokter Keluarga Indonesia</td>
                           <td className="whitespace-nowrap px-6 py-4">13 October 2023</td>
                           <td className="whitespace-nowrap px-6 py-4">
-                            <Link href="/courses/edit" className="bg-green p-2 rounded-md flex justify-center items-center">
+                            <Link href="/admin/courses/edit/1" className="bg-green p-2 rounded-md flex justify-center items-center">
                               <Image 
                                 src={Edit}
                                 alt="edit icon"
@@ -66,7 +66,7 @@ const AdminCourses = () => {
                           <td className="whitespace-nowrap px-6 py-4">Perhimpunan Dokter Keluarga Indonesia</td>
                           <td className="whitespace-nowrap px-6 py-4">13 October 2023</td>
                           <td className="whitespace-nowrap px-6 py-4">
-                            <Link href="/courses/edit" className="bg-green p-2 rounded-md flex justify-center items-center">
+                            <Link href="/admin/courses/edit/2" className="bg-green p-2 rounded-md flex justify-center items-center">
                               <Image 
                                 src={Edit}
                                 alt="edit icon"
@@ -86,7 +86,7 @@ const AdminCourses = () => {
                           <td className="whitespace-nowrap px-6 py-4">Perhimpunan Dokter Keluarga Indonesia</td>
                           <td className="whitespace-nowrap px-6 py-4">13 October 2023</td>
                           <td className="whitespace-nowrap px-6 py-4">
-                            <Link href="/courses/edit" className="bg-green p-2 rounded-md flex justify-center items-center">
+                            <Link href="/admin/courses/edit/3" className="bg-green p-2 rounded-md flex justify-center items-center">
                               <Image 
                                 src={Edit}
                                 alt="edit icon"
@@ -106,7 +106,7 @@ const AdminCourses = () => {
                           <td className="whitespace-nowrap px-6 py-4">Perhimpunan Dokter Keluarga Indonesia</td>
                           <td className="whitespace-nowrap px-6 py-4">13 October 2023</td>
                           <td className="whitespace-nowrap px-6 py-4">
-                            <Link href="/courses/edit" className="bg-green p-2 rounded-md flex justify-center items-center">
+                            <Link href="/admin/courses/edit/4" className="bg-green p-2 rounded-md flex justify-center items-center">
                               <Image 
                                 src={Edit}
                                 alt="edit icon"

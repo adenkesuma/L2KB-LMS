@@ -24,7 +24,7 @@ const ActivateUserDetail = () => {
 
                 <div className="mt-8">
                     <div className='flex flex-col gap-2'>
-                        <label className='font-medium text-sm'>Pesan Untuk Member Pelatihan <span className="text-red-600">*</span></label>
+                        <label className='font-medium text-sm'>Pesan</label>
                         <textarea rows={6} cols={50} className="border rounded-xl p-2 border-opacity-green"></textarea>
                     </div>
 
