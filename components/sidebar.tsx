@@ -4,6 +4,7 @@ import Logo from "@/public/assets/logo/kolegium-white.svg"
 import Logout from "@/public/assets/icons/logout.svg"
 import Education from "@/public/assets/icons/education.svg"
 import User from "@/public/assets/icons/white-user.svg"
+import Achievement from "@/public/assets/icons/achievement.svg"
 
 const Sidebar = () => {
   return (
@@ -32,7 +33,15 @@ const Sidebar = () => {
                         alt="user white icon"
                         className="w-4"
                     />
-                    <span className="text-sm">Aktivasi Pengguna</span>
+                    <span className="text-sm">Aktivasi Peserta</span>
+                </Link>
+                <Link href="/admin/participant-achievements" className="text-white py-3 px-6 delay-75 duration-75 bg-opacity-green flex justify-start items-center gap-4 rounded-lg">
+                    <Image 
+                        src={Achievement}
+                        alt="participant achievements icon"
+                        className="w-4"
+                    />
+                    <span className="text-sm">Pencapaian Peserta</span>
                 </Link>
             </nav>
         </div>
