@@ -12,7 +12,7 @@ const Footer: FC = () => {
     const params = useParams()
 
     const hiddenPath = pathname === "/register" || pathname === "/login" || pathname === "/update_data" || pathname === "/admin" 
-    const adminHiddenPath = pathname === "/admin/profile" || pathname === "/admin/courses" || pathname === "/admin/courses/new-course" || pathname === "/admin/activate-user" || pathname === `/admin/activate-user/${params.user}` || pathname === `/admin/courses/edit/${params.course}` || pathname === '/admin/participant-achievements'
+    const adminHiddenPath = pathname === "/admin/profile" || pathname === "/admin/courses" || pathname === "/admin/courses/new-course" || pathname === "/admin/activate-user" || pathname === `/admin/activate-user/${params.user}` || pathname === `/admin/courses/edit/${params.course}` || pathname === '/admin/participant-achievements' || pathname === `/admin/participant-achievements/${params.detail}`
 
     return (
         <>

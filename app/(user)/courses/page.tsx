@@ -13,7 +13,7 @@ const Courses = () => {
               <input 
                 type="text" 
                 placeholder="Cari Pelatihan..." 
-                className='mt-4 border border-slate-300 py-2 pl-12 pr-4 rounded-3xl w-96 outline-[#015A39]'
+                className='mt-4 border border-slate-300 py-2 pl-12 pr-4 rounded-3xl w-[500px] outline-[#015A39]'
               />
               <Image 
                 src={Search}

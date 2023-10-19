@@ -1,6 +1,5 @@
 import Image from "next/image"
 import Link from "next/link"
-import Edit from "@/public/assets/icons/edit.svg"
 import Search from "@/public/assets/icons/search.svg"
 
 const ParticipantAchievement = () => {
@@ -41,7 +40,7 @@ const ParticipantAchievement = () => {
           </div>
         </div>
 
-        <div className='rounded-xl border border-gray-100 mt-8 bg-white p-4'>
+        <div className='rounded-2xl border border-gray-100 mt-8 bg-white p-4'>
             <div className="flex flex-col">
               <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
@@ -51,6 +50,7 @@ const ParticipantAchievement = () => {
                         <tr>
                           <th scope="col" className="px-6 py-4">No</th>
                           <th scope="col" className="px-6 py-4">Nama Peserta</th>
+                          <th scope="col" className="px-6 py-4">Jenis Kelamin</th>
                           <th scope="col" className="px-6 py-4">NIK Peserta</th>
                           <th scope="col" className="px-6 py-4">Pembelajaran Selesai</th>
                           <th scope="col" className="px-6 py-4">Jumlah Sertifikat</th>
@@ -61,82 +61,43 @@ const ParticipantAchievement = () => {
                         <tr
                           className="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:hover:bg-gray-100">
                           <td className="whitespace-nowrap px-6 py-4 font-medium">1</td>
-                          <td className="whitespace-nowrap px-6 py-4">Pelatihan skrining bayi baru lahir, bagi Dokter dan Bidan</td>
-                          <td className="whitespace-nowrap px-6 py-4">Perhimpunan Dokter Keluarga Indonesia</td>
-                          <td className="whitespace-nowrap px-6 py-4">13 October 2023</td>
+                          <td className="whitespace-nowrap px-6 py-4">Abdul salim</td>
+                          <td className="whitespace-nowrap px-6 py-4">Laki-laki</td>
+                          <td className="whitespace-nowrap px-6 py-4">23413413413434</td>
+                          <td className="whitespace-nowrap px-6 py-4">2</td>
+                          <td className="whitespace-nowrap px-6 py-4">2</td>
                           <td className="whitespace-nowrap px-6 py-4">
-                            <Link href="/admin/courses/edit/1" className="bg-green p-2 rounded-md flex justify-center items-center">
-                              <Image 
-                                src={Edit}
-                                alt="edit icon"
-                                className="w-4"
-                              />   
-                            </Link> 
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4">
-                            <Link href="/courses/detail/:course" className="bg-green p-2 rounded-md flex justify-center itesms-center text-white text-sm">Detail</Link>
+                            <Link href="/admin/participant-achievements/abdul" className="bg-green p-2 rounded-md flex justify-center itesms-center text-white text-sm">Detail</Link>
                           </td>
                         </tr>
 
                         <tr
                           className="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:hover:bg-gray-100">
                           <td className="whitespace-nowrap px-6 py-4 font-medium">2</td>
-                          <td className="whitespace-nowrap px-6 py-4">Pelatihan skrining bayi baru lahir, bagi Dokter dan Bidan</td>
-                          <td className="whitespace-nowrap px-6 py-4">Perhimpunan Dokter Keluarga Indonesia</td>
-                          <td className="whitespace-nowrap px-6 py-4">13 October 2023</td>
+                          <td className="whitespace-nowrap px-6 py-4">Jihyo</td>
+                          <td className="whitespace-nowrap px-6 py-4">Perempuan</td>
+                          <td className="whitespace-nowrap px-6 py-4">23413413413434</td>
+                          <td className="whitespace-nowrap px-6 py-4">2</td>
+                          <td className="whitespace-nowrap px-6 py-4">2</td>
                           <td className="whitespace-nowrap px-6 py-4">
-                            <Link href="/admin/courses/edit/2" className="bg-green p-2 rounded-md flex justify-center items-center">
-                              <Image 
-                                src={Edit}
-                                alt="edit icon"
-                                className="w-4"
-                              />   
-                            </Link> 
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4">
-                            <Link href="/courses/detail/:course" className="bg-green p-2 rounded-md flex justify-center itesms-center text-white text-sm">Detail</Link>
+                            <Link href="/admin/participant-achievements/jihyo" className="bg-green p-2 rounded-md flex justify-center itesms-center text-white text-sm">Detail</Link>
                           </td>
                         </tr>
 
                         <tr
                           className="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:hover:bg-gray-100">
                           <td className="whitespace-nowrap px-6 py-4 font-medium">3</td>
-                          <td className="whitespace-nowrap px-6 py-4">Pelatihan skrining bayi baru lahir, bagi Dokter dan Bidan</td>
-                          <td className="whitespace-nowrap px-6 py-4">Perhimpunan Dokter Keluarga Indonesia</td>
-                          <td className="whitespace-nowrap px-6 py-4">13 October 2023</td>
+                          <td className="whitespace-nowrap px-6 py-4">Smith sebastian</td>
+                          <td className="whitespace-nowrap px-6 py-4">Laki-laki</td>
+                          <td className="whitespace-nowrap px-6 py-4">23413413413434</td>
+                          <td className="whitespace-nowrap px-6 py-4">2</td>
+                          <td className="whitespace-nowrap px-6 py-4">2</td>
                           <td className="whitespace-nowrap px-6 py-4">
-                            <Link href="/admin/courses/edit/3" className="bg-green p-2 rounded-md flex justify-center items-center">
-                              <Image 
-                                src={Edit}
-                                alt="edit icon"
-                                className="w-4"
-                              />   
-                            </Link> 
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4">
-                            <Link href="/courses/detail/:course" className="bg-green p-2 rounded-md flex justify-center itesms-center text-white text-sm">Detail</Link>
+                            <Link href="/admin/participant-achievements/smith" className="bg-green p-2 rounded-md flex justify-center itesms-center text-white text-sm">Detail</Link>
                           </td>
                         </tr>
 
-                        <tr
-                          className="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:hover:bg-gray-100">
-                          <td className="whitespace-nowrap px-6 py-4 font-medium">4</td>
-                          <td className="whitespace-nowrap px-6 py-4">Pelatihan skrining bayi baru lahir, bagi Dokter dan Bidan</td>
-                          <td className="whitespace-nowrap px-6 py-4">Perhimpunan Dokter Keluarga Indonesia</td>
-                          <td className="whitespace-nowrap px-6 py-4">13 October 2023</td>
-                          <td className="whitespace-nowrap px-6 py-4">
-                            <Link href="/admin/courses/edit/4" className="bg-green p-2 rounded-md flex justify-center items-center">
-                              <Image 
-                                src={Edit}
-                                alt="edit icon"
-                                className="w-4"
-                              />   
-                            </Link> 
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4">
-                            <Link href="/courses/detail/:course" className="bg-green p-2 rounded-md flex justify-center itesms-center text-white text-sm">Detail</Link>
-                          </td>
-                        </tr>
+
                       </tbody>
                     </table>
                   </div>
