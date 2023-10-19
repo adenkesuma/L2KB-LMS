@@ -7,6 +7,7 @@ import Logout from "@/public/assets/icons/logout.svg"
 import Education from "@/public/assets/icons/education.svg"
 import User from "@/public/assets/icons/white-user.svg"
 import Achievement from "@/public/assets/icons/achievement.svg"
+import Guide from "@/public/assets/icons/guide.svg"
 
 const Sidebar = () => {
     const pathname = usePathname()
@@ -50,6 +51,14 @@ const Sidebar = () => {
                                 className="w-4"
                             />
                             <span className="text-sm">Pencapaian Peserta</span>
+                        </Link>
+                        <Link href="/admin/guideline" className="text-white py-3 px-6 delay-75 duration-75 bg-opacity-green flex justify-start items-center gap-4 rounded-lg">
+                            <Image 
+                                src={Guide}
+                                alt="guideline"
+                                className="w-4"
+                            />
+                            <span className="text-sm">Panduan Pelatihan</span>
                         </Link>
                     </nav>
                 </div>
