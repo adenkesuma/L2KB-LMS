@@ -33,7 +33,7 @@ const PelatihanDetail: FC = () => {
                 Tahun Pelaksanaan: <span className='font-semibold text-green'>2023</span>
               </li>
               <li className='font-reguler text-sm text-gray-600'>
-                Jenis Pelatihan: <span className='font-semibold text-green'>Pelatihan Fungsional</span>
+                Institusi Penyelenggara: <span className='font-semibold text-green'>Perhimpunan Dokter Keluarga Indonesia</span>
               </li>
               <li className='font-reguler text-sm text-gray-600'>
                 Gelombang / Batch: <span className='font-semibold text-green'>Gel. 5</span>
@@ -57,6 +57,14 @@ const PelatihanDetail: FC = () => {
             Daftar Sekarang
           </Link>
         </div>
+      </div>
+
+      {/* Deskripsi */}
+      <div className="mt-10">
+        <h2 className="font-semibold text-gray-800 text-[24px]">Deskripsi</h2>
+        <p className="mt-4 text-sm text-gray-600">
+          Skrining atau uji saring pada bayi baru lahir Neonatal Screening adalah istilah yang sering kita dengar
+        </p>
       </div>
 
       {/* Target peserta */}
