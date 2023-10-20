@@ -28,7 +28,10 @@ const Register = () => {
         {/* left form */}
         <div className='flex flex-col gap-6'>
           <div className="flex flex-col gap-2">
-            <label className="font-medium text-sm">Pilih Status Kepegawaian</label>
+            <label className="font-medium text-sm">
+              <span>Pilih Status Kepegawaian</span>
+              <span className='text-red-600'>*</span> 
+            </label>
             <select name="status" id="status" className='border rounded-xl p-2 border-opacity-green bg-white'>
               <option value="pns">PNS</option>
               <option value="non pns">Non PNS</option>
@@ -36,7 +39,10 @@ const Register = () => {
           </div>
 
           <div className="flex flex-col gap-2">
-            <label className="font-medium text-sm">Pilih Role Anda</label>
+            <label className="font-medium text-sm">
+              <span>Pilih Role Anda</span>
+              <span className='text-red-600'>*</span>
+            </label>
             <select name="status" id="status" className='border rounded-xl p-2 border-opacity-green bg-white'>
               <option value="anggota biasa">Anggota Biasa : Sp KKLP</option>
               <option value="anggota luar biasa">Anggota Luar Biasa {"(Umum)"} : Dokter yang bukan Sp KKLP</option>
@@ -45,7 +51,10 @@ const Register = () => {
           </div>
 
           <div className='flex flex-col gap-2'>
-              <label className='font-medium text-sm'>NIK</label>
+              <label className='font-medium text-sm'>
+                <span>NIK</span>
+                <span className='text-red-600'>*</span>   
+              </label>
               <input type="number" className="border rounded-xl p-2 border-opacity-green" />
           </div>
 
@@ -58,12 +67,18 @@ const Register = () => {
           </div>
 
           <div className='flex flex-col gap-2'>
-              <label className='font-medium text-sm'>Nama Lengkap</label>
+              <label className='font-medium text-sm'>
+                <span>Nama Lengkap</span>
+                <span className='text-red-600'>*</span>
+              </label>
               <input type="text" className="border rounded-xl p-2 border-opacity-green" />
           </div>
 
           <div className="flex flex-col gap-2">
-            <label className="font-medium text-sm">Pilih Jenis Kelamin Anda</label>
+            <label className="font-medium text-sm">
+              <span>Pilih Jenis Kelamin Anda</span>
+              <span className='text-red-600'>*</span>
+            </label>
             <select name="status" id="status" className='border rounded-xl p-2 border-opacity-green bg-white'>
               <option value="">- Pilih Jenis Kelamin -</option>
               <option value="male">Male</option>
@@ -72,17 +87,26 @@ const Register = () => {
           </div>
 
           <div className='flex flex-col gap-2'>
-              <label className='font-medium text-sm'>Tempat lahir</label>
+              <label className='font-medium text-sm'>
+                <span>Tempat lahir</span>
+                <span className='text-red-600'>*</span> 
+              </label>
               <input type="text" className="border rounded-xl p-2 border-opacity-green" />
           </div>
 
           <div className='flex flex-col gap-2'>
-              <label className='font-medium text-sm'>Tanggal lahir</label>
+              <label className='font-medium text-sm'>
+                <span>Tanggal lahir</span>
+                <span className="text-red-600">*</span>
+              </label>
               <input type="date" className="border rounded-xl p-2 border-opacity-green" />
           </div>
 
           <div className='flex flex-col gap-2'>
-              <label className='font-medium text-sm'>Pendidikan Terakhir</label>
+              <label className='font-medium text-sm'>
+                <span>Pendidikan Terakhir</span>
+                <span className="text-red-600">*</span>
+              </label>
               <input type="text" className="border rounded-xl p-2 border-opacity-green" />
           </div>
         </div>
@@ -90,32 +114,53 @@ const Register = () => {
         {/* right form */}
         <div className='flex flex-col gap-6'>
           <div className='flex flex-col gap-2'>
-              <label className='font-medium text-sm'>Jabatan/Pekerjaan</label>
+              <label className='font-medium text-sm'>
+                <span>Jabatan/Pekerjaan</span>
+                <span className="text-red-600">*</span>
+              </label>
               <input type="text" className="border rounded-xl p-2 border-opacity-green" />
           </div>
           <div className='flex flex-col gap-2'>
-              <label className='font-medium text-sm'>Instansi</label>
+              <label className='font-medium text-sm'>
+                <span>Instansi</span>
+                <span className="text-red-600">*</span>
+              </label>
               <input type="text" className="border rounded-xl p-2 border-opacity-green" />
           </div>         
           <div className='flex flex-col gap-2'>
-              <label className='font-medium text-sm'>Alamat Instansi</label>
+              <label className='font-medium text-sm'>
+                <span>Alamat Instansi</span>
+                <span className="text-red-600">*</span>
+              </label>
               <input type="text" className="border rounded-xl p-2 border-opacity-green" />
           </div>
           <div className='flex flex-col gap-2'>
-              <label className='font-medium text-sm'>Nomor Telepon</label>
+              <label className='font-medium text-sm'>
+                <span>Nomor Telepon</span>
+                <span className="text-red-600">*</span>   
+              </label>
               <input type="number" className="border rounded-xl p-2 border-opacity-green" />
           </div>
           <div className='flex flex-col gap-2'>
-              <label className='font-medium text-sm'>Email</label>
+              <label className='font-medium text-sm'>
+                <span>Email</span>
+                <span className="text-red-600">*</span>
+              </label>
               <input type="email" className="border rounded-xl p-2 border-opacity-green" />
               <p className='text-sm text-green italic'>{`"Tautan aktifasi AKUN akan dikirim via email, setelah menekan tombol KIRIM dibawah, cek INBOX/SPAM email BAPAK/IBU, kemudian tekan tautan/link yang diberikan"`}</p>
           </div>
           <div className='flex flex-col gap-2'>
-              <label className='font-medium text-sm'>Password</label>
+              <label className='font-medium text-sm'>
+                <span>Password</span>
+                <span className="text-red-600">*</span>
+              </label>
               <input type="password" className="border rounded-xl p-2 border-opacity-green" />
           </div>
           <div className='flex flex-col gap-2'>
-              <label className='font-medium text-sm'>Ulangi Password</label>
+              <label className='font-medium text-sm'>
+                <span>Ulangi Password</span>
+                <span className="text-red-600">*</span>
+              </label>
               <input type="password" className="border rounded-xl p-2 border-opacity-green" />
           </div>
 
