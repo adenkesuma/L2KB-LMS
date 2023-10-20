@@ -51,21 +51,42 @@ const Register: React.FC = () => {
     }
   }) 
 
+  // const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  //   const { name, value } = e.target;
+  //   if (name.includes('.')) {
+  //     const [objectKey, subKey] = name.split('.');
+  //     setUserRegister({
+  //       ...userRegister,
+  //       [objectKey]: {
+  //         ...userRegister[objectKey],
+  //         [subKey]: value
+  //       }
+  //     });
+  //   } else {
+  //     setUserRegister({ ...userRegister, [name]: value });
+  //   }
+  // }
+
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
+
     if (name.includes('.')) {
       const [objectKey, subKey] = name.split('.');
       setUserRegister({
         ...userRegister,
         [objectKey]: {
           ...userRegister[objectKey],
-          [subKey]: value
+          [subKey]: subKey === 'npa_pdki' || subKey === 'nim' ? parseInt(value, 10) : value
         }
       });
     } else {
-      setUserRegister({ ...userRegister, [name]: value });
+      setUserRegister({
+        ...userRegister,
+        [name]: name === 'npa_pdki' || name === 'nim' ? parseInt(value, 10) : value
+      });
     }
   }
+
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
@@ -82,7 +103,7 @@ const Register: React.FC = () => {
 
         setTimeout(() => {
           setShowSuccessPopup(false)
-          window.location.href = "/login"
+          window.location.href = "/verification"
         }, 3000)
       }
     } catch (err) {
