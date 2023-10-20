@@ -6,8 +6,8 @@ import Link from 'next/link'
 
 const PelatihanDetail: FC = () => {
   return (
-    <main className='my-8'>
-      <h1 className='mt-8 font-bold text-[34px]'>
+    <main className='pt-12 min-h-screen'>
+      <h1 className='font-bold text-[38px]'>
         Pelatihan skrining bayi baru lahir, bagi Dokter dan Bidan
       </h1>
       <div className='flex items-center justify-start mt-10'>
@@ -24,7 +24,11 @@ const PelatihanDetail: FC = () => {
           />
         </figure>
 
+<<<<<<< HEAD:app/courses/[slug]/page.tsx
         <div className='p-6 w-[32%] bg-white border border-opacity-green rounded-3xl flex justify-between flex-col'>
+=======
+        <div className='p-6 w-[32%] bg-white rounded-3xl flex justify-between flex-col'>
+>>>>>>> main:app/(user)/courses/[slug]/page.tsx
           <div>
             <h2 className='font-semibold text-[24px] text-gray-800'>Tentang pelatihan ini</h2>
 
@@ -33,7 +37,11 @@ const PelatihanDetail: FC = () => {
                 Tahun Pelaksanaan: <span className='font-semibold text-green'>2023</span>
               </li>
               <li className='font-reguler text-sm text-gray-600'>
+<<<<<<< HEAD:app/courses/[slug]/page.tsx
                 Jenis Pelatihan: <span className='font-semibold text-green'>Pelatihan Fungsional</span>
+=======
+                Institusi Penyelenggara: <span className='font-semibold text-green'>Perhimpunan Dokter Keluarga Indonesia</span>
+>>>>>>> main:app/(user)/courses/[slug]/page.tsx
               </li>
               <li className='font-reguler text-sm text-gray-600'>
                 Gelombang / Batch: <span className='font-semibold text-green'>Gel. 5</span>
@@ -53,10 +61,32 @@ const PelatihanDetail: FC = () => {
             </ul>
           </div>
 
+<<<<<<< HEAD:app/courses/[slug]/page.tsx
           <Link href="/courses/register" className="mt-6 text-center text-white font-medium w-full p-2 text-sm rounded-xl bg-green">
+=======
+          <Link href="/courses/register" className="mt-6 text-center text-white font-medium w-full p-2 rounded-xl bg-green">
+>>>>>>> main:app/(user)/courses/[slug]/page.tsx
             Daftar Sekarang
           </Link>
         </div>
+      </div>
+
+      {/* Deskripsi */}
+      <div className="mt-10">
+        <h2 className="font-semibold text-gray-800 text-[24px]">Deskripsi</h2>
+        <p className="mt-4 text-sm text-gray-600">
+          Skrining atau uji saring pada bayi baru lahir Neonatal Screening adalah istilah yang sering kita dengar
+        </p>
+      </div>
+
+      {/* Target peserta */}
+      <div className="mt-10 w-[68%]">
+        <h2 className="font-semibold text-gray-800 text-[24px]">
+          Target Peserta
+        </h2>
+        <p className='mt-4 text-sm text-gray-600'>
+          Anggota Biasa : Sp KKLP
+        </p>
       </div>
 
       {/* kriteria peserta */}
