@@ -6,11 +6,6 @@ import { Metadata } from 'next'
 import Image from 'next/image'
 import MyCourseBanner from '@/components/myCourseBanner'
 
-export const metadata: Metadata = {
-  title: 'LP2KB PDKI',
-  description: 'pelatihan pdki indonesia',
-}
-
 export default function Home() {
   const login: Boolean = true
 

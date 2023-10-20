@@ -17,7 +17,7 @@ const Sidebar = () => {
         {pathname === "/admin" ? (
             <span></span>
         ) : (
-            <aside className="bg-green p-8 w-[16%] flex flex-col justify-between  h-screen sticky left-0 top-0 bottom-0">
+            <div className="bg-green p-8 w-[16%] flex flex-col justify-between  h-screen sticky left-0 top-0 bottom-0">
                 <div>
                     <figure className="mx-auto flex justify-center">
                         <Image 
@@ -71,7 +71,7 @@ const Sidebar = () => {
                     />
                     <span>Logout</span>
                 </button>
-            </aside>
+            </div>
         )}
     </>
   )

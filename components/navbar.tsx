@@ -2,7 +2,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { FC } from "react"
-import Logo from "@/public/assets/logo/kolegium.png"
+import Logo from "@/public/assets/logo/pdki.svg"
 import Notification from "@/public/assets/icons/notification.svg"
 import Profile from "@/public/assets/user.png"
 
@@ -12,7 +12,7 @@ const Navbar: FC = () => {
     const pathname = usePathname()
     const params = useParams()
 
-    const login: Boolean = true
+    const login: Boolean = false
 
     const hiddenPath = pathname === "/register" || pathname === "/login" || pathname === "/update_data" || pathname === "/admin" 
     const adminHiddenPath = pathname === "/admin/profile" || pathname === "/admin/courses" || pathname === "/admin/courses/new-course" || pathname === "/admin/activate-user" || pathname === `/admin/activate-user/${params.user}` || pathname === `/admin/courses/edit/${params.course}` || pathname === '/admin/participant-achievements' ||
@@ -29,7 +29,7 @@ const Navbar: FC = () => {
                             <Image 
                                 src={Logo}
                                 alt="Logo"
-                                className="w-20"
+                                className="w-20 "
                             />
                         </Link>
                         <div className="flex justify-center items-center gap-8">
