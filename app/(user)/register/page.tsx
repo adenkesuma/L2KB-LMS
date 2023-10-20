@@ -1,10 +1,11 @@
 "use client"
 import { useState, ChangeEvent, FormEvent } from 'react'
-import { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import Logo from '@/public/assets/logo/kolegium.png'
 import UserProfile from '../profile/page'
+import Visible from "@/public/assets/icons/visible.svg"
+import Invisible from "@/public/assets/icons/invisible.svg"
 import axios from 'axios'
 
 interface UserProfile {
@@ -30,6 +31,7 @@ interface User {
 }
 
 const Register: React.FC = () => {
+  const [showPassword, setShowPassword] = useState<Boolean>(false)
   const [showSuccessPopup, setShowSuccessPopup] = useState<Boolean>(false)
   const [userRegister, setUserRegister] = useState<User>({
     npa_pdki: 0,
@@ -50,6 +52,11 @@ const Register: React.FC = () => {
       status_anggota: "anggota biasa"
     }
   }) 
+
+  // change visibility password
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword)
+  }
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -242,7 +249,25 @@ const Register: React.FC = () => {
                   <span>Password</span>
                   <span className="text-red-600">*</span>
                 </label>
-                <input value={userRegister.password} onChange={handleChange} name='password' type="password" className="border rounded-xl p-2 border-opacity-green" required />
+                {/* <input value={userRegister.password} onChange={handleChange} name='password' type="password" className="border rounded-xl p-2 border-opacity-green" required /> */}
+                <div className="flex flex-col gap-2 relative w-full">
+                  <input 
+                    value={userRegister.password}
+                    onChange={handleChange}
+                    name='password'
+                    type={showPassword ? 'text' : 'password'} 
+                    className="border bg-white w-full rounded-xl p-2 border-opacity-green" 
+                    required
+                  />
+                  <button onClick={togglePasswordVisibility}>
+                    <Image 
+                      src={showPassword ? Visible : Invisible}
+                      alt={showPassword ? "visible icon" : "invisible icon"}
+                      className="w-4 absolute top-[14px] right-3 duration-75 delay-75"
+                    />
+                  </button>
+                </div>
+
             </div>
 
             {/* button daftar */}

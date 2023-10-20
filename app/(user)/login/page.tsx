@@ -15,7 +15,6 @@ interface UserLogin {
 const Login = () => {
   const [showPassword, setShowPassword] = useState<Boolean>(false)
   const [showSuccessPopup, setShowSuccessPopup] = useState<Boolean>(false)
-  const [error, setError] = useState<String>("")
   const [userLogin, setUserLogin] = useState<UserLogin>({
     email: "",
     password: ""
@@ -102,7 +101,7 @@ const Login = () => {
               <Link href="/forgot-password" className='text-sm font-semibold text-green mt-2'>Lupa Password ?</Link>
             </div>
           </div>
-          
+
           <button type="submit" className="mt-12 text-center w-[240px] text-white font-medium p-2 rounded-xl bg-green">
             Masuk
           </button>
