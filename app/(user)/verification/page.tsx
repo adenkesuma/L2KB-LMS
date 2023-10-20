@@ -50,11 +50,11 @@ const Verification = () => {
         {isVerified ? 'Email Anda Telah Diverifikasi' : 'Verifikasi Akun Kamu'}
       </h1>
 
-      <div className='mx-auto w-[35%] flex flex-col gap-6'>
+      <div className='mx-auto flex flex-col gap-6'>
         {isVerified ? (
           <p>Anda dapat masuk ke akun Anda sekarang.</p>
         ) : (
-          <div className='flex flex-col gap-6 items-center'>
+          <div className="flex w-[400px] flex-col gap-6 items-center">
             <div className='flex flex-col gap-2'>
               <label className='font-medium text-sm'>Email</label>
               <input
