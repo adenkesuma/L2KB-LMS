@@ -51,22 +51,6 @@ const Register: React.FC = () => {
     }
   }) 
 
-  // const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-  //   const { name, value } = e.target;
-  //   if (name.includes('.')) {
-  //     const [objectKey, subKey] = name.split('.');
-  //     setUserRegister({
-  //       ...userRegister,
-  //       [objectKey]: {
-  //         ...userRegister[objectKey],
-  //         [subKey]: value
-  //       }
-  //     });
-  //   } else {
-  //     setUserRegister({ ...userRegister, [name]: value });
-  //   }
-  // }
-
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
 
@@ -274,8 +258,8 @@ const Register: React.FC = () => {
       </main>
 
       {showSuccessPopup ? (
-        <div className='z-30 bg-red-600 w-96 rounded'>
-          <p className='text-white'>Selamat</p> 
+        <div className='z-30 bg-red-600 w-96 rounded-xl p-12'>
+          <p className='text-white'>Selamat anda berhasil mendaftar</p> 
         </div>
       ) : (
         <span className='hidden' />
