@@ -15,7 +15,7 @@ const Navbar: FC = () => {
     const params = useParams()
     const [showNavigate, setShowNavigate] = useState<Boolean>(false)
 
-    const login: Boolean = false
+    const login: Boolean = true
 
     const hiddenPath = pathname === "/register" || pathname === "/verification" || pathname === "/login" || pathname === "/update_data" || pathname === "/admin" 
     const adminHiddenPath = pathname === "/admin/profile" || pathname === "/admin/courses" || pathname === "/admin/courses/new-course" || pathname === "/admin/activate-user" || pathname === `/admin/activate-user/${params.user}` || pathname === `/admin/courses/edit/${params.course}` || pathname === '/admin/participant-achievements' ||
@@ -129,22 +129,25 @@ const Navbar: FC = () => {
                                     <div>
                                         { login === true ? 
                                             (
-                                                <div className="flex justify-center gap-12 items-center">
-                                                    <Link href="/notification" className="p-3 bg-opacity-green rounded-[50%]">
-                                                        <Image 
-                                                            src={Notification}
-                                                            alt="bell icon"
-                                                            width={28}
-                                                        />
+                                                <div className="flex flex-col gap-6 items-end">
+                                                    <Link href="/notification" className="flex items-center gap-4">
+                                                        <span className="text-white font-medium text-md">Notifikasi</span>
+                                                        <div className="bg-slate-100 rounded-[50%] p-3">
+                                                            <Image 
+                                                                src={Notification}
+                                                                alt="bell icon"
+                                                                width={28}
+                                                            />
+                                                        </div>
                                                     </Link>
                                                     <Link href="/profile" className="flex items-center gap-4">
-                                                        <span className="font-medium text-md text-gray-800">
+                                                        <span className="font-medium text-md text-white">
                                                             Park ji sung
                                                         </span>
                                                         <Image 
                                                             src={Profile}
                                                             alt="profile user"
-                                                            className="h-14 w-14 rounded-[50%] p-1 border border-opacity-green"
+                                                            className="h-14 w-14 rounded-[50%] p-1 border border-slate-100"
                                                         />
                                                     </Link>
                                                 </div>
