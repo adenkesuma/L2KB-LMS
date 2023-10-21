@@ -14,7 +14,10 @@
     "next": "13.5.4",
     "react": "^18",
     "react-dom": "^18",
+<<<<<<< HEAD
     "zod": "^3.22.4",
+=======
+>>>>>>> d47b673149e3fc1327da185623a6cb73dd960460
     "zustand": "^4.4.3"
   },
   "devDependencies": {
