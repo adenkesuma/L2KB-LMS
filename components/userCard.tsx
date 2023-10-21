@@ -12,7 +12,7 @@ interface Props {
 const UserCard = ({ path, icon, description, idx}: Props) => {
 
     return (
-      <Link href={path} className={`hover:bg-light-green duration-75 delay-75 rounded-xl p-4 flex justify-center flex-col items-center bg-white gap-2`}>
+      <Link href={path} className={`hover:bg-light-green duration-75 delay-75 rounded-xl p-4 sm:p-8 flex justify-center flex-col sm:flex-row items-center bg-white gap-2 sm:gap-4`}>
           {/* icon */}
           <figure>
               <Image 

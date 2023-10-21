@@ -20,7 +20,7 @@ const Footer: FC = () => {
                 <span />
                 : 
                 <footer className="w-full p-8 bg-green mt-12">
-                    <p className="text-white text-sm text-center">
+                    <p className="text-white text-xs sm:text-sm text-center">
                        © Copyright Perhimpunan Dokter Keluarga Indonesia
                     </p>
                 </footer>

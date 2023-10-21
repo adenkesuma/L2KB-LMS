@@ -15,7 +15,7 @@ const Navbar: FC = () => {
     const params = useParams()
     const [showNavigate, setShowNavigate] = useState<Boolean>(false)
 
-    const login: Boolean = true
+    const login: Boolean = false
 
     const hiddenPath = pathname === "/register" || pathname === "/verification" || pathname === "/login" || pathname === "/update_data" || pathname === "/admin" 
     const adminHiddenPath = pathname === "/admin/profile" || pathname === "/admin/courses" || pathname === "/admin/courses/new-course" || pathname === "/admin/activate-user" || pathname === `/admin/activate-user/${params.user}` || pathname === `/admin/courses/edit/${params.course}` || pathname === '/admin/participant-achievements' ||
@@ -36,7 +36,7 @@ const Navbar: FC = () => {
                             <Image 
                                 src={Logo}
                                 alt="Logo"
-                                className="sm:w-20 w-16"
+                                className="sm:w-20 w-12"
                             />
                         </Link>
 
@@ -97,7 +97,7 @@ const Navbar: FC = () => {
                             <Image 
                                 src={HamburgerMenu}
                                 alt="menu"
-                                className="w-8"
+                                className="w-6"
                             />
                         </button>
 
