@@ -47,9 +47,9 @@ const Verification = () => {
   return (
     <main className="h-screen w-full flex flex-col items-center justify-center">
       <Link href="/">
-        <Image src={Logo} alt="logo" className="w-20 block mx-auto" />
+        <Image src={Logo} alt="logo" className="w-12 sm:w-20 block mx-auto" />
       </Link>
-      <h1 className="font-bold mt-4 text-[38px] text-center mb-12">
+      <h1 className="font-bold mt-2 sm:mt-4 text-xl sm:text-[38px] text-center mb-6 sm:mb-12">
         {isVerified ? "Email Anda Telah Diverifikasi" : "Verifikasi Akun Kamu"}
       </h1>
 
@@ -58,28 +58,30 @@ const Verification = () => {
           <p className="text-white">Anda dapat masuk ke akun Anda sekarang.</p>
         </div>
       ) : (
-        <div className="mx-auto w-[35%] flex flex-col gap-6">
+        <div className="mx-auto sm:w-[35%] flex flex-col gap-6">
           <div className="flex flex-col gap-2">
-            <label className="font-medium text-sm">Email</label>
+            <label className="font-medium text-xs sm:text-sm">Email</label>
             <input
               type="email"
               value={email}
               onChange={handleEmailChange}
               className="border rounded-xl p-2 border-opacity-green"
+              required
             />
           </div>
           <div className="flex flex-col gap-2">
-            <label className="font-medium text-sm">Kode Verifikasi</label>
+            <label className="font-medium text-xs sm:text-sm">Kode Verifikasi</label>
             <input
               type="text"
               value={verificationCode}
               onChange={handleVerificationCodeChange}
               className="border rounded-xl p-2 border-opacity-green"
+              required
             />
             <div className="flex justify-end">
               <Link
                 href="/forgot-password"
-                className="text-sm font-semibold text-green mt-2"
+                className="text-xs sm:text-sm font-semibold text-green mt-2"
               >
                 Lupa Password ?
               </Link>
@@ -87,7 +89,7 @@ const Verification = () => {
           </div>
           <button
             onClick={verifyEmail}
-            className="mt-12 text-center w-[240px] text-white font-medium p-2 rounded-xl bg-green"
+            className="mt-4 sm:mt-12 text-center text-sm mx-auto sm:text-base w-[240px] text-white font-medium p-2 rounded-xl bg-green"
           >
             Verifikasi
           </button>
