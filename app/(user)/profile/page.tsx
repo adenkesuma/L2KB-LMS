@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import axios from "axios";
 
 import Profile from "@/public/assets/user.png";
 import UploadIcon from "@/public/assets/icons/upload.svg";
@@ -16,20 +17,21 @@ const UserProfile = () => {
   const [profileData, setProfileData] = useState({});
 
   useEffect(() => {
-    const fetchUserData = () => {
-      fetch(`${process.env.NEXT_PUBLIC_P2KB_API}/profile`, {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${userAuth?.accessToken}`,
-        },
-      })
-        .then((response) => {
-          return response.json();
-        })
-        .then((data) => {
-          console.log(data);
-          setProfileData(data);
+    const fetchUserData = async () => {
+      try {
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_P2KB_API}/profile`, {
+          headers: {
+            Authorization: `Bearer ${userAuth?.accessToken}`,
+          },
         });
+
+        if (response.status === 200) {
+          console.log(response.data)
+          setProfileData(response.data);
+        }
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+      }
     };
 
     if (userAuth?.accessToken !== undefined) {
@@ -38,16 +40,16 @@ const UserProfile = () => {
   }, [userAuth?.accessToken]);
 
   return (
-    <main className="pt-12 min-h-screen">
+    <main className="pt-4 sm:pt-12 min-h-screen">
       <div>
-        <h1 className="text-[38px] font-bold text-gray-800">Profil</h1>
-        <span className="text-sm text-gray-600">
+        <h1 className="text-xl font-semibold sm:text-[38px] sm:font-bold text-gray-800">Profil</h1>
+        <span className="text-xs sm:text-sm text-gray-600">
           Mohon masukkan data yang sesuai untuk memudahkan proses pelatihan
         </span>
-        <ul className="flex justify-start items-center gap-12 mt-8">
+        <ul className="flex justify-start items-center gap-6 sm:gap-12 mt-4 sm:mt-8">
           <li>
             <Link
-              className="text-green font-semibold text-md hover:border-b hover:border-green"
+              className="text-green font-semibold text-xs sm:text-md hover:border-b hover:border-green"
               href="/certificate"
             >
               Sertifikat saya
@@ -55,7 +57,7 @@ const UserProfile = () => {
           </li>
           <li>
             <Link
-              className="text-green font-semibold text-md hover:border-b hover:border-green"
+              className="text-green font-semibold text-xs sm:text-md hover:border-b hover:border-green"
               href="/my-course"
             >
               Pelatihan saya
@@ -63,7 +65,7 @@ const UserProfile = () => {
           </li>
           <li>
             <Link
-              className="text-green font-semibold text-md hover:border-b hover:border-green"
+              className="text-green font-semibold text-xs sm:text-md hover:border-b hover:border-green"
               href="/history"
             >
               Riwayat pelatihan saya
@@ -71,11 +73,11 @@ const UserProfile = () => {
           </li>
         </ul>
       </div>
-      <div className="bg-white rounded-3xl mt-8">
+      <div className="bg-white rounded-xl sm:rounded-3xl mt-4 sm:mt-8">
         {/* top profile */}
-        <div className="flex justify-between items-start p-8">
-          <div className="flex flex-col gap-4">
-            <h2 className="text-[28px] font-semibold text-gray-800">
+        <div className="flex justify-between items-start p-3 sm:p-8">
+          <div className="flex flex-col gap-2 sm:gap-4">
+            <h2 className="text-base sm:text-[28px] font-semibold text-gray-800">
               Foto Profil
             </h2>
             {/* <img
@@ -86,7 +88,7 @@ const UserProfile = () => {
             <Image
               src={Profile}
               alt="foto profil"
-              className="rounded-[50%] w-36 h-36"
+              className="rounded-[50%] w-32 h-32 sm:w-36 sm:h-36"
             />
 
             {/* change profile */}
@@ -94,14 +96,14 @@ const UserProfile = () => {
               <input type="file" className="hidden" id="changeProfile" />
               <label
                 htmlFor="changeProfile"
-                className="w-36 flex gap-3 justify-center items-center cursor-pointer border border-opacity-green text-green font-medium rounded-lg py-2 px-4"
+                className="w-32 sm:w-36 flex gap-3 justify-center items-center cursor-pointer border border-opacity-green text-green font-medium rounded-lg py-2 px-4"
               >
-                <Image src={UploadIcon} alt="upload icon" className="w-4" />
-                <span>Ubah Foto</span>
+                <Image src={UploadIcon} alt="upload icon" className="w-3 sm:w-4" />
+                <span className="text-xs">Ubah Foto</span>
               </label>
             </div>
 
-            <p className="text-sm text-gray-800 flex justify-start gap-2">
+            <p className="hidden text-sm text-gray-800 sm:flex justify-start gap-2">
               Format:
               <span className="text-sm text-orange-500 italic">*Pas Foto</span>
               <span className="text-sm text-orange-500 italic">
@@ -119,7 +121,7 @@ const UserProfile = () => {
           <div className="flex flex-col gap-4">
             <Link
               href="/forgot-password"
-              className="text-center w-[240px] font-medium mt-2 p-2 rounded-xl border-green border text-green"
+              className="text-center w-32 sm:w-[240px] font-medium text-xs sm:text-sm mt-2 p-2 rounded-lg sm:rounded-xl border-opacity-green border text-green"
             >
               Ubah Kata Sandi
             </Link>
@@ -127,11 +129,11 @@ const UserProfile = () => {
         </div>
 
         {/* data profile */}
-        <div className="grid grid-cols-2 gap-10 pt-8 px-8 pb-8 rounded-br-3xl rounded-bl-3xl">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-10 pt-4 sm:pt-8 px-3 sm:px-8 pb-8 rounded-br-3xl rounded-bl-3xl">
           {/* left form */}
           <div className="flex flex-col gap-6">
             <div className="flex flex-col gap-2">
-              <label className="font-medium text-sm">NPA PDKI</label>
+              <label className="font-medium text-xs sm:text-sm">NPA PDKI</label>
               <input
                 type="number"
                 className="border rounded-xl p-2 border-opacity-green"
@@ -139,7 +141,7 @@ const UserProfile = () => {
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="font-medium text-sm">NOMOR KTP</label>
+              <label className="font-medium text-xs sm:text-sm">NOMOR KTP</label>
               <input
                 type="number"
                 className="border rounded-xl p-2 border-opacity-green"
@@ -147,7 +149,7 @@ const UserProfile = () => {
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="font-medium text-sm">Email</label>
+              <label className="font-medium text-xs sm:text-sm">Email</label>
               <input
                 type="email"
                 className="border rounded-xl p-2 border-opacity-green"
@@ -155,7 +157,7 @@ const UserProfile = () => {
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="font-medium text-sm">Nama Lengkap</label>
+              <label className="font-medium text-xs sm:text-sm">Nama Lengkap</label>
               <input
                 type="text"
                 className="border rounded-xl p-2 border-opacity-green"
@@ -163,7 +165,7 @@ const UserProfile = () => {
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="font-medium text-sm">
+              <label className="font-medium text-xs sm:text-sm">
                 Nama Lengkap Beserta Gelar
               </label>
               <input
@@ -173,7 +175,7 @@ const UserProfile = () => {
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="font-medium text-sm">Tempat lahir</label>
+              <label className="font-medium text-xs sm:text-sm">Tempat lahir</label>
               <input
                 type="text"
                 className="border rounded-xl p-2 border-opacity-green"
@@ -181,7 +183,7 @@ const UserProfile = () => {
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="font-medium text-sm">Tanggal lahir</label>
+              <label className="font-medium text-xs sm:text-sm">Tanggal lahir</label>
               <input
                 type="date"
                 className="border rounded-xl p-2 border-opacity-green"
@@ -189,7 +191,7 @@ const UserProfile = () => {
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="font-medium text-sm">
+              <label className="font-medium text-xs sm:text-sm">
                 Pilih Jenis Kelamin Anda
               </label>
               <select
@@ -204,7 +206,7 @@ const UserProfile = () => {
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="font-medium text-sm">Pendidikan Terakhir</label>
+              <label className="font-medium text-xs sm:text-sm">Pendidikan Terakhir</label>
               <input
                 type="text"
                 className="border rounded-xl p-2 border-opacity-green"
@@ -212,7 +214,7 @@ const UserProfile = () => {
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="font-medium text-sm">Agama</label>
+              <label className="font-medium text-xs sm:text-sm">Agama</label>
               <input
                 type="text"
                 className="border rounded-xl p-2 border-opacity-green"
@@ -223,7 +225,7 @@ const UserProfile = () => {
           {/* right form */}
           <div className="flex flex-col gap-6">
             <div className="flex flex-col gap-2">
-              <label className="font-medium text-sm">Nomor Telepon</label>
+              <label className="font-medium text-xs sm:text-sm">Nomor Telepon</label>
               <input
                 type="number"
                 className="border rounded-xl p-2 border-opacity-green"
@@ -231,7 +233,7 @@ const UserProfile = () => {
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="font-medium text-sm">Pendidikan terakhir</label>
+              <label className="font-medium text-xs sm:text-sm">Pendidikan terakhir</label>
               <select
                 name="status"
                 id="status"
@@ -248,7 +250,7 @@ const UserProfile = () => {
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="font-medium text-sm">Jurusan</label>
+              <label className="font-medium text-xs sm:text-sm">Jurusan</label>
               <input
                 type="text"
                 className="border rounded-xl p-2 border-opacity-green"
@@ -256,7 +258,7 @@ const UserProfile = () => {
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="font-medium text-sm">Jabatan Pekerjaan</label>
+              <label className="font-medium text-xs sm:text-sm">Jabatan Pekerjaan</label>
               <input
                 type="text"
                 className="border rounded-xl p-2 border-opacity-green"
@@ -264,7 +266,7 @@ const UserProfile = () => {
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="font-medium text-sm">Pangkat / Golongan</label>
+              <label className="font-medium text-xs sm:text-sm">Pangkat / Golongan</label>
               <select
                 name="status"
                 id="status"
@@ -281,7 +283,7 @@ const UserProfile = () => {
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="font-medium text-sm">Instansi</label>
+              <label className="font-medium text-xs sm:text-sm">Instansi</label>
               <input
                 type="text"
                 className="border rounded-xl p-2 border-opacity-green"
@@ -289,7 +291,7 @@ const UserProfile = () => {
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="font-medium text-sm">Alamat Instansi</label>
+              <label className="font-medium text-xs sm:text-sm">Alamat Instansi</label>
               <input
                 type="text"
                 className="border rounded-xl p-2 border-opacity-green"
@@ -297,14 +299,14 @@ const UserProfile = () => {
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="font-medium text-sm">No Telepon Instansi</label>
+              <label className="font-medium text-xs sm:text-sm">No Telepon Instansi</label>
               <input
                 type="number"
                 className="border rounded-xl p-2 border-opacity-green"
               />
             </div>
             <div className="flex flex-col gap-2">
-              <label className="font-medium text-sm">Alamat Domisili</label>
+              <label className="font-medium text-xs sm:text-sm">Alamat Domisili</label>
               <input
                 type="text"
                 className="border rounded-xl p-2 border-opacity-green"
@@ -313,7 +315,7 @@ const UserProfile = () => {
 
             {/* button daftar */}
             <div className="flex flex-col gap-2 mt-4">
-              <button className="text-center w-[240px] text-white font-medium mt-2 p-2 rounded-xl bg-green">
+              <button className="text-center w-[240px] text-white text-sm sm:mx-0 mx-auto font-medium mt-2 p-2 rounded-xl bg-green">
                 Perbarui Profil
               </button>
             </div>

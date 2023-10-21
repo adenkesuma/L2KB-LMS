@@ -115,18 +115,18 @@ const Register: React.FC = () => {
     <>
       <main className="p-4 mt-4 mb-8 min-h-screen">
         <Link href="/">
-          <Image src={Logo} alt="logo" className="w-20 block mx-auto" />
+          <Image src={Logo} alt="logo" className="w-12 sm:w-20 block mx-auto" />
         </Link>
-        <h1 className="font-bold text-[38px] mt-4 text-center mb-12">
+        <h1 className="font-bold text-xl sm:text-[38px] mt-2 sm:mt-4 text-center mb-12">
           Daftar Akun
         </h1>
 
         {/* form register */}
-        <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-10">
+        <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
           {/* left form */}
           <div className="flex flex-col gap-6">
             <div className="flex flex-col gap-2">
-              <label className="font-medium text-sm">
+              <label className="font-medium text-xs sm:text-sm">
                 <span>Pilih Status Kepegawaian</span>
                 <span className="text-red-600">*</span>
               </label>
@@ -146,7 +146,7 @@ const Register: React.FC = () => {
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="font-medium text-sm">
+              <label className="font-medium text-xs sm:text-sm">
                 <span>Pilih Role Anda</span>
                 <span className="text-red-600">*</span>
               </label>
@@ -169,7 +169,7 @@ const Register: React.FC = () => {
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="font-medium text-sm">
+              <label className="font-medium text-xs sm:text-sm">
                 <span>NIK</span>
                 <span className="text-red-600">*</span>
               </label>
@@ -184,7 +184,7 @@ const Register: React.FC = () => {
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="font-medium text-sm flex justify-between items-center">
+              <label className="font-medium text-xs sm:text-sm flex justify-between items-center">
                 <span>No NPA PDKI</span>
                 <span className="italic text-xs text-orange-500">{`"opsional"`}</span>
               </label>
@@ -198,7 +198,7 @@ const Register: React.FC = () => {
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="font-medium text-sm">
+              <label className="font-medium text-xs sm:text-sm">
                 <span>Nama Lengkap</span>
                 <span className="text-red-600">*</span>
               </label>
@@ -213,7 +213,7 @@ const Register: React.FC = () => {
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="font-medium text-sm">
+              <label className="font-medium text-xs sm:text-sm">
                 <span>Pilih Jenis Kelamin Anda</span>
                 <span className="text-red-600">*</span>
               </label>
@@ -233,7 +233,7 @@ const Register: React.FC = () => {
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="font-medium text-sm">
+              <label className="font-medium text-xs sm:text-sm">
                 <span>Tempat lahir</span>
                 <span className="text-red-600">*</span>
               </label>
@@ -248,7 +248,7 @@ const Register: React.FC = () => {
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="font-medium text-sm">
+              <label className="font-medium text-xs sm:text-sm">
                 <span>Tanggal lahir</span>
                 <span className="text-red-600">*</span>
               </label>
@@ -263,7 +263,7 @@ const Register: React.FC = () => {
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="font-medium text-sm">
+              <label className="font-medium text-xs sm:text-sm">
                 <span>Pendidikan Terakhir</span>
                 <span className="text-red-600">*</span>
               </label>
@@ -281,7 +281,7 @@ const Register: React.FC = () => {
           {/* right form */}
           <div className="flex flex-col gap-6">
             <div className="flex flex-col gap-2">
-              <label className="font-medium text-sm">
+              <label className="font-medium text-xs sm:text-sm">
                 <span>Jabatan/Pekerjaan</span>
                 <span className="text-red-600">*</span>
               </label>
@@ -295,7 +295,7 @@ const Register: React.FC = () => {
               />
             </div>
             <div className="flex flex-col gap-2">
-              <label className="font-medium text-sm">
+              <label className="font-medium text-xs sm:text-sm">
                 <span>Instansi</span>
                 <span className="text-red-600">*</span>
               </label>
@@ -309,7 +309,7 @@ const Register: React.FC = () => {
               />
             </div>
             <div className="flex flex-col gap-2">
-              <label className="font-medium text-sm">
+              <label className="font-medium text-xs sm:text-sm">
                 <span>Alamat Instansi</span>
                 <span className="text-red-600">*</span>
               </label>
@@ -323,7 +323,7 @@ const Register: React.FC = () => {
               />
             </div>
             <div className="flex flex-col gap-2">
-              <label className="font-medium text-sm">
+              <label className="font-medium text-xs sm:text-sm">
                 <span>Nomor Telepon</span>
                 <span className="text-red-600">*</span>
               </label>
@@ -337,7 +337,7 @@ const Register: React.FC = () => {
               />
             </div>
             <div className="flex flex-col gap-2">
-              <label className="font-medium text-sm">
+              <label className="font-medium text-xs sm:text-sm">
                 <span>Email</span>
                 <span className="text-red-600">*</span>
               </label>
@@ -350,10 +350,10 @@ const Register: React.FC = () => {
                 required
               />
 
-              <p className="text-sm text-green italic">{`"Tautan aktifasi AKUN akan dikirim via email, setelah menekan tombol KIRIM dibawah, cek INBOX/SPAM email BAPAK/IBU, kemudian tekan tautan/link yang diberikan"`}</p>
+              <p className="text-xs sm:text-sm text-green italic">{`"Tautan aktifasi AKUN akan dikirim via email, setelah menekan tombol KIRIM dibawah, cek INBOX/SPAM email BAPAK/IBU, kemudian tekan tautan/link yang diberikan"`}</p>
             </div>
             <div className="flex flex-col gap-2">
-              <label className="font-medium text-sm">
+              <label className="font-medium text-xs sm:text-sm">
                 <span>Password</span>
                 <span className="text-red-600">*</span>
               </label>
@@ -380,11 +380,11 @@ const Register: React.FC = () => {
             {/* button daftar */}
             <button
               type="submit"
-              className="text-center w-[240px] text-white font-medium mt-2 p-2 rounded-xl bg-green"
+              className="text-center mx-auto sm:mx-0 w-[240px] text-white font-medium mt-2 p-2 rounded-xl bg-green"
             >
               Daftar
             </button>
-            <p className="text-sm">
+            <p className="text-sm text-center sm:text-left">
               Sudah Memiliki Akun ?{" "}
               <Link href="/login" className="text-green font-semibold">
                 {" "}
