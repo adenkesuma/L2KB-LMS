@@ -12,7 +12,7 @@ interface Props {
 const UserCard = ({ path, icon, description, idx}: Props) => {
 
     return (
-      <Link href={path} className={`hover:bg-light-green duration-75 delay-75 rounded-xl p-6 flex justify-center items-center bg-white gap-8`}>
+      <Link href={path} className={`hover:bg-light-green duration-75 delay-75 rounded-xl p-4 flex justify-center flex-col items-center bg-white gap-2`}>
           {/* icon */}
           <figure>
               <Image 
@@ -22,7 +22,7 @@ const UserCard = ({ path, icon, description, idx}: Props) => {
                   height={10}
               />
           </figure>
-          <p className='text-green font-semibold text-sm'>
+          <p className='text-green font-semibold text-xs sm:text-sm sm:text-start text-center'>
               {description}
           </p>
       </Link>
