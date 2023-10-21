@@ -67,16 +67,16 @@ const Login = () => {
     <>
       <main className="h-screen w-full flex flex-col items-center justify-center">
         <Link href="/">
-          <Image src={Logo} alt="logo" className="w-20 block mx-auto" />
+          <Image src={Logo} alt="logo" className="w-12 sm:w-20 block mx-auto" />
         </Link>
-        <h1 className="font-bold mt-4 text-[38px] text-center mb-12">Masuk</h1>
+        <h1 className="font-bold mt-2 sm:mt-4 text-xl sm:text-[38px] text-center mb-6 sm:mb-12">Masuk</h1>
 
         <form
           onSubmit={handleSubmit}
-          className="mx-auto w-[35%] flex flex-col gap-6"
+          className="mx-auto lg:w-[35%] flex flex-col gap-6"
         >
           <div className="flex flex-col gap-2">
-            <label className="font-medium text-sm">Email</label>
+            <label className="font-medium text-xs sm:text-sm">Email</label>
             <input
               value={userLogin.email}
               onChange={handleChange}
@@ -87,7 +87,7 @@ const Login = () => {
             />
           </div>
           <div className="flex flex-col gap-2">
-            <label className="font-medium text-sm">Password</label>
+            <label className="font-medium text-xs sm:text-sm">Password</label>
             <div className="relative w-full">
               <input
                 value={userLogin.password}
@@ -109,7 +109,7 @@ const Login = () => {
             <div className="flex justify-end">
               <Link
                 href="/forgot-password"
-                className="text-sm font-semibold text-green mt-2"
+                className="text-xs sm:text-sm font-semibold text-green mt-2"
               >
                 Lupa Password ?
               </Link>
@@ -118,13 +118,13 @@ const Login = () => {
 
           <button
             type="submit"
-            className="mt-12 text-center w-[240px] text-white font-medium p-2 rounded-xl bg-green"
+            className="mt-4 mx-auto sm:mt-12 text-sm sm:text-base text-center w-[240px] text-white font-medium p-2 rounded-xl bg-green"
           >
             Masuk
           </button>
         </form>
 
-        <p className="text-sm mt-6">
+        <p className="text-xs sm:text-sm text-center mt-4">
           Belum Memiliki Akun ?{" "}
           <Link href="/register" className="text-green font-semibold">
             {" "}
