@@ -102,7 +102,7 @@ const Login = () => {
             </div>
           </div>
 
-          <button type="submit" className="mt-12 text-center w-[240px] text-white font-medium p-2 rounded-xl bg-green">
+          <button type="submit" className="mt-12 mx-auto text-center w-[240px] text-white font-medium p-2 rounded-xl bg-green">
             Masuk
           </button>
         </form>
