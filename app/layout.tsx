@@ -23,7 +23,7 @@ export default function RootLayout({
         <nav className='bg-white'>
           <Navbar />
         </nav>
-        <div className="container px-14 mx-auto">
+        <div className="container px-4 sm:px-14 mx-auto">
           {children}
         </div>
         <Footer />

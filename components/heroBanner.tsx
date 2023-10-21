@@ -5,12 +5,12 @@ import BannerImage from "@/public/assets/dummy.png"
 
 const HeroBanner: FC = () => {
   return (
-    <header className="mt-4">
+    <header className="mt-4 sm:mt-12">
         <div>
             <Image 
                 src={BannerImage}
                 alt="banner image"
-                className="w-full h-[80vh] bg-cover rounded-3xl"     
+                className="w-full h-48 sm:h-[80vh] object-cover bg-cover rounded-xl sm:rounded-3xl"     
             />
         </div>
     </header>
