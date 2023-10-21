@@ -103,7 +103,7 @@ const Navbar: FC = () => {
 
                         {/* phone navigate */}
                         {showNavigate ? (
-                            <div className="bg-green w-full h-screen absolute top-0 left-0 right-0 bottom-0">
+                            <div className="bg-green w-full h-screen fixed z-50 top-0 left-0 right-0 bottom-0">
                                 <button onClick={handleShowNavigate} className="absolute top-4 right-4">
                                     <Image 
                                         src={Close}
