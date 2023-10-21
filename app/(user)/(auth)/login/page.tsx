@@ -7,12 +7,7 @@ import Link from "next/link";
 import Logo from "@/public/assets/logo/kolegium.png";
 import Visible from "@/public/assets/icons/visible.svg";
 import Invisible from "@/public/assets/icons/invisible.svg";
-import {
-  authStore,
-  getAccessToken,
-  getActions,
-} from "../../../../store/user-auth.store";
-import useStore from "../../../../store/use-store";
+import { getActions } from "../../../../store/user-auth.store";
 
 interface UserLogin {
   email: string;
@@ -20,14 +15,13 @@ interface UserLogin {
 }
 
 const Login = () => {
-  const { setAccessToken } = getActions();
-  const authActions = useStore(authStore, (state) => state.actions);
   const [showPassword, setShowPassword] = useState<Boolean>(false);
   const [showSuccessPopup, setShowSuccessPopup] = useState<Boolean>(false);
   const [userLogin, setUserLogin] = useState<UserLogin>({
     email: "",
     password: "",
   });
+  const { setAccessToken } = getActions();
 
   // change visibility password
   const togglePasswordVisibility = () => {
@@ -52,17 +46,16 @@ const Login = () => {
           },
         }
       );
-      authActions?.setAccessToken(response.data.accessToken);
-      console.log(getAccessToken());
 
-      // if (response.status === 200) {
-      //   setShowSuccessPopup(true);
+      if (response.status === 200) {
+        setAccessToken(response.data.accessToken);
+        setShowSuccessPopup(true);
 
-      //   setTimeout(() => {
-      //     setShowSuccessPopup(false);
-      //     window.location.href = "/update_data";
-      //   }, 5000);
-      // }
+        setTimeout(() => {
+          setShowSuccessPopup(false);
+          window.location.href = "/update_data";
+        }, 5000);
+      }
     } catch (err) {
       console.log(err);
     }

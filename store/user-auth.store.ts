@@ -1,3 +1,5 @@
+"use client";
+
 import { createStore } from "zustand/vanilla";
 import { persist, createJSONStorage, devtools } from "zustand/middleware";
 import { useStore, create } from "zustand";
@@ -7,37 +9,45 @@ type AuthStore = {
 
   actions: {
     setAccessToken: (accessToken: string | undefined) => void;
-    // init: () => void;
+    init: () => void;
     clearTokens: () => void;
   };
 };
 
-const IS_SERVER = typeof window === "undefined";
+const isServer = typeof window === "undefined";
 
-export const authStore = create<AuthStore>()(
+const authStore = create<AuthStore>()(
   devtools(
     persist(
-      (set, get) => ({
+      (set, _get) => ({
         accessToken: undefined,
         accessTokenData: undefined,
 
         actions: {
+          init: () => {
+            const accessToken = isServer
+              ? undefined
+              : sessionStorage.getItem("accessToken");
+            set({
+              accessToken,
+            });
+          },
           setAccessToken: (accessToken: string | undefined) => {
             set({
               accessToken,
             });
           },
-          clearTokens: () =>
+          clearTokens: () => {
             set({
               accessToken: undefined,
-            }),
+            });
+          },
         },
       }),
       {
         name: "auth-store",
-        // cannot use session storage? why?
-        storage: IS_SERVER ? createJSONStorage(() => localStorage) : undefined,
-        skipHydration: IS_SERVER,
+        storage: createJSONStorage(() => sessionStorage),
+        skipHydration: true,
       }
     ),
     {
@@ -46,6 +56,8 @@ export const authStore = create<AuthStore>()(
     }
   )
 );
+
+authStore.getState().actions.init();
 
 /**
  * Required for zustand stores, as the lib doesn't expose this type
@@ -58,24 +70,21 @@ export type ExtractState<S> = S extends {
 
 type Params<U> = Parameters<typeof useStore<typeof authStore, U>>;
 
-// // Selectors
-const accessTokenSelector = (state: any) => state.accessToken;
-// const accessTokenDataSelector = (state: ExtractState<typeof authStore>) =>
-//   state.accessTokenData;
-const actionsSelector = (state: any) => state.actions;
+// Selectors
+const accessTokenSelector = (state: ExtractState<typeof authStore>) =>
+  state.accessToken;
+const actionsSelector = (state: ExtractState<typeof authStore>) =>
+  state.actions;
 
-// // getters
+console.log(authStore.getState());
+// getters
 export const getAccessToken = () => accessTokenSelector(authStore.getState());
-// export const getAccessTokenData = () =>
-//   accessTokenDataSelector(authStore.getState());
-// export const getRefreshToken = () => refreshTokenSelector(authStore.getState());
 export const getActions = () => actionsSelector(authStore.getState());
 
 function useAuthStore<U>(selector: (state: AuthStore) => U) {
-  return useStore(authStore, selector);
+  return authStore(selector);
 }
 
-// // Hooks
+// Hooks
 export const useAccessToken = () => useAuthStore(accessTokenSelector);
-// export const useAccessTokenData = () => useAuthStore(accessTokenDataSelector);
-// export const useActions = () => useAuthStore(actionsSelector);
+export const useActions = () => useAuthStore(actionsSelector);
