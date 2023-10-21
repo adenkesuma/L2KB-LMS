@@ -1,12 +1,13 @@
 import React from "react";
-import { getAccessToken } from "../../../store/user-auth.store";
-import ClientOnly, { HasToken } from "../../../components/client-only";
+
+import ClientOnly from "../../../components/client-only";
+import HasUserAccessToken from "../../../components/has-user-access-token";
 
 function AuthLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <ClientOnly>
-        <HasToken />
+        <HasUserAccessToken />
         {children}
       </ClientOnly>
     </>

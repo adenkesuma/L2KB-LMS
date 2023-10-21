@@ -7,7 +7,8 @@ import Link from "next/link";
 import Logo from "@/public/assets/logo/kolegium.png";
 import Visible from "@/public/assets/icons/visible.svg";
 import Invisible from "@/public/assets/icons/invisible.svg";
-import { getActions } from "../../../../store/user-auth.store";
+import useStore from "../../../../store/use-store";
+import { userAuthStore } from "../../../../store/user-auth.store";
 
 interface UserLogin {
   email: string;
@@ -21,7 +22,7 @@ const Login = () => {
     email: "",
     password: "",
   });
-  const { setAccessToken } = getActions();
+  const userAuth = useStore(userAuthStore, (state) => state);
 
   // change visibility password
   const togglePasswordVisibility = () => {
@@ -48,7 +49,8 @@ const Login = () => {
       );
 
       if (response.status === 200) {
-        setAccessToken(response.data.accessToken);
+        console.log(userAuth);
+        userAuth?.setAccessToken(response.data.accessToken);
         setShowSuccessPopup(true);
 
         setTimeout(() => {
@@ -142,4 +144,7 @@ const Login = () => {
   );
 };
 
+// export default dynamic(() => Promise.resolve(Login), {
+//   ssr: false,
+// });
 export default Login;
