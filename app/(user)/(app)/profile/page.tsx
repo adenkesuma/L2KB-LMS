@@ -14,6 +14,8 @@ import { myCourse } from "@/contsant";
 import MyCourse from "@/components/myCourseBanner";
 import useStore from "../../../../store/use-store";
 import { userAuthStore } from "../../../../store/user-auth.store";
+import { rc } from "../../../../lib/utils";
+import LoadingIcon from "../../../../components/icons/loading-icon";
 
 interface ProfileData {
   [key: string]: any;
@@ -172,7 +174,7 @@ const UserProfile = () => {
               className="text-green font-semibold text-xs sm:text-md hover:border-b hover:border-green"
               href="/history"
             >
-              Riwayat pelatihan 
+              Riwayat pelatihan
             </Link>
           </li>
         </ul>
@@ -473,9 +475,14 @@ const UserProfile = () => {
           {/* button daftar */}
           <div className="flex flex-col gap-2 mt-4">
             <button
-              className="text-center w-[240px] text-white text-sm sm:mx-0 mx-auto font-medium mt-2 p-2 rounded-xl bg-green"
+              className={rc(
+                "text-center w-[240px] text-white text-sm sm:mx-0 mx-auto font-medium mt-2 p-2 rounded-xl bg-green",
+                "disabled:bg-light-green disabled:text-green",
+                "flex gap-2 items-center justify-center"
+              )}
               disabled={isSubmitting}
             >
+              {isSubmitting && <LoadingIcon />}
               {isSubmitting ? "Loading" : "Perbarui Profil"}
             </button>
           </div>

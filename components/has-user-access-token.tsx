@@ -11,14 +11,16 @@ function HasUserAccessToken({
   hrefNotHas?: string;
 }) {
   const userAuth = useStore(userAuthStore, (state) => state);
-  if (hrefHas) {
-    if (userAuth?.accessToken) {
-      window.location.href = hrefHas;
+  if (userAuth) {
+    if (hrefHas) {
+      if (userAuth?.accessToken) {
+        window.location.href = hrefHas;
+      }
     }
-  }
-  if (hrefNotHas) {
-    if (!userAuth?.accessToken) {
-      window.location.href = hrefNotHas;
+    if (hrefNotHas) {
+      if (!userAuth?.accessToken) {
+        window.location.href = hrefNotHas;
+      }
     }
   }
 
