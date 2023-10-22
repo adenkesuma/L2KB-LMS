@@ -9,11 +9,12 @@ import Close from "@/public/assets/icons/close.svg";
 import Logout from "@/public/assets/icons/logout.svg";
 import HamburgerMenu from "@/public/assets/icons/menu.svg";
 
-import { useParams, usePathname } from "next/navigation";
+import { useParams, usePathname, useRouter } from "next/navigation";
 import useStore from "../store/use-store";
 import { userAuthStore } from "../store/user-auth.store";
 
 const Navbar: FC = () => {
+  const router = useRouter();
   const pathname = usePathname();
   const params = useParams();
   const [showNavigate, setShowNavigate] = useState<Boolean>(false);
@@ -105,6 +106,18 @@ const Navbar: FC = () => {
                         className="h-14 w-14 rounded-[50%] p-1 border border-opacity-green"
                       />
                     </Link>
+                    <button
+                      className="flex items-center gap-4"
+                      onClick={() => {
+                        userAuth.clearTokens();
+                        router.refresh();
+                      }}
+                    >
+                      <span className="font-medium text-base text-black">
+                        Keluar
+                      </span>
+                      <Image src={Logout} alt="logout icon" className="w-6" />
+                    </button>
                   </div>
                 ) : (
                   <div className="flex justify-center gap-4 items-center">
@@ -225,7 +238,7 @@ const Navbar: FC = () => {
 
                           {/* button signin and signup */}
                           <div>
-                            {userAuth?.accessToken ? (
+                            {userAuth.accessToken ? (
                               <div className="flex justify-center gap-12 items-center">
                                 <Link
                                   href="/notification"
@@ -250,6 +263,16 @@ const Navbar: FC = () => {
                                     className="h-14 w-14 rounded-[50%] p-1 border border-opacity-green"
                                   />
                                 </Link>
+                                <button className="flex items-center gap-4">
+                                  <span className="font-medium text-base text-white">
+                                    Keluar
+                                  </span>
+                                  <Image
+                                    src={Logout}
+                                    alt="logout icon"
+                                    className="w-6"
+                                  />
+                                </button>
                               </div>
                             ) : (
                               <div className="flex justify-center gap-4 items-center">
@@ -329,7 +352,7 @@ const Navbar: FC = () => {
 
                               {/* button signin and signup */}
                               <div>
-                                {userAuth?.accessToken ? (
+                                {userAuth.accessToken ? (
                                   <div className="flex flex-col gap-6 items-end">
                                     <Link
                                       href="/notification"

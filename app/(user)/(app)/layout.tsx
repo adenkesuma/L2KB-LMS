@@ -3,15 +3,15 @@ import React from "react";
 import ClientOnly from "../../../components/client-only";
 import HasUserAccessToken from "../../../components/has-user-access-token";
 
-function AuthLayout({ children }: { children: React.ReactNode }) {
+function AppLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <ClientOnly>
-        <HasUserAccessToken hrefHas="/" />
-        {children}
+        <HasUserAccessToken hrefNotHas="/" />
       </ClientOnly>
+      {children}
     </>
   );
 }
 
-export default AuthLayout;
+export default AppLayout;
