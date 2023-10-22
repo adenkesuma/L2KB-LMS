@@ -20,7 +20,7 @@ const Navbar: FC = () => {
 
     const login: Boolean = false
 
-    const hiddenPath = pathname === "/register" || pathname === "/verification" || pathname === "/login" || pathname === "/update_data" || pathname === "/admin" 
+    const hiddenPath = pathname === "/register" || pathname === "/verification" || pathname === "/login" || pathname === "/admin" 
     const adminHiddenPath = pathname === "/admin/profile" || pathname === "/admin/courses" || pathname === "/admin/courses/new-course" || pathname === "/admin/activate-user" || pathname === `/admin/activate-user/${params.user}` || pathname === `/admin/courses/edit/${params.course}` || pathname === '/admin/participant-achievements' ||
     pathname === `/admin/participant-achievements/${params.detail}` || pathname === "/admin/guideline" || pathname === "/admin/guideline/new-guideline"
 
