@@ -9,11 +9,14 @@ import Close from "@/public/assets/icons/close.svg"
 import HamburgerMenu from "@/public/assets/icons/menu.svg"
 
 import { useParams, usePathname } from "next/navigation"
+// import useStore from "@/store/use-store"
 
 const Navbar: FC = () => {
     const pathname = usePathname()
     const params = useParams()
     const [showNavigate, setShowNavigate] = useState<Boolean>(false)
+
+    // const userAuth = useStore(userAuthStore, (state) => state);
 
     const login: Boolean = false
 
@@ -24,6 +27,8 @@ const Navbar: FC = () => {
     const handleShowNavigate = () => {
         setShowNavigate(!showNavigate)
     }
+
+    // userAuth?.setAccessToken(response.data.accessToken);
 
     return (
         <>

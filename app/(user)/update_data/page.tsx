@@ -1,12 +1,28 @@
-import React from 'react'
-import { Metadata } from 'next'
+"use client"
+import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import Logo from '@/public/assets/logo/kolegium.png'
 
-export const metadata: Metadata = {
-  title: "Update Data",
-  description: "Update data",
+interface User {
+  npa_pdki: number;
+  email: string;
+  pangkat: string;
+  nama: string;
+  nama_lengkap_gelar: string;
+  tempat_lahir: string;
+  tanggal_lahir: string;
+  jenis_kelamin: string;
+  agama: string;
+  nomor_hp: string;
+  pendidikan: string;
+  jurusan: string;
+  instansi: string;
+  alamat_instansi: string;
+  no_telp_instansi: string;
+  profile_picture: string;
+  no_ktp: number;
+  password: string;
 }
 
 const UpdateData = () => {
@@ -35,7 +51,7 @@ const UpdateData = () => {
           </div>
 
           <div className="flex flex-col gap-2">
-            <label className="font-medium text-sm">NOMOR KTP</label>
+            <label className="font-medium text-sm">Nomor KTP</label>
             <input type="number" className="border rounded-xl p-2 border-opacity-green" />
           </div>
 
@@ -67,12 +83,6 @@ const UpdateData = () => {
               <option value="female">Female</option>
             </select>
           </div>
-
-          <div className='flex flex-col gap-2'>
-              <label className='font-medium text-sm'>Pendidikan Terakhir</label>
-              <input type="text" className="border rounded-xl p-2 border-opacity-green" />
-          </div>
-
           <div className='flex flex-col gap-2'>
               <label className='font-medium text-sm'>Agama</label>
               <input type="text" className="border rounded-xl p-2 border-opacity-green" />
@@ -113,7 +123,10 @@ const UpdateData = () => {
               <input type="file" className="border rounded-xl p-2 border-opacity-green" />
           </div>
           <div className='flex flex-col gap-2'>
-              <label className='font-medium text-sm'>Jabatan Pekerjaan</label>
+              <label className='font-medium text-sm flex justify-between items-center'>
+                <span>Jabatan Pekerjaan</span>
+                <span className="text-xs text-orange-500 italic">{`"opsional"`}</span> 
+              </label>
               <input type="text" className="border rounded-xl p-2 border-opacity-green" />
           </div>         
 
@@ -149,7 +162,7 @@ const UpdateData = () => {
 
           {/* button daftar */}
           <div className='flex flex-col gap-2 mt-4'>
-            <button className="text-center w-[240px] text-white font-medium mt-2 p-2 rounded-xl bg-green">
+            <button type='submit' className="text-center w-[240px] text-white font-medium mt-2 p-2 rounded-xl bg-green">
               Kirim
             </button>
           </div>

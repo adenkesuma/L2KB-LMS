@@ -6,42 +6,42 @@ const History = () => {
   const shortText = text.slice(0, 50)
 
   return (
-    <main className='pt-12 min-h-screen'>
-      <div className="flex justify-between items-end">
+    <main className='pt-4 sm:pt-12 min-h-screen'>
+      <div className="flex justify-between sm:flex-row flex-col items-start sm:items-end">
           <div className="flex flex-col">
-              <h1 className='text-[38px] font-bold text-gray-800'>Riwayat Pelatihan Saya</h1>
-              <span className='text-sm text-gray-600'>Berikut adalah daftar pelatihan saya yang pernah saya selesaikan</span>
+              <h1 className='text-xl mb-1 sm:text-[38px] font-bold text-gray-800'>Riwayat Pelatihan Saya</h1>
+              <span className='text-xs sm:text-sm text-gray-600'>Berikut adalah daftar pelatihan saya yang pernah saya selesaikan</span>
 
-              <ul className="flex justify-start items-center gap-12 mt-8">
+              <ul className="flex justify-start items-center gap-6 sm:gap-12 mt-4 sm:mt-8">
                   <li>
-                      <Link className="text-green font-semibold text-md hover:border-b hover:border-green" href="/certificate">Sertifikat saya</Link>
+                      <Link className="text-green font-semibold text-xs sm:text-base hover:border-b hover:border-green" href="/certificate">Sertifikat saya</Link>
                   </li>
                   <li>
-                      <Link className="text-green font-semibold text-md hover:border-b hover:border-green" href="/profile">Profil saya</Link>
+                      <Link className="text-green font-semibold text-xs sm:text-base hover:border-b hover:border-green" href="/profile">Profil saya</Link>
                   </li>
                   <li>
-                      <Link className="text-green font-semibold text-md hover:border-b hover:border-green" href="/my-course">Pelatihan saya</Link>
+                      <Link className="text-green font-semibold text-xs sm:text-base hover:border-b hover:border-green" href="/my-course">Pelatihan saya</Link>
                   </li>
               </ul>
           </div>
 
-          <div className="flex flex-col gap-4">
-            <label className="text-sm text-gray-600">Cari Riwayat Pelatihan</label>
+          <div className="flex flex-col gap-2 sm:gap-3 mt-4">
+            <label className="text-xs sm:text-sm text-gray-600">Cari Riwayat Pelatihan</label>
             <input 
               type="text" 
               placeholder="Cari..." 
-              className='border border-slate-300 py-2 px-4 rounded-3xl w-[440px] outline-[#015A39]'
+              className='border border-slate-300 py-2 px-4 rounded-3xl w-full sm:w-[440px] outline-[#015A39]'
             />
           </div>
       </div>
 
-      <div className='rounded-2xl border border-gray-100 mt-8 bg-white p-4'>
+      <div className='rounded-xl sm:rounded-2xl border border-gray-100 mt-4 sm:mt-8 bg-white p-2 sm:p-4'>
             <div className="flex flex-col">
               <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
                   <div className="overflow-hidden">
                     <table className="min-w-full text-left text-sm font-light">
-                      <thead className="border-b font-medium text-green text-base">
+                      <thead className="border-b font-medium text-green text-sm sm:text-base">
                         <tr>
                           <th scope="col" className="px-6 py-4">No</th>
                           <th scope="col" className="px-6 py-4">Nama Pelatihan</th>
@@ -51,7 +51,7 @@ const History = () => {
                           <th scope="col" className="px-6 py-4">Status</th>
                         </tr>
                       </thead>
-                      <tbody className="text-gray-600 text-sm font-normal">
+                      <tbody className="text-gray-600 text-xs sm:text-sm font-normal">
                         <tr
                           className="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:hover:bg-gray-100">
                           <td className="whitespace-nowrap px-6 py-4 font-medium">1</td>

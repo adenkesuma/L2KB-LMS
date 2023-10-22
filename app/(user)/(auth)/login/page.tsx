@@ -22,6 +22,7 @@ const Login = () => {
     email: "",
     password: "",
   });
+
   const userAuth = useStore(userAuthStore, (state) => state);
 
   // change visibility password
@@ -49,14 +50,14 @@ const Login = () => {
       );
 
       if (response.status === 200) {
-        console.log(userAuth);
         userAuth?.setAccessToken(response.data.accessToken);
-        setShowSuccessPopup(true);
+        window.location.href = "/update_data";
 
-        setTimeout(() => {
-          setShowSuccessPopup(false);
-          window.location.href = "/update_data";
-        }, 5000);
+        // setShowSuccessPopup(true);
+
+        // setTimeout(() => {
+        //   setShowSuccessPopup(false);
+        // }, 5000);
       }
     } catch (err) {
       console.log(err);
