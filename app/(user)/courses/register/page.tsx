@@ -2,10 +2,10 @@ import React from 'react'
 
 const Register = () => {
   return (
-    <main className='pt-4 sm:pt-12 min-h-screen pb-8'>
-        <h1 className='font-bold text-xl sm:text-[38px]'>Daftar Pelatihan</h1>
+    <main className='pt-4 sm:pt-6 lg:pt-12 min-h-screen pb-8'>
+        <h1 className='font-bold text-xl sm:text-2xl lg:text-[38px]'>Daftar Pelatihan</h1>
 
-        <div className='grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-20 mt-4 sm:mt-8'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-20 mt-4 sm:mt-8'>
             <div className='flex flex-col gap-6'>
                 <div className='flex flex-col gap-2'>
                     <label className='font-medium text-xs sm:text-sm'>

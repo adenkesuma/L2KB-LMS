@@ -6,17 +6,17 @@ import Link from 'next/link'
 
 const PelatihanDetail: FC = () => {
   return (
-    <main className='pt-4 sm:pt-12 min-h-screen'>
-      <h1 className='font-bold text-xl sm:text-[38px]'>
+    <main className='pt-4 sm:pt-6 lg:pt-12 min-h-screen'>
+      <h1 className='font-bold text-xl sm:text-2xl lg:text-[38px]'>
         Pelatihan skrining bayi baru lahir, bagi Dokter dan Bidan
       </h1>
-      <div className='flex items-center justify-start mt-4 sm:mt-10'>
+      <div className='flex items-center justify-start mt-4 sm:mt-6 lg:mt-10'>
         <p className='font-regular text-xs sm:text-sm text-gray-600 pr-6 border-r border-gray-400'>Kondisi: <span className='font-semibold text-green'>Pendaftaran Aktif</span></p>
         <p className='font-regular text-xs sm:text-sm text-gray-600 pl-6'>Kuota Peserta: <span className='font-semibold text-green'>40</span></p>
       </div>
 
-      <div className='flex flex-col sm:flex-row gap-4 sm:gap-8 mt-4'>
-        <figure className='block w-full sm:w-[68%]'>
+      <div className='flex flex-col lg:flex-row gap-4 sm:gap-8 mt-4'>
+        <figure className='block w-full lg:w-[68%]'>
           <Image 
             src={DummyImage}
             alt="banner image detail"
@@ -24,7 +24,7 @@ const PelatihanDetail: FC = () => {
           />
         </figure>
 
-        <div className='p-3 sm:p-6 w-full sm:w-[32%] bg-white rounded-xl sm:rounded-3xl flex justify-between flex-col'>
+        <div className='p-3 sm:p-6 w-full lg:w-[32%] bg-white rounded-xl sm:rounded-3xl flex justify-between flex-col'>
           <div>
             <h2 className='font-semibold text-base sm:text-[24px] text-gray-800'>Tentang pelatihan ini</h2>
 
@@ -60,7 +60,7 @@ const PelatihanDetail: FC = () => {
       </div>
 
       {/* Deskripsi */}
-      <div className="mt-6 sm:mt-10 w-full sm:w-[68%]">
+      <div className="mt-6 sm:mt-10 w-full lg:w-[68%]">
         <h2 className="font-semibold text-gray-800 text-base sm:text-[24px]">Deskripsi</h2>
         <p className="mt-1 sm:mt-4 text-xs sm:text-sm text-gray-600">
           Skrining atau uji saring pada bayi baru lahir Neonatal Screening adalah istilah yang sering kita dengar
@@ -68,7 +68,7 @@ const PelatihanDetail: FC = () => {
       </div>
 
       {/* Target peserta */}
-      <div className="mt-6 sm:mt-10 w-full sm:w-[68%]">
+      <div className="mt-6 sm:mt-10 w-full lg:w-[68%]">
         <h2 className="font-semibold text-gray-800 text-base sm:text-[24px]">
           Target Peserta
         </h2>
@@ -78,7 +78,7 @@ const PelatihanDetail: FC = () => {
       </div>
 
       {/* kriteria peserta */}
-      <div className='mt-6 sm:mt-10 w-full sm:w-[68%]'>
+      <div className='mt-6 sm:mt-10 w-full lg:w-[68%]'>
         <h2 className="font-semibold text-gray-800 text-base sm:text-[24px]">
           Kriteria peserta harus terpenuhi semua, yaitu sebagai berikut
         </h2>
@@ -106,7 +106,7 @@ const PelatihanDetail: FC = () => {
       </div>
 
       {/* kompetensi */}
-      <div className="w-full sm:w-[68%] mt-6 sm:mt-10">
+      <div className="w-full sm:w-[68%] mt-6 lg:mt-10">
         <h2 className="font-semibold text-gray-800 text-base sm:text-[24px]">
           Kompetensi
         </h2>
@@ -136,7 +136,7 @@ const PelatihanDetail: FC = () => {
       </div>
 
       {/* Tujuan Pelatihan */}
-      <div className='mt-6 sm:mt-10 w-full sm:w-[68%]'>
+      <div className='mt-6 sm:mt-10 w-full lg:w-[68%]'>
         <h2 className="font-semibold text-base sm:text-[24px] text-gray-800">
           Tujuan Pelatihan
         </h2>
@@ -146,7 +146,7 @@ const PelatihanDetail: FC = () => {
       </div>
 
       {/* catatan */}
-      <div className='mt-6 sm:mt-10 bg-opacity-green p-6 rounded-xl sm:rounded-2xl w-full sm:w-[68%] mb-8 sm:mb-20'>
+      <div className='mt-6 sm:mt-10 bg-opacity-green p-6 rounded-xl sm:rounded-2xl w-full lg:w-[68%] mb-8 sm:mb-20'>
         <h2 className='font-semibold text-green text-base sm:text-[24px]'>Catatan:</h2>
         <ul className='flex flex-col gap-2 sm:gap-3 mt-2 sm:mt-4'>
           <li className='font-regular text-xs sm:text-sm text-green'>

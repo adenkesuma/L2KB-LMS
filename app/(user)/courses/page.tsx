@@ -4,7 +4,7 @@ import Search from "@/public/assets/icons/search.svg"
 
 const Courses = () => {
   return (
-    <main className='pt-4 sm:pt-6 lg:pt-12 min-h-screen'>
+    <main className='pt-4 sm:pt-8 lg:pt-12 min-h-screen'>
         {/* header title pelatihan */}
         <div className='flex flex-col justify-center items-center gap-2'>
             <h1 className='font-bold text-center text-xl sm:text-2xl lg:text-[38px]'>Agenda Pelatihan</h1>

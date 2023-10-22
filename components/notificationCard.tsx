@@ -4,7 +4,7 @@ import NotificationIcon from "@/public/assets/icons/notification.svg"
 
 const NotificationCard = () => {
   return (
-    <div className='mt-6 sm:mt-12 flex justify-between items-center w-full gap-4 lg:gap-32 bg-white rounded-lg sm:rounded-2xl p-2 sm:p-6 bg-opacity-green'>
+    <div className='mt-6 sm:mt-8 lg:mt-12 flex justify-between items-center w-full gap-4 lg:gap-32 md:gap-12 bg-white rounded-lg sm:rounded-xl p-2 sm:p-3 lg:p-6 bg-opacity-green'>
         <div className='flex justify-start items-center gap-3 sm:gap-6'>
             <Image 
                 src={NotificationIcon}
@@ -21,7 +21,7 @@ const NotificationCard = () => {
             </div>
         </div>
 
-        <Link className='py-2 px-2 sm:px-4 rounded-md text-center sm:w-96 text-xs sm:text-sm bg-green text-white block' href="/notification/detail">
+        <Link className='py-2 px-2 sm:px-4 rounded-md text-center sm:w-[500px] text-xs sm:text-sm bg-green text-white block' href="/notification/detail">
             <span>Lihat Detail</span>
         </Link>
     </div>
