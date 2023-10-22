@@ -17,7 +17,7 @@ const MyCourse = () => {
                       <Link className="text-green font-semibold text-xs sm:text-basae hover:border-b hover:border-green" href="/profile">Profil saya</Link>
                   </li>
                   <li>
-                      <Link className="text-green font-semibold text-xs sm:text-basae hover:border-b hover:border-green" href="/history">Riwayat pelatihan saya</Link>
+                      <Link className="text-green font-semibold text-xs sm:text-basae hover:border-b hover:border-green" href="/history">Riwayat pelatihan</Link>
                   </li>
               </ul>
           </div>

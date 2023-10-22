@@ -13,7 +13,7 @@ const Card: FC = () => {
                 className="rounded-lg h-28 sm:h-40 w-full bg-cover object-cover"
             />
         </figure>
-        <div className="p-1 text-center rounded-md border-opacity-green border-[1.4px] text-[10px] sm:text-xs font-medium text-green w-[150px] mt-4">
+        <div className="p-1 text-center rounded-md border-opacity-green border-[1.4px] text-[10px] sm:text-xs font-medium text-green w-full sm:w-[150px] mt-4">
             <span>Khusus Anggota Muda</span>
         </div>
 

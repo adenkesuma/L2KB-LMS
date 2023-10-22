@@ -104,7 +104,7 @@ const Register = () => {
                 <div className='flex flex-col gap-2'>
                     <label className='font-medium text-xs sm:text-sm flex justify-between items-center'>
                         <span>Ketikan No Kartu Anggota PDKI</span> 
-                        <span className='text-end italic bg-white text-xs text-orange-500'>{`"Opsional"`}</span>
+                        <span className='text-end italic text-xs text-orange-500'>{`"Opsional"`}</span>
                     </label>
                     <input type="text" className="border rounded-xl p-2 border-opacity-green" />
                 </div>

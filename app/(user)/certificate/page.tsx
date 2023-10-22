@@ -16,7 +16,7 @@ const Certificate = () => {
                         <Link className="text-green font-semibold text-xs sm:text-base hover:border-b hover:border-green" href="/my-course">Pelatihan saya</Link>
                     </li>
                     <li>
-                        <Link className="text-green font-semibold text-xs sm:text-base hover:border-b hover:border-green" href="/history">Riwayat pelatihan saya</Link>
+                        <Link className="text-green font-semibold text-xs sm:text-base hover:border-b hover:border-green" href="/history">Riwayat pelatihan</Link>
                     </li>
                 </ul>
             </div>
