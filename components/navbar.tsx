@@ -48,14 +48,14 @@ const Navbar: FC = () => {
       {hiddenPath || adminHiddenPath ? (
         <span />
       ) : (
-        <div className="py-2 sm:py-4 container px-4 sm:px-14 mx-auto">
+        <div className="py-2 lg:py-4 container px-4 sm:px-6 lg:px-14 mx-auto">
           <div className="flex justify-between items-center">
             <Link href="/">
-              <Image src={Logo} alt="Logo" className="sm:w-20 w-12" />
+              <Image src={Logo} alt="Logo" className="sm:w-16 lg:w-20 w-12" />
             </Link>
 
             {/* ipad, desktop view  navigate */}
-            <div className="hidden sm:flex justify-center items-center gap-4 sm:gap-8">
+            <div className="hidden lg:flex justify-center items-center gap-4 sm:gap-8">
               <ul className="flex justify-center items-center gap-10">
                 <li>
                   <a
@@ -113,7 +113,7 @@ const Navbar: FC = () => {
                         router.refresh();
                       }}
                     >
-                      <span className="font-medium text-base text-black">
+                      <span className="font-medium text-base text-gray-600">
                         Keluar
                       </span>
                       <Image src={Logout} alt="logout icon" className="w-6" />
@@ -139,7 +139,7 @@ const Navbar: FC = () => {
             </div>
 
             {/* hamburger menu */}
-            <button onClick={handleShowNavigate} className="block sm:hidden">
+            <button onClick={handleShowNavigate} className="block lg:hidden">
               <Image src={HamburgerMenu} alt="menu" className="w-6" />
             </button>
 

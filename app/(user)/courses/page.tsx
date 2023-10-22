@@ -4,11 +4,11 @@ import Search from "@/public/assets/icons/search.svg"
 
 const Courses = () => {
   return (
-    <main className='mt-4 sm:pt-12 min-h-screen'>
+    <main className='pt-4 sm:pt-6 lg:pt-12 min-h-screen'>
         {/* header title pelatihan */}
         <div className='flex flex-col justify-center items-center gap-2'>
-            <h1 className='font-bold text-center text-xl sm:text-[38px]'>Agenda Pelatihan</h1>
-            <p className='font-regular text-xs px-4 sm:text-base text-center'>Temukan pelatihan yang anda inginkan, dan kembangkan terus kemampuan anda</p>
+            <h1 className='font-bold text-center text-xl sm:text-2xl lg:text-[38px]'>Agenda Pelatihan</h1>
+            <p className='font-regular text-xs px-4 sm:text-base text-center sm:w-[70%]'>Temukan pelatihan yang anda inginkan, dan kembangkan terus kemampuan anda</p>
             <div className="relative">
               <input 
                 type="text" 
@@ -23,7 +23,7 @@ const Courses = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-8 mt-6 sm:mt-12">
+        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 lg:gap-8 mt-6 sm:mt-6 lg:mt-12">
             <Card />
             <Card />
             <Card />

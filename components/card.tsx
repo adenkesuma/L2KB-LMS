@@ -10,7 +10,7 @@ const Card: FC = () => {
             <Image 
                 src={DummyImage}
                 alt="thumnail pelatihan image"
-                className="rounded-lg h-28 sm:h-40 w-full bg-cover object-cover"
+                className="rounded-lg h-28 lg:h-40 w-full bg-cover object-cover"
             />
         </figure>
         <div className="p-1 text-center rounded-md border-opacity-green border-[1.4px] text-[10px] sm:text-xs font-medium text-green w-full sm:w-[150px] mt-4">
