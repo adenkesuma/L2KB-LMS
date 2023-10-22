@@ -21,7 +21,7 @@ const NotificationCard = () => {
             </div>
         </div>
 
-        <Link className='py-2 px-2 sm:px-4 rounded-md w-[600px] sm:w-96 text-xs sm:text-sm bg-green text-white block' href="/notification/detail">
+        <Link className='py-2 px-2 sm:px-4 rounded-md text-center sm:w-96 text-xs sm:text-sm bg-green text-white block' href="/notification/detail">
             <span>Lihat Detail</span>
         </Link>
     </div>

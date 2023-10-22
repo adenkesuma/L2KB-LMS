@@ -9,7 +9,7 @@ const Notification = () => {
                 <h1 className='sm:text-[38px] text-xl font-semibold sm:font-bold text-gray-800'>Notifikasi</h1>
                 <span className='text-xs sm:text-sm text-gray-600'>semua notifikasi terkait pelatihan akan ditampilkan disini</span>
             </div>
-            <select name="" id="" className='py-2 px-2 sm:px-4 rounded-lg border border-green bg-white text-green font-medium text-xs sm:text-sm'>
+            <select name="" id="" className='py-1 sm:py-2 px-2 sm:px-4 rounded-lg border border-green bg-white text-green font-medium text-xs sm:text-sm'>
                 <option value="latest">Notifikasi Terbaru</option>
                 <option value="longest">Notifikasi Terlama</option>
             </select>

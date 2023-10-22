@@ -172,7 +172,7 @@ const UserProfile = () => {
               className="text-green font-semibold text-xs sm:text-md hover:border-b hover:border-green"
               href="/history"
             >
-              Riwayat pelatihan saya
+              Riwayat pelatihan 
             </Link>
           </li>
         </ul>
