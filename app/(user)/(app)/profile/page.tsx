@@ -144,15 +144,15 @@ const UserProfile = () => {
   }, [userData, reset]);
 
   return (
-    <main className="pt-4 sm:pt-12 min-h-screen">
+    <main className="pt-4 sm:pt-6 lg:pt-12 min-h-screen">
       <div>
-        <h1 className="text-xl font-semibold sm:text-[38px] sm:font-bold text-gray-800">
+        <h1 className="text-xl font-semibold sm:text-2xl lg:text-[38px] sm:font-bold text-gray-800">
           Profil
         </h1>
         <span className="text-xs sm:text-sm text-gray-600">
           Mohon masukkan data yang sesuai untuk memudahkan proses pelatihan
         </span>
-        <ul className="flex justify-start items-center gap-6 sm:gap-12 mt-4 sm:mt-8">
+        <ul className="flex justify-start items-center gap-6 lg:gap-12 mt-4 sm:mt-6">
           <li>
             <Link
               className="text-green font-semibold text-xs sm:text-md hover:border-b hover:border-green"
@@ -187,22 +187,24 @@ const UserProfile = () => {
               Foto Profil
             </h2>
             {/* TO-DO: DISABLED CACHE FETCHING??? */}
-            <img
+            {/* <Image
               src={`${process.env.NEXT_PUBLIC_P2KB_API}/img/profile_picture/${userData?.id}.webp`}
               alt="foto profil"
               className="rounded-[50%] w-36 h-36"
-            />
-            {/* <Image
+              width={36}
+              height={36}
+            /> */}
+            <Image
               src={Profile}
               alt="foto profil"
               className="rounded-[50%] w-32 h-32 sm:w-36 sm:h-36"
-            /> */}
+            />
 
             {/* change profile */}
             <div className="relative mt-2">
               <input
                 type="file"
-                // className="hidden"
+                className="hidden"
                 {...register("profile_picture")}
               />
               <label
@@ -218,7 +220,7 @@ const UserProfile = () => {
               </label>
             </div>
 
-            <p className="hidden text-sm text-gray-800 sm:flex justify-start gap-2">
+            <p className="hidden text-xs lg:text-sm text-gray-800 lg:flex justify-start gap-2">
               Format:
               <span className="text-sm text-orange-500 italic">*Pas Foto</span>
               <span className="text-sm text-orange-500 italic">

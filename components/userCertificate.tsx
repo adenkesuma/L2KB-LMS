@@ -5,7 +5,7 @@ import MyCertificate from "@/public/assets/certificate.png"
 
 const UserCertificate = () => {
     return (
-        <div className="flex justify-between sm:flex-row flex-col gap-2 sm:gap-12 rounded-xl sm:rounded-2xl bg-white p-3 sm:p-12">
+        <div className="flex justify-between sm:flex-row flex-col gap-2 sm:gap-6 lg:gap-12 rounded-xl sm:rounded-2xl bg-white p-3 sm:p-6 lg:p-12">
             <figure>
               <Image 
                 src={MyCertificate}
