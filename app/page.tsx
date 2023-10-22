@@ -7,7 +7,7 @@ import Image from 'next/image'
 import MyCourseBanner from '@/components/myCourseBanner'
 
 export default function Home() {
-  const login: Boolean = false
+  const login: Boolean = true
 
   return (
     <main className='min-h-screen'> 
@@ -20,7 +20,7 @@ export default function Home() {
         )
       }
 
-      <div className={`${login ? "mt-20 sm:mt-24" : "mt-6"}`}>
+      <div className={`${login ? "mt-20 sm:mt-24" : "mt-6 sm:mt-12"}`}>
         <div className='flex justify-between items-center mb-4'>
           <h2 className='font-semibold text-lg sm:font-bold sm:text-[28px]'>Pelatihan Terbaru</h2>
           <Link href="/courses" className='text-sm text-green font-semibold flex items-center gap-0 sm:gap-1'>

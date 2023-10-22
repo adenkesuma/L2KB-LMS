@@ -10,7 +10,7 @@ const HeroBanner: FC = () => {
             <Image 
                 src={BannerImage}
                 alt="banner image"
-                className="w-full h-48 sm:h-[80vh] object-cover bg-cover rounded-xl sm:rounded-3xl"     
+                className="w-full h-48 sm:h-[70vh] object-cover bg-cover rounded-xl sm:rounded-2xl"     
             />
         </div>
     </header>

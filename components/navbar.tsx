@@ -6,6 +6,7 @@ import Logo from "@/public/assets/logo/pdki.svg"
 import Notification from "@/public/assets/icons/notification.svg"
 import Profile from "@/public/assets/user.png"
 import Close from "@/public/assets/icons/close.svg"
+import Logout from "@/public/assets/icons/logout.svg"
 import HamburgerMenu from "@/public/assets/icons/menu.svg"
 
 import { useParams, usePathname } from "next/navigation"
@@ -18,7 +19,7 @@ const Navbar: FC = () => {
 
     // const userAuth = useStore(userAuthStore, (state) => state);
 
-    const login: Boolean = false
+    const login: Boolean = true
 
     const hiddenPath = pathname === "/register" || pathname === "/verification" || pathname === "/login" || pathname === "/admin" 
     const adminHiddenPath = pathname === "/admin/profile" || pathname === "/admin/courses" || pathname === "/admin/courses/new-course" || pathname === "/admin/activate-user" || pathname === `/admin/activate-user/${params.user}` || pathname === `/admin/courses/edit/${params.course}` || pathname === '/admin/participant-achievements' ||
@@ -136,25 +137,36 @@ const Navbar: FC = () => {
                                             (
                                                 <div className="flex flex-col gap-6 items-end">
                                                     <Link href="/notification" className="flex items-center gap-4">
-                                                        <span className="text-white font-medium text-md">Notifikasi</span>
-                                                        <div className="bg-slate-100 rounded-[50%] p-3">
+                                                        <span className="text-white font-medium text-base">Notifikasi</span>
+                                                        <div className="bg-slate-100 rounded-[50%] p-2 sm:p-3">
                                                             <Image 
                                                                 src={Notification}
                                                                 alt="bell icon"
-                                                                width={28}
+                                                                // width={28}
+                                                                className="w-6 sm:w-8"
                                                             />
                                                         </div>
                                                     </Link>
                                                     <Link href="/profile" className="flex items-center gap-4">
-                                                        <span className="font-medium text-md text-white">
+                                                        <span className="font-medium text-base text-white">
                                                             Park ji sung
                                                         </span>
                                                         <Image 
                                                             src={Profile}
                                                             alt="profile user"
-                                                            className="h-14 w-14 rounded-[50%] p-1 border border-slate-100"
+                                                            className="h-10 sm:h-14 w-10 sm:w-14 rounded-[50%] p-1 border border-slate-100"
                                                         />
                                                     </Link>
+                                                    <button className="flex items-center gap-4">
+                                                        <span className="font-medium text-base text-white">
+                                                            Keluar
+                                                        </span>
+                                                        <Image 
+                                                            src={Logout}
+                                                            alt="logout icon"
+                                                            className="w-6"
+                                                        />
+                                                    </button>
                                                 </div>
                                             ) :
                                             (
