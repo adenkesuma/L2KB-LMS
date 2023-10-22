@@ -3,7 +3,7 @@ import { useState, ChangeEvent, FormEvent } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Logo from "@/public/assets/logo/kolegium.png";
-import UserProfile from "../../profile/page";
+import UserProfile from "../../(app)/profile/page";
 import Visible from "@/public/assets/icons/visible.svg";
 import Invisible from "@/public/assets/icons/invisible.svg";
 import axios from "axios";
@@ -122,7 +122,10 @@ const Register: React.FC = () => {
         </h1>
 
         {/* form register */}
-        <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
+        <form
+          onSubmit={handleSubmit}
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10"
+        >
           {/* left form */}
           <div className="flex flex-col gap-6">
             <div className="flex flex-col gap-2">
