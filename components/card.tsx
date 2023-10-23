@@ -25,8 +25,8 @@ const Card: FC<{
         <span>Khusus Anggota Muda</span>
       </div>
 
-      <div className="flex flex-col gap-2">
-        <h2 className="font-medium sm:font-semibold text-base sm:text-lg mt-4 line-clamp-1 sm:line-clamp-2 leading-5 sm:leading-6">
+      <div className="flex justify-between flex-col gap-2">
+        <h2 className="font-medium sm:font-semibold text-base sm:text-lg mt-4 line-clamp-1 leading-5 sm:leading-6">
           {data.nama}
         </h2>
         <p className="font-regular text-gray-600 line-clamp-2 text-xs">

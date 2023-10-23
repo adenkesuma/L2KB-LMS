@@ -61,7 +61,7 @@ const Courses = async () => {
       </div>
 
       <Suspense fallback={<Loading />}>
-        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 lg:gap-8 mt-6 sm:mt-6 lg:mt-12">
+        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 mt-6 sm:mt-6 lg:mt-12">
           {allTrainingData.map((data, i) => {
             return <Card key={i} data={data} />;
           })}
