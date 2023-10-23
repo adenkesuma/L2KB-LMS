@@ -1,7 +1,7 @@
 import { ITrainingData } from "../../app/(user)/courses/page";
 
 export async function getAllTrainingData(
-  name: string
+  name?: string
 ): Promise<ITrainingData[] | []> {
   try {
     const get = await fetch(
