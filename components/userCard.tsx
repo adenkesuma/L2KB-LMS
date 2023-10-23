@@ -20,6 +20,7 @@ const UserCard = ({ path, icon, description, idx}: Props) => {
                   alt="icon"
                   width={idx === 0 ? 22 : 32}
                   height={10}
+                  className={idx === 0 ? "w-4 sm:w-5" : idx === 1 ? "w-6 lg:w-11" : idx === 2 ? "w-5 sm:w-6 lg:w-8" : "w-5 sm:w-6"}
               />
           </figure>
           <p className='text-green font-semibold text-xs lg:text-sm lg:text-start text-center'>
