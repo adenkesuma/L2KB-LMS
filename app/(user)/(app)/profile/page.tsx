@@ -156,7 +156,7 @@ const UserProfile = () => {
         <ul className="flex justify-start items-center gap-6 lg:gap-12 mt-4 sm:mt-6">
           <li>
             <Link
-              className="text-green font-semibold text-xs lg:text-base hover:border-b hover:border-green"
+              className="text-green font-semibold text-xs sm:text-base hover:border-b hover:border-green"
               href="/certificate"
             >
               Sertifikat saya
@@ -164,7 +164,7 @@ const UserProfile = () => {
           </li>
           <li>
             <Link
-              className="text-green font-semibold text-xs lg:text-base hover:border-b hover:border-green"
+              className="text-green font-semibold text-xs sm:text-base hover:border-b hover:border-green"
               href="/my-course"
             >
               Pelatihan saya
@@ -172,7 +172,7 @@ const UserProfile = () => {
           </li>
           <li>
             <Link
-              className="text-green font-semibold text-xs lg:text-base hover:border-b hover:border-green"
+              className="text-green font-semibold text-xs sm:text-base hover:border-b hover:border-green"
               href="/history"
             >
               Riwayat pelatihan
@@ -182,7 +182,7 @@ const UserProfile = () => {
       </div>
       <div className="bg-white rounded-xl mt-4 sm:mt-8">
         {/* top profile */}
-        <div className="flex justify-between items-start p-3 sm:p-8">
+        <div className="flex justify-between flex-col sm:flex-row gap-8 sm:gap-0 items-start p-3 sm:p-8">
           <div className="flex flex-col gap-2 sm:gap-4">
             <h2 className="text-base sm:text-[28px] font-semibold text-gray-800">
               Foto Profil
@@ -227,7 +227,7 @@ const UserProfile = () => {
           <div className="flex flex-col gap-4">
             <Link
               href="/forgot-password"
-              className="text-center w-32 sm:w-[240px] font-medium text-xs sm:text-sm mt-2 p-2 rounded-lg sm:rounded-xl border-opacity-green border text-green"
+              className="text-center w-40 lg:w-60 font-medium text-xs sm:text-sm mt-2 p-2 rounded-lg sm:rounded-xl border-opacity-green border text-green"
             >
               Ubah Kata Sandi
             </Link>
@@ -411,13 +411,28 @@ const UserProfile = () => {
                 className="border rounded-xl p-2 border-opacity-green bg-white"
                 {...register("profile.pangkat")}
               >
-                <option value="">- Pilih Pangkat / Golongan -</option>
-                <option value="sd">SD {"( Sekolah Dasar )"}</option>
-                <option value="sd">SMP {"( Sekolah Menengah Pertama )"}</option>
-                <option value="sd">SMA {"( Sekolah Menengah Atas )"}</option>
-                <option value="sd">S1 {"( Sarjana Strata 1 )"}</option>
-                <option value="sd">S2 {"( Sarjana Strata 2 )"}</option>
-                <option value="sd">S3 {"( Sarjana Strata 3 )"}</option>
+                <option value="tidak ada">tidak ada</option>
+
+                <option value="golongan Ia">Golongan Ia</option>
+                <option value="golongan Ib">Golongan Ib</option>
+                <option value="golongan Ic">Golongan Ic</option>
+                <option value="golongan Id">Golongan Id</option>
+
+                <option value="golongan IIa">Golongan IIa</option>
+                <option value="golongan IIb">Golongan IIb</option>
+                <option value="golongan IIc">Golongan IIc</option>
+                <option value="golongan IId">Golongan IId</option>
+
+                <option value="golongan IIIa">Golongan IIIa</option>
+                <option value="golongan IIIb">Golongan IIIb</option>
+                <option value="golongan IIIc">Golongan IIIc</option>
+                <option value="golongan IIId">Golongan IIId</option>
+
+                <option value="golongan IVa">Golongan IVa</option>
+                <option value="golongan IVb">Golongan IVb</option>
+                <option value="golongan IVc">Golongan IVc</option>
+                <option value="golongan IVd">Golongan IVd</option>
+
               </select>
             </div>
 
