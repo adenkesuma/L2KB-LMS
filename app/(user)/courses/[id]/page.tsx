@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import moment from "moment";
@@ -6,6 +6,7 @@ import moment from "moment";
 import DummyImage from "@/public/assets/dummy.png";
 import { getOneTrainingData } from "../../../../lib/services/training-data.service";
 import { notFound } from "next/navigation";
+import Loading from "./loading";
 
 type PelatihanDetailType = { params: { id: string } };
 
@@ -14,6 +15,7 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
   if (!oneTrainingData) {
     return notFound();
   }
+  console.log(oneTrainingData);
 
   return (
     <main className="pt-4 sm:pt-6 lg:pt-12 min-h-screen">
@@ -38,7 +40,7 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
           <Image
             src={`${process.env.NEXT_PUBLIC_P2KB_API}/img/training_cover/${oneTrainingData?.id}.webp`}
             alt="banner image detail"
-            className="rounded-xl sm:rounded-3xl h-full bg-cover bg-center w-full"
+            className="rounded-xl sm:rounded-3xl h-full bg-cover bg-center w-full object-cover max-h-[400px]"
             width={1000}
             height={70}
           />
@@ -109,7 +111,7 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
           </div>
 
           <Link
-            href="/courses/register"
+            href="/register"
             className="mt-6 text-center text-white text-sm font-medium w-full p-2 rounded-xl bg-green"
           >
             Daftar Sekarang
@@ -147,7 +149,7 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
         </h2>
 
         <ul className="flex flex-col gap-2 sm:gap-3 mt-1 sm:mt-4">
-          {oneTrainingData.kriteria.map((item, i) => {
+          {JSON.parse(oneTrainingData?.kriteria).map((item, i) => {
             return (
               <li
                 className="font-regular text-xs sm:text-sm text-gray-600"
@@ -166,7 +168,7 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
           Kompetensi
         </h2>
         <ul className="flex flex-col gap-2 sm:gap-3 mt-1 sm:mt-4">
-          {oneTrainingData.kompetensi.map((item, i) => {
+          {JSON.parse(oneTrainingData.kompetensi).map((item, i) => {
             return (
               <li
                 className="font-regular text-xs sm:text-sm text-gray-600"
@@ -184,9 +186,18 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
         <h2 className="font-semibold text-base sm:text-[24px] text-gray-800">
           Tujuan Pelatihan
         </h2>
-        <p className="mt-1 sm:mt-4 text-xs sm:text-sm text-gray-600">
-          {oneTrainingData.tujuan}
-        </p>
+        <div>
+          {JSON.parse(oneTrainingData.tujuan).map((item, i) => {
+            return (
+              <p
+                className="mt-1 sm:mt-4 text-xs sm:text-sm text-gray-600"
+                key={i}
+              >
+                - {item}
+              </p>
+            );
+          })}
+        </div>
       </div>
 
       {/* catatan */}
@@ -195,7 +206,7 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
           Catatan:
         </h2>
         <ul className="flex flex-col gap-2 sm:gap-3 mt-2 sm:mt-4">
-          {oneTrainingData.catatan.map((item, i) => {
+          {JSON.parse(oneTrainingData.catatan).map((item, i) => {
             return (
               <li
                 className="font-regular text-xs sm:text-sm text-green"

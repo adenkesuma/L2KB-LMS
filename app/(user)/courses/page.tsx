@@ -2,13 +2,15 @@ import Image from "next/image";
 import Card from "@/components/card";
 import Search from "@/public/assets/icons/search.svg";
 import { getAllTrainingData } from "../../../lib/services/training-data.service";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 export interface ITrainingData {
-  target_candidate: string[];
-  tujuan: string[];
-  kriteria: string[];
-  kompetensi: string[];
-  catatan: string[];
+  target_candidate: string;
+  tujuan: string;
+  kriteria: string;
+  kompetensi: string;
+  catatan: string;
   id: string;
   nama: string;
   deskripsi: string;
@@ -58,11 +60,13 @@ const Courses = async () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 lg:gap-8 mt-6 sm:mt-6 lg:mt-12">
-        {allTrainingData.map((data, i) => {
-          return <Card key={i} data={data} />;
-        })}
-      </div>
+      <Suspense fallback={<Loading />}>
+        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 lg:gap-8 mt-6 sm:mt-6 lg:mt-12">
+          {allTrainingData.map((data, i) => {
+            return <Card key={i} data={data} />;
+          })}
+        </div>
+      </Suspense>
     </main>
   );
 };
