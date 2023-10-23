@@ -70,9 +70,10 @@ const UserProfile = () => {
     control,
     getValues,
   } = useForm<UserData>();
+
   const onSubmit: SubmitHandler<UserData> = async (data) => {
     try {
-      console.log("1", data.profile_picture);
+      // console.log("1", data.profile_picture);
       const formData = new FormData();
       const profile = data.profile;
       if (data.profile_picture) {
@@ -146,7 +147,7 @@ const UserProfile = () => {
   return (
     <main className="pt-4 sm:pt-6 lg:pt-12 min-h-screen">
       <div>
-        <h1 className="text-xl font-semibold sm:text-2xl lg:text-[38px] sm:font-bold text-gray-800">
+        <h1 className="text-xl font-semibold sm:text-2xl lg:text-4xl lg:mb-2 sm:font-bold text-gray-800">
           Profil
         </h1>
         <span className="text-xs sm:text-sm text-gray-600">
@@ -155,7 +156,7 @@ const UserProfile = () => {
         <ul className="flex justify-start items-center gap-6 lg:gap-12 mt-4 sm:mt-6">
           <li>
             <Link
-              className="text-green font-semibold text-xs sm:text-md hover:border-b hover:border-green"
+              className="text-green font-semibold text-xs lg:text-base hover:border-b hover:border-green"
               href="/certificate"
             >
               Sertifikat saya
@@ -163,7 +164,7 @@ const UserProfile = () => {
           </li>
           <li>
             <Link
-              className="text-green font-semibold text-xs sm:text-md hover:border-b hover:border-green"
+              className="text-green font-semibold text-xs lg:text-base hover:border-b hover:border-green"
               href="/my-course"
             >
               Pelatihan saya
@@ -171,7 +172,7 @@ const UserProfile = () => {
           </li>
           <li>
             <Link
-              className="text-green font-semibold text-xs sm:text-md hover:border-b hover:border-green"
+              className="text-green font-semibold text-xs lg:text-base hover:border-b hover:border-green"
               href="/history"
             >
               Riwayat pelatihan
@@ -179,7 +180,7 @@ const UserProfile = () => {
           </li>
         </ul>
       </div>
-      <div className="bg-white rounded-xl sm:rounded-3xl mt-4 sm:mt-8">
+      <div className="bg-white rounded-xl mt-4 sm:mt-8">
         {/* top profile */}
         <div className="flex justify-between items-start p-3 sm:p-8">
           <div className="flex flex-col gap-2 sm:gap-4">
@@ -204,20 +205,8 @@ const UserProfile = () => {
             <div className="relative mt-2">
               <input
                 type="file"
-                className="hidden"
                 {...register("profile_picture")}
               />
-              <label
-                // htmlFor="profile_picture"
-                className="w-32 sm:w-36 flex gap-3 justify-center items-center cursor-pointer border border-opacity-green text-green font-medium rounded-lg py-2 px-4"
-              >
-                <Image
-                  src={UploadIcon}
-                  alt="upload icon"
-                  className="w-3 sm:w-4"
-                />
-                <span className="text-xs">Ubah Foto</span>
-              </label>
             </div>
 
             <p className="hidden text-xs lg:text-sm text-gray-800 lg:flex justify-start gap-2">
@@ -478,7 +467,7 @@ const UserProfile = () => {
           <div className="flex flex-col gap-2 mt-4">
             <button
               className={rc(
-                "text-center w-[240px] text-white text-sm sm:mx-0 mx-auto font-medium mt-2 p-2 rounded-xl bg-green",
+                "text-center w-[240px] text-white text-sm sm:mx-0 mx-auto font-medium mt-2 p-2 rounded-lg bg-green",
                 "disabled:bg-light-green disabled:text-green",
                 "flex gap-2 items-center justify-center"
               )}
