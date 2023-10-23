@@ -25,7 +25,7 @@ export default function UserHomePage() {
       {userAuth &&
         (userAuth?.accessToken ? <MyCourseBanner /> : <HeroBanner />)}
 
-      <div className={`${userAuth?.accessToken ? "mt-20 sm:mt-16 lg:mt-24" : "mt-6 sm:mt-14"}`}>
+      <div className={`${userAuth?.accessToken ? "mt-20 sm:mt-16 lg:mt-28" : "mt-6 sm:mt-14"}`}>
         <div className="flex justify-between items-center mb-4">
           <h2 className="font-semibold text-xl sm:text-2xl sm:font-bold lg:text-[28px]">
             Pelatihan Terbaru

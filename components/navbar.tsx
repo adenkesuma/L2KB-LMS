@@ -92,15 +92,6 @@ const Navbar: FC = () => {
               <div>
                 {userAuth?.accessToken ? (
                   <div className="flex justify-center gap-6 items-center">
-                    <Link
-                      href="/notification"
-                      className="group p-3 bg-opacity-green flex items-center justify-center relative rounded-[50%]"
-                    >
-                      <Image src={Notification} alt="bell icon" className="w-5" />
-                      <span className="opacity-0 absolute bg-white border border-slate-200 delay-100 text-slate-500 text-xs rounded-md mt-20 mr-14 p-1 whitespace-nowrap group-hover:opacity-100 group-hover:py-1 group-hover:px-3">
-                        Notifikasi
-                      </span>
-                    </Link>
 
                     <Link href="/profile" className="flex items-center gap-4">
                       <span className="font-medium text-sm text-gray-800">
@@ -110,12 +101,22 @@ const Navbar: FC = () => {
                         <Image
                           src={Profile}
                           alt="profile user"
-                          className="h-12 w-12 rounded-[50%] p-1 border border-opacity-green"
+                          className="h-10 w-10 rounded-[50%] p-1 border border-opacity-green"
                         />
                         <span className="opacity-0 absolute bg-white border border-slate-200 delay-100 text-slate-500 text-xs rounded-md mt-[84px] mr-14 p-1 whitespace-nowrap group-hover:opacity-100 group-hover:py-1 group-hover:px-3">
                           Profil
                         </span>
                       </div>
+                    </Link>
+
+                    <Link
+                      href="/notification"
+                      className="group py-[7px] px-2 border border-opacity-green flex items-center justify-center relative rounded-[50%]"
+                    >
+                      <Image src={Notification} alt="bell icon" className="w-5" />
+                      <span className="opacity-0 absolute bg-white border border-slate-200 delay-100 text-slate-500 text-xs rounded-md mt-20 mr-8 p-1 whitespace-nowrap group-hover:opacity-100 group-hover:py-1 group-hover:px-3">
+                        Notifikasi
+                      </span>
                     </Link>
 
                     <button
@@ -125,7 +126,7 @@ const Navbar: FC = () => {
                         router.refresh();
                       }}
                     >
-                      <div className="p-3 bg-opacity-green rounded-[50%]">
+                      <div className="p-2 border border-opacity-green rounded-[50%]">
                         <Image 
                           src={Logout} 
                           alt="logout icon" 
