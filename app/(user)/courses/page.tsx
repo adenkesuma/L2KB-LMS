@@ -1,10 +1,12 @@
+import React, { Suspense } from "react";
 import Image from "next/image";
+
 import Card from "@/components/card";
 import Search from "@/public/assets/icons/search.svg";
 import { getAllTrainingData } from "../../../lib/services/training-data.service";
-import React, { Suspense } from "react";
 import Loading from "../../../components/loading";
 import SearchComponents from "./search";
+import CourseContent from "./content";
 
 export interface ITrainingData {
   target_candidate: string;
@@ -54,13 +56,10 @@ const Courses: React.FC<{
         <SearchComponents />
       </div>
 
-      <Suspense fallback={<Loading />}>
-        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 mt-6 sm:mt-6 lg:mt-12">
-          {allTrainingData.map((data, i) => {
-            return <Card key={i} data={data} />;
-          })}
-        </div>
-      </Suspense>
+      <CourseContent
+        searchParams={searchParams}
+        allTrainingData={allTrainingData}
+      />
     </main>
   );
 };

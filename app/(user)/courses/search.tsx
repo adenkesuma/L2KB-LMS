@@ -10,7 +10,9 @@ import { useRouter, useSearchParams } from "next/navigation";
 function SearchComponents() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [searchText, setSetsearchText] = useState("");
+  const [searchText, setSetsearchText] = useState(
+    searchParams.get("name") ?? ""
+  );
 
   const createQueryString = useCallback(
     (name: string, value: string) => {
