@@ -13,7 +13,7 @@ import { userAuthStore } from "../../store/user-auth.store";
 
 import { getAllTrainingData } from "@/lib/services/training-data.service";
 import { Suspense } from "react";
-import Loading from "./loading";
+import Loading from "../../components/loading";
 
 export interface ITrainingData {
   target_candidate: string;
@@ -42,11 +42,10 @@ export interface ITrainingData {
   };
 }
 
-
 const UserHomePage = () => {
   const userAuth = useStore(userAuthStore, (state) => state);
-  const [allTrainingData, setAllTrainingData] = useState<ITrainingData[]>([])
-  
+  const [allTrainingData, setAllTrainingData] = useState<ITrainingData[]>([]);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -87,16 +86,15 @@ const UserHomePage = () => {
         </div>
 
         <Suspense fallback={<Loading />}>
-        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 mt-6 sm:mt-6 lg:mt-12">
-          {allTrainingData?.slice(0, 4).map((data, i) => {
-            return <Card key={i} data={data} />;
-          })}
-        </div>
-      </Suspense>
-       
+          <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 mt-6 sm:mt-6 lg:mt-12">
+            {allTrainingData?.slice(0, 4).map((data, i) => {
+              return <Card key={i} data={data} />;
+            })}
+          </div>
+        </Suspense>
       </div>
     </main>
   );
-}
+};
 
-export default UserHomePage
+export default UserHomePage;
