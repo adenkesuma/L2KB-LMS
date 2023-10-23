@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -13,12 +14,18 @@ import { userAuthStore } from "../../store/user-auth.store";
 export default function UserHomePage() {
   const userAuth = useStore(userAuthStore, (state) => state);
 
+  useEffect(() => {
+    const audio = new Audio('/assets/voice/voice-over.mp3');
+    audio.autoplay = true;
+  }, []);
+
   return (
     <main className="min-h-screen">
+
       {userAuth &&
         (userAuth?.accessToken ? <MyCourseBanner /> : <HeroBanner />)}
 
-      <div className={`${userAuth?.accessToken ? "mt-20 sm:mt-24" : "mt-6"}`}>
+      <div className={`${userAuth?.accessToken ? "mt-20 sm:mt-24" : "mt-6 sm:mt-14"}`}>
         <div className="flex justify-between items-center mb-4">
           <h2 className="font-semibold text-lg sm:font-bold sm:text-[28px]">
             Pelatihan Terbaru
