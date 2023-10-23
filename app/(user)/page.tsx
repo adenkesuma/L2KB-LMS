@@ -25,9 +25,9 @@ export default function UserHomePage() {
       {userAuth &&
         (userAuth?.accessToken ? <MyCourseBanner /> : <HeroBanner />)}
 
-      <div className={`${userAuth?.accessToken ? "mt-20 sm:mt-24" : "mt-6 sm:mt-14"}`}>
+      <div className={`${userAuth?.accessToken ? "mt-20 sm:mt-16 lg:mt-24" : "mt-6 sm:mt-14"}`}>
         <div className="flex justify-between items-center mb-4">
-          <h2 className="font-semibold text-lg sm:font-bold sm:text-[28px]">
+          <h2 className="font-semibold text-xl sm:text-2xl sm:font-bold lg:text-[28px]">
             Pelatihan Terbaru
           </h2>
           <Link
@@ -39,7 +39,7 @@ export default function UserHomePage() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 lg:gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
           <Card />
           <Card />
           <Card />

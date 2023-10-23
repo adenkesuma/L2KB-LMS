@@ -50,7 +50,7 @@ const Navbar: FC = () => {
       {hiddenPath || adminHiddenPath ? (
         <span />
       ) : (
-        <div className="py-2 lg:p3-4 container px-4 sm:px-6 lg:px-14 mx-auto">
+        <div className="py-2 lg:p3-4 container px-4 sm:px-0 lg:px-14 mx-auto">
           <div className="flex justify-between items-center">
             <Link href="/">
               <Image src={Logo} alt="Logo" className="sm:w-16 lg:w-18 w-12" />
@@ -91,34 +91,50 @@ const Navbar: FC = () => {
               {/* button signin and signup */}
               <div>
                 {userAuth?.accessToken ? (
-                  <div className="flex justify-center gap-12 items-center">
+                  <div className="flex justify-center gap-6 items-center">
                     <Link
                       href="/notification"
-                      className="p-3 bg-opacity-green rounded-[50%]"
+                      className="group p-3 bg-opacity-green flex items-center justify-center relative rounded-[50%]"
                     >
-                      <Image src={Notification} alt="bell icon" width={28} />
+                      <Image src={Notification} alt="bell icon" className="w-5" />
+                      <span className="opacity-0 absolute bg-white border border-slate-200 delay-100 text-slate-500 text-xs rounded-md mt-20 mr-14 p-1 whitespace-nowrap group-hover:opacity-100 group-hover:py-1 group-hover:px-3">
+                        Notifikasi
+                      </span>
                     </Link>
+
                     <Link href="/profile" className="flex items-center gap-4">
-                      <span className="font-medium text-md text-gray-800">
+                      <span className="font-medium text-sm text-gray-800">
                         Park ji sung
                       </span>
-                      <Image
-                        src={Profile}
-                        alt="profile user"
-                        className="h-14 w-14 rounded-[50%] p-1 border border-opacity-green"
-                      />
+                      <div className="group relative flex items-center justify-center">
+                        <Image
+                          src={Profile}
+                          alt="profile user"
+                          className="h-12 w-12 rounded-[50%] p-1 border border-opacity-green"
+                        />
+                        <span className="opacity-0 absolute bg-white border border-slate-200 delay-100 text-slate-500 text-xs rounded-md mt-[84px] mr-14 p-1 whitespace-nowrap group-hover:opacity-100 group-hover:py-1 group-hover:px-3">
+                          Profil
+                        </span>
+                      </div>
                     </Link>
+
                     <button
-                      className="flex items-center gap-4"
+                      className="gap-4 group relative flex justify-center items-center"
                       onClick={() => {
                         userAuth.clearTokens();
                         router.refresh();
                       }}
                     >
-                      <span className="font-medium text-base text-gray-600">
+                      <div className="p-3 bg-opacity-green rounded-[50%]">
+                        <Image 
+                          src={Logout} 
+                          alt="logout icon" 
+                          className="w-5"
+                          />
+                      </div>
+                      <span className="opacity-0 absolute bg-white border border-slate-100 delay-100 text-slate-500 font-medium text-xs rounded-md mt-20 mr-2 p-1 whitespace-nowrap group-hover:opacity-100 group-hover:py-1 group-hover:px-3">
                         Keluar
                       </span>
-                      <Image src={Logout} alt="logout icon" className="w-6" />
                     </button>
                   </div>
                 ) : (
