@@ -21,7 +21,7 @@ export default function RootLayout({
       <body className={`${inter}`}>
         <div className='flex relative'>
           <Sidebar />
-          <section className='w-full'>
+          <section className='lg:w-[80%]'>
             <AdminNavbar />
             <span className='bg-slate-100 block'>
               {children}

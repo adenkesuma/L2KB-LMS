@@ -11,13 +11,13 @@ const MyCourse = () => {
 
               <ul className="flex justify-start items-center gap-6 sm:gap-12 mt-4 sm:mt-6 lg:mt-8">
                   <li>
-                      <Link className="text-green font-semibold text-xs sm:text-basae hover:border-b hover:border-green" href="/certificate">Sertifikat saya</Link>
+                      <Link className="text-green font-semibold text-xs sm:text-base hover:border-b hover:border-green" href="/certificate">Sertifikat saya</Link>
                   </li>
                   <li>
-                      <Link className="text-green font-semibold text-xs sm:text-basae hover:border-b hover:border-green" href="/profile">Profil saya</Link>
+                      <Link className="text-green font-semibold text-xs sm:text-base hover:border-b hover:border-green" href="/profile">Profil saya</Link>
                   </li>
                   <li>
-                      <Link className="text-green font-semibold text-xs sm:text-basae hover:border-b hover:border-green" href="/history">Riwayat pelatihan</Link>
+                      <Link className="text-green font-semibold text-xs sm:text-base hover:border-b hover:border-green" href="/history">Riwayat pelatihan</Link>
                   </li>
               </ul>
           </div>

@@ -16,13 +16,13 @@ async function getTrainingData() {
 
 const Courses = async () => {
   const trainingData = await getTrainingData();
-  console.log(trainingData);
+  // console.log(trainingData);
 
   return (
     <main className="pt-4 sm:pt-8 lg:pt-12 min-h-screen">
       {/* header title pelatihan */}
       <div className="flex flex-col justify-center items-center gap-2">
-        <h1 className="font-bold text-center text-xl sm:text-2xl lg:text-[38px]">
+        <h1 className="font-bold text-center md:mb-2 text-xl sm:text-2xl lg:text-[38px]">
           Agenda Pelatihan
         </h1>
         <p className="font-regular text-xs px-4 sm:text-base text-center sm:w-[70%]">
@@ -33,7 +33,7 @@ const Courses = async () => {
           <input
             type="text"
             placeholder="Cari Pelatihan..."
-            className="mt-4 border border-slate-300 py-2 pl-12 pr-4 rounded-3xl max-w-xs text-sm md:w-[500px] outline-[#015A39]"
+            className="mt-4 border border-slate-300 py-2 pl-12 pr-4 rounded-3xl max-w-xs sm:w-96 lg:w-[600px] sm:max-w-2xl text-sm outline-[#015A39]"
           />
           <Image
             src={Search}
