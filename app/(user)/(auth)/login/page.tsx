@@ -70,7 +70,7 @@ const Login = () => {
         <Link href="/">
           <Image src={Logo} alt="logo" className="w-12 sm:w-20 block mx-auto" />
         </Link>
-        <h1 className="font-bold mt-2 sm:mt-4 text-xl sm:text-[38px] text-center mb-6 sm:mb-12">Masuk</h1>
+        <h1 className="font-bold mt-2 sm:mt-4 text-xl sm:text-4xl text-center mb-6 sm:mb-12">Masuk</h1>
 
         <form
           onSubmit={handleSubmit}
@@ -83,7 +83,7 @@ const Login = () => {
               onChange={handleChange}
               name="email"
               type="email"
-              className="border rounded-xl p-2 border-opacity-green"
+              className="border rounded-xl bg-white p-2 border-opacity-green outline-none"
               required
             />
           </div>
@@ -95,7 +95,7 @@ const Login = () => {
                 onChange={handleChange}
                 name="password"
                 type={showPassword ? "text" : "password"}
-                className="border bg-white w-full rounded-xl p-2 border-opacity-green"
+                className="border bg-white w-full rounded-xl p-2 border-opacity-green outline-none"
                 required
               />
               <button onClick={togglePasswordVisibility}>

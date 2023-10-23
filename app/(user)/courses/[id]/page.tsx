@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import moment from "moment";
 
-import DummyImage from "@/public/assets/dummy.png";
 import { getOneTrainingData } from "../../../../lib/services/training-data.service";
 import { notFound } from "next/navigation";
 
@@ -16,11 +15,10 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
   if (!oneTrainingData) {
     return notFound();
   }
-  console.log(oneTrainingData);
 
   return (
     <main className="pt-4 sm:pt-6 lg:pt-12 min-h-screen">
-      <h1 className="font-bold text-xl sm:text-2xl lg:text-[38px]">
+      <h1 className="font-bold text-xl sm:text-2xl lg:text-4xl">
         {oneTrainingData?.nama}
       </h1>
       <div className="flex items-center justify-start mt-4 sm:mt-6 lg:mt-10">
@@ -41,13 +39,13 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
           <Image
             src={`${process.env.NEXT_PUBLIC_P2KB_API}/img/training_cover/${oneTrainingData?.id}.webp`}
             alt="banner image detail"
-            className="rounded-xl sm:rounded-3xl h-full bg-cover bg-center w-full object-cover max-h-[400px]"
+            className="rounded-xl h-full bg-cover bg-center w-full object-cover max-h-[400px]"
             width={1000}
             height={70}
           />
         </figure>
 
-        <div className="p-3 sm:p-6 w-full lg:w-[32%] bg-white rounded-xl sm:rounded-3xl flex justify-between flex-col">
+        <div className="p-3 md:p-4 w-full lg:w-[32%] bg-white rounded-xl flex justify-between flex-col">
           <div>
             <h2 className="font-semibold text-base sm:text-[24px] text-gray-800">
               Tentang pelatihan ini

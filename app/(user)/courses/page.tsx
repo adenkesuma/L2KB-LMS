@@ -46,7 +46,7 @@ const Courses: React.FC<{
     <main className="pt-4 sm:pt-8 lg:pt-12 min-h-screen">
       {/* header title pelatihan */}
       <div className="flex flex-col justify-center items-center gap-2">
-        <h1 className="font-bold text-center md:mb-2 text-xl sm:text-2xl lg:text-[38px]">
+        <h1 className="font-bold text-center md:mb-2 text-xl sm:text-2xl lg:text-4xl">
           Agenda Pelatihan
         </h1>
         <p className="font-regular text-xs px-4 sm:text-base text-center sm:w-[70%]">

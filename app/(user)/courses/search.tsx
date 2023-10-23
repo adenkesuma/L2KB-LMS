@@ -29,7 +29,7 @@ function SearchComponents() {
       <input
         type="text"
         placeholder="Cari Pelatihan..."
-        className="mt-4 border border-slate-300 py-2 pl-12 pr-4 rounded-3xl max-w-xs sm:w-96 lg:w-[600px] sm:max-w-2xl text-sm outline-[#015A39]"
+        className="mt-4 border border-slate-300 py-2 pl-12 pr-4 rounded-3xl max-w-xs sm:w-96 lg:w-[500px] sm:max-w-2xl text-sm outline-none"
         value={searchText}
         onChange={(e) => {
           setSetsearchText(e.target.value);

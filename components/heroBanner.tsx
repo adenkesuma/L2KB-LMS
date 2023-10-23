@@ -33,7 +33,7 @@ const HeroBanner: FC<{ data: ITrainingData[] }> = ({ data }) => {
 
   return (
     <header className="mt-4 sm:mt-6">
-      <div className="relative h-[80vh]">
+      <div className="relative h-52 lg:h-[80vh]">
         {data.map((item, index) => (
           <Link href={`/courses/${item.id}`} key={item.id}>
             <Image
@@ -49,23 +49,23 @@ const HeroBanner: FC<{ data: ITrainingData[] }> = ({ data }) => {
         ))}
 
         <button
-          className="absolute top-1/2 transform -translate-y-1/2 left-4 bg-white px-4 py-[11px] rounded-full shadow-lg cursor-pointer"
+          className="absolute top-1/2 transform -translate-y-1/2 left-4 bg-white px-2 py-[5px] md:px-4 md:py-[11px] rounded-full shadow-lg cursor-pointer"
           onClick={handlePrev}
         >
           <Image 
             src={Arrow}
             alt="arrow left"
-            className="w-3 rotate-180"
+            className="w-2 sm:w-3 rotate-180"
           />
         </button>
         <button
-          className="absolute top-1/2 transform -translate-y-1/2 right-4 bg-white px-4 py-[11px] rounded-full shadow-lg cursor-pointer"
+          className="absolute top-1/2 transform -translate-y-1/2 right-4 bg-white px-2 py-[5px] md:px-4 md:py-[11px] rounded-full shadow-lg cursor-pointer"
           onClick={handleNext}
         >
           <Image 
             src={Arrow}
             alt="arrow right"
-            className="w-3"
+            className="w-2 sm:w-3"
           />
         </button>
       </div>

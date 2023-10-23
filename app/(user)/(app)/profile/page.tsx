@@ -147,7 +147,7 @@ const UserProfile = () => {
   return (
     <main className="pt-4 sm:pt-6 lg:pt-12 min-h-screen">
       <div>
-        <h1 className="text-xl font-semibold sm:text-2xl lg:text-4xl lg:mb-2 sm:font-bold text-gray-800">
+        <h1 className="text-xl font-semibold sm:text-2xl lg:text-4xl mb:mb-2 sm:font-bold text-gray-800">
           Profil
         </h1>
         <span className="text-xs sm:text-sm text-gray-600">

@@ -9,7 +9,7 @@ const History = () => {
     <main className='pt-4 sm:pt-6 lg:pt-12 min-h-screen'>
       <div className="flex justify-between lg:flex-row flex-col items-start lg:items-end">
           <div className="flex flex-col">
-              <h1 className='text-xl mb-1 sm:text-2xl lg:text-[38px] font-bold text-gray-800'>Riwayat Pelatihan Saya</h1>
+              <h1 className='text-xl mb-1 sm:text-2xl lg:text-4xl sm:mb-2 font-bold text-gray-800'>Riwayat Pelatihan Saya</h1>
               <span className='text-xs sm:text-sm text-gray-600'>Berikut adalah daftar pelatihan saya yang pernah saya selesaikan</span>
 
               <ul className="flex justify-start items-center gap-6 sm:gap-12 mt-4 sm:mt-6 lg:mt-8">
