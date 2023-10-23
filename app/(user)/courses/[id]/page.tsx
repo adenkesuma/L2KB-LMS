@@ -8,7 +8,6 @@ import moment from "moment";
 import DummyImage from "@/public/assets/dummy.png";
 import { getOneTrainingData } from "../../../../lib/services/training-data.service";
 import { notFound } from "next/navigation";
-import Loading from "./loading";
 
 type PelatihanDetailType = { params: { id: string } };
 

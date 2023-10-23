@@ -1,9 +1,12 @@
+import React, { Suspense } from "react";
 import Image from "next/image";
+
 import Card from "@/components/card";
 import Search from "@/public/assets/icons/search.svg";
 import { getAllTrainingData } from "../../../lib/services/training-data.service";
-import { Suspense } from "react";
-import Loading from "./loading";
+import Loading from "../../../components/loading";
+import SearchComponents from "./search";
+import CourseContent from "./content";
 
 export interface ITrainingData {
   target_candidate: string;
@@ -32,8 +35,12 @@ export interface ITrainingData {
   };
 }
 
-const Courses = async () => {
-  const allTrainingData = await getAllTrainingData();
+const Courses: React.FC<{
+  searchParams: {
+    name: string;
+  };
+}> = async ({ searchParams }) => {
+  const allTrainingData = await getAllTrainingData(searchParams.name);
 
   return (
     <main className="pt-4 sm:pt-8 lg:pt-12 min-h-screen">
@@ -46,27 +53,13 @@ const Courses = async () => {
           Temukan pelatihan yang anda inginkan, dan kembangkan terus kemampuan
           anda
         </p>
-        <div className="relative">
-          <input
-            type="text"
-            placeholder="Cari Pelatihan..."
-            className="mt-4 border border-slate-300 py-2 pl-12 pr-4 rounded-3xl max-w-xs sm:w-96 lg:w-[600px] sm:max-w-2xl text-sm outline-[#015A39]"
-          />
-          <Image
-            src={Search}
-            alt="search icon"
-            className="w-4 absolute top-7 left-4"
-          />
-        </div>
+        <SearchComponents />
       </div>
 
-      <Suspense fallback={<Loading />}>
-        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 mt-6 sm:mt-6 lg:mt-12">
-          {allTrainingData.map((data, i) => {
-            return <Card key={i} data={data} />;
-          })}
-        </div>
-      </Suspense>
+      <CourseContent
+        searchParams={searchParams}
+        allTrainingData={allTrainingData}
+      />
     </main>
   );
 };
