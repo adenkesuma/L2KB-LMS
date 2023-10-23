@@ -1,22 +1,37 @@
 import Image from "next/image";
 import Card from "@/components/card";
 import Search from "@/public/assets/icons/search.svg";
+import { getAllTrainingData } from "../../../lib/services/training-data.service";
 
-async function getTrainingData() {
-  try {
-    const get = await fetch(`${process.env.NEXT_PUBLIC_P2KB_API}/training`, {
-      method: "GET",
-    });
-    const res = await get.json();
-    return res.data;
-  } catch (error) {
-    console.log(error);
-  }
+export interface ITrainingData {
+  target_candidate: string[];
+  tujuan: string[];
+  kriteria: string[];
+  kompetensi: string[];
+  catatan: string[];
+  id: string;
+  nama: string;
+  deskripsi: string;
+  quota: number;
+  tahun_pelaksanaan: number;
+  batch: number;
+  training_start: string;
+  training_end: string;
+  regis_start: string;
+  regis_end: string;
+  location: string;
+  price: number;
+  trainingType: { nama: string };
+  trainingOrganizer: {
+    nama: string;
+    no_rekening: string;
+    tipe_rekening: string;
+    nama_rekening: string;
+  };
 }
 
 const Courses = async () => {
-  const trainingData = await getTrainingData();
-  // console.log(trainingData);
+  const allTrainingData = await getAllTrainingData();
 
   return (
     <main className="pt-4 sm:pt-8 lg:pt-12 min-h-screen">
@@ -44,14 +59,9 @@ const Courses = async () => {
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 lg:gap-8 mt-6 sm:mt-6 lg:mt-12">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        {allTrainingData.map((data, i) => {
+          return <Card key={i} data={data} />;
+        })}
       </div>
     </main>
   );

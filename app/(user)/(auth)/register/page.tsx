@@ -68,6 +68,7 @@ const Register: React.FC = () => {
       setUserRegister({
         ...userRegister,
         [objectKey]: {
+          // @ts-ignore
           ...userRegister[objectKey],
           [subKey]:
             subKey === "npa_pdki" || subKey === "nim"
