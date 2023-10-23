@@ -66,7 +66,7 @@ const UserHomePage = () => {
   return (
     <main className="min-h-screen">
       {userAuth &&
-        (userAuth?.accessToken ? <MyCourseBanner /> : <HeroBanner />)}
+        (userAuth?.accessToken ? <MyCourseBanner /> : <HeroBanner data={allTrainingData} />)}
 
       <div
         className={`${
