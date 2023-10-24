@@ -1,11 +1,11 @@
 "use client";
 
 import { FC } from "react";
-import DummyImage from "@/public/assets/dummy.png";
 import Image from "next/image";
 import Link from "next/link";
-import { ITrainingData } from "../app/(user)/courses/page";
 import moment from "moment";
+
+import { ITrainingData } from "../app/(user)/courses/page";
 
 const Card: FC<{
   data: ITrainingData;
@@ -47,17 +47,13 @@ const Card: FC<{
           <p className="text-xs font-regular text-gray-600">
             Pendaftaran dibuka:{" "}
             <span className="font-semibold text-gray-700">
-              {moment(new Date(data.regis_start).toDateString()).format(
-                "DD MMMM yyyy"
-              )}
+              {moment(new Date(data.regis_start)).format("DD MMMM yyyy")}
             </span>
           </p>
           <p className="text-xs font-regular text-gray-600">
             Pendaftaran ditutup:{" "}
             <span className="font-semibold text-gray-700">
-              {moment(new Date(data.regis_end).toDateString()).format(
-                "DD MMMM yyyy"
-              )}
+              {moment(new Date(data.regis_end)).format("DD MMMM yyyy")}
             </span>
           </p>
         </div>

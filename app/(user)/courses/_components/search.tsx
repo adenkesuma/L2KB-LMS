@@ -3,7 +3,7 @@
 import React, { Suspense, useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 
-import { ITrainingData } from "./page";
+import { ITrainingData } from "../page";
 import Search from "@/public/assets/icons/search.svg";
 import { useRouter, useSearchParams } from "next/navigation";
 

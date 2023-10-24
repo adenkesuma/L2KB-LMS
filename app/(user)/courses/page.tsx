@@ -1,12 +1,10 @@
 import React, { Suspense } from "react";
-import Image from "next/image";
 
-import Card from "@/components/card";
-import Search from "@/public/assets/icons/search.svg";
 import { getAllTrainingData } from "../../../lib/services/training-data.service";
 import Loading from "../../../components/loading";
-import SearchComponents from "./search";
-import CourseContent from "./content";
+import SearchComponents from "./_components/search";
+import CourseContent from "./_components/content";
+import CardSkeleton from "../../../components/skeleton/card-skeleton";
 
 export interface ITrainingData {
   target_candidate: string;
@@ -40,8 +38,6 @@ const Courses: React.FC<{
     name: string;
   };
 }> = async ({ searchParams }) => {
-  const allTrainingData = await getAllTrainingData(searchParams.name);
-
   return (
     <main className="pt-4 sm:pt-8 lg:pt-12 min-h-screen">
       {/* header title pelatihan */}
@@ -56,10 +52,9 @@ const Courses: React.FC<{
         <SearchComponents />
       </div>
 
-      <CourseContent
-        searchParams={searchParams}
-        allTrainingData={allTrainingData}
-      />
+      <Suspense fallback={<CardSkeleton sum={8} />} key={searchParams.name}>
+        <CourseContent searchParams={searchParams} />
+      </Suspense>
     </main>
   );
 };
