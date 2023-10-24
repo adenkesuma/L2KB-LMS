@@ -13,7 +13,7 @@ export default function UserLayout({
       <ClientOnly>
         <Toaster />
       </ClientOnly>
-      <nav className="bg-white">
+      <nav className="bg-white sticky top-0 z-50 border-b">
         <Navbar />
       </nav>
       <div className="container px-4 sm:px-0 lg:px-14 mx-auto">{children}</div>

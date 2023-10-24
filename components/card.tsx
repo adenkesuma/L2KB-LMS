@@ -11,7 +11,7 @@ const Card: FC<{
   data: ITrainingData;
 }> = ({ data }) => {
   return (
-    <div className="rounded-xl bg-white p-2 sm:p-3">
+    <div className="rounded-xl bg-white p-2 sm:p-3 border">
       <figure>
         <Image
           src={`${process.env.NEXT_PUBLIC_P2KB_API}/img/training_cover/${data?.id}.webp`}

@@ -9,9 +9,6 @@ export async function getAllTrainingData(
     }`,
     {
       method: "GET",
-      next: {
-        revalidate: 0,
-      },
       cache: "no-store",
     }
   );
@@ -30,9 +27,7 @@ export async function getOneTrainingData(
       `${process.env.NEXT_PUBLIC_P2KB_API}/training/${id}`,
       {
         method: "GET",
-        next: {
-          revalidate: 0,
-        },
+        cache: "no-store",
       }
     );
     const res = await get.json();
