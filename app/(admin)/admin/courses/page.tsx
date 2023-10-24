@@ -22,7 +22,7 @@ const AdminCourses = () => {
             </button>
         </div>
 
-        <div className='rounded-2xl border border-gray-100 mt-8 bg-white p-4'>
+        <div className='rounded-2xl border border-gray-100 mt-8 bg-white p-4 overflow-hidden'>
             <div className="flex flex-col">
               <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">

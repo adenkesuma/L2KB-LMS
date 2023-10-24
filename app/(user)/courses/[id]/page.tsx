@@ -118,6 +118,13 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
               Daftar Sekarang
             </Link>
           </div>
+
+          <Link
+            href={`/courses/${params.id}/register`}
+            className="mt-6 text-center text-white text-sm font-medium w-full p-2 rounded-xl bg-green"
+          >
+            Daftar Sekarang
+          </Link>
         </div>
 
         {/* Deskripsi */}

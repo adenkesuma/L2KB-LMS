@@ -45,9 +45,8 @@ const Courses: React.FC<{
         <h1 className="font-bold text-center md:mb-2 text-xl sm:text-2xl lg:text-4xl">
           Agenda Pelatihan
         </h1>
-        <p className="font-regular text-xs px-4 sm:text-base text-center sm:w-[70%]">
-          Temukan pelatihan yang anda inginkan, dan kembangkan terus kemampuan
-          anda
+        <p className="font-regular text-xs px-4 sm:text-base text-gray-600 text-center sm:w-[60%]">
+         Telusuri beragam pelatihan yang sesuai dengan keinginan Anda, dan bawa kemampuan Anda ke puncak prestasi dengan setiap langkah yang diambil 
         </p>
         <SearchComponents />
       </div>
