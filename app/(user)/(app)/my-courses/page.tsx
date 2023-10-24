@@ -1,7 +1,15 @@
 import Link from "next/link";
 import Card from "@/components/card";
+import { cookies } from "next/headers";
+import { getUserData } from "../../../../lib/services/user-data.service";
 
-const MyCourse = () => {
+async function MyCourses() {
+  const cookieStore = cookies();
+  const accessKey = cookieStore.get("accessKey")?.value;
+
+  const userData = await getUserData(accessKey);
+  console.log(userData.training_candidates);
+
   return (
     <main className="pt-4 sm:pt-6 lg:pt-12 min-h-screen">
       <div className="flex justify-between lg:flex-row flex-col items-start lg:items-end">
@@ -58,6 +66,6 @@ const MyCourse = () => {
       </div>
     </main>
   );
-};
+}
 
-export default MyCourse;
+export default MyCourses;

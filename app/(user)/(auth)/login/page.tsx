@@ -9,6 +9,7 @@ import Visible from "@/public/assets/icons/visible.svg";
 import Invisible from "@/public/assets/icons/invisible.svg";
 import useStore from "../../../../store/use-store";
 import { userAuthStore } from "../../../../store/user-auth.store";
+import { setCookie } from "./action";
 
 interface UserLogin {
   email: string;
@@ -50,6 +51,7 @@ const Login = () => {
       );
 
       if (response.status === 200) {
+        setCookie(response.data.accessToken);
         userAuth?.setAccessToken(response.data.accessToken);
         window.location.href = "/update_data";
 
@@ -70,7 +72,9 @@ const Login = () => {
         <Link href="/">
           <Image src={Logo} alt="logo" className="w-12 sm:w-20 block mx-auto" />
         </Link>
-        <h1 className="font-bold mt-2 sm:mt-4 text-xl sm:text-4xl text-center mb-6 sm:mb-12">Masuk</h1>
+        <h1 className="font-bold mt-2 sm:mt-4 text-xl sm:text-4xl text-center mb-6 sm:mb-12">
+          Masuk
+        </h1>
 
         <form
           onSubmit={handleSubmit}
