@@ -42,13 +42,16 @@ function RegisterTrainingForm({ training_id }: { training_id: string }) {
       ];
 
       fileKeys.forEach((key) => {
+        // @ts-ignore
         if (data[key]) {
+          // @ts-ignore
           formData.append(key, data[key][0]);
         }
       });
 
       for (const key in data) {
         if (data.hasOwnProperty(key)) {
+          // @ts-ignore
           formData.append(key, data[key]);
         }
       }

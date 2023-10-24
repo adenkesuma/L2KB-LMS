@@ -1,3 +1,4 @@
+import { IMyTraningData } from "../../app/(user)/(app)/my-courses/page";
 import { ITrainingData } from "../../app/(user)/courses/page";
 
 export async function getAllTrainingData(
@@ -38,7 +39,9 @@ export async function getOneTrainingData(
   }
 }
 
-export async function getMyTraining(accessKey: string): Promise<any | null> {
+export async function getMyTraining(
+  accessKey: string
+): Promise<IMyTraningData[] | null> {
   try {
     const get = await fetch(`${process.env.NEXT_PUBLIC_P2KB_API}/my-training`, {
       method: "GET",

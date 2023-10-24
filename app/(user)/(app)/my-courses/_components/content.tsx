@@ -10,11 +10,10 @@ async function MyCourseContent() {
 
   if (accessKey) {
     const myTrainingData = await getMyTraining(accessKey);
-    console.log(myTrainingData);
 
     return (
       <div className="mt-4 sm:mt-6 lg:mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-8">
-        {myTrainingData.map((data) => {
+        {myTrainingData?.map((data) => {
           return <Card data={data.training} key={data.training.id} />;
         })}
       </div>

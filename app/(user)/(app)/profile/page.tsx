@@ -1,7 +1,6 @@
 import Link from "next/link";
 
 import UpdateProfileForm from "./_components/form";
-import { fetchUserData } from "../../../../lib/services/user-data.service";
 
 interface ProfileData {
   [key: string]: any;

@@ -3,6 +3,11 @@ import Link from "next/link";
 
 import MyCourseContent from "./_components/content";
 import CardSkeleton from "../../../../components/skeleton/card-skeleton";
+import { ITrainingData } from "../../page";
+
+export interface IMyTraningData {
+  training: ITrainingData;
+}
 
 async function MyCourses() {
   return (
