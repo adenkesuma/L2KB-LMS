@@ -1,15 +1,10 @@
+import { Suspense } from "react";
 import Link from "next/link";
-import Card from "@/components/card";
-import { cookies } from "next/headers";
-import { getUserData } from "../../../../lib/services/user-data.service";
+
+import MyCourseContent from "./_components/content";
+import CardSkeleton from "../../../../components/skeleton/card-skeleton";
 
 async function MyCourses() {
-  const cookieStore = cookies();
-  const accessKey = cookieStore.get("accessKey")?.value;
-
-  const userData = await getUserData(accessKey);
-  console.log(userData.training_candidates);
-
   return (
     <main className="pt-4 sm:pt-6 lg:pt-12 min-h-screen">
       <div className="flex justify-between lg:flex-row flex-col items-start lg:items-end">
@@ -60,10 +55,9 @@ async function MyCourses() {
           />
         </div>
       </div>
-
-      <div className="mt-4 sm:mt-6 lg:mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-8">
-        {/* <Card /> */}
-      </div>
+      <Suspense fallback={<CardSkeleton sum={4} />}>
+        <MyCourseContent />
+      </Suspense>
     </main>
   );
 }
