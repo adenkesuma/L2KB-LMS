@@ -12,7 +12,7 @@ import Achievement from "@/public/assets/icons/achievement.svg"
 import Guide from "@/public/assets/icons/guide.svg"
 import HamburgerMenu from "@/public/assets/icons/menu.svg"
 import Close from "@/public/assets/icons/close.svg"
-import ActivateUser from "@/app/(admin)/admin/(menu)/activate-user/page";
+import ActivateUser from "@/app/admin/(menu)/activate-user/page";
 
 const Sidebar = () => {
     const pathname = usePathname();
