@@ -233,4 +233,5 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
   );
 };
 
+export const runtime = "edge";
 export default PelatihanDetail;
