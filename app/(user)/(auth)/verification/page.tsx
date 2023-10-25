@@ -65,7 +65,7 @@ const Verification = () => {
               type="email"
               value={email}
               onChange={handleEmailChange}
-              className="border rounded-xl p-2 border-opacity-green"
+              className="border rounded-xl p-2 border-gray-300"
               required
             />
           </div>
@@ -75,7 +75,7 @@ const Verification = () => {
               type="text"
               value={verificationCode}
               onChange={handleVerificationCodeChange}
-              className="border rounded-xl p-2 border-opacity-green"
+              className="border rounded-xl p-2 border-gray-300"
               required
             />
             <div className="flex justify-end">

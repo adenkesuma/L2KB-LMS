@@ -25,7 +25,7 @@ const ActivateUserDetail = () => {
                 <div className="mt-8">
                     <div className='flex flex-col gap-2'>
                         <label className='font-medium text-sm'>Pesan</label>
-                        <textarea rows={6} cols={50} className="border rounded-xl p-2 border-opacity-green"></textarea>
+                        <textarea rows={6} cols={50} className="border rounded-xl p-2 border-gray-300"></textarea>
                     </div>
 
                     <button className="flex justify-center items-center gap-4 mt-12 text-center w-[240px] text-white font-medium p-2 rounded-xl bg-green">

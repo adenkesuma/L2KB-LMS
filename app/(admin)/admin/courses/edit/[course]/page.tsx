@@ -13,17 +13,17 @@ const EditDetail = () => {
 
                     <div className='flex flex-col gap-2'>
                         <label className='font-medium text-sm'>Judul Pelatihan <span className="text-red-600">*</span></label>
-                        <input type="text" className="border rounded-xl p-2 border-opacity-green" />
+                        <input type="text" className="border rounded-xl p-2 border-gray-300" />
                     </div>
 
                     <div className='flex flex-col gap-2'>
                         <label className='font-medium text-sm'>Deskripsi Pelatihan <span className="text-red-600">*</span></label>
-                        <textarea rows={6} cols={50} className="border rounded-xl p-2 border-opacity-green"></textarea>
+                        <textarea rows={6} cols={50} className="border rounded-xl p-2 border-gray-300"></textarea>
                     </div>
 
                     <div className="flex flex-col gap-2">
                         <label className="font-medium text-sm">Target Peserta Pelatihan <span className="text-red-600">*</span></label>
-                        <select name="status" id="status" className='border rounded-xl p-2 border-opacity-green bg-white'>
+                        <select name="status" id="status" className='border rounded-xl p-2 border-gray-300 bg-white'>
                             <option value="anggota biasa">Anggota Biasa : Sp KKLP</option>
                             <option value="anggota luar biasa">Anggota Luar Biasa {"(Umum)"} : Dokter yang bukan Sp KKLP</option>
                             <option value="anggota muda">Anggota Muda : PPDS KKLP</option>
@@ -33,7 +33,7 @@ const EditDetail = () => {
 
                     <div className="flex flex-col gap-2">
                         <label className="font-medium text-sm">Institusi Penyelenggara <span className="text-red-600">*</span></label>
-                        <select name="status" id="status" className='border rounded-xl p-2 border-opacity-green bg-white'>
+                        <select name="status" id="status" className='border rounded-xl p-2 border-gray-300 bg-white'>
                             <option value="" disabled selected>Pilih Institusi</option>
                             <option value="pdki">Perhimpunan Dokter Keluarga Indonesia</option>
                         </select>
@@ -41,7 +41,7 @@ const EditDetail = () => {
 
                     <div className="flex flex-col gap-2">
                         <label className="font-medium text-sm">Sasaran Peserta <span className="text-red-600">*</span></label>
-                        <select name="status" id="status" className='border rounded-xl p-2 border-opacity-green bg-white'>
+                        <select name="status" id="status" className='border rounded-xl p-2 border-gray-300 bg-white'>
                             <option value="" disabled selected>Pilih sararan peserta</option>
                             <option value="anggota biasa">Anggota Biasa : Sp KKLP</option>
                             <option value="anggota luar biasa">Anggota Luar Biasa {"(Umum)"} : Dokter yang bukan Sp KKLP</option>
@@ -51,17 +51,17 @@ const EditDetail = () => {
 
                     <div className='flex flex-col gap-2'>
                         <label className='font-medium text-sm'>Tujuan Pelatihan <span className="text-red-600">*</span></label>
-                        <textarea rows={6} cols={50} className="border rounded-xl p-2 border-opacity-green"></textarea>
+                        <textarea rows={6} cols={50} className="border rounded-xl p-2 border-gray-300"></textarea>
                     </div>
 
                     <div className='flex flex-col gap-2'>
                         <label className='font-medium text-sm'>Kompetensi <span className="text-red-600">*</span></label>
-                        <textarea rows={6} cols={50} className="border rounded-xl p-2 border-opacity-green"></textarea>
+                        <textarea rows={6} cols={50} className="border rounded-xl p-2 border-gray-300"></textarea>
                     </div>
 
                     <div className='flex flex-col gap-2'>
                         <label className='font-medium text-sm'>Catatan <span className="text-red-600">*</span></label>
-                        <textarea rows={6} cols={50} className="border rounded-xl p-2 border-opacity-green"></textarea>
+                        <textarea rows={6} cols={50} className="border rounded-xl p-2 border-gray-300"></textarea>
                     </div>
 
 
@@ -82,11 +82,11 @@ const EditDetail = () => {
 
                             <div className="flex flex-col gap-2">
                                 <label className="text-sm font-medium text-gray-800">Mulai Tanggal <span className="text-red-600">*</span></label>
-                                <input type="date" className="border rounded-xl p-2 border-opacity-green" />
+                                <input type="date" className="border rounded-xl p-2 border-gray-300" />
                             </div>
                             <div className="flex flex-col gap-2">
                                 <label className="text-sm font-medium text-gray-800">Sampai Tanggal <span className="text-red-600">*</span></label>
-                                <input type="date" className="border rounded-xl p-2 border-opacity-green" />
+                                <input type="date" className="border rounded-xl p-2 border-gray-300" />
                             </div>
                         </div>
 
@@ -96,11 +96,11 @@ const EditDetail = () => {
 
                             <div className="flex flex-col gap-2">
                                 <label className="text-sm font-medium text-gray-800">Mulai Tanggal <span className="text-red-600">*</span></label>
-                                <input type="date" className="border rounded-xl p-2 border-opacity-green" />
+                                <input type="date" className="border rounded-xl p-2 border-gray-300" />
                             </div>
                             <div className="flex flex-col gap-2">
                                 <label className="text-sm font-medium text-gray-800">Sampai Tanggal <span className="text-red-600">*</span></label>
-                                <input type="date" className="border rounded-xl p-2 border-opacity-green" />
+                                <input type="date" className="border rounded-xl p-2 border-gray-300" />
                             </div>
                         </div>
 
@@ -110,18 +110,18 @@ const EditDetail = () => {
 
                             <div className="flex flex-col gap-2">
                                 <label className="text-sm font-medium text-gray-800">Mulai Tanggal <span className="text-red-600">*</span></label>
-                                <input type="date" className="border rounded-xl p-2 border-opacity-green" />
+                                <input type="date" className="border rounded-xl p-2 border-gray-300" />
                             </div>
                             <div className="flex flex-col gap-2">
                                 <label className="text-sm font-medium text-gray-800">Sampai Tanggal <span className="text-red-600">*</span></label>
-                                <input type="date" className="border rounded-xl p-2 border-opacity-green" />
+                                <input type="date" className="border rounded-xl p-2 border-gray-300" />
                             </div>
                         </div>
 
                         {/* kuota peserta pelatihan */}
                         <div className="flex flex-col gap-2 border-t border-gray-300 pt-4">
                             <label className="text-sm font-medium">Kuota Peserta Pelatihan <span className="text-red-600">*</span></label>
-                            <input type="text" className="border rounded-xl p-2 border-opacity-green" />
+                            <input type="text" className="border rounded-xl p-2 border-gray-300" />
                         </div>
                     </div>
 

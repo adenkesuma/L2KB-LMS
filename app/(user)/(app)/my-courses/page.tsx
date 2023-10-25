@@ -49,16 +49,16 @@ async function MyCourses() {
           </ul>
         </div>
 
-        {/* <div className="flex flex-col gap-2 mt-4 sm:mt-6 lg:gap-3">
+        <div className="flex flex-col gap-2 mt-4 sm:mt-6 lg:gap-3">
           <label className="text-xs sm:text-sm text-gray-600">
             Cari Pelatihan Saya
           </label>
           <input
             type="text"
             placeholder="Cari..."
-            className="border border-opacity-green py-2 px-4 rounded-3xl w-full sm:w-[440px] outline-[#29A398]"
+            className="border border-gray-300 py-2 px-4 rounded-3xl w-full sm:w-[440px] outline-none"
           />
-        </div> */}
+        </div>
       </div>
       <Suspense fallback={<CardSkeleton sum={4} />}>
         <MyCourseContent />

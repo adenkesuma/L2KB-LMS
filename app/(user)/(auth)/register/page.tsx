@@ -137,7 +137,7 @@ const Register: React.FC = () => {
               <select
                 value={userRegister.profile.status_pegawai}
                 onChange={handleChange}
-                className="border rounded-xl p-2 border-opacity-green bg-white"
+                className="border rounded-xl p-2 border-gray-300 bg-white"
                 name="profile.status_pegawai"
                 required
               >
@@ -157,7 +157,7 @@ const Register: React.FC = () => {
               <select
                 value={userRegister.profile.status_anggota}
                 onChange={handleChange}
-                className="border rounded-xl p-2 border-opacity-green bg-white"
+                className="border rounded-xl p-2 border-gray-300 bg-white"
                 name="profile.status_anggota"
                 required
               >
@@ -182,7 +182,7 @@ const Register: React.FC = () => {
                 onChange={handleChange}
                 name="profile.nik"
                 type="number"
-                className="border rounded-xl p-2 border-opacity-green"
+                className="border rounded-xl p-2 border-gray-300"
                 required
               />
             </div>
@@ -197,7 +197,7 @@ const Register: React.FC = () => {
                 onChange={handleChange}
                 name="npa_pdki"
                 type="number"
-                className="border rounded-xl p-2 border-opacity-green"
+                className="border rounded-xl p-2 border-gray-300"
               />
             </div>
 
@@ -211,7 +211,7 @@ const Register: React.FC = () => {
                 onChange={handleChange}
                 name="nama"
                 type="text"
-                className="border rounded-xl p-2 border-opacity-green"
+                className="border rounded-xl p-2 border-gray-300"
                 required
               />
             </div>
@@ -224,7 +224,7 @@ const Register: React.FC = () => {
               <select
                 value={userRegister.profile.jenis_kelamin}
                 onChange={handleChange}
-                className="border rounded-xl p-2 border-opacity-green bg-white"
+                className="border rounded-xl p-2 border-gray-300 bg-white"
                 name="profile.jenis_kelamin"
                 required
               >
@@ -246,7 +246,7 @@ const Register: React.FC = () => {
                 onChange={handleChange}
                 name="profile.tempat_lahir"
                 type="text"
-                className="border rounded-xl p-2 border-opacity-green"
+                className="border rounded-xl p-2 border-gray-300"
                 required
               />
             </div>
@@ -260,7 +260,7 @@ const Register: React.FC = () => {
                 value={userRegister.profile.tanggal_lahir}
                 onChange={handleChange}
                 type="date"
-                className="border rounded-xl p-2 border-opacity-green"
+                className="border rounded-xl p-2 border-gray-300"
                 name="profile.tanggal_lahir"
                 required
               />
@@ -275,7 +275,7 @@ const Register: React.FC = () => {
                 value={userRegister.profile.pendidikan}
                 onChange={handleChange}
                 type="text"
-                className="border rounded-xl p-2 border-opacity-green"
+                className="border rounded-xl p-2 border-gray-300"
                 name="profile.pendidikan"
                 required
               />
@@ -293,7 +293,7 @@ const Register: React.FC = () => {
                 value={userRegister.profile.pekerjaan}
                 onChange={handleChange}
                 type="text"
-                className="border rounded-xl p-2 border-opacity-green"
+                className="border rounded-xl p-2 border-gray-300"
                 name="profile.pekerjaan"
                 required
               />
@@ -308,7 +308,7 @@ const Register: React.FC = () => {
                 name="profile.instansi"
                 onChange={handleChange}
                 type="text"
-                className="border rounded-xl p-2 border-opacity-green"
+                className="border rounded-xl p-2 border-gray-300"
                 required
               />
             </div>
@@ -322,7 +322,7 @@ const Register: React.FC = () => {
                 name="profile.alamat_instansi"
                 onChange={handleChange}
                 type="text"
-                className="border rounded-xl p-2 border-opacity-green"
+                className="border rounded-xl p-2 border-gray-300"
                 required
               />
             </div>
@@ -336,7 +336,7 @@ const Register: React.FC = () => {
                 onChange={handleChange}
                 name="profile.nomor_hp"
                 type="number"
-                className="border rounded-xl p-2 border-opacity-green"
+                className="border rounded-xl p-2 border-gray-300"
                 required
               />
             </div>
@@ -350,7 +350,7 @@ const Register: React.FC = () => {
                 onChange={handleChange}
                 name="email"
                 type="email"
-                className="border rounded-xl p-2 border-opacity-green"
+                className="border rounded-xl p-2 border-gray-300"
                 required
               />
 
@@ -361,14 +361,14 @@ const Register: React.FC = () => {
                 <span>Password</span>
                 <span className="text-red-600">*</span>
               </label>
-              {/* <input value={userRegister.password} onChange={handleChange} name='password' type="password" className="border rounded-xl p-2 border-opacity-green" required /> */}
+              {/* <input value={userRegister.password} onChange={handleChange} name='password' type="password" className="border rounded-xl p-2 border-gray-300" required /> */}
               <div className="flex flex-col gap-2 relative w-full">
                 <input
                   value={userRegister.password}
                   onChange={handleChange}
                   name="password"
                   type={showPassword ? "text" : "password"}
-                  className="border bg-white w-full rounded-xl p-2 border-opacity-green"
+                  className="border bg-white w-full rounded-xl p-2 border-gray-300"
                   required
                 />
                 <button onClick={togglePasswordVisibility}>

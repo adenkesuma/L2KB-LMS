@@ -17,11 +17,11 @@ const Admin = () => {
       <div className="mx-auto w-[35%] flex flex-col gap-6">
         <div className='flex flex-col gap-2'>
           <label className='font-medium text-sm'>Email</label>
-          <input type="email" className="border rounded-xl p-2 border-opacity-green" />
+          <input type="email" className="border rounded-xl p-2 border-gray-300" />
         </div>
         <div className='flex flex-col gap-2'>
           <label className='font-medium text-sm'>Password</label>
-          <input type="password" className="border rounded-xl p-2 border-opacity-green" />
+          <input type="password" className="border rounded-xl p-2 border-gray-300" />
 
           <div className='flex justify-end'>
             <Link href="/forgot-password" className='text-sm font-semibold text-green mt-2'>Lupa Password ?</Link>

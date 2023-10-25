@@ -87,7 +87,7 @@ const Login = () => {
               onChange={handleChange}
               name="email"
               type="email"
-              className="border rounded-xl bg-white p-2 border-opacity-green outline-none"
+              className="border rounded-xl bg-white p-2 border-gray-300 outline-none"
               required
             />
           </div>
@@ -99,7 +99,7 @@ const Login = () => {
                 onChange={handleChange}
                 name="password"
                 type={showPassword ? "text" : "password"}
-                className="border bg-white w-full rounded-xl p-2 border-opacity-green outline-none"
+                className="border bg-white w-full rounded-xl p-2 border-gray-300 outline-none"
                 required
               />
               <button onClick={togglePasswordVisibility}>

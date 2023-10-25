@@ -10,12 +10,12 @@ const NewGuideline = () => {
             <div className="flex gap-8 flex-col mt-8">
                 <div className='flex flex-col gap-2'>
                     <label className='font-medium text-sm'>Upload Panduan <span className='italic text-orange-600 font-regular'>(jpg, png, pdf, jpeg, webp)</span> <span className="text-red-600">*</span></label>
-                    <input type="file" className="bg-white border rounded-xl p-2 border-opacity-green" />
+                    <input type="file" className="bg-white border rounded-xl p-2 border-gray-300" />
                 </div>
 
                 <div className='flex flex-col gap-2'>
                     <label className='font-medium text-sm'>Tanggal Hari Ini <span className="text-red-600">*</span></label>
-                    <input type="date" className="border rounded-xl p-2 border-opacity-green" />
+                    <input type="date" className="border rounded-xl p-2 border-gray-300" />
                 </div>
 
                 <button className='flex justify-center items-center gap-4 mt-12 text-center w-[240px] text-white font-medium p-2 rounded-xl bg-green'>

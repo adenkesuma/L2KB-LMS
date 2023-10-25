@@ -27,7 +27,7 @@ const AdminNavbar: FC = () => {
                         <Image 
                             src={Profile}
                             alt="profile user"
-                            className="h-14 w-14 rounded-[50%] p-1 border border-opacity-green"
+                            className="h-14 w-14 rounded-[50%] p-1 border border-gray-300"
                         />
                     </Link>
                 </nav>

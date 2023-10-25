@@ -21,7 +21,7 @@ const Card: FC<{
           height={100}
         />
       </figure>
-      <div className="p-1 text-center rounded-md border-opacity-green border-[1.4px] text-[10px] sm:text-xs font-medium text-green w-full sm:w-[150px] mt-4">
+      <div className="p-1 text-center rounded-md border-gray-300 border-[1.4px] text-[10px] sm:text-xs font-medium text-green w-full sm:w-[150px] mt-4">
         <span>Khusus Anggota Muda</span>
       </div>
 

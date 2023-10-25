@@ -99,7 +99,7 @@ const Navbar: FC = () => {
                       <Image
                         src={Profile}
                         alt="profile user"
-                        className="h-10 w-10 rounded-[50%] p-1 border border-opacity-green"
+                        className="h-10 w-10 rounded-[50%] p-1 border border-gray-300"
                       />
                       <span className="opacity-0 absolute bg-white border border-slate-200 delay-100 text-slate-500 text-xs rounded-md mt-[84px] mr-14 p-1 whitespace-nowrap group-hover:opacity-100 group-hover:py-1 group-hover:px-3">
                         Profil
@@ -109,7 +109,7 @@ const Navbar: FC = () => {
 
                   <Link
                     href="/notification"
-                    className="group py-[7px] px-2 border border-opacity-green flex items-center justify-center relative rounded-[50%]"
+                    className="group py-[7px] px-2 border border-gray-300 flex items-center justify-center relative rounded-[50%]"
                   >
                     <Image src={Notification} alt="bell icon" className="w-5" />
                     <span className="opacity-0 absolute bg-white border border-slate-200 delay-100 text-slate-500 text-xs rounded-md mt-20 mr-8 p-1 whitespace-nowrap group-hover:opacity-100 group-hover:py-1 group-hover:px-3">
@@ -124,7 +124,7 @@ const Navbar: FC = () => {
                       router.refresh();
                     }}
                   >
-                    <div className="p-2 border border-opacity-green rounded-[50%]">
+                    <div className="p-2 border border-gray-300 rounded-[50%]">
                       <Image src={Logout} alt="logout icon" className="w-5" />
                     </div>
                     <span className="opacity-0 absolute bg-white border border-slate-100 delay-100 text-slate-500 font-medium text-xs rounded-md mt-20 mr-2 p-1 whitespace-nowrap group-hover:opacity-100 group-hover:py-1 group-hover:px-3">

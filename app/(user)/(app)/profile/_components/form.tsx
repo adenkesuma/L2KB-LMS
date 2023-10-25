@@ -102,7 +102,7 @@ function UpdateProfileForm() {
   }, [userData, reset]);
 
   return (
-    <div className="bg-white rounded-xl mt-4 sm:mt-8">
+    <div className="bg-white rounded-xl border border-gray-200 mt-4 sm:mt-8">
       {/* top profile */}
       <div className="flex justify-between flex-col sm:flex-row gap-8 sm:gap-0 items-start p-3 sm:p-8">
         <div className="flex flex-col gap-2 sm:gap-4">
@@ -146,7 +146,7 @@ function UpdateProfileForm() {
         <div className="flex flex-col gap-4">
           <Link
             href="/forgot-password"
-            className="text-center w-40 lg:w-60 font-medium text-xs sm:text-sm mt-2 p-2 rounded-lg sm:rounded-xl border-opacity-green border text-green"
+            className="text-center w-40 lg:w-52 font-medium text-xs sm:text-sm mt-2 p-2 rounded-lg sm:rounded-xl border-green border text-green"
           >
             Ubah Kata Sandi
           </Link>
@@ -164,7 +164,7 @@ function UpdateProfileForm() {
             <label className="font-medium text-xs sm:text-sm">NPA PDKI</label>
             <input
               type="number"
-              className="border rounded-xl p-2 border-opacity-green"
+              className="border rounded-xl p-2 border-gray-300"
               {...register("npa_pdki")}
             />
           </div>
@@ -173,7 +173,7 @@ function UpdateProfileForm() {
             <label className="font-medium text-xs sm:text-sm">NOMOR KTP</label>
             <input
               type="number"
-              className="border rounded-xl p-2 border-opacity-green"
+              className="border rounded-xl p-2 border-gray-300"
               {...register("profile.no_ktp")}
             />
           </div>
@@ -182,7 +182,7 @@ function UpdateProfileForm() {
             <label className="font-medium text-xs sm:text-sm">Email</label>
             <input
               type="email"
-              className="border rounded-xl p-2 border-opacity-green"
+              className="border rounded-xl p-2 border-gray-300"
               {...register("email", {
                 // disabled: true,
               })}
@@ -196,7 +196,7 @@ function UpdateProfileForm() {
             </label>
             <input
               type="text"
-              className="border rounded-xl p-2 border-opacity-green"
+              className="border rounded-xl p-2 border-gray-300"
               {...register("nama")}
             />
           </div>
@@ -207,7 +207,7 @@ function UpdateProfileForm() {
             </label>
             <input
               type="text"
-              className="border rounded-xl p-2 border-opacity-green"
+              className="border rounded-xl p-2 border-gray-300"
               {...register("profile.nama_lengkap_gelar")}
             />
           </div>
@@ -218,7 +218,7 @@ function UpdateProfileForm() {
             </label>
             <input
               type="text"
-              className="border rounded-xl p-2 border-opacity-green"
+              className="border rounded-xl p-2 border-gray-300"
               {...register("profile.tempat_lahir")}
             />
           </div>
@@ -229,7 +229,7 @@ function UpdateProfileForm() {
             </label>
             <input
               type="date"
-              className="border rounded-xl p-2 border-opacity-green"
+              className="border rounded-xl p-2 border-gray-300"
               {...register("profile.tanggal_lahir")}
             />
           </div>
@@ -239,7 +239,7 @@ function UpdateProfileForm() {
               Pilih Jenis Kelamin Anda
             </label>
             <select
-              className="border rounded-xl p-2 border-opacity-green bg-white"
+              className="border rounded-xl p-2 border-gray-300 bg-white"
               {...register("profile.jenis_kelamin")}
             >
               <option value="">- Pilih jenis kelamin -</option>
@@ -254,7 +254,7 @@ function UpdateProfileForm() {
               </label>
               <input
                 type="text"
-                className="border rounded-xl p-2 border-opacity-green"
+                className="border rounded-xl p-2 border-gray-300"
                 {...register("profile.pendidikan")}
               />
             </div> */}
@@ -263,7 +263,7 @@ function UpdateProfileForm() {
             <label className="font-medium text-xs sm:text-sm">Agama</label>
             <input
               type="text"
-              className="border rounded-xl p-2 border-opacity-green"
+              className="border rounded-xl p-2 border-gray-300"
               {...register("profile.agama")}
             />
           </div>
@@ -277,7 +277,7 @@ function UpdateProfileForm() {
             </label>
             <input
               type="number"
-              className="border rounded-xl p-2 border-opacity-green"
+              className="border rounded-xl p-2 border-gray-300"
               {...register("profile.nomor_hp")}
             />
           </div>
@@ -287,7 +287,7 @@ function UpdateProfileForm() {
               Pendidikan terakhir
             </label>
             <select
-              className="border rounded-xl p-2 border-opacity-green bg-white"
+              className="border rounded-xl p-2 border-gray-300 bg-white"
               {...register("profile.pendidikan")}
             >
               <option value="">- Pilih Tingkat -</option>
@@ -304,7 +304,7 @@ function UpdateProfileForm() {
             <label className="font-medium text-xs sm:text-sm">Jurusan</label>
             <input
               type="text"
-              className="border rounded-xl p-2 border-opacity-green"
+              className="border rounded-xl p-2 border-gray-300"
               {...register("profile.jurusan")}
             />
           </div>
@@ -315,7 +315,7 @@ function UpdateProfileForm() {
             </label>
             <input
               type="text"
-              className="border rounded-xl p-2 border-opacity-green"
+              className="border rounded-xl p-2 border-gray-300"
               {...register("profile.pekerjaan")}
             />
           </div>
@@ -325,7 +325,7 @@ function UpdateProfileForm() {
               Pangkat / Golongan
             </label>
             <select
-              className="border rounded-xl p-2 border-opacity-green bg-white"
+              className="border rounded-xl p-2 border-gray-300 bg-white"
               {...register("profile.pangkat")}
             >
               <option value="tidak ada">tidak ada</option>
@@ -356,7 +356,7 @@ function UpdateProfileForm() {
             <label className="font-medium text-xs sm:text-sm">Instansi</label>
             <input
               type="text"
-              className="border rounded-xl p-2 border-opacity-green"
+              className="border rounded-xl p-2 border-gray-300"
               {...register("profile.instansi")}
             />
           </div>
@@ -367,7 +367,7 @@ function UpdateProfileForm() {
             </label>
             <input
               type="text"
-              className="border rounded-xl p-2 border-opacity-green"
+              className="border rounded-xl p-2 border-gray-300"
               {...register("profile.alamat_instansi")}
             />
           </div>
@@ -378,7 +378,7 @@ function UpdateProfileForm() {
             </label>
             <input
               type="number"
-              className="border rounded-xl p-2 border-opacity-green"
+              className="border rounded-xl p-2 border-gray-300"
               {...register("profile.no_telp_instansi")}
             />
           </div>
@@ -388,7 +388,7 @@ function UpdateProfileForm() {
             </label>
             <input
               type="text"
-              className="border rounded-xl p-2 border-opacity-green"
+              className="border rounded-xl p-2 border-gray-300"
               {...register("profile.alamat")}
             />
           </div>

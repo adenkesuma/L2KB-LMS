@@ -123,7 +123,7 @@ function RegisterTrainingForm({ training_id }: { training_id: string }) {
           </label>
           <input
             type="text"
-            className="border bg-white rounded-xl p-2 border-opacity-green"
+            className="border bg-white rounded-xl p-2 border-gray-300"
             {...register("nama_lengkap")}
           />
         </div>
@@ -135,7 +135,7 @@ function RegisterTrainingForm({ training_id }: { training_id: string }) {
           </label>
           <input
             type="text"
-            className="bg-white border rounded-xl p-2 border-opacity-green"
+            className="bg-white border rounded-xl p-2 border-gray-300"
             {...register("nama_lengkap_gelar")}
           />
         </div>
@@ -148,7 +148,7 @@ function RegisterTrainingForm({ training_id }: { training_id: string }) {
           </label>
           <input
             type="file"
-            className="border bg-white rounded-xl p-2 border-opacity-green"
+            className="border bg-white rounded-xl p-2 border-gray-300"
             {...register("sip_file")}
           />
         </div>
@@ -159,7 +159,7 @@ function RegisterTrainingForm({ training_id }: { training_id: string }) {
           </label>
           <input
             type="text"
-            className="border bg-white rounded-xl p-2 border-opacity-green"
+            className="border bg-white rounded-xl p-2 border-gray-300"
             {...register("no_sip")}
           />
         </div>
@@ -172,7 +172,7 @@ function RegisterTrainingForm({ training_id }: { training_id: string }) {
           </label>
           <input
             type="file"
-            className="bg-white border rounded-xl p-2 border-opacity-green"
+            className="bg-white border rounded-xl p-2 border-gray-300"
             {...register("str_file")}
           />
         </div>
@@ -183,7 +183,7 @@ function RegisterTrainingForm({ training_id }: { training_id: string }) {
           </label>
           <input
             type="text"
-            className="border bg-white rounded-xl p-2 border-opacity-green"
+            className="border bg-white rounded-xl p-2 border-gray-300"
             {...register("no_str")}
           />
         </div>
@@ -196,7 +196,7 @@ function RegisterTrainingForm({ training_id }: { training_id: string }) {
           </label>
           <input
             type="file"
-            className="border bg-white rounded-xl p-2 border-opacity-green"
+            className="border bg-white rounded-xl p-2 border-gray-300"
             {...register("serkom_file")}
           />
         </div>
@@ -207,7 +207,7 @@ function RegisterTrainingForm({ training_id }: { training_id: string }) {
           </label>
           <input
             type="text"
-            className="border bg-white rounded-xl p-2 border-opacity-green"
+            className="border bg-white rounded-xl p-2 border-gray-300"
             {...register("no_serkom")}
           />
         </div>
@@ -221,7 +221,7 @@ function RegisterTrainingForm({ training_id }: { training_id: string }) {
           </label>
           <input
             type="file"
-            className="border bg-white rounded-xl p-2 border-opacity-green"
+            className="border bg-white rounded-xl p-2 border-gray-300"
             {...register("ijazah_file")}
           />
         </div>
@@ -232,7 +232,7 @@ function RegisterTrainingForm({ training_id }: { training_id: string }) {
           </label>
           <input
             type="text"
-            className="border bg-white rounded-xl p-2 border-opacity-green"
+            className="border bg-white rounded-xl p-2 border-gray-300"
             {...register("no_ijazah")}
           />
         </div>
@@ -245,7 +245,7 @@ function RegisterTrainingForm({ training_id }: { training_id: string }) {
           </label>
           <input
             type="file"
-            className="border bg-white rounded-xl p-2 border-opacity-green"
+            className="border bg-white rounded-xl p-2 border-gray-300"
             {...register("pdki_file")}
           />
         </div>
@@ -256,7 +256,7 @@ function RegisterTrainingForm({ training_id }: { training_id: string }) {
           </label>
           <input
             type="text"
-            className="border rounded-xl p-2 border-opacity-green"
+            className="border rounded-xl p-2 border-gray-300"
             {...register("no_pdki")}
           />
         </div>
@@ -269,7 +269,7 @@ function RegisterTrainingForm({ training_id }: { training_id: string }) {
           </label>
           <input
             type="file"
-            className="border bg-white rounded-xl p-2 border-opacity-green"
+            className="border bg-white rounded-xl p-2 border-gray-300"
             {...register("ktp_file")}
           />
         </div>
@@ -280,7 +280,7 @@ function RegisterTrainingForm({ training_id }: { training_id: string }) {
           </label>
           <input
             type="text"
-            className="border bg-white rounded-xl p-2 border-opacity-green"
+            className="border bg-white rounded-xl p-2 border-gray-300"
             {...register("no_ktp")}
           />
         </div>
@@ -293,7 +293,7 @@ function RegisterTrainingForm({ training_id }: { training_id: string }) {
           </label>
           <input
             type="file"
-            className="border bg-white rounded-xl p-2 border-opacity-green"
+            className="border bg-white rounded-xl p-2 border-gray-300"
             {...register("paid_file")}
           />
         </div>
@@ -304,7 +304,7 @@ function RegisterTrainingForm({ training_id }: { training_id: string }) {
           </label>
           <input
             type="text"
-            className="border bg-white rounded-xl p-2 border-opacity-green"
+            className="border bg-white rounded-xl p-2 border-gray-300"
             {...register("no_atm")}
           />
         </div>

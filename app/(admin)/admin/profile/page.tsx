@@ -21,7 +21,7 @@ const AdminProfile = () => {
                     {/* change profile */}
                     <div className="relative mt-2">
                         <input type="file" className="hidden" id="changeProfile"/>
-                        <label htmlFor="changeProfile" className="w-36 flex gap-3 justify-center items-center cursor-pointer border border-opacity-green text-green font-medium rounded-lg py-2 px-4">
+                        <label htmlFor="changeProfile" className="w-36 flex gap-3 justify-center items-center cursor-pointer border border-gray-300 text-green font-medium rounded-lg py-2 px-4">
                             <Image 
                                 src={UploadIcon}
                                 alt="upload icon"
@@ -54,22 +54,22 @@ const AdminProfile = () => {
                 <div className='flex flex-col gap-6'>
                   <div className="flex flex-col gap-2">
                     <label className="font-medium text-sm">Nama Lengkap</label>
-                    <input type="text" className="border rounded-xl p-2 border-opacity-green" />
+                    <input type="text" className="border rounded-xl p-2 border-gray-300" />
                   </div>
     
                   <div className="flex flex-col gap-2">
                     <label className="font-medium text-sm">Nama Lengkap Beserta Gelar</label>
-                    <input type="text" className="border rounded-xl p-2 border-opacity-green" />
+                    <input type="text" className="border rounded-xl p-2 border-gray-300" />
                   </div>
 
                   <div className="flex flex-col gap-2">
                     <label className="font-medium text-sm">Email</label>
-                    <input type="email" className="border rounded-xl p-2 border-opacity-green" />
+                    <input type="email" className="border rounded-xl p-2 border-gray-300" />
                   </div>
 
                   <div className="flex flex-col gap-2">
                     <label className="font-medium text-sm">NIK</label>
-                    <input type="number" className="border rounded-xl p-2 border-opacity-green" />
+                    <input type="number" className="border rounded-xl p-2 border-gray-300" />
                   </div>
     
                 </div>
@@ -78,17 +78,17 @@ const AdminProfile = () => {
                 <div className='flex flex-col gap-6'>
                   <div className="flex flex-col gap-2">
                     <label className="font-medium text-sm">Nomor Telepon</label>
-                    <input type="text" className="border rounded-xl p-2 border-opacity-green" />
+                    <input type="text" className="border rounded-xl p-2 border-gray-300" />
                   </div>
     
                   <div className='flex flex-col gap-2'>
                       <label className='font-medium text-sm'>Tempat lahir</label>
-                      <input type="text" className="border rounded-xl p-2 border-opacity-green" />
+                      <input type="text" className="border rounded-xl p-2 border-gray-300" />
                   </div>
     
                   <div className='flex flex-col gap-2'>
                       <label className='font-medium text-sm'>Tanggal lahir</label>
-                      <input type="date" className="border rounded-xl p-2 border-opacity-green" />
+                      <input type="date" className="border rounded-xl p-2 border-gray-300" />
                   </div>
     
                   {/* button daftar */}
