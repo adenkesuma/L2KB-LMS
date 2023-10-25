@@ -7,9 +7,7 @@ export async function setCookie(accessKey: string) {
     name: "accessKey",
     value: accessKey,
     path: "/",
-    sameSite: "lax",
     secure: true,
-    httpOnly: true,
   });
 
   return true;
