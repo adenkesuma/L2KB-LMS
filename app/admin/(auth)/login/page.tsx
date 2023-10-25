@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import Logo from "@/public/assets/logo/kolegium.png";
+import AdminLoginForm from "./_components/form";
 
 function AdminLoginPage() {
   return (
@@ -12,7 +13,7 @@ function AdminLoginPage() {
       </Link>
 
       <h1 className="font-bold mt-4 text-[38px] text-center mb-12">Masuk</h1>
-      <div className="mx-auto w-[35%] flex flex-col gap-6">
+      {/* <div className="mx-auto w-[35%] flex flex-col gap-6">
         <div className="flex flex-col gap-2">
           <label className="font-medium text-sm">Email</label>
           <input
@@ -31,7 +32,8 @@ function AdminLoginPage() {
 
       <button className="mt-12 text-center w-[240px] text-white font-medium p-2 rounded-xl bg-green">
         Masuk
-      </button>
+      </button> */}
+      <AdminLoginForm />
     </main>
   );
 }
