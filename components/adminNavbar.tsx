@@ -16,18 +16,18 @@ const AdminNavbar: FC = () => {
             )
             : 
             (   
-                <nav className="flex bg-white items-center justify-between py-4 px-12 border-b border-gray-100">
-                    <h1 className="text-[20px] font-medium text-gray-600">
-                        Selamat Datang di Dashboard Admin
+                <nav className="flex bg-white items-center justify-end sm:justify-between py-2 xl:py-4 px-4 border-b border-gray-100">
+                    <h1 className="text-lg hidden md:block font-medium text-gray-600">
+                        Admin Dashboard
                     </h1>
                     <Link href="/admin/profile" className="flex items-center gap-4">
-                        <span className="font-medium text-md text-gray-800">
+                        <span className="font-medium text-xs xl:text-sm text-gray-800">
                             Park ji sung
                         </span>
                         <Image 
                             src={Profile}
                             alt="profile user"
-                            className="h-14 w-14 rounded-[50%] p-1 border border-gray-300"
+                            className="h-8 md:h-10 xl:h-12 w-8 md:w-10 xl:w-12 rounded-[50%] p-[2px] xl:p-1 border border-gray-300"
                         />
                     </Link>
                 </nav>
