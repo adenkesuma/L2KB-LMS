@@ -1,6 +1,4 @@
-"use client";
-
-import { useState, useEffect } from "react";
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -14,6 +12,11 @@ import { userAuthStore } from "../../store/user-auth.store";
 import { getAllTrainingData } from "@/lib/services/training-data.service";
 import { Suspense } from "react";
 import Loading from "../../components/loading";
+import CardSkeleton from "../../components/skeleton/card-skeleton";
+import LatestTrainingMainPage from "./_components/latest-training";
+import { cookies } from "next/headers";
+import MainPageBanner from "./_components/banner";
+import { BannerSkeleton } from "../../components/skeleton/banner-skeleton";
 
 export interface ITrainingData {
   target_candidate: string;
@@ -43,34 +46,23 @@ export interface ITrainingData {
 }
 
 const UserHomePage = () => {
-  const userAuth = useStore(userAuthStore, (state) => state);
-  const [allTrainingData, setAllTrainingData] = useState<ITrainingData[]>([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await getAllTrainingData();
-        setAllTrainingData(data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchData();
-
-    const audio = new Audio("/assets/voice/voice-over.mp3");
-    audio.autoplay = true;
-  }, []);
+  const cookieStore = cookies();
+  const accessKey = cookieStore.get("accessKey");
+  // const userAuth = useStore(userAuthStore, (state) => state);
+  // const [allTrainingData, setAllTrainingData] = useState<ITrainingData[]>([]);
 
   return (
     <main className="min-h-screen">
-      {userAuth &&
-        (userAuth?.accessToken ? <MyCourseBanner /> : <HeroBanner data={allTrainingData} />)}
+      {accessKey ? (
+        <MyCourseBanner />
+      ) : (
+        <Suspense fallback={<BannerSkeleton />}>
+          <MainPageBanner />
+        </Suspense>
+      )}
 
       <div
-        className={`${
-          userAuth?.accessToken ? "mt-20 sm:mt-16 lg:mt-28" : "mt-6 sm:mt-14"
-        }`}
+        className={`${accessKey ? "mt-20 sm:mt-16 lg:mt-28" : "mt-6 sm:mt-14"}`}
       >
         <div className="flex justify-between items-center mb-4">
           <h2 className="font-semibold text-xl sm:text-2xl sm:font-bold lg:text-[28px]">
@@ -85,12 +77,8 @@ const UserHomePage = () => {
           </Link>
         </div>
 
-        <Suspense fallback={<Loading />}>
-          <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 mt-6 sm:mt-6 lg:mt-12">
-            {allTrainingData?.slice(0, 4).map((data, i) => {
-              return <Card key={i} data={data} />;
-            })}
-          </div>
+        <Suspense fallback={<CardSkeleton sum={4} />}>
+          <LatestTrainingMainPage />
         </Suspense>
       </div>
     </main>

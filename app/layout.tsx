@@ -1,8 +1,7 @@
 import "./globals.css";
+
 import type { Metadata } from "next";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
-import Navbar from "@/components/navbar";
-import Footer from "@/components/footer";
 
 const pjs = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
@@ -18,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${pjs.className} bg-gray-100`}>{children}</body>
+      <body className={`${pjs.className} bg-white relative`}>{children}</body>
     </html>
   );
 }

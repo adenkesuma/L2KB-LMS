@@ -1,7 +1,15 @@
+import { Suspense } from "react";
 import Link from "next/link";
-import Card from "@/components/card";
 
-const MyCourse = () => {
+import MyCourseContent from "./_components/content";
+import CardSkeleton from "../../../../components/skeleton/card-skeleton";
+import { ITrainingData } from "../../page";
+
+export interface IMyTraningData {
+  training: ITrainingData;
+}
+
+async function MyCourses() {
   return (
     <main className="pt-4 sm:pt-6 lg:pt-12 min-h-screen">
       <div className="flex justify-between lg:flex-row flex-col items-start lg:items-end">
@@ -52,12 +60,11 @@ const MyCourse = () => {
           />
         </div> */}
       </div>
-
-      <div className="mt-4 sm:mt-6 lg:mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-8">
-        {/* <Card /> */}
-      </div>
+      <Suspense fallback={<CardSkeleton sum={4} />}>
+        <MyCourseContent />
+      </Suspense>
     </main>
   );
-};
+}
 
-export default MyCourse;
+export default MyCourses;

@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
-import { FC, useState, useEffect } from "react"
-import Image from "next/image"
-import { ITrainingData } from "@/app/(user)/page"
+import { FC, useState, useEffect } from "react";
+import Image from "next/image";
+import { ITrainingData } from "@/app/(user)/page";
 import Link from "next/link";
-import Arrow from "@/public/assets/icons/arrow-right.svg"
+import Arrow from "@/public/assets/icons/arrow-right.svg";
 
 const HeroBanner: FC<{ data: ITrainingData[] }> = ({ data }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -52,7 +52,7 @@ const HeroBanner: FC<{ data: ITrainingData[] }> = ({ data }) => {
           className="absolute top-1/2 transform -translate-y-1/2 left-4 bg-white px-2 py-[5px] md:px-4 md:py-[11px] rounded-full shadow-lg cursor-pointer"
           onClick={handlePrev}
         >
-          <Image 
+          <Image
             src={Arrow}
             alt="arrow left"
             className="w-2 sm:w-3 rotate-180"
@@ -62,11 +62,7 @@ const HeroBanner: FC<{ data: ITrainingData[] }> = ({ data }) => {
           className="absolute top-1/2 transform -translate-y-1/2 right-4 bg-white px-2 py-[5px] md:px-4 md:py-[11px] rounded-full shadow-lg cursor-pointer"
           onClick={handleNext}
         >
-          <Image 
-            src={Arrow}
-            alt="arrow right"
-            className="w-2 sm:w-3"
-          />
+          <Image src={Arrow} alt="arrow right" className="w-2 sm:w-3" />
         </button>
       </div>
 

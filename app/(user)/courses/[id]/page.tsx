@@ -36,7 +36,7 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
           </p>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-4 sm:gap-8 mt-4">
+        <div className="flex flex-col lg:flex-row gap-4 sm:gap-8 mt-4 relative">
           <figure className="block w-full lg:w-[68%]">
             <Image
               src={`${process.env.NEXT_PUBLIC_P2KB_API}/img/training_cover/${oneTrainingData?.id}.webp`}
@@ -47,76 +47,78 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
             />
           </figure>
 
-          <div className="p-3 md:p-4 w-full lg:w-[32%] bg-white rounded-xl flex justify-between flex-col">
-            <div>
-              <h2 className="font-semibold text-base sm:text-[24px] text-gray-800">
-                Tentang pelatihan ini
-              </h2>
+          <div className="sticky top-20 w-full lg:w-[32%] h-full max-h-[calc(100vh-9rem)]">
+            <div className="p-3 md:p-4 bg-white rounded-xl flex justify-between flex-col border sticky top-0">
+              <div className="">
+                <h2 className="font-semibold text-base sm:text-[24px] text-gray-800">
+                  Tentang pelatihan ini
+                </h2>
 
-              <ul className="flex flex-col justify-start mt-4 sm:mt-6 gap-2">
-                <li className="font-reguler te text-xs sm:text-sm text-gray-600">
-                  Tahun Pelaksanaan:{" "}
-                  <span className="font-semibold text-green">
-                    {oneTrainingData?.tahun_pelaksanaan}
-                  </span>
-                </li>
-                <li className="font-reguler text-xs sm:text-sm text-gray-600">
-                  Institusi Penyelenggara:{" "}
-                  <span className="font-semibold text-green">
-                    {oneTrainingData.trainingOrganizer.nama}
-                  </span>
-                </li>
-                <li className="font-reguler text-xs sm:text-sm text-gray-600">
-                  Gelombang / Batch:{" "}
-                  <span className="font-semibold text-green">
-                    {oneTrainingData.batch}
-                  </span>
-                </li>
-                <li className="font-reguler text-xs sm:text-sm text-gray-600">
-                  Periode Pendaftaran:{" "}
-                  <span className="font-semibold text-green">
-                    {moment(
-                      new Date(oneTrainingData.regis_start).toDateString()
-                    ).format("DD MMMM yyyy")}{" "}
-                    s/d{" "}
-                    {moment(
-                      new Date(oneTrainingData.regis_end).toDateString()
-                    ).format("DD MMMM yyyy")}
-                  </span>
-                </li>
-                <li className="font-reguler text-xs sm:text-sm text-gray-600">
-                  Periode Pelatihan:{" "}
-                  <span className="font-semibold text-green">
-                    {moment(
-                      new Date(oneTrainingData.training_start).toDateString()
-                    ).format("DD MMMM yyyy")}{" "}
-                    s/d{" "}
-                    {moment(
-                      new Date(oneTrainingData.training_end).toDateString()
-                    ).format("DD MMMM yyyy")}
-                  </span>
-                </li>
-                <li className="font-reguler text-xs sm:text-sm text-gray-600">
-                  Tempat Penyelenggaraan:{" "}
-                  <span className="font-semibold text-green">
-                    {oneTrainingData.location}
-                  </span>
-                </li>
-                <li className="font-reguler text-xs sm:text-sm text-gray-600">
-                  Biaya Pelatihan:{" "}
-                  <span className="font-semibold text-green">
-                    Rp {oneTrainingData.price}
-                  </span>
-                </li>
-              </ul>
+                <ul className="flex flex-col justify-start mt-4 sm:mt-6 gap-2">
+                  <li className="font-reguler te text-xs sm:text-sm text-gray-600">
+                    Tahun Pelaksanaan:{" "}
+                    <span className="font-semibold text-green">
+                      {oneTrainingData?.tahun_pelaksanaan}
+                    </span>
+                  </li>
+                  <li className="font-reguler text-xs sm:text-sm text-gray-600">
+                    Institusi Penyelenggara:{" "}
+                    <span className="font-semibold text-green">
+                      {oneTrainingData.trainingOrganizer.nama}
+                    </span>
+                  </li>
+                  <li className="font-reguler text-xs sm:text-sm text-gray-600">
+                    Gelombang / Batch:{" "}
+                    <span className="font-semibold text-green">
+                      {oneTrainingData.batch}
+                    </span>
+                  </li>
+                  <li className="font-reguler text-xs sm:text-sm text-gray-600">
+                    Periode Pendaftaran:{" "}
+                    <span className="font-semibold text-green">
+                      {moment(
+                        new Date(oneTrainingData.regis_start).toDateString()
+                      ).format("DD MMMM yyyy")}{" "}
+                      s/d{" "}
+                      {moment(
+                        new Date(oneTrainingData.regis_end).toDateString()
+                      ).format("DD MMMM yyyy")}
+                    </span>
+                  </li>
+                  <li className="font-reguler text-xs sm:text-sm text-gray-600">
+                    Periode Pelatihan:{" "}
+                    <span className="font-semibold text-green">
+                      {moment(
+                        new Date(oneTrainingData.training_start).toDateString()
+                      ).format("DD MMMM yyyy")}{" "}
+                      s/d{" "}
+                      {moment(
+                        new Date(oneTrainingData.training_end).toDateString()
+                      ).format("DD MMMM yyyy")}
+                    </span>
+                  </li>
+                  <li className="font-reguler text-xs sm:text-sm text-gray-600">
+                    Tempat Penyelenggaraan:{" "}
+                    <span className="font-semibold text-green">
+                      {oneTrainingData.location}
+                    </span>
+                  </li>
+                  <li className="font-reguler text-xs sm:text-sm text-gray-600">
+                    Biaya Pelatihan:{" "}
+                    <span className="font-semibold text-green">
+                      Rp {oneTrainingData.price}
+                    </span>
+                  </li>
+                </ul>
+              </div>
+
+              <Link
+                href={`/courses/${oneTrainingData.id}/register`}
+                className="mt-6 text-center text-white text-sm font-medium w-full p-2 rounded-xl bg-green"
+              >
+                Daftar Sekarang
+              </Link>
             </div>
-
-            <Link
-              href="/register"
-              className="mt-6 text-center text-white text-sm font-medium w-full p-2 rounded-xl bg-green"
-            >
-              Daftar Sekarang
-            </Link>
           </div>
 
           {/* <Link

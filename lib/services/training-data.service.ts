@@ -1,3 +1,4 @@
+import { IMyTraningData } from "../../app/(user)/(app)/my-courses/page";
 import { ITrainingData } from "../../app/(user)/courses/page";
 
 export async function getAllTrainingData(
@@ -9,9 +10,6 @@ export async function getAllTrainingData(
     }`,
     {
       method: "GET",
-      next: {
-        revalidate: 0,
-      },
       cache: "no-store",
     }
   );
@@ -30,11 +28,28 @@ export async function getOneTrainingData(
       `${process.env.NEXT_PUBLIC_P2KB_API}/training/${id}`,
       {
         method: "GET",
-        next: {
-          revalidate: 0,
-        },
+        cache: "no-store",
       }
     );
+    const res = await get.json();
+    return await res.data;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+}
+
+export async function getMyTraining(
+  accessKey: string
+): Promise<IMyTraningData[] | null> {
+  try {
+    const get = await fetch(`${process.env.NEXT_PUBLIC_P2KB_API}/my-training`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${accessKey}`,
+      },
+      cache: "no-store",
+    });
     const res = await get.json();
     return await res.data;
   } catch (error) {

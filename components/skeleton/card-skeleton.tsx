@@ -1,9 +1,11 @@
+"use client";
+
 function CardSkeleton({ sum }: { sum: number }) {
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 mt-6 sm:mt-6 lg:mt-12">
       {Array.from({ length: sum }).map((_v, i) => {
         return (
-          <div className="rounded-xl bg-white p-2 sm:p-3" key={i}>
+          <div className="rounded-xl bg-white p-2 sm:p-3 border" key={i}>
             <figure>
               <div className="rounded-lg h-28 lg:h-40 w-full bg-cover object-cover animate-pulse bg-gray-100" />
             </figure>
