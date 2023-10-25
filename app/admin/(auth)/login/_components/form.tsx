@@ -57,7 +57,7 @@ function AdminLoginForm() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-8 w-[35%]"
+        className="space-y-4 xl:space-y-6 w-3/4 md:w-1/2 xl:w-[30%]"
       >
         <FormField
           control={form.control}
@@ -85,7 +85,9 @@ function AdminLoginForm() {
             </FormItem>
           )}
         />
-        <Button type="submit">Login</Button>
+        <div className="mx-auto flex justify-center pt-4">
+          <Button type="submit">Login</Button>
+        </div>
       </form>
     </Form>
   );
