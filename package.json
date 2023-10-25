@@ -25,6 +25,7 @@
     "zustand": "^4.4.3"
   },
   "devDependencies": {
+    "@cloudflare/next-on-pages": "^1.7.2",
     "@types/jsonwebtoken": "^9.0.4",
     "@types/node": "^20",
     "@types/react": "^18",
