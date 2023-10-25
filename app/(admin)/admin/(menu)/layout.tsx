@@ -19,7 +19,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter}`}>
-        {children}
+        <div className='flex relative'>
+          <Sidebar />
+          <section className='w-full md:w-[90%] lg:w-[93%] xl:w-[82%] 2xl:w-[86%]'>
+            <AdminNavbar />
+            <span className='bg-slate-100 block'>
+              {children}
+            </span>
+          </section>
+        </div>
       </body>
     </html>
   )
