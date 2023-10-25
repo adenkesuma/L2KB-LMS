@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // import Link from "next/link"
 // import Image from "next/image"
 // import Profile from "@/public/assets/user.png"

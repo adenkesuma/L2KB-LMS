@@ -17,3 +17,14 @@ export async function getCookie(key: string) {
 
   return getCookie;
 }
+
+export async function setCookie(key: string, value: string, path: string) {
+  const cookie = cookies();
+  const setCookie = cookie.set({
+    name: key,
+    value: value,
+    path: path,
+  });
+
+  return setCookie;
+}

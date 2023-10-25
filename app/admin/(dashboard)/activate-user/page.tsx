@@ -1,6 +1,6 @@
-import Image from "next/image"
-import Link from "next/link"
-import Edit from "@/public/assets/icons/edit.svg"
+import Image from "next/image";
+import Link from "next/link";
+import Edit from "@/public/assets/icons/edit.svg";
 
 const ActivateUser = () => {
   return (
@@ -45,9 +45,11 @@ const ActivateUser = () => {
                 </div>
               </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default ActivateUser
+export default ActivateUser;

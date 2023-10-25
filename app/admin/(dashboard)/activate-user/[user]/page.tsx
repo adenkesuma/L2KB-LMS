@@ -223,5 +223,4 @@ const ActivateUserDetail = () => {
   );
 };
 
-export const runtime = "edge";
 export default ActivateUserDetail;
