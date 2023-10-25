@@ -14,6 +14,7 @@ import HamburgerMenu from "@/public/assets/icons/menu.svg";
 import { useParams, usePathname, useRouter } from "next/navigation";
 import useStore from "../store/use-store";
 import { userAuthStore } from "../store/user-auth.store";
+import { deleteCookie } from "../lib/services/cookie.service";
 
 const Navbar: FC = () => {
   const router = useRouter();
@@ -43,6 +44,12 @@ const Navbar: FC = () => {
 
   const handleShowNavigate = () => {
     setShowNavigate(!showNavigate);
+  };
+
+  const onLogout = async () => {
+    await deleteCookie("accessKey");
+    userAuth?.clearTokens();
+    router.refresh();
   };
 
   return (
@@ -119,10 +126,7 @@ const Navbar: FC = () => {
 
                   <button
                     className="gap-4 group relative flex justify-center items-center"
-                    onClick={() => {
-                      userAuth.clearTokens();
-                      router.refresh();
-                    }}
+                    onClick={onLogout}
                   >
                     <div className="p-2 border border-gray-300 rounded-[50%]">
                       <Image src={Logout} alt="logout icon" className="w-5" />
@@ -226,10 +230,7 @@ const Navbar: FC = () => {
                       </Link>
                       <button
                         className="flex items-center gap-4"
-                        onClick={() => {
-                          userAuth.clearTokens();
-                          router.refresh();
-                        }}
+                        onClick={onLogout}
                       >
                         <span className="font-medium text-base text-white">
                           Keluar

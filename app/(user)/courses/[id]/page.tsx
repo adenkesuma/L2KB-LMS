@@ -76,25 +76,25 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
                   <li className="font-reguler text-xs sm:text-sm text-gray-600">
                     Periode Pendaftaran:{" "}
                     <span className="font-semibold text-green">
-                      {moment(
-                        new Date(oneTrainingData.regis_start).toDateString()
-                      ).format("DD MMMM yyyy")}{" "}
+                      {moment(new Date(oneTrainingData.regis_start)).format(
+                        "DD MMMM yyyy"
+                      )}{" "}
                       s/d{" "}
-                      {moment(
-                        new Date(oneTrainingData.regis_end).toDateString()
-                      ).format("DD MMMM yyyy")}
+                      {moment(new Date(oneTrainingData.regis_end)).format(
+                        "DD MMMM yyyy"
+                      )}
                     </span>
                   </li>
                   <li className="font-reguler text-xs sm:text-sm text-gray-600">
                     Periode Pelatihan:{" "}
                     <span className="font-semibold text-green">
-                      {moment(
-                        new Date(oneTrainingData.training_start).toDateString()
-                      ).format("DD MMMM yyyy")}{" "}
+                      {moment(new Date(oneTrainingData.training_start)).format(
+                        "DD MMMM yyyy"
+                      )}{" "}
                       s/d{" "}
-                      {moment(
-                        new Date(oneTrainingData.training_end).toDateString()
-                      ).format("DD MMMM yyyy")}
+                      {moment(new Date(oneTrainingData.training_end)).format(
+                        "DD MMMM yyyy"
+                      )}
                     </span>
                   </li>
                   <li className="font-reguler text-xs sm:text-sm text-gray-600">
