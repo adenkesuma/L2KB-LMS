@@ -51,9 +51,9 @@ const Login = () => {
       );
 
       if (response.status === 200) {
-        setCookie(response.data.accessToken);
+        await setCookie(response.data.accessToken);
         userAuth?.setAccessToken(response.data.accessToken);
-        window.location.href = "/update_data";
+        // window.location.href = "/update_data";
 
         // setShowSuccessPopup(true);
 
