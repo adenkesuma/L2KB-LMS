@@ -21,7 +21,7 @@ async function AdminLayout({ children }: { children: React.ReactNode }) {
       <Sidebar />
       <section className="w-full md:w-[90%] lg:w-[93%] xl:w-[82%] 2xl:w-[86%]">
         <AdminNavbar />
-        <span className="bg-slate-100 block">{children}</span>
+        <span className="block">{children}</span>
       </section>
     </div>
   );
