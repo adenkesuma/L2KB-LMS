@@ -13,6 +13,7 @@ import Guide from "@/public/assets/icons/guide.svg";
 import HamburgerMenu from "@/public/assets/icons/menu.svg";
 import Close from "@/public/assets/icons/close.svg";
 import ActivateUser from "@/app/admin/(dashboard)/activate-user/page";
+import Certificate from "@/public/assets/icons/certificate.svg"
 
 const Sidebar = () => {
   const pathname = usePathname();
@@ -108,8 +109,21 @@ const Sidebar = () => {
                     Panduan Pelatihan
                   </span>
                 </Link>
+
+                <Link
+                  href="/admin/certificate"
+                  className={`text-white relative group py-3 px-3 delay-75 duration-75 ${
+                    activePath[2] === "certificate" ? "bg-opacity-green" : ""
+                  } flex justify-center xl:justify-start items-center gap-4 rounded-lg`}
+                >
+                  <Image src={Certificate} alt="Certificate" className="w-[14px]" />
+                  <span className="text-xs text-white md:hidden xl:block">
+                    Sertifikat
+                  </span>
+                </Link>
               </nav>
             </div>
+
             <button className="mt-6 text-white py-3 delay-75 duration-75 hover:bg-opacity-green flex justify-center items-center gap-4 rounded-lg">
               <Image src={Logout} alt="logout icon" className="w-[14px]" />
               <span className="xl:block text-xs md:hidden xl:text-sm">
@@ -194,6 +208,19 @@ const Sidebar = () => {
                       Panduan Pelatihan
                     </span>
                   </Link>
+
+                  <Link
+                    href="/admin/certificate"
+                    className={`text-white relative group py-3 px-3 delay-75 duration-75 ${
+                      activePath[2] === "certificate" ? "bg-opacity-green" : ""
+                    } flex justify-center xl:justify-start items-center gap-4 rounded-lg`}
+                  >
+                    <Image src={Certificate} alt="Certificate" className="w-[14px]" />
+                    <span className="text-xs text-white md:hidden xl:block xl:text-sm">
+                      Sertifikat
+                    </span>
+                  </Link>
+
                 </nav>
               </div>
 
