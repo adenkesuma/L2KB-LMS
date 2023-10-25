@@ -20,7 +20,7 @@ const AdminNavbar: FC = () => {
                     <h1 className="text-lg hidden md:block font-medium text-gray-600">
                         Admin Dashboard
                     </h1>
-                    <Link href="/admin/profile" className="flex items-center gap-4">
+                    <div className="flex items-center gap-4">
                         <span className="font-medium text-xs xl:text-sm text-gray-800">
                             Park ji sung
                         </span>
@@ -29,7 +29,7 @@ const AdminNavbar: FC = () => {
                             alt="profile user"
                             className="h-8 md:h-10 w-8 md:w-10 rounded-[50%] p-[2px] xl:p-1 border border-gray-300"
                         />
-                    </Link>
+                    </div>
                 </nav>
             )
             }

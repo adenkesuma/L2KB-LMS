@@ -9,7 +9,7 @@ const EditDetail = () => {
         </h1>
       </div>
 
-      <div className="flex md:flex-row flex-col items-start gap-4">
+      <div className="flex md:flex-row flex-col items-start gap-4 lg:gap-8">
         <div className="w-full md:w-2/3 rounded-xl border border-gray-200 mt-8 bg-white p-4 flex flex-col gap-6">
           <h2 className="mb-2 font-semibold text-xl text-gray-800">Form</h2>
 

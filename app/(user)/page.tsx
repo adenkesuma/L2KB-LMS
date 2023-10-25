@@ -17,6 +17,7 @@ import { cookies } from "next/headers";
 import MainPageBanner from "./_components/banner";
 import { BannerSkeleton } from "../../components/skeleton/banner-skeleton";
 import { getCookie } from "../../lib/services/cookie.service";
+import HomeVoice from "./_components/voice";
 
 export interface ITrainingData {
   target_candidate: string;
@@ -52,6 +53,8 @@ const UserHomePage = async () => {
 
   return (
     <main className="min-h-screen">
+      <HomeVoice />
+
       {accessKey ? (
         <MyCourseBanner />
       ) : (
