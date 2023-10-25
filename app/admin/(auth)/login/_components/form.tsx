@@ -15,6 +15,8 @@ import {
 } from "../../../../../components/ui/form";
 import { Input } from "../../../../../components/ui/input";
 import { Button } from "../../../../../components/ui/button";
+import { toast } from "sonner";
+import { setCookie } from "../../../../../lib/services/cookie.service";
 
 const formSchema = z.object({
   email: z.string().min(2).max(50),
@@ -30,8 +32,25 @@ function AdminLoginForm() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    const post = await fetch(
+      `${process.env.NEXT_PUBLIC_P2KB_API}/admin/login`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      }
+    );
+    const res = await post.json();
+
+    if (res.statusCode === 200) {
+      await setCookie("adminAK", res.accessToken, "/admin");
+      toast.success("Welcome back, Admin");
+    } else {
+      toast.error("Invalid credentials");
+    }
   }
 
   return (
@@ -47,7 +66,7 @@ function AdminLoginForm() {
             <FormItem>
               <FormLabel>Email</FormLabel>
               <FormControl>
-                <Input placeholder="Email address" {...field} />
+                <Input type="email" placeholder="Email address" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -60,7 +79,7 @@ function AdminLoginForm() {
             <FormItem>
               <FormLabel>Password</FormLabel>
               <FormControl>
-                <Input placeholder="Password" {...field} />
+                <Input type="password" placeholder="Password" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>

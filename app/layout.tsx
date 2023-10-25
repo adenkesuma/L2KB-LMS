@@ -2,6 +2,8 @@ import "./globals.css";
 
 import type { Metadata } from "next";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
+import ClientOnly from "../components/client-only";
+import { Toaster } from "sonner";
 
 const pjs = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
@@ -17,6 +19,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <ClientOnly>
+        <Toaster />
+      </ClientOnly>
       <body className={`${pjs.className} bg-white relative`}>{children}</body>
     </html>
   );
