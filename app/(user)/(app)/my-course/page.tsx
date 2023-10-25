@@ -41,7 +41,7 @@ const MyCourse = () => {
           </ul>
         </div>
 
-        <div className="flex flex-col gap-2 mt-4 sm:mt-6 lg:gap-3">
+        {/* <div className="flex flex-col gap-2 mt-4 sm:mt-6 lg:gap-3">
           <label className="text-xs sm:text-sm text-gray-600">
             Cari Pelatihan Saya
           </label>
@@ -50,7 +50,7 @@ const MyCourse = () => {
             placeholder="Cari..."
             className="border border-opacity-green py-2 px-4 rounded-3xl w-full sm:w-[440px] outline-[#29A398]"
           />
-        </div>
+        </div> */}
       </div>
 
       <div className="mt-4 sm:mt-6 lg:mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-8">

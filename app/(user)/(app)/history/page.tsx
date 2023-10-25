@@ -25,14 +25,14 @@ const History = () => {
               </ul>
           </div>
 
-          <div className="flex flex-col gap-2 lg:gap-3 mt-4 sm:mt-6">
+          {/* <div className="flex flex-col gap-2 lg:gap-3 mt-4 sm:mt-6">
             <label className="text-xs sm:text-sm text-gray-600">Cari Riwayat Pelatihan</label>
             <input 
               type="text" 
               placeholder="Cari..." 
               className='border border-slate-300 py-2 px-4 rounded-3xl w-full sm:w-[440px] outline-[#015A39]'
             />
-          </div>
+          </div> */}
       </div>
 
       <div className='rounded-xl overflow-hidden sm:rounded-2xl border border-gray-100 mt-4 sm:mt-8 bg-white p-2 sm:p-4'>

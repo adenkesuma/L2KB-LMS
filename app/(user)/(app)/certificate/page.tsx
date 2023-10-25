@@ -20,14 +20,14 @@ const Certificate = () => {
                     </li>
                 </ul>
             </div>
-            <div className="flex flex-col gap-2 mt-4 sm:mt-6 lg:gap-3">
+            {/* <div className="flex flex-col gap-2 mt-4 sm:mt-6 lg:gap-3">
                 <label className="text-xs sm:text-sm text-gray-600">Cari Sertifikat Saya</label>
                 <input 
                   type="text" 
                   placeholder="Cari..." 
                   className='border border-opacity-green py-2 px-4 rounded-3xl w-full sm:w-[440px] outline-[#29A398]'
                 />
-            </div>
+            </div> */}
         </div>
 
         <div className="flex flex-col gap-4 sm:gap-8 mt-4 sm:mt-8">
