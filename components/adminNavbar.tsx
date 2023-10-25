@@ -16,7 +16,7 @@ const AdminNavbar: FC = () => {
             )
             : 
             (   
-                <nav className="flex bg-white items-center justify-end sm:justify-between py-2 xl:py-4 px-4 border-b border-gray-100">
+                <nav className="flex bg-white items-center justify-end sm:justify-between py-2 xl:py-4 px-4 md:px-8 xl:px-14 border-b border-gray-100">
                     <h1 className="text-lg hidden md:block font-medium text-gray-600">
                         Admin Dashboard
                     </h1>

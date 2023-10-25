@@ -12,6 +12,7 @@ import Achievement from "@/public/assets/icons/achievement.svg"
 import Guide from "@/public/assets/icons/guide.svg"
 import HamburgerMenu from "@/public/assets/icons/menu.svg"
 import Close from "@/public/assets/icons/close.svg"
+import ActivateUser from "@/app/(admin)/admin/activate-user/page";
 
 const Sidebar = () => {
     const pathname = usePathname();
@@ -124,7 +125,7 @@ const Sidebar = () => {
                                 </figure>
 
                                 <nav className="mt-12 flex flex-col gap-6">
-                                    <Link href="/admin/courses" className="relative text-white group py-3 px-3 delay-75 duration-75 bg-opacity-green flex justify-center xl:justify-start items-center gap-4 rounded-lg">
+                                    <Link href="/admin/courses" className={`relative text-white group py-3 px-3 delay-75 duration-75 ${activePath[2] === "courses" ? "bg-opacity-green" : ""} flex justify-center xl:justify-start items-center gap-4 rounded-lg`}>
                                         <Image 
                                             src={Education}
                                             alt="education icon"
@@ -133,7 +134,7 @@ const Sidebar = () => {
                                         <span className="text-xs text-white md:hidden xl:block xl:text-sm">Pelatihan</span>
                                     </Link>
 
-                                    <Link href="/admin/activate-user" className="text-white py-3 px-3 delay-75 relative group duration-75 bg-opacity-green flex justify-center xl:justify-start items-center gap-4 rounded-lg">
+                                    <Link href="/admin/activate-user" className={`text-white py-3 px-3 delay-75 relative group duration-75 ${activePath[2] === "activate-user" ? "bg-opacity-green" : ""} flex justify-center xl:justify-start items-center gap-4 rounded-lg`}>
                                         <Image 
                                             src={User}
                                             alt="user white icon"
@@ -142,7 +143,7 @@ const Sidebar = () => {
                                         <span className="text-xs text-white md:hidden xl:block xl:text-sm">Aktivasi Peserta</span>
                                     </Link>
 
-                                    <Link href="/admin/participant-achievements" className="text-white relative group py-3 px-3 delay-75 duration-75 bg-opacity-green flex justify-center xl:justify-start items-center gap-4 rounded-lg">
+                                    <Link href="/admin/participant-achievements" className={`text-white relative group py-3 px-3 delay-75 duration-75 ${activePath[2] === "participant-achievements" ? "bg-opacity-green" : ""} flex justify-center xl:justify-start items-center gap-4 rounded-lg`}>
                                         <Image 
                                             src={Achievement}
                                             alt="participant achievements icon"
@@ -150,7 +151,8 @@ const Sidebar = () => {
                                         />
                                         <span className="text-xs text-white md:hidden xl:block xl:text-sm">Pencapaian Peserta</span>
                                     </Link>
-                                    <Link href="/admin/guideline" className="text-white relative group py-3 px-3 delay-75 duration-75 bg-opacity-green flex justify-center xl:justify-start items-center gap-4 rounded-lg">
+
+                                    <Link href="/admin/guideline" className={`text-white relative group py-3 px-3 delay-75 duration-75 ${activePath[2] === "guideline" ? "bg-opacity-green" : ""} flex justify-center xl:justify-start items-center gap-4 rounded-lg`}>
                                         <Image 
                                             src={Guide}
                                             alt="guideline"
