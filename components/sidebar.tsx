@@ -12,7 +12,7 @@ import Achievement from "@/public/assets/icons/achievement.svg"
 import Guide from "@/public/assets/icons/guide.svg"
 import HamburgerMenu from "@/public/assets/icons/menu.svg"
 import Close from "@/public/assets/icons/close.svg"
-import ActivateUser from "@/app/(admin)/admin/activate-user/page";
+import ActivateUser from "@/app/admin/(menu)/activate-user/page";
 
 const Sidebar = () => {
     const pathname = usePathname();
@@ -22,14 +22,7 @@ const Sidebar = () => {
       setShowNavigate(!showNavigate);
     };
 
-    const activePath = pathname.split("/")
-
-    if (activePath[2] === "courses") {
-        console.log("courses")
-    } else {
-        console.log(activePath[2])
-        console.log('lol')
-    }
+    const activePath = pathname.split("/");
 
     return (
       <>
@@ -71,7 +64,7 @@ const Sidebar = () => {
                                         alt="education icon"
                                         className="w-5"
                                     />
-                                    <span className="text-xs text-white md:hidden xl:block xl:text-sm">Pelatihan</span>
+                                    <span className="text-xs text-white md:hidden xl:block">Pelatihan</span>
                                 </Link>
 
                                 <Link href="/admin/activate-user" className={`text-white py-3 px-3 delay-75 relative group duration-75 ${activePath[2] === "activate-user" ? "bg-opacity-green" : ""} flex justify-center xl:justify-start items-center gap-4 rounded-lg`}>
@@ -80,7 +73,7 @@ const Sidebar = () => {
                                         alt="user white icon"
                                         className="w-[14px]"
                                     />
-                                    <span className="text-xs text-white md:hidden xl:block xl:text-sm">Aktivasi Peserta</span>
+                                    <span className="text-xs text-white md:hidden xl:block">Aktivasi Peserta</span>
                                 </Link>
 
                                 <Link href="/admin/participant-achievements" className={`text-white relative group py-3 px-3 delay-75 duration-75 ${activePath[2] === "participant-achievements" ? "bg-opacity-green" : ""} flex justify-center xl:justify-start items-center gap-4 rounded-lg`}>
@@ -89,7 +82,7 @@ const Sidebar = () => {
                                         alt="participant achievements icon"
                                         className="w-[14px]"
                                     />
-                                    <span className="text-xs text-white md:hidden xl:block xl:text-sm">Pencapaian Peserta</span>
+                                    <span className="text-xs text-white md:hidden xl:block">Pencapaian Peserta</span>
                                 </Link>
 
                                 <Link href="/admin/guideline" className={`text-white relative group py-3 px-3 delay-75 duration-75 ${activePath[2] === "guideline" ? "bg-opacity-green" : ""} flex justify-center xl:justify-start items-center gap-4 rounded-lg`}>
@@ -98,7 +91,7 @@ const Sidebar = () => {
                                         alt="guideline"
                                         className="w-[14px]"
                                     />
-                                    <span className="text-xs text-white md:hidden xl:block xl:text-sm">Panduan Pelatihan</span>
+                                    <span className="text-xs text-white md:hidden xl:block">Panduan Pelatihan</span>
                                 </Link>
                             </nav>
                         </div>

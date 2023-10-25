@@ -16,7 +16,7 @@ const AdminNavbar: FC = () => {
             )
             : 
             (   
-                <nav className="flex bg-white items-center justify-end sm:justify-between py-2 xl:py-4 px-4 md:px-8 xl:px-14 border-b border-gray-100">
+                <nav className="flex bg-white items-center justify-end sm:justify-between py-2 px-4 md:px-8 xl:px-14 border-b border-gray-100">
                     <h1 className="text-lg hidden md:block font-medium text-gray-600">
                         Admin Dashboard
                     </h1>
@@ -27,7 +27,7 @@ const AdminNavbar: FC = () => {
                         <Image 
                             src={Profile}
                             alt="profile user"
-                            className="h-8 md:h-10 xl:h-12 w-8 md:w-10 xl:w-12 rounded-[50%] p-[2px] xl:p-1 border border-gray-300"
+                            className="h-8 md:h-10 w-8 md:w-10 rounded-[50%] p-[2px] xl:p-1 border border-gray-300"
                         />
                     </Link>
                 </nav>
