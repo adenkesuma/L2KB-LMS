@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@radix-ui/react-tabs": "^1.0.4",
     "axios": "^1.5.1",
     "clsx": "^2.0.0",
     "jsonwebtoken": "^9.0.2",
@@ -24,6 +25,7 @@
     "zustand": "^4.4.3"
   },
   "devDependencies": {
+    "@cloudflare/next-on-pages": "^1.7.2",
     "@types/jsonwebtoken": "^9.0.4",
     "@types/node": "^20",
     "@types/react": "^18",

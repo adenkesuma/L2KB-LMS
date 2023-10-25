@@ -46,7 +46,8 @@ const Courses: React.FC<{
           Agenda Pelatihan
         </h1>
         <p className="font-regular text-xs px-4 sm:text-base text-gray-600 text-center sm:w-[60%]">
-         Telusuri beragam pelatihan yang sesuai dengan keinginan Anda, dan bawa kemampuan Anda ke puncak prestasi dengan setiap langkah yang diambil 
+          Telusuri beragam pelatihan yang sesuai dengan keinginan Anda, dan bawa
+          kemampuan Anda ke puncak prestasi dengan setiap langkah yang diambil
         </p>
         <SearchComponents />
       </div>
@@ -58,4 +59,5 @@ const Courses: React.FC<{
   );
 };
 
+export const runtime = "edge";
 export default Courses;

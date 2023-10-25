@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useState } from "react"
 import { usePathname } from "next/navigation"
@@ -14,12 +14,12 @@ import HamburgerMenu from "@/public/assets/icons/menu.svg"
 import Close from "@/public/assets/icons/close.svg"
 
 const Sidebar = () => {
-    const pathname = usePathname()
-    const [showNavigate, setShowNavigate] = useState<Boolean>(false)
-
+    const pathname = usePathname();
+    const [showNavigate, setShowNavigate] = useState<Boolean>(false);
+    
     const handleShowNavigate = () => {
-        setShowNavigate(!showNavigate)
-    }
+      setShowNavigate(!showNavigate);
+    };
 
     const activePath = pathname.split("/")
 
@@ -196,3 +196,4 @@ const Sidebar = () => {
 }
 
 export default Sidebar
+d
