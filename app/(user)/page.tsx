@@ -8,7 +8,6 @@ import ArrowRight from "@/public/assets/icons/arrow-right.svg";
 import MyCourseBanner from "@/components/myCourseBanner";
 import useStore from "../../store/use-store";
 import { userAuthStore } from "../../store/user-auth.store";
-
 import { getAllTrainingData } from "@/lib/services/training-data.service";
 import { Suspense } from "react";
 import Loading from "../../components/loading";
@@ -17,6 +16,7 @@ import LatestTrainingMainPage from "./_components/latest-training";
 import { cookies } from "next/headers";
 import MainPageBanner from "./_components/banner";
 import { BannerSkeleton } from "../../components/skeleton/banner-skeleton";
+import { getCookie } from "../../lib/services/cookie.service";
 
 export interface ITrainingData {
   target_candidate: string;
@@ -45,9 +45,8 @@ export interface ITrainingData {
   };
 }
 
-const UserHomePage = () => {
-  const cookieStore = cookies();
-  const accessKey = cookieStore.get("accessKey");
+const UserHomePage = async () => {
+  const accessKey = await getCookie("accessKey");
   // const userAuth = useStore(userAuthStore, (state) => state);
   // const [allTrainingData, setAllTrainingData] = useState<ITrainingData[]>([]);
 
@@ -85,5 +84,4 @@ const UserHomePage = () => {
   );
 };
 
-export const runtime = "edge";
 export default UserHomePage;

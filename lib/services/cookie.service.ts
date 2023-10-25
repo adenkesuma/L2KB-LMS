@@ -10,3 +10,10 @@ export async function deleteCookie(key: string) {
     cookie.delete(key);
   }
 }
+
+export async function getCookie(key: string) {
+  const cookie = cookies();
+  const getCookie = cookie.get(key)?.value;
+
+  return getCookie;
+}
