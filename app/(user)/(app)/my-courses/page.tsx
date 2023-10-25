@@ -67,4 +67,5 @@ async function MyCourses() {
   );
 }
 
+export const runtime = "edge";
 export default MyCourses;
