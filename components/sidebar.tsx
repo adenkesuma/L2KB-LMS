@@ -14,6 +14,7 @@ import HamburgerMenu from "@/public/assets/icons/menu.svg";
 import Close from "@/public/assets/icons/close.svg";
 import ActivateUser from "@/app/admin/(dashboard)/participant/page";
 import Certificate from "@/public/assets/icons/certificate.svg";
+import { deleteCookie } from "../lib/services/cookie.service";
 
 const Sidebar = () => {
   const pathname = usePathname();
@@ -128,7 +129,10 @@ const Sidebar = () => {
               </nav>
             </div>
 
-            <button className="mt-6 text-white py-3 delay-75 duration-75 hover:bg-opacity-green flex justify-center items-center gap-4 rounded-lg">
+            <button
+              className="mt-6 text-white py-3 delay-75 duration-75 hover:bg-opacity-green flex justify-center items-center gap-4 rounded-lg"
+              onClick={async () => await deleteCookie("adminAK", "/admin")}
+            >
               <Image src={Logout} alt="logout icon" className="w-[14px]" />
               <span className="xl:block text-xs md:hidden xl:text-sm">
                 Logout
@@ -229,7 +233,10 @@ const Sidebar = () => {
                 </nav>
               </div>
 
-              <button className="mt-6 text-white py-3 delay-75 duration-75 hover:bg-opacity-green flex justify-center items-center gap-4 rounded-lg">
+              <button
+                className="mt-6 text-white py-3 delay-75 duration-75 hover:bg-opacity-green flex justify-center items-center gap-4 rounded-lg"
+                onClick={async () => await deleteCookie("adminAK", "/admin")}
+              >
                 <Image src={Logout} alt="logout icon" className="w-[14px]" />
                 <span className="xl:block text-xs md:hidden xl:text-sm">
                   Logout

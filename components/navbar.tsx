@@ -47,7 +47,7 @@ const Navbar: FC = () => {
   };
 
   const onLogout = async () => {
-    await deleteCookie("accessKey");
+    await deleteCookie("accessKey", "/");
     userAuth?.clearTokens();
     router.refresh();
   };

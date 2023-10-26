@@ -31,6 +31,8 @@ export interface ITrainingData {
     tipe_rekening: string;
     nama_rekening: string;
   };
+  createdAt: Date;
+  updatedAt: Date;
 }
 
 const Courses: React.FC<{

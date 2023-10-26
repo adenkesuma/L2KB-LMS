@@ -2,12 +2,15 @@
 
 import { cookies } from "next/headers";
 
-export async function deleteCookie(key: string) {
+export async function deleteCookie(key: string, path: string) {
   const cookie = cookies();
   const getCookie = cookie.get(key);
 
   if (getCookie) {
-    cookie.delete(key);
+    cookie.delete({
+      name: key,
+      path: path,
+    });
   }
 }
 

@@ -14,9 +14,23 @@ export async function getAllTrainingData(
     }
   );
   const res = await get.json();
-  return new Promise((resolve) => setTimeout(resolve, 2000)).then(async () => {
-    return await res.data;
-  });
+  return await res.data;
+}
+
+export async function getAllTrainingDataAdmin(
+  token?: string
+): Promise<ITrainingData[] | []> {
+  const get = await fetch(
+    `${process.env.NEXT_PUBLIC_P2KB_API}/admin/training`,
+    {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      cache: "no-store",
+    }
+  );
+  const res = await get.json();
   return await res.data;
 }
 
