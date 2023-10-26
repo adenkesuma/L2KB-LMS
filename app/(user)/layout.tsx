@@ -10,9 +10,6 @@ export default function UserLayout({
 }) {
   return (
     <>
-      <ClientOnly>
-        <Toaster />
-      </ClientOnly>
       <nav className="bg-white sticky top-0 z-50 border-b">
         <Navbar />
       </nav>

@@ -34,8 +34,8 @@ const Navbar: FC = () => {
     pathname === "/admin/profile" ||
     pathname === "/admin/courses" ||
     pathname === "/admin/courses/new-course" ||
-    pathname === "/admin/activate-user" ||
-    pathname === `/admin/activate-user/${params.user}` ||
+    pathname === "/admin/participant" ||
+    pathname === `/admin/participant/${params.user}` ||
     pathname === `/admin/courses/edit/${params.course}` ||
     pathname === "/admin/participant-achievements" ||
     pathname === `/admin/participant-achievements/${params.detail}` ||

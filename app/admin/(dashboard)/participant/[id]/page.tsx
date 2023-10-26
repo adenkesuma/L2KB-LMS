@@ -1,36 +1,41 @@
 import Image from "next/image";
 import Link from "next/link";
 import Sip from "@/public/assets/sip.jpg";
+import { getOneTrainingCandidate } from "../../../../../lib/services/training-candidate.service";
+import { getCookie } from "../../../../../lib/services/cookie.service";
 
-const ActivateUserDetail = () => {
+const ActivateUserDetail = async ({ params }: { params: { id: string } }) => {
+  const adminAK = await getCookie("adminAK");
+  const trainingCandidate = await getOneTrainingCandidate(adminAK, params.id);
+
   return (
     <div className="min-h-screen mb-8 px-4 md:px-8 xl:px-14 pt-10">
-      <h1 className="font-bold text-xl md:text-2xl text-gray-800">Aktivasi Sekarang</h1>
+      <h1 className="font-bold text-xl md:text-2xl text-gray-800">
+        Accept Participant
+      </h1>
 
       <div className="mt-6 gap-10 pt-4 px-4 pb-4 xl:pt-8 xl:px-8 xl:pb-8 border border-gray-200 rounded-xl bg-white">
         <div>
           <div className="flex flex-col items-start gap-3 lg:gap-0 lg:flex-row lg:justify-between lg:items-center">
-            <h2
-              className="flex flex-col gap-1 xl:gap-2 text-xs md:text-sm font-semibod text-gray-600"
-            >
+            <h2 className="flex flex-col gap-1 xl:gap-2 text-xs md:text-sm font-semibod text-gray-600">
               <span>Nama Lengkap: </span>
               <span className="font-bold text-sm lg:text-base text-green">
-                Abdul Salam
+                {trainingCandidate?.nama_lengkap}
               </span>
             </h2>
-            <h2
-              className="flex flex-col gap-1 xl:gap-2 text-xs md:text-sm font-semibod text-gray-600"
-            >
+            <h2 className="flex flex-col gap-1 xl:gap-2 text-xs md:text-sm font-semibod text-gray-600">
               <span>Nama Lengkap Beserta Gelar:</span>
               <span className="text-sm lg:text-base font-bold text-green">
-                Abdul Salam Almansyur S.Kom S.pdi
+                {trainingCandidate?.nama_lengkap_gelar}
               </span>
             </h2>
           </div>
 
           <div className="mt-8">
             <div className="flex flex-col gap-2">
-              <label className="font-medium text-xs text-gray-600 lg:text-sm">Pesan</label>
+              <label className="font-medium text-xs text-gray-600 lg:text-sm">
+                Pesan
+              </label>
               <textarea
                 rows={6}
                 cols={50}
@@ -39,7 +44,7 @@ const ActivateUserDetail = () => {
             </div>
 
             <button className="flex justify-center text-xs md:text-sm items-center gap-4 mt-6 lg:mt-12 text-center w-44 md:w-52 text-white font-medium p-2 rounded-[8px] lg:rounded-xl bg-green">
-              Aktivasi User
+              Aktivasi Peserta
             </button>
           </div>
         </div>
@@ -67,7 +72,7 @@ const ActivateUserDetail = () => {
                         <div className="flex flex-col gap-2">
                           <span className="text-sm">No SIP:</span>
                           <span className="text-base text-green font-semibold">
-                            213131313123132
+                            {trainingCandidate?.no_sip}
                           </span>
                         </div>
                       </td>
@@ -88,7 +93,7 @@ const ActivateUserDetail = () => {
                         <div className="flex flex-col gap-2">
                           <span className="text-sm">No STR:</span>
                           <span className="text-base text-green font-semibold">
-                            213131313123132
+                            {trainingCandidate?.no_str}
                           </span>
                         </div>
                       </td>
@@ -109,7 +114,7 @@ const ActivateUserDetail = () => {
                         <div className="flex flex-col gap-2">
                           <span className="text-sm">No SERKOM:</span>
                           <span className="text-base text-green font-semibold">
-                            213131313123132
+                            {trainingCandidate?.no_serkom}
                           </span>
                         </div>
                       </td>
@@ -130,7 +135,7 @@ const ActivateUserDetail = () => {
                         <div className="flex flex-col gap-2">
                           <span className="text-sm">No Ijazah:</span>
                           <span className="text-base text-green font-semibold">
-                            213131313123132
+                            {trainingCandidate?.no_ijazah}
                           </span>
                         </div>
                       </td>
@@ -153,7 +158,7 @@ const ActivateUserDetail = () => {
                             No Kartu Anggota PDKI:
                           </span>
                           <span className="text-base text-green font-semibold">
-                            213131313123132
+                            {trainingCandidate?.no_pdki}
                           </span>
                         </div>
                       </td>
@@ -176,7 +181,7 @@ const ActivateUserDetail = () => {
                         <div className="flex flex-col gap-2">
                           <span className="text-sm">No KTP:</span>
                           <span className="text-base text-green font-semibold">
-                            213131313123132
+                            {trainingCandidate?.no_ktp}
                           </span>
                         </div>
                       </td>
@@ -197,7 +202,7 @@ const ActivateUserDetail = () => {
                         <div className="flex flex-col gap-2">
                           <span className="text-sm">No ATM:</span>
                           <span className="text-base text-green font-semibold">
-                            213131313123132
+                            {trainingCandidate?.no_atm}
                           </span>
                         </div>
                       </td>

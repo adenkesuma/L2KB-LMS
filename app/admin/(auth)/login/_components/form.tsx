@@ -4,6 +4,8 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { toast } from "sonner";
+
 import {
   Form,
   FormControl,
@@ -15,8 +17,8 @@ import {
 } from "../../../../../components/ui/form";
 import { Input } from "../../../../../components/ui/input";
 import { Button } from "../../../../../components/ui/button";
-import { toast } from "sonner";
 import { setCookie } from "../../../../../lib/services/cookie.service";
+import LoadingIcon from "../../../../../components/icons/loading-icon";
 
 const formSchema = z.object({
   email: z.string().min(2).max(50),
@@ -57,7 +59,7 @@ function AdminLoginForm() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-4 xl:space-y-6 w-3/4 md:w-1/2 xl:w-[30%]"
+        className="space-y-4 xl:space-y-6 w-3/4 md:w-1/2 xl:w-[25%]"
       >
         <FormField
           control={form.control}
@@ -86,7 +88,16 @@ function AdminLoginForm() {
           )}
         />
         <div className="mx-auto flex justify-center pt-4">
-          <Button type="submit">Login</Button>
+          <Button type="submit" disabled={form.formState.isSubmitting}>
+            {form.formState.isSubmitting ? (
+              <>
+                <LoadingIcon />
+                Loading
+              </>
+            ) : (
+              "Login"
+            )}
+          </Button>
         </div>
       </form>
     </Form>

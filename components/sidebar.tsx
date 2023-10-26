@@ -12,8 +12,8 @@ import Achievement from "@/public/assets/icons/achievement.svg";
 import Guide from "@/public/assets/icons/guide.svg";
 import HamburgerMenu from "@/public/assets/icons/menu.svg";
 import Close from "@/public/assets/icons/close.svg";
-import ActivateUser from "@/app/admin/(dashboard)/activate-user/page";
-import Certificate from "@/public/assets/icons/certificate.svg"
+import ActivateUser from "@/app/admin/(dashboard)/participant/page";
+import Certificate from "@/public/assets/icons/certificate.svg";
 
 const Sidebar = () => {
   const pathname = usePathname();
@@ -65,9 +65,9 @@ const Sidebar = () => {
                 </Link>
 
                 <Link
-                  href="/admin/activate-user"
+                  href="/admin/participant"
                   className={`text-white py-3 px-3 delay-75 relative group duration-75 ${
-                    activePath[2] === "activate-user" ? "bg-opacity-green" : ""
+                    activePath[2] === "participant" ? "bg-opacity-green" : ""
                   } flex justify-center xl:justify-start items-center gap-4 rounded-lg`}
                 >
                   <Image
@@ -76,7 +76,7 @@ const Sidebar = () => {
                     className="w-[14px]"
                   />
                   <span className="text-xs text-white md:hidden xl:block">
-                    Aktivasi Peserta
+                    Participants
                   </span>
                 </Link>
 
@@ -116,7 +116,11 @@ const Sidebar = () => {
                     activePath[2] === "certificate" ? "bg-opacity-green" : ""
                   } flex justify-center xl:justify-start items-center gap-4 rounded-lg`}
                 >
-                  <Image src={Certificate} alt="Certificate" className="w-[14px]" />
+                  <Image
+                    src={Certificate}
+                    alt="Certificate"
+                    className="w-[14px]"
+                  />
                   <span className="text-xs text-white md:hidden xl:block">
                     Sertifikat
                   </span>
@@ -162,11 +166,9 @@ const Sidebar = () => {
                   </Link>
 
                   <Link
-                    href="/admin/activate-user"
+                    href="/admin/participant"
                     className={`text-white py-3 px-3 delay-75 relative group duration-75 ${
-                      activePath[2] === "activate-user"
-                        ? "bg-opacity-green"
-                        : ""
+                      activePath[2] === "participant" ? "bg-opacity-green" : ""
                     } flex justify-center xl:justify-start items-center gap-4 rounded-lg`}
                   >
                     <Image
@@ -175,7 +177,7 @@ const Sidebar = () => {
                       className="w-[14px]"
                     />
                     <span className="text-xs text-white md:hidden xl:block xl:text-sm">
-                      Aktivasi Peserta
+                      Participants
                     </span>
                   </Link>
 
@@ -215,12 +217,15 @@ const Sidebar = () => {
                       activePath[2] === "certificate" ? "bg-opacity-green" : ""
                     } flex justify-center xl:justify-start items-center gap-4 rounded-lg`}
                   >
-                    <Image src={Certificate} alt="Certificate" className="w-[14px]" />
+                    <Image
+                      src={Certificate}
+                      alt="Certificate"
+                      className="w-[14px]"
+                    />
                     <span className="text-xs text-white md:hidden xl:block xl:text-sm">
                       Sertifikat
                     </span>
                   </Link>
-
                 </nav>
               </div>
 
