@@ -236,5 +236,4 @@ const EditDetail = () => {
   );
 };
 
-export const runtime = "edge";
 export default EditDetail;

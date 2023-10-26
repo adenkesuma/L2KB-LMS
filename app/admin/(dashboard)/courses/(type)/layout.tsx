@@ -16,7 +16,7 @@ function AdminCourseLayout({ children }: { children: React.ReactNode }) {
         </Link>
       </div>
 
-      <div className="flex justify-start items-center gap-3 lg:gap-6 mt-6">
+      {/* <div className="flex justify-start items-center gap-3 lg:gap-6 mt-6">
         <button
           className={`text-gray-600 focus:bg-green focus:text-white p-1 lg:p-2 border border-gray-300 rounded-lg lg:rounded-xl w-28 md:w-36 lg:w-44 font-medium text-xs md:text-sm`}
         >
@@ -25,8 +25,9 @@ function AdminCourseLayout({ children }: { children: React.ReactNode }) {
         <button className="text-gray-600 focus:bg-green focus:text-white p-1 lg:p-2 border border-gray-300 rounded-lg lg:rounded-xl w-28 md:w-36 lg:w-44 font-medium text-xs md:text-sm">
           Draf
         </button>
-      </div>
-      {children}
+      </div> */}
+
+      <div className="w-full mt-8">{children}</div>
     </div>
   );
 }
