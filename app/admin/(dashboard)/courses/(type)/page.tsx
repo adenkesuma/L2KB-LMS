@@ -56,13 +56,13 @@ async function AdminCourses() {
                         </td>
                         <td className="whitespace-nowrap px-3 xl:px-6 py-2 xl:py-4 grid grid-cols-[auto_1fr] gap-2">
                           <Link
-                            href="/admin/courses/edit/1"
+                            href={`/admin/courses/${data.id}/edit`}
                             className="bg-green py-2 px-4 rounded-md flex justify-center items-center"
                           >
                             <Image src={Edit} alt="edit icon" className="w-4" />
                           </Link>
                           <Link
-                            href="/courses/detail/:course"
+                            href={`/admin/courses/${data.id}`}
                             className="bg-green p-2 rounded-md flex justify-center itesms-center text-white text-sm"
                           >
                             Detail
