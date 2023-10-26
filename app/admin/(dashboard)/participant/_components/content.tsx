@@ -17,7 +17,7 @@ function ActivateUserContent({
         <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
           <div className="overflow-hidden">
             <table className="min-w-full text-left text-sm font-light">
-              <thead className="border-b font-medium text-green text-xs lg:text-base">
+              <thead className="border-b font-medium text-green text-xs lg:text-sm">
                 <tr>
                   <th scope="col" className="px-3 xl:px-6 p-2 xl:py-4">
                     No
@@ -70,9 +70,9 @@ function ActivateUserContent({
                             "rounded-sm p-2 text-sm",
                             data.accepted !== null
                               ? data.accepted
-                                ? "text-emerald-500 bg-emerald-100"
+                                ? "text-green bg-emerald-100"
                                 : "text-red-500 bg-red-100"
-                              : "text-gray-500 bg-gray-100"
+                              : "text-gray-600 bg-gray-100"
                           )}
                         >
                           {data.accepted !== null

@@ -44,8 +44,14 @@ const ActivateUserDetail = async ({ params }: { params: { id: string } }) => {
           </div>
 
           <div className="grid grid-cols-2 gap-x-2 mt-3 ">
-            <Button>Terima peserta</Button>
-            <Button variant={"outline"}>Tolak peserta</Button>
+            <Button>
+              Terima peserta
+            </Button>
+            <Button 
+              variant={"outline"}
+            >
+              Tolak peserta
+            </Button>
           </div>
         </div>
       </div>

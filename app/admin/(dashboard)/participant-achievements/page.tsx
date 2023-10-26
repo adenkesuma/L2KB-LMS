@@ -46,7 +46,7 @@ const ParticipantAchievement = () => {
                 <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
                   <div className="overflow-hidden">
                     <table className="min-w-full text-left text-sm font-light">
-                      <thead className="border-b font-medium text-green text-xs lg:text-base">
+                      <thead className="border-b font-medium text-green text-xs lg:text-sm">
                         <tr>
                           <th scope="col" className="px-3 xl:px-6 py-2 xl:py-4">No</th>
                           <th scope="col" className="px-3 xl:px-6 py-2 xl:py-4">Nama Peserta</th>
