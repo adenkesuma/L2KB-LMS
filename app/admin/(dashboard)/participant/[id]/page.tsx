@@ -1,8 +1,9 @@
 import Image from "next/image";
-import Link from "next/link";
+
 import Sip from "@/public/assets/sip.jpg";
 import { getOneTrainingCandidate } from "../../../../../lib/services/training-candidate.service";
 import { getCookie } from "../../../../../lib/services/cookie.service";
+import { Button } from "../../../../../components/ui/button";
 
 const ActivateUserDetail = async ({ params }: { params: { id: string } }) => {
   const adminAK = await getCookie("adminAK");
@@ -11,41 +12,40 @@ const ActivateUserDetail = async ({ params }: { params: { id: string } }) => {
   return (
     <div className="min-h-screen mb-8 px-4 md:px-8 xl:px-14 pt-10">
       <h1 className="font-bold text-xl md:text-2xl text-gray-800">
-        Accept Participant
+        Informasi peserta
       </h1>
 
       <div className="mt-6 gap-10 pt-4 px-4 pb-4 xl:pt-8 xl:px-8 xl:pb-8 border border-gray-200 rounded-xl bg-white">
-        <div>
-          <div className="flex flex-col items-start gap-3 lg:gap-0 lg:flex-row lg:justify-between lg:items-center">
-            <h2 className="flex flex-col gap-1 xl:gap-2 text-xs md:text-sm font-semibod text-gray-600">
-              <span>Nama Lengkap: </span>
-              <span className="font-bold text-sm lg:text-base text-green">
-                {trainingCandidate?.nama_lengkap}
-              </span>
-            </h2>
-            <h2 className="flex flex-col gap-1 xl:gap-2 text-xs md:text-sm font-semibod text-gray-600">
-              <span>Nama Lengkap Beserta Gelar:</span>
-              <span className="text-sm lg:text-base font-bold text-green">
-                {trainingCandidate?.nama_lengkap_gelar}
-              </span>
-            </h2>
+        <div className="flex flex-col items-start gap-3 lg:gap-0 lg:flex-row lg:justify-between lg:items-center">
+          <h2 className="flex flex-col gap-1 xl:gap-2 text-xs md:text-sm font-semibod text-gray-600">
+            <span>Nama Lengkap: </span>
+            <span className="font-bold text-sm lg:text-base text-green">
+              {trainingCandidate?.nama_lengkap}
+            </span>
+          </h2>
+          <h2 className="flex flex-col gap-1 xl:gap-2 text-xs md:text-sm font-semibod text-gray-600">
+            <span>Nama Lengkap Beserta Gelar:</span>
+            <span className="text-sm lg:text-base font-bold text-green">
+              {trainingCandidate?.nama_lengkap_gelar}
+            </span>
+          </h2>
+        </div>
+
+        <div className="mt-8">
+          <div className="flex flex-col gap-2">
+            <label className="font-medium text-xs text-gray-600 lg:text-sm">
+              Pesan (akan dikirim ke email peserta)
+            </label>
+            <textarea
+              rows={6}
+              cols={50}
+              className="border rounded-xl p-2 border-gray-300"
+            />
           </div>
 
-          <div className="mt-8">
-            <div className="flex flex-col gap-2">
-              <label className="font-medium text-xs text-gray-600 lg:text-sm">
-                Pesan
-              </label>
-              <textarea
-                rows={6}
-                cols={50}
-                className="border rounded-xl p-2 border-gray-300"
-              ></textarea>
-            </div>
-
-            <button className="flex justify-center text-xs md:text-sm items-center gap-4 mt-6 lg:mt-12 text-center w-44 md:w-52 text-white font-medium p-2 rounded-[8px] lg:rounded-xl bg-green">
-              Aktivasi Peserta
-            </button>
+          <div className="grid grid-cols-2 gap-x-2 mt-3 ">
+            <Button>Terima peserta</Button>
+            <Button variant={"outline"}>Tolak peserta</Button>
           </div>
         </div>
       </div>
