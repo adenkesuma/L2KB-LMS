@@ -23,15 +23,18 @@ export interface ITrainingCandidate {
 
 const ParticipantPage = async () => {
   const adminAK = await getCookie("adminAK");
-  const trainingCandidates = await getAllTrainingCandidate(adminAK);
 
-  return (
-    <div className="min-h-screen mb-8 px-4 md:px-8 xl:px-14 pt-10">
-      <h1 className="font-bold text-xl md:text-2xl text-gray-800">Peserta</h1>
+  if (adminAK) {
+    const trainingCandidates = await getAllTrainingCandidate(adminAK);
 
-      <ActivateUserContent trainingCandidates={trainingCandidates} />
-    </div>
-  );
+    return (
+      <div className="min-h-screen mb-8 px-4 md:px-8 xl:px-14 pt-10">
+        <h1 className="font-bold text-xl md:text-2xl text-gray-800">Peserta</h1>
+
+        <ActivateUserContent trainingCandidates={trainingCandidates} />
+      </div>
+    );
+  }
 };
 
 export default ParticipantPage;

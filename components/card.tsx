@@ -4,8 +4,7 @@ import { FC } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import moment from "moment";
-
-import { ITrainingData } from "../app/(user)/courses/page";
+import { ITrainingData } from "../app/(user)/page";
 
 const Card: FC<{
   data: ITrainingData;
