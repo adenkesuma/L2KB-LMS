@@ -158,7 +158,7 @@ export const columns: ColumnDef<ITrainingData>[] = [
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem asChild>
-              <Link href={`/admin/courses/edit/${training.id}`}>Edit</Link>
+              <Link href={`/admin/courses/${training.id}/edit`}>Edit</Link>
             </DropdownMenuItem>
             <DropdownMenuItem
               onClick={async () => {

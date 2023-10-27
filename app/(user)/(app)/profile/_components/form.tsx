@@ -110,19 +110,19 @@ function UpdateProfileForm() {
             Foto Profil
           </h2>
           {/* TO-DO: DISABLED CACHE FETCHING??? */}
-          {/* <Image
+          <Image
               src={`${process.env.NEXT_PUBLIC_P2KB_API}/img/profile_picture/${userData?.id}.webp`}
               alt="foto profil"
               className="rounded-[50%] w-36 h-36"
               width={36}
               height={36}
-            /> */}
-          <Image
+            />
+          {/* <Image
             src={Profile}
             alt="foto profil"
             className="rounded-[50%] w-32 h-32 sm:w-36 sm:h-36"
           />
-
+ */}
           {/* change profile */}
           <div className="relative mt-2">
             <input type="file" {...register("profile_picture")} />

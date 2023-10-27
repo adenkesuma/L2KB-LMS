@@ -215,15 +215,30 @@ const EditCourse = () => {
                     </div>
                   </div>
 
-                  {/* kuota peserta pelatihan */}
-                  <div className="flex flex-col gap-2 border-t border-gray-300 pt-4">
-                    <label className="text-xs lg:text-sm font-medium">
-                      Kuota Peserta Pelatihan <span className="text-red-600">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      className="border rounded-xl p-2 border-gray-300"
-                    />
+                  <div className="flex flex-col gap-4 border-t border-gray-300 pt-4">
+                    <h3 className="mb-2 font-medium text-sm md:text-base text-gray-800">
+                      Ketersediaan dan Harga
+                    </h3>
+
+                    <div className="flex flex-col gap-2">
+                      <label className="text-xs lg:text-sm font-medium">
+                        Kuota Peserta Pelatihan <span className="text-red-600">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        className="border rounded-xl p-2 border-gray-300"
+                      />
+                    </div>
+
+                    <div className="flex flex-col gap-2">
+                      <label className="text-xs lg:text-sm font-medium">
+                        Harga Pelatihan <span className="text-red-600">*</span>
+                      </label>
+                      <input
+                        type="number"
+                        className="border rounded-xl p-2 border-gray-300"
+                      />
+                    </div>
                   </div>
                 </div>
 
