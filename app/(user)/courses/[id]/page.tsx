@@ -55,7 +55,7 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
                 </h2>
 
                 <ul className="flex flex-col justify-start mt-4 sm:mt-6 gap-2">
-                  <li className="font-regular text-xs dm:text-sm text-gray-600">
+                  <li className="font-regular text-xs sm:text-sm text-gray-600">
                     Jumlah SKP: {" "}
                     <span className="font-semibold text-green">
                       4 SKP
