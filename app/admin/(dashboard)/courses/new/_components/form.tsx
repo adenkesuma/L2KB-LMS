@@ -1,64 +1,162 @@
 "use client";
 
-import { useState, ChangeEvent } from "react";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { useForm, SubmitHandler } from "react-hook-form";
+import AsyncSelect from "react-select/async";
+import axios from "axios";
+import { toast } from "sonner";
 
 import { NewCourseFormData } from "../page";
+import { Button } from "../../../../../../components/ui/button";
+import LoadingIcon from "../../../../../../components/icons/loading-icon";
 
-function NewCourseForm() {
-  const [formData, setFormData] = useState<NewCourseFormData>();
+function NewCourseForm({ adminAK }: { adminAK: string }) {
+  const router = useRouter();
+  const [trainingType, setTrainingType] = useState<any[]>();
+  const [trainingOrganizer, setTrainingOrganizer] = useState<any[]>();
 
   const {
     register,
     handleSubmit,
     formState: { isSubmitting },
-    reset,
-    watch,
+    setValue,
   } = useForm<NewCourseFormData>();
+
+  useEffect(() => {
+    const fetchTrainingType = async () => {
+      try {
+        const response = await axios.get(
+          `${process.env.NEXT_PUBLIC_P2KB_API}/admin/training-type`,
+          {
+            headers: {
+              Authorization: `Bearer ${adminAK}`,
+            },
+          }
+        );
+
+        if (response.status === 200) {
+          setTrainingType(response.data.data);
+        }
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+    const fetchTrainingOrganizer = async () => {
+      try {
+        const response = await axios.get(
+          `${process.env.NEXT_PUBLIC_P2KB_API}/admin/training-organizer`,
+          {
+            headers: {
+              Authorization: `Bearer ${adminAK}`,
+            },
+          }
+        );
+
+        if (response.status === 200) {
+          setTrainingOrganizer(response.data.data);
+        }
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+
+    fetchTrainingType();
+    fetchTrainingOrganizer();
+  }, [adminAK]);
 
   const onSubmit: SubmitHandler<NewCourseFormData> = async (data) => {
     try {
-      // console.log("1", data.profile_picture);
-      //   const formData = new FormData();
-      //   const profile = data.profile;
-      //   if (data.profile_picture) {
-      //     formData.append("profile_picture", data.profile_picture[0]);
-      //   } else {
-      //     formData.delete("profile_picture");
-      //   }
-      //   for (const key in data) {
-      //     if (data.hasOwnProperty(key)) {
-      //       formData.append(key, data[key]);
-      //     }
-      //   }
-      //   for (const key in profile) {
-      //     if (profile.hasOwnProperty(key)) {
-      //       formData.append(key, profile[key]);
-      //     }
-      //   }
-      //   const update = await axios.put(
-      //     `${process.env.NEXT_PUBLIC_P2KB_API}/profile/update`,
-      //     formData,
-      //     {
-      //       headers: {
-      //         Authorization: `Bearer ${userAuth?.accessToken}`,
-      //         "Content-Type": "multipart/form-data",
-      //       },
-      //     }
-      //   );
-      //   if (update.status) {
-      //     toast("Successfully update profile");
-      //     router.refresh();
-      //   } else {
-      //     toast.error("Successfully update profile");
-      //     console.log(await update.data.response);
-      //   }
+      // console.log(data);
+      data.tujuan = data.tujuan.split("\n") as string[];
+      data.kriteria = data.kriteria.split("\n") as string[];
+      data.kompetensi = data.kompetensi.split("\n") as string[];
+      data.target_candidate = data.target_candidate.split("\n") as string[];
+      data.catatan = data.catatan.split("\n") as string[];
+
+      // console.log(data);
+      const formData = new FormData();
+      for (const key in data) {
+        if (data.hasOwnProperty(key)) {
+          // @ts-ignore
+          if (Array.isArray(data[key])) {
+            // @ts-ignore
+            formData.append(key, JSON.stringify(data[key]));
+          }
+          // @ts-ignore
+          else formData.append(key, data[key]);
+        }
+      }
+      // formData.forEach((data, key) => console.log(key, data));
+
+      const create = await axios.post(
+        `${process.env.NEXT_PUBLIC_P2KB_API}/admin/training/create`,
+        formData,
+        {
+          headers: {
+            Authorization: `Bearer ${adminAK}`,
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      if (create.status) {
+        toast.success("Successfully create course");
+        router.push("/admin/courses");
+      } else {
+        toast.error("Something went wrong");
+        console.log(await create.data.response);
+      }
     } catch (error) {
       console.log(error);
     }
   };
 
-  console.log(watch());
+  const filterTrainingtype = async (inputValue: string) => {
+    const response = await axios.get(
+      `${process.env.NEXT_PUBLIC_P2KB_API}/admin/training-type?nama=${inputValue}`,
+      {
+        headers: {
+          Authorization: `Bearer ${adminAK}`,
+        },
+      }
+    );
+
+    if (response.status === 200 && response.data.data.length !== 0) {
+      setTrainingType(response.data.data);
+      return response.data.data;
+    }
+    return null;
+  };
+  const filterTrainingOrganizer: (inputValue: string) => Promise<any> = async (
+    inputValue: string
+  ) => {
+    const response = await axios.get(
+      `${process.env.NEXT_PUBLIC_P2KB_API}/admin/training-organizer?nama=${inputValue}`,
+      {
+        headers: {
+          Authorization: `Bearer ${adminAK}`,
+        },
+      }
+    );
+
+    if (response.status === 200 && response.data.data.length !== 0) {
+      setTrainingOrganizer(response.data.data);
+      return response.data.data;
+    }
+    return null;
+  };
+
+  const promiseOptions = (inputValue: string, type: "organizer" | "type") =>
+    new Promise<any[]>((resolve) => {
+      setTimeout(() => {
+        if (type === "organizer") {
+          resolve(filterTrainingOrganizer(inputValue));
+        }
+        if (type === "type") {
+          resolve(filterTrainingtype(inputValue));
+        }
+      }, 1000);
+    });
 
   return (
     <form
@@ -108,7 +206,7 @@ function NewCourseForm() {
           <label className="font-medium text-xs lg:text-sm">
             Institusi Penyelenggara <span className="text-red-600">*</span>
           </label>
-          <select
+          {/* <select
             className="border rounded-xl p-2 border-gray-300 bg-white"
             defaultValue="def"
           >
@@ -116,7 +214,35 @@ function NewCourseForm() {
               Pilih Institusi
             </option>
             <option value="pdki">Perhimpunan Dokter Keluarga Indonesia</option>
-          </select>
+            {trainingType?.map((item) => {
+              return (
+                <option value="pdki" key={item.i}>
+                  {item.name}
+                </option>
+              );
+            })}
+          </select> */}
+          <AsyncSelect
+            instanceId="organizer_type"
+            getOptionLabel={(option) => `${option.nama}`}
+            defaultOptions={trainingOrganizer}
+            loadOptions={(val) => promiseOptions(val, "organizer")}
+            onChange={(data) => setValue("training_organizer_id", data.id)}
+          />
+        </div>
+
+        <div className="flex flex-col gap-2">
+          <label className="font-medium text-xs lg:text-sm">
+            Tipe Pelatihan <span className="text-red-600">*</span>
+          </label>
+          <AsyncSelect
+            instanceId="training_type"
+            getOptionLabel={(option) => `${option.nama}`}
+            defaultOptions={trainingType}
+            loadOptions={(val) => promiseOptions(val, "type")}
+            onChange={(data) => setValue("training_type_id", data.id)}
+            className="rounded-lg"
+          />
         </div>
 
         <div className="flex flex-col gap-2">
@@ -160,6 +286,18 @@ function NewCourseForm() {
             cols={50}
             {...register("kompetensi")}
             className="border rounded-xl p-2 border-gray-300"
+          ></textarea>
+        </div>
+
+        <div className="flex flex-col gap-2">
+          <label className="font-medium text-xs lg:text-sm">
+            Kriteria <span className="text-red-600">*</span>
+          </label>
+          <textarea
+            rows={6}
+            cols={50}
+            {...register("kriteria")}
+            className="border rounded-xl p-2 border-gray-300 whitespace-pre-wrap"
           ></textarea>
         </div>
 
@@ -214,6 +352,46 @@ function NewCourseForm() {
               <input
                 type="date"
                 {...register("regis_end")}
+                className="border rounded-xl p-2 border-gray-300"
+              />
+            </div>
+            <div className="flex flex-col gap-2">
+              <label className="font-medium text-xs lg:text-sm">
+                Tahun Pelaksanaan <span className="text-red-600">*</span>
+              </label>
+              <input
+                type="number"
+                {...register("tahun_pelaksanaan")}
+                className="border rounded-xl p-2 border-gray-300"
+              />
+            </div>
+            <div className="flex flex-col gap-2">
+              <label className="font-medium text-xs lg:text-sm">
+                Batch <span className="text-red-600">*</span>
+              </label>
+              <input
+                type="number"
+                {...register("batch")}
+                className="border rounded-xl p-2 border-gray-300"
+              />
+            </div>
+            <div className="flex flex-col gap-2">
+              <label className="font-medium text-xs lg:text-sm">
+                Lokasi <span className="text-red-600">*</span>
+              </label>
+              <input
+                type="text"
+                {...register("location")}
+                className="border rounded-xl p-2 border-gray-300"
+              />
+            </div>
+            <div className="flex flex-col gap-2">
+              <label className="font-medium text-xs lg:text-sm">
+                Total SKP <span className="text-red-600">*</span>
+              </label>
+              <input
+                type="number"
+                {...register("skp")}
                 className="border rounded-xl p-2 border-gray-300"
               />
             </div>
@@ -274,12 +452,22 @@ function NewCourseForm() {
             </div>
           </div>
         </div>
-        <button
+        <Button type="submit" disabled={isSubmitting}>
+          {isSubmitting ? (
+            <>
+              <LoadingIcon />
+              Loading
+            </>
+          ) : (
+            "Simpan"
+          )}
+        </Button>
+        {/* <button
           type="submit"
           className="text-center text-white font-medium mt-2 p-2 rounded-xl bg-green"
         >
           Simpan
-        </button>
+        </button> */}
       </aside>
     </form>
   );

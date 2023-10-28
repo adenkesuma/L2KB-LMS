@@ -111,12 +111,12 @@ function UpdateProfileForm() {
           </h2>
           {/* TO-DO: DISABLED CACHE FETCHING??? */}
           <Image
-              src={`${process.env.NEXT_PUBLIC_P2KB_API}/img/profile_picture/${userData?.id}.webp`}
-              alt="foto profil"
-              className="rounded-[50%] w-36 h-36"
-              width={36}
-              height={36}
-            />
+            src={`${process.env.NEXT_PUBLIC_P2KB_API}/img/profile_picture/${userData?.id}.webp`}
+            alt="foto profil"
+            className="rounded-[50%] w-36 h-36"
+            width={36}
+            height={36}
+          />
           {/* <Image
             src={Profile}
             alt="foto profil"
