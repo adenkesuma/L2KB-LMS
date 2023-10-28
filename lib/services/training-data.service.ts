@@ -2,11 +2,11 @@ import { IMyTraningData } from "../../app/(user)/(app)/my-courses/page";
 import { ITrainingData } from "../../app/(user)/courses/page";
 
 export async function getAllTrainingData(
-  name?: string
+  nama?: string
 ): Promise<ITrainingData[] | []> {
   const get = await fetch(
     `${process.env.NEXT_PUBLIC_P2KB_API}/training${
-      name ? `?name=${name}` : ""
+      name ? `?nama=${nama}` : ""
     }`,
     {
       method: "GET",
