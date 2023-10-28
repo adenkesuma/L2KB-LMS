@@ -6,7 +6,7 @@ export async function getAllTrainingData(
 ): Promise<ITrainingData[] | []> {
   const get = await fetch(
     `${process.env.NEXT_PUBLIC_P2KB_API}/training${
-      name ? `?nama=${nama}` : ""
+      nama ? `?nama=${nama}` : ""
     }`,
     {
       method: "GET",
