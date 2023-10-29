@@ -19,6 +19,17 @@ import {
 import { deleteCourse } from "../action";
 import { getCookie } from "@/lib/services/cookie.service";
 import { ITrainingData } from "../../../../../(user)/courses/page";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "../../../../../../components/ui/alert-dialog";
 
 export const columns: ColumnDef<ITrainingData>[] = [
   {
@@ -139,43 +150,65 @@ export const columns: ColumnDef<ITrainingData>[] = [
       const training = row.original;
 
       return (
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button className="h-8 w-8 p-0 border-none" variant={"outline"}>
-              <span className="sr-only">Open menu</span>
-              <HamburgerMenuIcon className="h-4 w-4" />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" className="border-opacity-green">
-            <DropdownMenuLabel>Actions</DropdownMenuLabel>
-            <DropdownMenuItem
-              onClick={() => {
-                navigator.clipboard.writeText(training.id);
-                toast.success("Course dengan ID " + training.id + " tercopy");
-              }}
-            >
-              Copy ID Pelatihan
-            </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem asChild>
-              <Link href={`/admin/courses/${training.id}/edit`}>Edit</Link>
-            </DropdownMenuItem>
-            <DropdownMenuItem
-              onClick={async () => {
-                const adminAK = await getCookie("adminAK");
-                if (adminAK) {
-                  const del = await deleteCourse(training.id, adminAK);
-                  if (del) {
-                    return toast.success("Course deleted");
+        <AlertDialog>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button className="h-8 w-8 p-0 border-none" variant={"outline"}>
+                <span className="sr-only">Open menu</span>
+                <HamburgerMenuIcon className="h-4 w-4" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="border-opacity-green">
+              <DropdownMenuLabel>Actions</DropdownMenuLabel>
+              <DropdownMenuItem
+                onClick={() => {
+                  navigator.clipboard.writeText(training.id);
+                  toast.success("Course dengan ID " + training.id + " tercopy");
+                }}
+              >
+                Copy ID Pelatihan
+              </DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem asChild>
+                <Link href={`/admin/courses/${training.id}/edit`}>Edit</Link>
+              </DropdownMenuItem>
+              <AlertDialogTrigger asChild>
+                <DropdownMenuItem>Hapus</DropdownMenuItem>
+              </AlertDialogTrigger>
+            </DropdownMenuContent>
+          </DropdownMenu>
+
+          <AlertDialogContent>
+            <AlertDialogHeader>
+              <AlertDialogTitle>
+                Hapus kursus{" "}
+                <span className="text-green underline-offset-1 underline decoration-green">
+                  {training.nama}
+                </span>
+              </AlertDialogTitle>
+              <AlertDialogDescription>
+                Action ini tidak bisa di-undo, apakah Anda yakin?
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogCancel>Batal</AlertDialogCancel>
+              <AlertDialogAction
+                onClick={async () => {
+                  const adminAK = await getCookie("adminAK");
+                  if (adminAK) {
+                    const del = await deleteCourse(training.id, adminAK);
+                    if (del) {
+                      return toast.success("Course deleted");
+                    }
+                    return toast.error("Failed to delete course");
                   }
-                  return toast.error("Failed to delete course");
-                }
-              }}
-            >
-              Hapus
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+                }}
+              >
+                Hapus
+              </AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
       );
     },
   },

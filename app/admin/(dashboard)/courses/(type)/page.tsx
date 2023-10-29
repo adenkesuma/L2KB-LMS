@@ -5,6 +5,7 @@ import { columns } from "./_components/columns";
 
 async function AdminCourses() {
   const adminAK = await getCookie("adminAK");
+
   if (adminAK) {
     const allTrainingDataAdmin = await getAllTrainingDataAdmin(adminAK);
 

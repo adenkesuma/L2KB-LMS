@@ -18,10 +18,11 @@ export async function getAllTrainingData(
 }
 
 export async function getAllTrainingDataAdmin(
-  token?: string
+  token?: string,
+  page?: number
 ): Promise<ITrainingData[] | []> {
   const get = await fetch(
-    `${process.env.NEXT_PUBLIC_P2KB_API}/admin/training`,
+    `${process.env.NEXT_PUBLIC_P2KB_API}/admin/training?page=${page}`,
     {
       method: "GET",
       headers: {
@@ -42,6 +43,29 @@ export async function getOneTrainingData(
       `${process.env.NEXT_PUBLIC_P2KB_API}/training/${id}`,
       {
         method: "GET",
+        cache: "no-store",
+      }
+    );
+    const res = await get.json();
+    return await res.data;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+}
+
+export async function getOneTrainingDataAdmin(
+  id: string,
+  token?: string
+): Promise<ITrainingData | null> {
+  try {
+    const get = await fetch(
+      `${process.env.NEXT_PUBLIC_P2KB_API}/admin/training/${id}`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
         cache: "no-store",
       }
     );
