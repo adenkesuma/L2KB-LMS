@@ -21,9 +21,6 @@ function TrainingCandidateFileContent({
     pdki?: string;
   } | null;
 }) {
-  console.log(
-    `${APP_URL}/admin/p2kb/documents/training-candidate/${trainingCandidate?.id}/${fileList?.ijazah}`
-  );
   return (
     <>
       <div className="mt-6 gap-10 pt-4 px-4 pb-4 xl:pt-8 xl:px-8 xl:pb-8 border border-gray-200 rounded-xl bg-white">

@@ -30,7 +30,7 @@ function EditCourseForm({
   const [trainingType, setTrainingType] = useState<any[]>();
   const [trainingOrganizer, setTrainingOrganizer] = useState<any[]>();
   const [formData, setFormData] = useState<EditCourseFormData>();
-  console.log(prevData);
+  // console.log(prevData);
 
   const {
     register,
@@ -86,7 +86,7 @@ function EditCourseForm({
   const onSubmit: SubmitHandler<EditCourseFormData> = async (data) => {
     try {
       // console.log(1);
-      console.log("HIUBADHSIBHDI", data);
+      // console.log("HIUBADHSIBHDI", data);
       data.tujuan = data.tujuan.split("\n") as string[];
       data.kriteria = data.kriteria.split("\n") as string[];
       data.kompetensi = data.kompetensi.split("\n") as string[];

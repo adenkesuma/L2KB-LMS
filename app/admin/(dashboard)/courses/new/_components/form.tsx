@@ -85,7 +85,7 @@ function NewCourseForm({ adminAK }: { adminAK: string }) {
 
   const onSubmit: SubmitHandler<NewCourseFormData> = async (data) => {
     try {
-      console.log(1);
+      // console.log(1);
       // console.log(data);
       data.tujuan = data.tujuan.split("\n") as string[];
       data.kriteria = data.kriteria.split("\n") as string[];
