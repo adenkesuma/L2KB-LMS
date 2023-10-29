@@ -6,12 +6,14 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import AsyncSelect from "react-select/async";
 import axios from "axios";
 import { toast } from "sonner";
+import Select from "react-select";
 
 import { Button } from "../../../../../../../components/ui/button";
 import LoadingIcon from "../../../../../../../components/icons/loading-icon";
 import { NewCourseFormData } from "../../../new/page";
 import { ITrainingData } from "../../../../../../(user)/courses/page";
 import moment from "moment";
+import { memberOptions } from "../../../new/_components/form";
 
 interface EditCourseFormData extends NewCourseFormData {}
 
@@ -28,6 +30,7 @@ function EditCourseForm({
   const [trainingType, setTrainingType] = useState<any[]>();
   const [trainingOrganizer, setTrainingOrganizer] = useState<any[]>();
   const [formData, setFormData] = useState<EditCourseFormData>();
+  console.log(prevData);
 
   const {
     register,
@@ -35,6 +38,7 @@ function EditCourseForm({
     formState: { isSubmitting },
     setValue,
     reset,
+    watch,
   } = useForm<EditCourseFormData>();
 
   useEffect(() => {
@@ -81,12 +85,15 @@ function EditCourseForm({
 
   const onSubmit: SubmitHandler<EditCourseFormData> = async (data) => {
     try {
-      // console.log(data);
+      // console.log(1);
+      console.log("HIUBADHSIBHDI", data);
       data.tujuan = data.tujuan.split("\n") as string[];
       data.kriteria = data.kriteria.split("\n") as string[];
       data.kompetensi = data.kompetensi.split("\n") as string[];
       // data.target_candidate = data.target_candidate.split("\n") as string[];
       data.catatan = data.catatan.split("\n") as string[];
+      // @ts-ignore
+      // data.member = data.member.value;
 
       // console.log(data);
       const formData = new FormData();
@@ -175,6 +182,7 @@ function EditCourseForm({
   useEffect(() => {
     if (prevData) {
       console.log(1);
+      console.log("WOI", prevData);
       prevData.training_start = moment(prevData?.training_start).format(
         "yyyy-MM-DD"
       );
@@ -183,6 +191,13 @@ function EditCourseForm({
       );
       prevData.regis_start = moment(prevData?.regis_start).format("yyyy-MM-DD");
       prevData.regis_end = moment(prevData?.regis_end).format("yyyy-MM-DD");
+      if (typeof prevData.member === "string") {
+        const ftr = memberOptions.filter((data) => {
+          return data.value == prevData.member;
+        });
+        console.log("ftr", ftr[0]);
+        prevData.member = ftr[0] as any;
+      }
 
       try {
         prevData.catatan = JSON.parse(prevData.catatan).join("\n");
@@ -200,6 +215,8 @@ function EditCourseForm({
       reset(prevData as any);
     }
   }, [prevData, reset]);
+
+  console.log(watch());
 
   return (
     <form
@@ -229,7 +246,7 @@ function EditCourseForm({
             className="border rounded-xl p-2 border-gray-300"
           ></textarea>
         </div>
-        <div className="flex flex-col gap-2">
+        {/* <div className="flex flex-col gap-2">
           <label className="font-medium text-xs lg:text-sm">
             Target Peserta Pelatihan <span className="text-red-600">*</span>
           </label>
@@ -243,7 +260,7 @@ function EditCourseForm({
             </option>
             <option value="anggota muda">Anggota Muda : PPDS KKLP</option>
           </select>
-        </div>
+        </div> */}
 
         <div className="flex flex-col gap-2">
           <label className="font-medium text-xs lg:text-sm">
@@ -294,25 +311,21 @@ function EditCourseForm({
           />
         </div>
 
-        <div className="flex flex-col gap-2">
-          <label className="font-medium text-xs lg:text-sm">
-            Sasaran Peserta <span className="text-red-600">*</span>
-          </label>
-          <select
-            {...register("member")}
-            className="border rounded-xl p-2 border-gray-300 bg-white"
-            defaultValue="def"
-          >
-            <option value="def" disabled>
-              Pilih sararan peserta
-            </option>
-            <option value="anggota biasa">Anggota Biasa : Sp KKLP</option>
-            <option value="anggota luar biasa">
-              Anggota Luar Biasa {"(Umum)"} : Dokter yang bukan Sp KKLP
-            </option>
-            <option value="anggota muda">Anggota Muda : PPDS KKLP</option>
-          </select>
-        </div>
+        {typeof prevData?.member !== "string" && (
+          <div className="flex flex-col gap-2">
+            <label className="font-medium text-xs lg:text-sm">
+              Sasaran Peserta <span className="text-red-600">*</span>
+            </label>
+            <Select
+              className="basic-single"
+              classNamePrefix="select"
+              defaultValue={prevData?.member}
+              getOptionLabel={(option: any) => `${option.label}`}
+              options={memberOptions as any}
+              onChange={(data: any) => setValue("member", data.value)}
+            />
+          </div>
+        )}
 
         <div className="flex flex-col gap-2">
           <label className="font-medium text-xs lg:text-sm">

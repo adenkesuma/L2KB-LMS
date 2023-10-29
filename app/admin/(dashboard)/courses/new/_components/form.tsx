@@ -6,10 +6,26 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import AsyncSelect from "react-select/async";
 import axios from "axios";
 import { toast } from "sonner";
+import Select from "react-select";
 
 import { NewCourseFormData } from "../page";
 import { Button } from "../../../../../../components/ui/button";
 import LoadingIcon from "../../../../../../components/icons/loading-icon";
+
+export const memberOptions = [
+  {
+    value: "anggota_biasa",
+    label: "Anggota Biasa : Sp KKLP",
+  },
+  {
+    value: "anggota_luar_biasa",
+    label: "Anggota Luar Biasa (Umum) : Dokter yang bukan Sp KKLP",
+  },
+  {
+    value: "anggota_muda",
+    label: "Anggota Muda : PPDS KKLP",
+  },
+];
 
 function NewCourseForm({ adminAK }: { adminAK: string }) {
   const router = useRouter();
@@ -21,6 +37,8 @@ function NewCourseForm({ adminAK }: { adminAK: string }) {
     handleSubmit,
     formState: { isSubmitting },
     setValue,
+    watch,
+    getValues,
   } = useForm<NewCourseFormData>();
 
   useEffect(() => {
@@ -67,11 +85,13 @@ function NewCourseForm({ adminAK }: { adminAK: string }) {
 
   const onSubmit: SubmitHandler<NewCourseFormData> = async (data) => {
     try {
+      console.log(1);
       // console.log(data);
       data.tujuan = data.tujuan.split("\n") as string[];
       data.kriteria = data.kriteria.split("\n") as string[];
       data.kompetensi = data.kompetensi.split("\n") as string[];
-      data.target_candidate = data.target_candidate.split("\n") as string[];
+      // data.target_candidate = data.target_candidate.split("\n") as string[];
+      data.target_candidate = "[]";
       data.catatan = data.catatan.split("\n") as string[];
 
       // console.log(data);
@@ -158,6 +178,8 @@ function NewCourseForm({ adminAK }: { adminAK: string }) {
       }, 1000);
     });
 
+  // console.log(watch());
+
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
@@ -185,21 +207,6 @@ function NewCourseForm({ adminAK }: { adminAK: string }) {
             {...register("deskripsi")}
             className="border rounded-xl p-2 border-gray-300"
           ></textarea>
-        </div>
-        <div className="flex flex-col gap-2">
-          <label className="font-medium text-xs lg:text-sm">
-            Target Peserta Pelatihan <span className="text-red-600">*</span>
-          </label>
-          <select
-            {...register("target_candidate")}
-            className="border rounded-xl p-2 border-gray-300 bg-white"
-          >
-            <option value="anggota biasa">Anggota Biasa : Sp KKLP</option>
-            <option value="anggota luar biasa">
-              Anggota Luar Biasa {"(Umum)"} : Dokter yang bukan Sp KKLP
-            </option>
-            <option value="anggota muda">Anggota Muda : PPDS KKLP</option>
-          </select>
         </div>
 
         <div className="flex flex-col gap-2">
@@ -249,20 +256,18 @@ function NewCourseForm({ adminAK }: { adminAK: string }) {
           <label className="font-medium text-xs lg:text-sm">
             Sasaran Peserta <span className="text-red-600">*</span>
           </label>
-          <select
-            {...register("member")}
-            className="border rounded-xl p-2 border-gray-300 bg-white"
-            defaultValue="def"
-          >
-            <option value="def" disabled>
-              Pilih sararan peserta
-            </option>
-            <option value="anggota biasa">Anggota Biasa : Sp KKLP</option>
-            <option value="anggota luar biasa">
-              Anggota Luar Biasa {"(Umum)"} : Dokter yang bukan Sp KKLP
-            </option>
-            <option value="anggota muda">Anggota Muda : PPDS KKLP</option>
-          </select>
+          <Select
+            instanceId="member"
+            className="basic-single"
+            classNamePrefix="select"
+            defaultValue="Pilih sasaran peserta"
+            getOptionLabel={(option: any) => `${option.label}`}
+            name="color"
+            options={memberOptions as any}
+            onChange={(data: any) => setValue("member", data.value)}
+            // getOptionValue={(option: any) => `${option.value}`}
+            // value={getValues("member")}
+          />
         </div>
 
         <div className="flex flex-col gap-2">

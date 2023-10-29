@@ -24,6 +24,7 @@ export interface ITrainingData {
   regis_end: string;
   location: string;
   price: number;
+  member: string;
   trainingType: { id: string; nama: string };
   trainingOrganizer: {
     id: string;
