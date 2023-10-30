@@ -186,7 +186,7 @@ function NewCourseForm({ adminAK }: { adminAK: string }) {
             className="border rounded-xl p-2 border-gray-300"
           ></textarea>
         </div>
-        <div className="flex flex-col gap-2">
+        {/* <div className="flex flex-col gap-2">
           <label className="font-medium text-xs lg:text-sm">
             Target Peserta Pelatihan <span className="text-red-600">*</span>
           </label>
@@ -200,7 +200,7 @@ function NewCourseForm({ adminAK }: { adminAK: string }) {
             </option>
             <option value="anggota muda">Anggota Muda : PPDS KKLP</option>
           </select>
-        </div>
+        </div> */}
 
         <div className="flex flex-col gap-2">
           <label className="font-medium text-xs lg:text-sm">
