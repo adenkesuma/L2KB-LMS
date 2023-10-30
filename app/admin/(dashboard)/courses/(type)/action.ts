@@ -13,7 +13,7 @@ export async function deleteCourse(course_id: string, token: string) {
   );
   const res = await del.json();
 
-  console.log(res);
+  // console.log(res);
   if (res.statusCode === 200) {
     return true;
   }

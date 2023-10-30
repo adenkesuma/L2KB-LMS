@@ -8,38 +8,38 @@ import axios from "axios";
 import { toast } from "sonner";
 import Select from "react-select";
 
-import { NewCourseFormData } from "../page";
-import { Button } from "../../../../../../components/ui/button";
-import LoadingIcon from "../../../../../../components/icons/loading-icon";
+import { Button } from "../../../../../../../components/ui/button";
+import LoadingIcon from "../../../../../../../components/icons/loading-icon";
+import { NewCourseFormData } from "../../../new/page";
+import { ITrainingData } from "../../../../../../(user)/courses/page";
+import moment from "moment";
+import { memberOptions } from "../../../new/_components/form";
 
-export const memberOptions = [
-  {
-    value: "anggota_biasa",
-    label: "Anggota Biasa : Sp KKLP",
-  },
-  {
-    value: "anggota_luar_biasa",
-    label: "Anggota Luar Biasa (Umum) : Dokter yang bukan Sp KKLP",
-  },
-  {
-    value: "anggota_muda",
-    label: "Anggota Muda : PPDS KKLP",
-  },
-];
+interface EditCourseFormData extends NewCourseFormData {}
 
-function NewCourseForm({ adminAK }: { adminAK: string }) {
+function EditCourseForm({
+  adminAK,
+  id,
+  prevData,
+}: {
+  adminAK: string;
+  id: string;
+  prevData: ITrainingData | null;
+}) {
   const router = useRouter();
   const [trainingType, setTrainingType] = useState<any[]>();
   const [trainingOrganizer, setTrainingOrganizer] = useState<any[]>();
+  const [formData, setFormData] = useState<EditCourseFormData>();
+  // console.log(prevData);
 
   const {
     register,
     handleSubmit,
     formState: { isSubmitting },
     setValue,
+    reset,
     watch,
-    getValues,
-  } = useForm<NewCourseFormData>();
+  } = useForm<EditCourseFormData>();
 
   useEffect(() => {
     const fetchTrainingType = async () => {
@@ -78,21 +78,22 @@ function NewCourseForm({ adminAK }: { adminAK: string }) {
         console.error("Error fetching user data:", error);
       }
     };
-
     fetchTrainingType();
     fetchTrainingOrganizer();
+    // fetchFormData();
   }, [adminAK]);
 
-  const onSubmit: SubmitHandler<NewCourseFormData> = async (data) => {
+  const onSubmit: SubmitHandler<EditCourseFormData> = async (data) => {
     try {
       // console.log(1);
-      // console.log(data);
+      // console.log("HIUBADHSIBHDI", data);
       data.tujuan = data.tujuan.split("\n") as string[];
       data.kriteria = data.kriteria.split("\n") as string[];
       data.kompetensi = data.kompetensi.split("\n") as string[];
       // data.target_candidate = data.target_candidate.split("\n") as string[];
-      data.target_candidate = "[]";
       data.catatan = data.catatan.split("\n") as string[];
+      // @ts-ignore
+      // data.member = data.member.value;
 
       // console.log(data);
       const formData = new FormData();
@@ -109,8 +110,8 @@ function NewCourseForm({ adminAK }: { adminAK: string }) {
       }
       // formData.forEach((data, key) => console.log(key, data));
 
-      const create = await axios.post(
-        `${process.env.NEXT_PUBLIC_P2KB_API}/admin/training/create`,
+      const update = await axios.put(
+        `${process.env.NEXT_PUBLIC_P2KB_API}/admin/training/update?training_id=${id}`,
         formData,
         {
           headers: {
@@ -119,12 +120,12 @@ function NewCourseForm({ adminAK }: { adminAK: string }) {
           },
         }
       );
-      if (create.status) {
-        toast.success("Successfully create course");
+      if (update.status) {
+        toast.success("Successfully update course");
         router.push("/admin/courses");
       } else {
         toast.error("Something went wrong");
-        console.log(await create.data.response);
+        console.log(await update.data.response);
       }
     } catch (error) {
       console.log(error);
@@ -178,7 +179,44 @@ function NewCourseForm({ adminAK }: { adminAK: string }) {
       }, 1000);
     });
 
-  // console.log(watch());
+  useEffect(() => {
+    if (prevData) {
+      console.log(1);
+      console.log("WOI", prevData);
+      prevData.training_start = moment(prevData?.training_start).format(
+        "yyyy-MM-DD"
+      );
+      prevData.training_end = moment(prevData?.training_end).format(
+        "yyyy-MM-DD"
+      );
+      prevData.regis_start = moment(prevData?.regis_start).format("yyyy-MM-DD");
+      prevData.regis_end = moment(prevData?.regis_end).format("yyyy-MM-DD");
+      if (typeof prevData.member === "string") {
+        const ftr = memberOptions.filter((data) => {
+          return data.value == prevData.member;
+        });
+        console.log("ftr", ftr[0]);
+        prevData.member = ftr[0] as any;
+      }
+
+      try {
+        prevData.catatan = JSON.parse(prevData.catatan).join("\n");
+        prevData.tujuan = JSON.parse(prevData.tujuan).join("\n");
+        prevData.kompetensi = JSON.parse(prevData.kompetensi).join("\n");
+        prevData.kriteria = JSON.parse(prevData.kriteria).join("\n");
+        prevData.target_candidate = JSON.parse(prevData.target_candidate).join(
+          "\n"
+        );
+      } catch (error) {
+        // console.error("Error parsing JSON:", error);
+      }
+
+      console.log(prevData);
+      reset(prevData as any);
+    }
+  }, [prevData, reset]);
+
+  console.log(watch());
 
   return (
     <form
@@ -208,7 +246,6 @@ function NewCourseForm({ adminAK }: { adminAK: string }) {
             className="border rounded-xl p-2 border-gray-300"
           ></textarea>
         </div>
-<<<<<<< HEAD
         {/* <div className="flex flex-col gap-2">
           <label className="font-medium text-xs lg:text-sm">
             Target Peserta Pelatihan <span className="text-red-600">*</span>
@@ -224,8 +261,6 @@ function NewCourseForm({ adminAK }: { adminAK: string }) {
             <option value="anggota muda">Anggota Muda : PPDS KKLP</option>
           </select>
         </div> */}
-=======
->>>>>>> d85803008e40bf4f0f16db8f2001b0979139cc7c
 
         <div className="flex flex-col gap-2">
           <label className="font-medium text-xs lg:text-sm">
@@ -252,7 +287,10 @@ function NewCourseForm({ adminAK }: { adminAK: string }) {
             getOptionLabel={(option) => `${option.nama}`}
             defaultOptions={trainingOrganizer}
             loadOptions={(val) => promiseOptions(val, "organizer")}
-            onChange={(data) => setValue("training_organizer_id", data.id)}
+            onChange={(data) =>
+              setValue("training_organizer_id", data?.id as string)
+            }
+            defaultValue={prevData?.trainingOrganizer}
           />
         </div>
 
@@ -265,28 +303,29 @@ function NewCourseForm({ adminAK }: { adminAK: string }) {
             getOptionLabel={(option) => `${option.nama}`}
             defaultOptions={trainingType}
             loadOptions={(val) => promiseOptions(val, "type")}
-            onChange={(data) => setValue("training_type_id", data.id)}
+            onChange={(data) =>
+              setValue("training_type_id", data?.id as string)
+            }
             className="rounded-lg"
+            defaultValue={prevData?.trainingType}
           />
         </div>
 
-        <div className="flex flex-col gap-2">
-          <label className="font-medium text-xs lg:text-sm">
-            Sasaran Peserta <span className="text-red-600">*</span>
-          </label>
-          <Select
-            instanceId="member"
-            className="basic-single"
-            classNamePrefix="select"
-            defaultValue="Pilih sasaran peserta"
-            getOptionLabel={(option: any) => `${option.label}`}
-            name="color"
-            options={memberOptions as any}
-            onChange={(data: any) => setValue("member", data.value)}
-            // getOptionValue={(option: any) => `${option.value}`}
-            // value={getValues("member")}
-          />
-        </div>
+        {typeof prevData?.member !== "string" && (
+          <div className="flex flex-col gap-2">
+            <label className="font-medium text-xs lg:text-sm">
+              Sasaran Peserta <span className="text-red-600">*</span>
+            </label>
+            <Select
+              className="basic-single"
+              classNamePrefix="select"
+              defaultValue={prevData?.member}
+              getOptionLabel={(option: any) => `${option.label}`}
+              options={memberOptions as any}
+              onChange={(data: any) => setValue("member", data.value)}
+            />
+          </div>
+        )}
 
         <div className="flex flex-col gap-2">
           <label className="font-medium text-xs lg:text-sm">
@@ -485,15 +524,9 @@ function NewCourseForm({ adminAK }: { adminAK: string }) {
             "Simpan"
           )}
         </Button>
-        {/* <button
-          type="submit"
-          className="text-center text-white font-medium mt-2 p-2 rounded-xl bg-green"
-        >
-          Simpan
-        </button> */}
       </aside>
     </form>
   );
 }
 
-export default NewCourseForm;
+export default EditCourseForm;

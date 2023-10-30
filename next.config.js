@@ -4,7 +4,11 @@ const nextConfig = {
     serverActions: true,
   },
   images: {
-    domains: ["https://api.pdkindonesia.com/"],
+    unoptimized: true,
+    domains: [
+      "https://api.pdkindonesia.com/",
+      process.env.NODE_ENV === "development" ? "localhost" : "",
+    ],
     remotePatterns: [
       {
         protocol: "https",
