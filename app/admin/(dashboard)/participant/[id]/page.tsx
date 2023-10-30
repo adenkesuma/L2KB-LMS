@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 import {
   getOneTrainingCandidate,
   getTrainingCandidateFileList,
@@ -25,6 +23,7 @@ const ActivateUserDetail = async ({ params }: { params: { id: string } }) => {
         <TrainingCandidateFileContent
           trainingCandidate={trainingCandidate}
           fileList={fileList}
+          adminAK={adminAK}
         />
       </div>
     );

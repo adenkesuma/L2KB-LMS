@@ -1,14 +1,19 @@
 "use client";
 
+import React, { useState } from "react";
 import Image from "next/image";
-import React from "react";
+import { toast } from "sonner";
+import axios from "axios";
+
 import { ITrainingCandidate } from "../../page";
 import { Button } from "../../../../../../components/ui/button";
 import { APP_URL } from "../../../../../../lib/config";
+import LoadingIcon from "../../../../../../components/icons/loading-icon";
 
 function TrainingCandidateFileContent({
   trainingCandidate,
   fileList,
+  adminAK,
 }: {
   trainingCandidate: ITrainingCandidate | null;
   fileList: {
@@ -20,7 +25,57 @@ function TrainingCandidateFileContent({
     paid?: string;
     pdki?: string;
   } | null;
+  adminAK: string;
 }) {
+  const [isLoading, setIsLoading] = useState(false);
+
+  const onAccept = async (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    const acc = await axios.post(
+      `${process.env.NEXT_PUBLIC_P2KB_API}/admin/training-candidate/${trainingCandidate?.id}/accept`,
+      {},
+      {
+        headers: {
+          Authorization: `Bearer ${adminAK}`,
+        },
+      }
+    );
+    if (acc.status === 201) {
+      setIsLoading(false);
+      toast.success("Peserta berhasil diterima");
+    } else {
+      setIsLoading(false);
+      toast.error("Ada kesalahan pasa server");
+    }
+  };
+  const onDecline = async (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    const dec = await axios.post(
+      `${process.env.NEXT_PUBLIC_P2KB_API}/admin/training-candidate/${trainingCandidate?.id}/decline`,
+      {},
+      {
+        headers: {
+          Authorization: `Bearer ${adminAK}`,
+        },
+      }
+    );
+    if (dec.status === 201) {
+      setIsLoading(false);
+      toast.success("Peserta berhasil ditolak");
+    } else {
+      setIsLoading(false);
+      toast.error("Ada kesalahan pasa server");
+    }
+  };
+
   return (
     <>
       <div className="mt-6 gap-10 pt-4 px-4 pb-4 xl:pt-8 xl:px-8 xl:pb-8 border border-gray-200 rounded-xl bg-white">
@@ -40,7 +95,7 @@ function TrainingCandidateFileContent({
         </div>
 
         <div className="mt-8">
-          <div className="flex flex-col gap-2">
+          {/* <div className="flex flex-col gap-2">
             <label className="font-medium text-xs text-gray-600 lg:text-sm">
               Pesan (akan dikirim ke email peserta)
             </label>
@@ -49,12 +104,39 @@ function TrainingCandidateFileContent({
               cols={50}
               className="border rounded-xl p-2 border-gray-300"
             />
-          </div>
+          </div> */}
 
-          <div className="grid grid-cols-2 gap-x-2 mt-3 ">
-            <Button>Terima peserta</Button>
-            <Button variant={"outline"}>Tolak peserta</Button>
-          </div>
+          {trainingCandidate?.accepted !== null ? (
+            "peserta sudah diterma maupun ditolak, eak pgn tau ya hehe"
+          ) : (
+            <div className="grid grid-cols-2 gap-x-2 mt-3 ">
+              <Button
+                onClick={async (e) => await onAccept(e)}
+                disabled={isLoading}
+              >
+                {isLoading ? (
+                  <>
+                    <LoadingIcon /> sedang menolak
+                  </>
+                ) : (
+                  "Terima peserta"
+                )}
+              </Button>
+              <Button
+                onClick={async (e) => await onDecline(e)}
+                variant={"outline"}
+                disabled={isLoading}
+              >
+                {isLoading ? (
+                  <>
+                    <LoadingIcon /> sedang menolak
+                  </>
+                ) : (
+                  "Tolak peserta"
+                )}
+              </Button>
+            </div>
+          )}
         </div>
       </div>
 
