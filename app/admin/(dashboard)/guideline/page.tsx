@@ -45,7 +45,7 @@ const Guideline = () => {
           onSubmit={(e) => handleImageUpload(e)}
         >
           <Image
-            src={`https://api.pdkindonesia.com/guide/index.jpg`}
+            src={`${process.env.NEXT_PUBLIC_PDKI_API}/guide/index.jpg`}
             alt="guideline image"
             width={1000}
             height={1000}
@@ -66,7 +66,7 @@ const Guideline = () => {
               />
               ) : (
               <Image
-                src={`${process.env.NEXT_URL_API}/guide/index.jpg`}
+                src={`${process.env.NEXT_PUBLIC_PDKI_API}/guide/index.jpg`}
                 alt="guideline image"
                 width={1000}
                 height={1000}
