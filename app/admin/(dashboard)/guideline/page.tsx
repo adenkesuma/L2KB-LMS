@@ -3,7 +3,6 @@
 import axios from 'axios'
 import { useState } from 'react'
 import Image from 'next/image'
-import Guide from "@/public/assets/panduan.jpg"
 
 const Guideline = () => {
   const [selectedImage, setSelectedImage] = useState<File | null>(null)
@@ -14,7 +13,9 @@ const Guideline = () => {
     }
   }
 
-  const handleImageUpload = async () => {
+  const handleImageUpload = async (e: any) => {
+    e.preventDefault()
+
     if (selectedImage) {
       const formData = new FormData()
       formData.append('guide_image', selectedImage)
@@ -41,7 +42,7 @@ const Guideline = () => {
 
         <form
           className="my-8 flex items-start gap-8"
-          onSubmit={handleImageUpload}
+          onSubmit={(e) => handleImageUpload(e)}
         >
           <Image
             src={`https://api.pdkindonesia.com/guide/index.jpg`}
