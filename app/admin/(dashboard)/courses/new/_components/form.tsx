@@ -187,6 +187,12 @@ function NewCourseForm({ adminAK }: { adminAK: string }) {
     >
       <div className="w-full md:w-2/3 rounded-xl border border-gray-200 mt-8 bg-white p-4 flex flex-col gap-6">
         <h2 className="mb-2 font-semibold text-xl text-gray-800">Form</h2>
+        <div className="flex flex-col gap-">
+          <label className="font-medium text-xs lg:text-sm">
+            Upload Gambar
+          </label>
+        </div>
+
         <div className="flex flex-col gap-2">
           <label className="font-medium text-xs lg:text-sm">
             Judul Pelatihan <span className="text-red-600">*</span>
@@ -208,8 +214,7 @@ function NewCourseForm({ adminAK }: { adminAK: string }) {
             className="border rounded-xl p-2 border-gray-300"
           ></textarea>
         </div>
-<<<<<<< HEAD
-        {/* <div className="flex flex-col gap-2">
+       {/* <div className="flex flex-col gap-2">
           <label className="font-medium text-xs lg:text-sm">
             Target Peserta Pelatihan <span className="text-red-600">*</span>
           </label>
@@ -224,8 +229,6 @@ function NewCourseForm({ adminAK }: { adminAK: string }) {
             <option value="anggota muda">Anggota Muda : PPDS KKLP</option>
           </select>
         </div> */}
-=======
->>>>>>> d85803008e40bf4f0f16db8f2001b0979139cc7c
 
         <div className="flex flex-col gap-2">
           <label className="font-medium text-xs lg:text-sm">
