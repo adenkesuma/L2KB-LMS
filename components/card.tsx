@@ -1,6 +1,6 @@
 "use client";
 
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import moment from "moment";
@@ -9,15 +9,25 @@ import { ITrainingData } from "../app/(user)/page";
 const Card: FC<{
   data: ITrainingData;
 }> = ({ data }) => {
+  const [img, setImg] = useState(
+    `${process.env.NEXT_PUBLIC_P2KB_API}/img/training_cover/${data?.id}.webp`
+  );
+  useEffect(() => {
+    setImg(
+      `${process.env.NEXT_PUBLIC_P2KB_API}/img/training_cover/${data?.id}.webp`
+    );
+  }, [data]);
+
   return (
     <div className="rounded-xl bg-white p-2 sm:p-3 border">
       <figure>
         <Image
-          src={`${process.env.NEXT_PUBLIC_P2KB_API}/img/training_cover/${data?.id}.webp`}
+          src={img}
           alt="thumnail pelatihan image"
           className="rounded-lg h-28 lg:h-40 w-full bg-cover object-cover"
           width={2000}
           height={100}
+          onError={() => setImg("/assets/images/default-image-course.jpg")}
         />
       </figure>
       <div className="p-1 text-center rounded-md border-gray-300 border-[1.4px] text-[10px] sm:text-xs font-medium text-green w-full sm:w-[150px] mt-4">
