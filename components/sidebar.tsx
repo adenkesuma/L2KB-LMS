@@ -81,7 +81,7 @@ const Sidebar = () => {
                   </span>
                 </Link>
 
-                <Link
+                {/* <Link
                   href="/admin/participant-achievements"
                   className={`text-white relative group py-3 px-3 delay-75 duration-75 ${
                     activePath[2] === "participant-achievements"
@@ -97,7 +97,7 @@ const Sidebar = () => {
                   <span className="text-xs text-white md:hidden xl:block">
                     Pencapaian Peserta
                   </span>
-                </Link>
+                </Link> */}
 
                 <Link
                   href="/admin/guideline"
@@ -185,7 +185,7 @@ const Sidebar = () => {
                     </span>
                   </Link>
 
-                  <Link
+                  {/* <Link
                     href="/admin/participant-achievements"
                     className={`text-white relative group py-3 px-3 delay-75 duration-75 ${
                       activePath[2] === "participant-achievements"
@@ -201,7 +201,7 @@ const Sidebar = () => {
                     <span className="text-xs text-white md:hidden xl:block xl:text-sm">
                       Pencapaian Peserta
                     </span>
-                  </Link>
+                  </Link> */}
 
                   <Link
                     href="/admin/guideline"
