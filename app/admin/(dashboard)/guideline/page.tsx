@@ -107,7 +107,7 @@ const Guideline = () => {
 
           <Button
             type="submit"
-            className="block mt-6 text-white bg-green rounded-lg py-[6px] md:py-2 px-4"
+            className="mt-6 text-white bg-green rounded-lg py-[6px] md:py-2 px-4 flex justify-center items-center"
             disabled={isLoading}
           >
             {isLoading ? (

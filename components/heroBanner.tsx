@@ -3,8 +3,8 @@
 import { FC, useState, useEffect } from "react";
 import Image from "next/image";
 import { ITrainingData } from "@/app/(user)/page";
-import Link from "next/link";
 import Arrow from "@/public/assets/icons/arrow-right.svg";
+import ImageBanner from "./imageBanner";
 
 const HeroBanner: FC<{ data: ITrainingData[] }> = ({ data }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -35,17 +35,7 @@ const HeroBanner: FC<{ data: ITrainingData[] }> = ({ data }) => {
     <header className="mt-4 sm:mt-6">
       <div className="relative h-52 lg:h-[80vh]">
         {data.map((item, index) => (
-          <Link href={`/courses/${item.id}`} key={item.id}>
-            <Image
-              src={`${process.env.NEXT_PUBLIC_P2KB_API}/img/training_cover/${item?.id}.webp`}
-              alt="thumnail pelatihan image"
-              className={`rounded-xl h-full w-full bg-cover object-cover absolute z-0 transition-opacity duration-300 ${
-                index === currentIndex ? "opacity-100" : "opacity-0"
-              }`}
-              width={2000}
-              height={100}
-            />
-          </Link>
+          <ImageBanner data={item} index={index} key={item.id} currentIndex={currentIndex} /> 
         ))}
 
         <button
