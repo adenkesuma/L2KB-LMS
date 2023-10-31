@@ -225,6 +225,18 @@ function EditCourseForm({
     >
       <div className="w-full md:w-2/3 rounded-xl border border-gray-200 mt-8 bg-white p-4 flex flex-col gap-6">
         <h2 className="mb-2 font-semibold text-xl text-gray-800">Form</h2>
+         <div className="flex flex-col gap-2">
+          <label className="font-medium text-xs lg:text-sm">
+            Upload Gambar
+          </label>
+          <input 
+            {...register("cover_image")}
+            className="border rounded-xl p-2 border-gray-300"
+            type="file"
+            accept=".jpg,.jpeg,.png"
+          />
+        </div>
+
         <div className="flex flex-col gap-2">
           <label className="font-medium text-xs lg:text-sm">
             Judul Pelatihan <span className="text-red-600">*</span>

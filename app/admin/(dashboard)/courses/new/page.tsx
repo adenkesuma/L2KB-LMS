@@ -22,6 +22,7 @@ export interface NewCourseFormData {
   kriteria: any;
   kompetensi: any;
   catatan: any;
+  cover_image: string;
   target_candidate: any;
 }
 
