@@ -5,7 +5,9 @@ import Image from "next/image";
 import Link from "next/link";
 import moment from "moment";
 import { notFound } from "next/navigation";
+import { cookies } from "next/headers";
 
+import { getMyTraining } from "../../../../lib/services/training-data.service";
 import { getOneTrainingData } from "../../../../lib/services/training-data.service";
 import Loading from "../../../../components/loading";
 
@@ -16,6 +18,18 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
   if (!oneTrainingData) {
     return notFound();
   }
+
+  const cookieStore = cookies();
+  const accessKey = cookieStore.get("accessKey")?.value;
+
+  const myTrainingData = await getMyTraining(accessKey);
+
+  // id compare
+  const trainingId = myTrainingData[0].training_id
+  const myTrainingId = oneTrainingData.id
+
+  // console.log(myTrainingData[0].training_id)
+  // console.log(oneTrainingData.id)
 
   return (
     <Suspense fallback={<Loading />}>
@@ -118,12 +132,18 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
                 </ul>
               </div>
 
+              {trainingId === myTrainingId ? (
+                <button className="bg-gray-300 text-gray-800 mt-6 text-center text-sm font-medium w-full p-2 rounded-xl">
+                  Sudah Mendaftar
+                </button>
+              ) : (
               <Link
                 href={`/courses/${oneTrainingData.id}/register`}
-                className="mt-6 text-center text-white text-sm font-medium w-full p-2 rounded-xl bg-green"
+                className={`mt-6 text-center text-sm font-medium w-full p-2 rounded-xl bg-green text-white`}
               >
                 Daftar Sekarang
               </Link>
+              )}
             </div>
           </div>
 
