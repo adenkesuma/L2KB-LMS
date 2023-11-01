@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { IRegisterTrainingData } from "../page";
 import axios from "axios";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import useStore from "../../../../../../store/use-store";
 import { userAuthStore } from "../../../../../../store/user-auth.store";
 import { toast } from "sonner";
@@ -27,8 +27,6 @@ function RegisterTrainingForm({ training_id }: { training_id: string }) {
 
   const onSubmit: SubmitHandler<IRegisterTrainingData> = async (data) => {
     try {
-      console.log(data);
-      // console.log("1", data.profile_picture);
       const formData = new FormData();
 
       const fileKeys = [
@@ -68,10 +66,12 @@ function RegisterTrainingForm({ training_id }: { training_id: string }) {
           },
         }
       );
-      if (register.status === 200) {
+
+      if (register.status === 200 || register.status === 201) {
         console.log(await register.data);
         toast("Successfully register training");
         router.refresh();
+        redirect('/courses')
       } else {
         toast.error("Error register training");
         console.log(await register.data.response);
@@ -158,7 +158,7 @@ function RegisterTrainingForm({ training_id }: { training_id: string }) {
             <span className="text-red-600">*</span>
           </label>
           <input
-            type="text"
+            type="number"
             className="border bg-white rounded-xl p-2 border-gray-300"
             {...register("no_sip")}
           />
@@ -182,7 +182,7 @@ function RegisterTrainingForm({ training_id }: { training_id: string }) {
             <span className="text-red-600">*</span>
           </label>
           <input
-            type="text"
+            type="number"
             className="border bg-white rounded-xl p-2 border-gray-300"
             {...register("no_str")}
           />
@@ -206,7 +206,7 @@ function RegisterTrainingForm({ training_id }: { training_id: string }) {
             <span className="text-red-600">*</span>
           </label>
           <input
-            type="text"
+            type="number"
             className="border bg-white rounded-xl p-2 border-gray-300"
             {...register("no_serkom")}
           />
@@ -231,7 +231,7 @@ function RegisterTrainingForm({ training_id }: { training_id: string }) {
             <span className="text-red-600">*</span>
           </label>
           <input
-            type="text"
+            type="number"
             className="border bg-white rounded-xl p-2 border-gray-300"
             {...register("no_ijazah")}
           />
@@ -255,7 +255,7 @@ function RegisterTrainingForm({ training_id }: { training_id: string }) {
             <span className="text-end italic text-xs text-orange-500">{`"Opsional"`}</span>
           </label>
           <input
-            type="text"
+            type="number"
             className="border rounded-xl p-2 border-gray-300"
             {...register("no_pdki")}
           />
@@ -279,7 +279,7 @@ function RegisterTrainingForm({ training_id }: { training_id: string }) {
             <span className="text-red-600">*</span>
           </label>
           <input
-            type="text"
+            type="number"
             className="border bg-white rounded-xl p-2 border-gray-300"
             {...register("no_ktp")}
           />
@@ -303,7 +303,7 @@ function RegisterTrainingForm({ training_id }: { training_id: string }) {
             <span className="text-red-600">*</span>
           </label>
           <input
-            type="text"
+            type="number"
             className="border bg-white rounded-xl p-2 border-gray-300"
             {...register("no_atm")}
           />
@@ -314,6 +314,7 @@ function RegisterTrainingForm({ training_id }: { training_id: string }) {
           <p className="text-xs sm:text-sm italic text-green text-center sm:text-start">{` "Tunggu beberapa saat setelah anda mendaftar, admin akan memberikan informasi selanjutnya lerkait pendaftaran anda melalui notifikasi dan gmail anda" `}</p>
 
           <button 
+            // onClick={redirect('/courses')}
             className="text-center text-sm w-[240px] text-white font-medium mt-2 p-2 rounded-xl bg-green">
             Daftar Pelatihan
           </button>

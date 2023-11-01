@@ -11,10 +11,18 @@ async function MyCourseContent() {
   if (accessKey) {
     const myTrainingData = await getMyTraining(accessKey);
 
+    // get skp
+    // const mySkp = myTrainingData[0]?.training?.skp
+
+    // console.log(myTrainingData[0].training?.skp)
+
     return (
       <div className="mt-4 sm:mt-6 lg:mt-12">
         <h1 className="text-2xl text-gray-800 font-semibold">
-          Total SKP: <span className="text-green font-bold">4</span>
+          Total SKP: <span className="text-green font-bold">
+            {/* {mySkp} */}
+            4
+          </span>
         </h1>
 
         <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-8">

@@ -140,7 +140,7 @@ function UpdateProfileForm() {
               *Ukuran 4 x 6
             </span>
             <span className="text-sm text-orange-500 italic">
-              *Maksimal Size 1 Mb
+              *Maksimal Size 5 Mb
             </span>
           </p>
         </div>
