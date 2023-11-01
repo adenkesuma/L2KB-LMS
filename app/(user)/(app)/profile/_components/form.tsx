@@ -101,7 +101,6 @@ function UpdateProfileForm() {
     reset(userData);
   }, [userData, reset]);
 
-  console.log(`/img/profile_pictture/${userData?.id}.webp`)
 
   return (
     <div className="bg-white rounded-xl border border-gray-200 mt-4 sm:mt-8">
@@ -115,7 +114,7 @@ function UpdateProfileForm() {
           <Image
             src={`${process.env.NEXT_PUBLIC_P2KB_API}/img/profile_picture/${userData?.id}.webp`}
             alt="foto profil"
-            className="rounded-[50%] w-36 h-36"
+            className="rounded-[50%] w-36 h-36 object-cover bg-cover"
             width={36}
             height={36}
           />

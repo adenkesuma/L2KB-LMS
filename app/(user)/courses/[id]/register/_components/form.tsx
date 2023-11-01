@@ -81,35 +81,6 @@ function RegisterTrainingForm({ training_id }: { training_id: string }) {
     }
   };
 
-  //   useEffect(() => {
-  //     const fetchUserData = async () => {
-  //       try {
-  //         const response = await axios.get(
-  //           `${process.env.NEXT_PUBLIC_P2KB_API}/profile`,
-  //           {
-  //             headers: {
-  //               Authorization: `Bearer ${userAuth?.accessToken}`,
-  //             },
-  //           }
-  //         );
-
-  //         if (response.status === 200) {
-  //           setUserData(response.data.data);
-  //         }
-  //       } catch (error) {
-  //         console.error("Error fetching user data:", error);
-  //       }
-  //     };
-
-  //     if (userAuth?.accessToken !== undefined) {
-  //       fetchUserData();
-  //     }
-  //   }, [userAuth?.accessToken]);
-
-  //   useEffect(() => {
-  //     reset(userData);
-  //   }, [userData, reset]);
-
   return (
     <form
       className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-20 mt-4 sm:mt-8"
@@ -158,7 +129,7 @@ function RegisterTrainingForm({ training_id }: { training_id: string }) {
             <span className="text-red-600">*</span>
           </label>
           <input
-            type="number"
+            type="text"
             className="border bg-white rounded-xl p-2 border-gray-300"
             {...register("no_sip")}
           />
@@ -182,7 +153,7 @@ function RegisterTrainingForm({ training_id }: { training_id: string }) {
             <span className="text-red-600">*</span>
           </label>
           <input
-            type="number"
+            type="text"
             className="border bg-white rounded-xl p-2 border-gray-300"
             {...register("no_str")}
           />
@@ -206,7 +177,7 @@ function RegisterTrainingForm({ training_id }: { training_id: string }) {
             <span className="text-red-600">*</span>
           </label>
           <input
-            type="number"
+            type="text"
             className="border bg-white rounded-xl p-2 border-gray-300"
             {...register("no_serkom")}
           />
@@ -231,7 +202,7 @@ function RegisterTrainingForm({ training_id }: { training_id: string }) {
             <span className="text-red-600">*</span>
           </label>
           <input
-            type="number"
+            type="text"
             className="border bg-white rounded-xl p-2 border-gray-300"
             {...register("no_ijazah")}
           />
@@ -255,7 +226,7 @@ function RegisterTrainingForm({ training_id }: { training_id: string }) {
             <span className="text-end italic text-xs text-orange-500">{`"Opsional"`}</span>
           </label>
           <input
-            type="number"
+            type="text"
             className="border rounded-xl p-2 border-gray-300"
             {...register("no_pdki")}
           />
@@ -279,7 +250,7 @@ function RegisterTrainingForm({ training_id }: { training_id: string }) {
             <span className="text-red-600">*</span>
           </label>
           <input
-            type="number"
+            type="text"
             className="border bg-white rounded-xl p-2 border-gray-300"
             {...register("no_ktp")}
           />
@@ -303,7 +274,7 @@ function RegisterTrainingForm({ training_id }: { training_id: string }) {
             <span className="text-red-600">*</span>
           </label>
           <input
-            type="number"
+            type="text"
             className="border bg-white rounded-xl p-2 border-gray-300"
             {...register("no_atm")}
           />

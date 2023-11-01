@@ -1,8 +1,9 @@
 "use client";
 
-import { FC, useState } from "react";
+import { FC, useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import axios from "axios";
 
 import Logo from "@/public/assets/logo/pdki.svg";
 import Notification from "@/public/assets/icons/notification.svg";
@@ -15,12 +16,14 @@ import { useParams, usePathname, useRouter } from "next/navigation";
 import useStore from "../store/use-store";
 import { userAuthStore } from "../store/user-auth.store";
 import { deleteCookie } from "../lib/services/cookie.service";
+import { UserData } from "@/app/(user)/(app)/profile/page";
 
 const Navbar: FC = () => {
   const router = useRouter();
   const pathname = usePathname();
   const params = useParams();
   const [showNavigate, setShowNavigate] = useState<Boolean>(false);
+  const [userData, setUserData] = useState<UserData>();
 
   const userAuth = useStore(userAuthStore, (state) => state);
 
@@ -52,6 +55,33 @@ const Navbar: FC = () => {
     userAuth?.clearTokens();
     router.refresh();
   };
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const response = await axios.get(
+          `${process.env.NEXT_PUBLIC_P2KB_API}/profile`,
+          {
+            headers: {
+              Authorization: `Bearer ${userAuth?.accessToken}`,
+            },
+          }
+        );
+
+        if (response.status === 200) {
+          setUserData(response.data.data);
+        }
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+
+    if (userAuth?.accessToken !== undefined) {
+      fetchUserData();
+    }
+  }, [userAuth?.accessToken]);
+
+  console.log(userData)
 
   return (
     <>
@@ -101,13 +131,15 @@ const Navbar: FC = () => {
                 <div className="flex justify-center gap-6 items-center">
                   <Link href="/profile" className="flex items-center gap-4">
                     <span className="font-medium text-sm text-gray-800">
-                      Park ji sung
+                      {userData?.nama}
                     </span>
                     <div className="group relative flex items-center justify-center">
                       <Image
-                        src={Profile}
+                        src={`${process.env.NEXT_PUBLIC_P2KB_API}/img/profile_picture/${userData?.id}.webp`}
                         alt="profile user"
-                        className="h-10 w-10 rounded-[50%] p-1 border border-gray-300"
+                        className="h-10 w-10 rounded-[50%] p-1 bg-cover object-cover border border-gray-300"
+                        width={1000}
+                        height={100}
                       />
                       <span className="opacity-0 absolute bg-white border border-slate-200 delay-100 text-slate-500 text-xs rounded-md mt-[84px] mr-14 p-1 whitespace-nowrap group-hover:opacity-100 group-hover:py-1 group-hover:px-3">
                         Profil

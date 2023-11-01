@@ -23,10 +23,15 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
   const accessKey = cookieStore.get("accessKey")?.value;
 
   const myTrainingData = await getMyTraining(accessKey);
+  let trainingId = null 
 
   // id compare
-  const trainingId = myTrainingData[0].training_id
+  if (myTrainingData) {
+    trainingId = myTrainingData[0].training_id 
+  }
+
   const myTrainingId = oneTrainingData.id
+
 
   // console.log(myTrainingData[0].training_id)
   // console.log(oneTrainingData.id)
