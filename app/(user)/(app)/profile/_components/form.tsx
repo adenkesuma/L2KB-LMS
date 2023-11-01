@@ -101,6 +101,8 @@ function UpdateProfileForm() {
     reset(userData);
   }, [userData, reset]);
 
+  console.log(`/img/profile_pictture/${userData?.id}.webp`)
+
   return (
     <div className="bg-white rounded-xl border border-gray-200 mt-4 sm:mt-8">
       {/* top profile */}

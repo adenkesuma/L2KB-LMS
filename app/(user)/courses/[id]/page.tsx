@@ -41,7 +41,7 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
             <Image
               src={`${process.env.NEXT_PUBLIC_P2KB_API}/img/training_cover/${oneTrainingData?.id}.webp`}
               alt="banner image detail"
-              className="rounded-xl h-full bg-cover bg-center w-full object-cover max-h-[400px]"
+              className="rounded-xl h-full bg-cover bg-center w-full border border-gray-200 object-cover max-h-[400px]"
               width={1000}
               height={70}
             />

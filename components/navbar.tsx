@@ -29,6 +29,7 @@ const Navbar: FC = () => {
     pathname === "/verification" ||
     pathname === "/login" ||
     pathname === "/update_data" ||
+    pathname === "/forgot-password" ||
     pathname === "/admin";
   const adminHiddenPath =
     pathname === "/admin/profile" ||

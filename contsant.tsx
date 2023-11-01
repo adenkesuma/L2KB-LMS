@@ -5,7 +5,7 @@ export const myCourse = [
         icon: "/assets/icons/certification.svg"
     },
     {
-        path: "/my-course",
+        path: "/my-courses",
         description: "Pelatihan yang sedang dijalankan",
         icon: "/assets/icons/current-course.svg"
     },

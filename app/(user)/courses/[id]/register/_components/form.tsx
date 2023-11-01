@@ -313,7 +313,8 @@ function RegisterTrainingForm({ training_id }: { training_id: string }) {
         <div className="flex flex-col items-center sm:items-start gap-4 mt-4 sm:mt-8">
           <p className="text-xs sm:text-sm italic text-green text-center sm:text-start">{` "Tunggu beberapa saat setelah anda mendaftar, admin akan memberikan informasi selanjutnya lerkait pendaftaran anda melalui notifikasi dan gmail anda" `}</p>
 
-          <button className="text-center text-sm w-[240px] text-white font-medium mt-2 p-2 rounded-xl bg-green">
+          <button 
+            className="text-center text-sm w-[240px] text-white font-medium mt-2 p-2 rounded-xl bg-green">
             Daftar Pelatihan
           </button>
         </div>

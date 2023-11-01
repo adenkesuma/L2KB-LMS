@@ -12,10 +12,16 @@ async function MyCourseContent() {
     const myTrainingData = await getMyTraining(accessKey);
 
     return (
-      <div className="mt-4 sm:mt-6 lg:mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-8">
-        {myTrainingData?.map((data) => {
-          return <Card data={data.training} key={data.training.id} />;
-        })}
+      <div className="mt-4 sm:mt-6 lg:mt-12">
+        <h1 className="text-2xl text-gray-800 font-semibold">
+          Total SKP: <span className="text-green font-bold">4</span>
+        </h1>
+
+        <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-8">
+          {myTrainingData?.map((data) => {
+            return <Card data={data.training} key={data.training.id} />;
+          })}
+        </div>
       </div>
     );
   }
