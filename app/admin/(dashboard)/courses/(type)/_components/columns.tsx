@@ -53,6 +53,17 @@ export const columns: ColumnDef<ITrainingData>[] = [
   },
   {
     accessorKey: "nama",
+    cell: ({ row, getValue, table }) => {
+      const nama = row.original.nama;
+      return (
+        <Link
+          href={`/admin/courses/${row.original.id}`}
+          className="hover:underline hover:text-green transition-all duration-150"
+        >
+          {nama}
+        </Link>
+      );
+    },
     header: ({ column }) => {
       return (
         <Button
@@ -106,10 +117,10 @@ export const columns: ColumnDef<ITrainingData>[] = [
     },
   },
   {
-    accessorKey: "createdAt",
+    accessorKey: "training_end",
     cell: ({ row }) => {
-      const createdAt: Date = row.getValue("createdAt");
-      return moment(createdAt).format("DD MMMM YYYY");
+      const training_end: Date = row.getValue("training_end");
+      return moment(training_end).format("DD MMMM YYYY");
     },
     header: ({ column }) => {
       return (
@@ -118,7 +129,7 @@ export const columns: ColumnDef<ITrainingData>[] = [
           className="border-none justify-start"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Tanggal dibuat
+          Pelatihan selesai
           <CaretSortIcon className="ml-2 h-4 w-4" />
         </Button>
       );
