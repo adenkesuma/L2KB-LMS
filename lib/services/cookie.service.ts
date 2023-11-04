@@ -16,6 +16,7 @@ export async function deleteCookie(key: string, path: string) {
 }
 
 export async function getCookie(key: string) {
+  // console.log(key);
   const cookie = cookies();
 
   if (key === "adminAK") {
@@ -32,6 +33,7 @@ export async function getCookie(key: string) {
   }
 
   const getCookie = cookie.get(key)?.value;
+  // console.log(getCookie);
   return getCookie;
 }
 
