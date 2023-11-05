@@ -41,5 +41,5 @@ async function Register({ params }: { params: { id: string } }) {
   );
 }
 
-export const runtime = "edge";
+// export const runtime = "edge";
 export default Register;

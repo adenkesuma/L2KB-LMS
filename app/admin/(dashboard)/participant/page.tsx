@@ -15,6 +15,7 @@ export interface ITrainingCandidate {
   no_atm: string;
   accepted: null;
   attend: false;
+  certificateGenerated: boolean;
   createdAt: Date;
   updatedAt: Date;
   user_id: string;

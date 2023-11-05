@@ -18,5 +18,5 @@ const NotificationDetail = () => {
   );
 };
 
-export const runtime = "edge";
+// export const runtime = "edge";
 export default NotificationDetail;

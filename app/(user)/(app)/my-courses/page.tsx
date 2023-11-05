@@ -20,7 +20,6 @@ async function MyCourses() {
           <span className="text-xs sm:text-sm text-gray-600">
             Berikut adalah daftar pelatihan saya yang sedang saya ikuti
           </span>
-
         </div>
         <ul className="flex justify-start items-center gap-6 sm:gap-12 mt-4 sm:mt-6 lg:mt-8">
           <li>
@@ -57,5 +56,5 @@ async function MyCourses() {
   );
 }
 
-export const runtime = "edge";
+// export const runtime = "edge";
 export default MyCourses;
