@@ -13,7 +13,7 @@ const Verification = () => {
   const verifyEmail = async () => {
     try {
       const response = await axios.post(
-        "${process.env.NEXT_PUBLIC_P2KB_API}/auth/verify-email",
+        `${process.env.NEXT_PUBLIC_P2KB_API}/auth/verify-email`,
         {
           email,
           verification_code: verificationCode,
