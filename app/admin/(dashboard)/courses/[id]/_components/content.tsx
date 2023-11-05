@@ -2,14 +2,20 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import moment from "moment";
+import { toast } from "sonner";
+import {
+  ArrowLeftIcon,
+  CheckIcon,
+  Cross1Icon,
+  DownloadIcon,
+  UploadIcon,
+} from "@radix-ui/react-icons";
+import { useRouter } from "next/navigation";
 
 import { rc } from "../../../../../../lib/utils";
 import { ITrainingData } from "../../../../../(user)/courses/page";
-import { ArrowLeftIcon, CheckIcon, Cross1Icon } from "@radix-ui/react-icons";
-import { useRouter } from "next/navigation";
 import { Button, buttonVariants } from "../../../../../../components/ui/button";
-import moment from "moment";
-import { toast } from "sonner";
 import LoadingIcon from "../../../../../../components/icons/loading-icon";
 
 function AdminCourseDetailContent({
@@ -21,6 +27,7 @@ function AdminCourseDetailContent({
 }) {
   const router = useRouter();
   const [markAttendLoading, setMarkAttendLoading] = useState(false);
+  const [genSertiLoading, setGenSertiLoading] = useState(false);
 
   const handleMAA = async (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
@@ -52,7 +59,9 @@ function AdminCourseDetailContent({
   return (
     <div className="mt-6">
       <div className="flex gap-4 items-center">
-        <h2 className="text-xl font-semibold text-gray-700">Peserta Pelatihan</h2>
+        <h2 className="text-xl font-semibold text-gray-700">
+          Peserta Pelatihan
+        </h2>
       </div>
       <div className="rounded-2xl border border-gray-200 mt-6 bg-white p-4 overflow-hidden">
         <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -174,6 +183,56 @@ function AdminCourseDetailContent({
                                 <p className="text-red-500">Not included</p>
                               </div>
                             )}
+
+                            {data.certificateGenerated ? (
+                              "Has"
+                            ) : (
+                              <Button
+                                onClick={async (e) => {
+                                  e.preventDefault();
+                                  setGenSertiLoading(true);
+
+                                  const post = await fetch(
+                                    `${process.env.NEXT_PUBLIC_P2KB_API}/admin/certificate/generate`,
+                                    {
+                                      method: "POST",
+                                      headers: {
+                                        "Content-Type": "application/json",
+                                      },
+                                      body: JSON.stringify({
+                                        training_id: trainingData.id,
+                                        candidate_id: data.id,
+                                      }),
+                                    }
+                                  );
+                                  const gen = await post.json();
+
+                                  if (post.ok && gen.statusCode === 200) {
+                                    setGenSertiLoading(false);
+                                    toast.success(
+                                      "Berhasil generate sertifikat dari peserta " +
+                                        data.nama_lengkap
+                                    );
+                                  } else {
+                                    setGenSertiLoading(false);
+                                    // console.log(object);
+                                    console.log("object");
+                                    console.log(gen);
+                                    toast.error("Something went gagal");
+                                  }
+                                }}
+                                className={rc(
+                                  buttonVariants({ variant: "default" })
+                                )}
+                              >
+                                <UploadIcon />{" "}
+                                {genSertiLoading ? (
+                                  <LoadingIcon />
+                                ) : (
+                                  "Apalah Serti"
+                                )}
+                              </Button>
+                            )}
                           </td>
                         </tr>
                       </tbody>
@@ -182,7 +241,9 @@ function AdminCourseDetailContent({
                 ) : (
                   <tbody>
                     <tr className="text-sm font-medium text-gray-800">
-                      <td className="p-8" colSpan={5}>No Participant</td>
+                      <td className="p-8" colSpan={5}>
+                        No Participant
+                      </td>
                     </tr>
                   </tbody>
                 )}
