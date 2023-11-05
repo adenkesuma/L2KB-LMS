@@ -12,16 +12,17 @@ async function MyCourseContent() {
     const myTrainingData = await getMyTraining(accessKey);
 
     // get skp
-    // const mySkp = myTrainingData[0]?.training?.skp
+    let totalSkp = 0;
 
-    // console.log(myTrainingData[0].training?.skp)
+    myTrainingData?.forEach((item) => {
+      totalSkp += item.training.skp;
+    });
 
     return (
       <div className="mt-4 sm:mt-6 lg:mt-12">
         <h1 className="text-2xl text-gray-800 font-semibold">
           Total SKP: <span className="text-green font-bold">
-            {/* {mySkp} */}
-            4
+            {totalSkp}
           </span>
         </h1>
 

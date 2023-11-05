@@ -15,6 +15,7 @@ import { userAuthStore } from "../../../../../store/user-auth.store";
 import { rc } from "../../../../../lib/utils";
 import LoadingIcon from "../../../../../components/icons/loading-icon";
 import { UserData } from "../page";
+import ProfilePicture from "@/components/profilePicture";
 
 function UpdateProfileForm() {
   const router = useRouter();
@@ -111,19 +112,15 @@ function UpdateProfileForm() {
             Foto Profil
           </h2>
           {/* TO-DO: DISABLED CACHE FETCHING??? */}
-          <Image
+          {/* <Image
             src={`${process.env.NEXT_PUBLIC_P2KB_API}/img/profile_picture/${userData?.id}.webp`}
             alt="foto profil"
             className="rounded-[50%] w-36 h-36 object-cover bg-cover"
             width={36}
             height={36}
-          />
-          {/* <Image
-            src={Profile}
-            alt="foto profil"
-            className="rounded-[50%] w-32 h-32 sm:w-36 sm:h-36"
-          />
- */}
+          /> */}
+          <ProfilePicture data={userData?.id} />
+
           {/* change profile */}
           <div className="relative mt-2">
             <input type="file" {...register("profile_picture")} />
@@ -142,15 +139,6 @@ function UpdateProfileForm() {
               *Maksimal Size 5 Mb
             </span>
           </p>
-        </div>
-
-        <div className="flex flex-col gap-4">
-          <Link
-            href="/forgot-password"
-            className="text-center w-40 lg:w-52 font-medium text-xs sm:text-sm mt-2 p-2 rounded-lg sm:rounded-xl border-green border text-green"
-          >
-            Ubah Kata Sandi
-          </Link>
         </div>
       </div>
 

@@ -45,13 +45,15 @@ async function UserProfile() {
   // const userData = await fetchUserData()
   return (
     <main className="pt-4 sm:pt-6 lg:pt-12 min-h-screen">
-      <div>
-        <h1 className="text-xl font-semibold sm:text-2xl lg:text-4xl mb:mb-2 sm:font-bold text-gray-800">
-          Profil
-        </h1>
-        <span className="text-xs sm:text-sm text-gray-600">
-          Mohon masukkan data yang sesuai untuk memudahkan proses pelatihan
-        </span>
+      <div className="flex pb-8 justify-between flex-col lg:flex-row items-start lg:items-end">
+        <div>
+          <h1 className="text-xl font-semibold sm:text-2xl lg:text-4xl mb:mb-2 sm:font-bold text-gray-800">
+            Profil
+          </h1>
+          <span className="text-xs sm:text-sm text-gray-600">
+            Mohon masukkan data yang sesuai untuk memudahkan proses pelatihan
+          </span>
+        </div>
         <ul className="flex justify-start items-center gap-6 lg:gap-12 mt-4 sm:mt-6">
           <li>
             <Link
