@@ -50,13 +50,9 @@ function AdminCourseDetailContent({
   };
 
   return (
-    <div className="min-h-screen mb-8 px-4 md:px-8 xl:px-14 pt-10">
+    <div className="mt-6">
       <div className="flex gap-4 items-center">
-        <ArrowLeftIcon
-          onClick={() => router.back()}
-          className="hover:opacity-80 cursor-pointer"
-        />
-        <h2>Course Detail</h2>
+        <h2 className="text-xl font-semibold text-gray-700">Peserta Pelatihan</h2>
       </div>
       <div className="rounded-2xl border border-gray-200 mt-6 bg-white p-4 overflow-hidden">
         <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -129,7 +125,7 @@ function AdminCourseDetailContent({
                                 : "Belum diaktivasi"}
                             </span>
                           </td>
-                          <td className="flex items-center whitespace-nowrap px-6 py-4 space-x-2">
+                          <td className="flex items-center whitespace-nowrap px-6 py-4 space-x-4">
                             <Button
                               onClick={() =>
                                 router.push(`/admin/participant/${data.id}`)

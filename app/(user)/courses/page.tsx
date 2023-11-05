@@ -19,6 +19,7 @@ export interface ITrainingData {
   quota: number;
   tahun_pelaksanaan: number;
   batch: number;
+  skp: number;
   training_start: string;
   training_end: string;
   regis_start: string;

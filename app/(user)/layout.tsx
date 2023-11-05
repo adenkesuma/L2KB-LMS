@@ -1,7 +1,5 @@
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
-import { Toaster } from "sonner";
-import ClientOnly from "../../components/client-only";
 
 export default function UserLayout({
   children,

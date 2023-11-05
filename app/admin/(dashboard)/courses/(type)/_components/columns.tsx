@@ -181,6 +181,9 @@ export const columns: ColumnDef<ITrainingData>[] = [
               </DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem asChild>
+                <Link href={`/admin/courses/${training.id}`}>Lihat Detail</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
                 <Link href={`/admin/courses/${training.id}/edit`}>Edit</Link>
               </DropdownMenuItem>
               <AlertDialogTrigger asChild>

@@ -54,8 +54,8 @@ const Verification = () => {
       </h1>
 
       {isVerified ? (
-        <div className="bg-red-600 rounded-xl p-8">
-          <p className="text-white">Anda dapat masuk ke akun Anda sekarang.</p>
+        <div className="border border-gray-200 rounded-xl p-8">
+          <p className="text-green text-xl text-center">Anda dapat masuk ke akun Anda sekarang.</p>
         </div>
       ) : (
         <div className="mx-auto sm:w-[35%] flex flex-col gap-6">

@@ -66,13 +66,6 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
           <div className="flex flex-col lg:flex-row gap-4 sm:gap-8 mt-4 relative">
             <figure className="block w-full lg:w-[68%]">
               <RegisterBanner trainingId={oneTrainingData?.id} />
-              {/* <Image
-              src={`${process.env.NEXT_PUBLIC_P2KB_API}/img/training_cover/${oneTrainingData?.id}.webp`}
-              alt="banner image detail"
-              className="rounded-xl h-full bg-cover bg-center w-full border border-gray-200 object-cover max-h-[400px]"
-              width={1000}
-              height={70}
-            /> */}
             </figure>
 
             <div className="sticky top-20 w-full lg:w-[32%] h-full max-h-[calc(100vh-9rem)]">
