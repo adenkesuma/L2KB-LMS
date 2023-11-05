@@ -5,6 +5,7 @@ import Loading from "../../../components/loading";
 import SearchComponents from "./_components/search";
 import CourseContent from "./_components/content";
 import CardSkeleton from "../../../components/skeleton/card-skeleton";
+import { ITrainingCandidate } from "../../admin/(dashboard)/participant/page";
 
 export interface ITrainingData {
   target_candidate: string;
@@ -33,6 +34,7 @@ export interface ITrainingData {
     tipe_rekening: string;
     nama_rekening: string;
   };
+  trainingCandidates: ITrainingCandidate[];
   createdAt: Date;
   updatedAt: Date;
 }

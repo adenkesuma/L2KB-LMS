@@ -87,11 +87,11 @@ function EditCourseForm({
     try {
       // console.log(1);
       // console.log("HIUBADHSIBHDI", data);
-      data.tujuan = data.tujuan.split("\n") as string[];
-      data.kriteria = data.kriteria.split("\n") as string[];
-      data.kompetensi = data.kompetensi.split("\n") as string[];
+      // data.tujuan = data.tujuan.split("\n") as string[];
+      // data.kriteria = data.kriteria.split("\n") as string[];
+      // data.kompetensi = data.kompetensi.split("\n") as string[];
+      // data.catatan = data.catatan.split("\n") as string[];
       // data.target_candidate = data.target_candidate.split("\n") as string[];
-      data.catatan = data.catatan.split("\n") as string[];
       // @ts-ignore
       // data.member = data.member.value;
 
@@ -225,11 +225,11 @@ function EditCourseForm({
     >
       <div className="w-full md:w-2/3 rounded-xl border border-gray-200 mt-8 bg-white p-4 flex flex-col gap-6">
         <h2 className="mb-2 font-semibold text-xl text-gray-800">Form</h2>
-         <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2">
           <label className="font-medium text-xs lg:text-sm">
             Upload Gambar
           </label>
-          <input 
+          <input
             {...register("cover_image")}
             className="border rounded-xl p-2 border-gray-300"
             type="file"
