@@ -1,9 +1,10 @@
 "use client";
-import { usePathname } from "next/navigation";
-import Link from "next/link";
-import Image from "next/image";
-import Profile from "@/public/assets/user.png";
+
 import { FC } from "react";
+import { usePathname } from "next/navigation";
+import Image from "next/image";
+
+import Profile from "@/./public/assets/images/profile-default.png"
 
 const AdminNavbar: FC = () => {
   const pathname = usePathname();
@@ -19,7 +20,7 @@ const AdminNavbar: FC = () => {
           </h1>
           <div className="flex items-center gap-4">
             <span className="font-medium text-xs xl:text-sm text-gray-800">
-              Park ji sung
+              Admin
             </span>
             <Image
               src={Profile}

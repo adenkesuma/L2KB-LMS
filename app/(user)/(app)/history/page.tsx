@@ -11,14 +11,8 @@ const History = async () => {
   const accessKey = cookieStore.get("accessKey")?.value;
 
   if (accessKey) {
-    const myTrainingData = await getMyTraining(accessKey);
-
-    // get skp
     let totalSkp = 0;
-
-    myTrainingData?.forEach((item) => {
-      totalSkp += item.training.skp;
-    });
+    const myTrainingData = await getMyTraining(accessKey);
 
     // get current date
     const currentDate = new Date();
@@ -28,6 +22,10 @@ const History = async () => {
       const trainingEndDate = new Date(item.training.training_end);
       return trainingEndDate <= currentDate;
     });
+
+    trainingDone?.forEach((item) => {
+      totalSkp += item.training.skp
+    })
 
     // console.log(trainingDone)
 

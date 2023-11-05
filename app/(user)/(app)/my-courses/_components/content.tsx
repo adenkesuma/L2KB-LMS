@@ -20,13 +20,13 @@ async function MyCourseContent() {
 
     return (
       <div className="mt-4 sm:mt-6 lg:mt-12">
-        <h1 className="text-2xl text-gray-800 font-semibold">
-          Total SKP: <span className="text-green font-bold">
+        <h1 className="text-xl text-gray-800 font-medium">
+          Total skp yang akan saya dapatkan: <span className="text-green text-2xl font-bold">
             {totalSkp}
           </span>
         </h1>
 
-        <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-8">
+        <div className="mt-4 md:mt-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-8">
           {myTrainingData?.map((data) => {
             return <Card data={data.training} key={data.training.id} />;
           })}

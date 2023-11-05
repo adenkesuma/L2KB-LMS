@@ -17,6 +17,7 @@ import useStore from "../store/use-store";
 import { userAuthStore } from "../store/user-auth.store";
 import { deleteCookie } from "../lib/services/cookie.service";
 import { UserData } from "@/app/(user)/(app)/profile/page";
+import ProfileNavbar from "./profileNavbar";
 
 const Navbar: FC = () => {
   const router = useRouter();
@@ -134,13 +135,7 @@ const Navbar: FC = () => {
                       {userData?.nama}
                     </span>
                     <div className="group relative flex items-center justify-center">
-                      <Image
-                        src={`${process.env.NEXT_PUBLIC_P2KB_API}/img/profile_picture/${userData?.id}.webp`}
-                        alt="profile user"
-                        className="h-10 w-10 rounded-[50%] p-1 bg-cover object-cover border border-gray-300"
-                        width={1000}
-                        height={100}
-                      />
+                      <ProfileNavbar data={userData?.id} />
                       <span className="opacity-0 absolute bg-white border border-slate-200 delay-100 text-slate-500 text-xs rounded-md mt-[84px] mr-14 p-1 whitespace-nowrap group-hover:opacity-100 group-hover:py-1 group-hover:px-3">
                         Profil
                       </span>
@@ -253,13 +248,9 @@ const Navbar: FC = () => {
                       </Link>
                       <Link href="/profile" className="flex items-center gap-4">
                         <span className="font-medium text-base text-white">
-                          Park ji sung
+                          {userData?.nama}
                         </span>
-                        <Image
-                          src={Profile}
-                          alt="profile user"
-                          className="h-10 sm:h-14 w-10 sm:w-14 rounded-[50%] p-1 border border-slate-100"
-                        />
+                        <ProfileNavbar data={userData?.id} />
                       </Link>
                       <button
                         className="flex items-center gap-4"
