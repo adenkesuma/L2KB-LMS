@@ -1,5 +1,3 @@
-import React from "react";
-
 import { getAllTrainingData } from "../../../lib/services/training-data.service";
 import HeroBanner from "../../../components/heroBanner";
 
