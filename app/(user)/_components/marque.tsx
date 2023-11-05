@@ -1,11 +1,12 @@
 import { FC } from "react";
 
-const Marquee: React.FC = () => {
+const Marquee: FC = () => {
   return (
-    <div className="bg-blue-200 p-2 overflow-hidden">
-      <div className="marquee">
-        <span>Your Marquee Text Goes Here</span>
-      </div>
+    <div className="marquee mt-10">
+        <div>
+          <span className="text-green font-bold italic text-sm md:text-base lg:text-xl">KAWASAN ZONA INTEGRITAS LEMBAGA DIKLAT PROFESI LAYANAN PRIMER MENUJU WILAYAH BEBAS DARI KORUPSI (WBK) WILAYAH BIROKRASI BERSIH MELAYANI (WBBM)</span>
+          <span className="text-green font-bold italic text-sm md:text-base lg:text-xl">KAWASAN ZONA INTEGRITAS LEMBAGA DIKLAT PROFESI LAYANAN PRIMER MENUJU WILAYAH BEBAS DARI KORUPSI (WBK) WILAYAH BIROKRASI BERSIH MELAYANI (WBBM)</span>
+        </div>
     </div>
   );
 };

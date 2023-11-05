@@ -35,18 +35,30 @@ body {
 }
 
 .marquee {
-  white-space: nowrap;
+  height: 25px;
+  width: 100%;
+
   overflow: hidden;
   position: relative;
-  animation: marquee 5s linear infinite;
+}
+
+.marquee div {
+  display: block;
+  width: 200%;
+  height: 30px;
+
+  position: absolute;
+  overflow: hidden;
+
+  animation: marquee 10s linear infinite;
 }
 
 .marquee span {
-  display: inline-block;
-  padding-left: 100%;  /* Mengulang teks */
+  float: left;
+  width: 50%;
 }
 
 @keyframes marquee {
-  0% { transform: translate(100%, 0); }
-  100% { transform: translate(-100%, 0); }
+  0% { left: 0; }
+  100% { left: -100%; }
 }
