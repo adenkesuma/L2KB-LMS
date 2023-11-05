@@ -68,10 +68,10 @@ function RegisterTrainingForm({ training_id }: { training_id: string }) {
       );
 
       if (register.status === 200 || register.status === 201) {
-        console.log(await register.data);
+        // console.log(await register.data);
         toast("Successfully register training");
-        router.refresh();
-        redirect('/courses')
+        window.location.href = "/courses";
+        // redirect('/courses')
       } else {
         toast.error("Error register training");
         console.log(await register.data.response);

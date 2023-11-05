@@ -21,7 +21,7 @@ const RegisterBanner = ({ trainingId } : any ) => {
       <Image
           src={img}
           alt="banner image detail"
-          className="rounded-xl h-full bg-cover bg-center w-full border border-gray-200 object-cover max-h-[400px]"
+          className="rounded-xl h-full bg-cover bg-center w-full border border-gray-200 object-cover max-h-[440px]"
           width={1000}
           height={70}
           onError={() => setImg("/assets/images/default-image-course.jpg")}

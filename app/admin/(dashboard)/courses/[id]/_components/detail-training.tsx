@@ -1,8 +1,7 @@
 import { getOneTrainingDataAdmin } from "@/lib/services/training-data.service";
 import moment from "moment";
-import Image from "next/image";
 
-import DummyImage from "@/public/assets/images/default-image-course.jpg"
+import Banner from "./banner";
 
 const DetailTraining = async ({ params } : { params: string }) => {
     const oneTrainingData = await getOneTrainingDataAdmin(params);
@@ -11,11 +10,8 @@ const DetailTraining = async ({ params } : { params: string }) => {
 
     return (
         <div className="rounded-lg border border-gray-200 p-8 mt-6 flex gap-10">
-            <Image 
-                src={DummyImage}
-                alt="image"
-                className="w-96 bg-cover rounded-lg object-cover border border-gray-200"
-            />
+            <Banner data={oneTrainingData?.id}/>
+
             <div>
                 <h1 className="text-xl text-gray-800 font-semibold mb-1">{oneTrainingData?.nama}</h1>
                 <p className="text-xs md:text-sm text-gray-600">{oneTrainingData?.deskripsi}</p>
