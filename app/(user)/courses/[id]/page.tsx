@@ -23,21 +23,18 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
   // const accessKey = cookieStore.get("accessKey")?.value;
   const accessKey = await getCookie("accessKey");
 
-  if (accessKey) {
-    const oneTrainingData = await getOneTrainingData(params.id);
-    if (!oneTrainingData) {
-      return notFound();
-    }
-    const myTrainingData = await getMyTraining(accessKey);
-    // console.log(myTrainingData);
-    let trainingId = null;
-
-    // id compare
-    if (myTrainingData) {
-      trainingId = myTrainingData[0].training_id;
-    }
-
-    const myTrainingId = oneTrainingData.id;
+  const oneTrainingData = await getOneTrainingData(params.id);
+  if (!oneTrainingData) {
+    return notFound();
+  }
+  const myTrainingData = await getMyTraining(accessKey);
+  // console.log(myTrainingData);
+  let trainingId = null;
+  // id compare
+  if (myTrainingData) {
+    trainingId = myTrainingData[0].training_id;
+  }
+  const myTrainingId = oneTrainingData.id;
 
     // console.log(myTrainingData[0].training_id)
     // console.log(oneTrainingData.id)
@@ -191,16 +188,6 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
             </h2>
 
             <p className="flex flex-col gap-2 sm:gap-3 mt-1 sm:mt-4 whitespace-pre-line">
-              {/* {JSON.parse(oneTrainingData?.kriteria).map((item, i) => {
-                return (
-                  <li
-                    className="font-regular text-xs sm:text-sm text-gray-600"
-                    key={i}
-                  >
-                    {i + 1}. {item}
-                  </li>
-                );
-              })} */}
               {oneTrainingData.kriteria}
             </p>
           </div>
@@ -211,17 +198,6 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
               Kompetensi
             </h2>
             <ul className="flex flex-col gap-2 sm:gap-3 mt-1 sm:mt-4 whitespace-pre-line">
-              {/* {JSON.parse(oneTrainingData.kompetensi).map((item, i) => {
-                return (
-                  <li
-                    className="font-regular text-xs sm:text-sm text-gray-600"
-                    key={i}
-                  >
-                    {i + 1}. {item}
-                  </li>
-                );
-              })} */}
-
               {oneTrainingData.kompetensi}
             </ul>
           </div>
@@ -232,16 +208,6 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
               Tujuan Pelatihan
             </h2>
             <p className="whitespace-pre-line">
-              {/* {JSON.parse(oneTrainingData.tujuan).map((item, i) => {
-                return (
-                  <p
-                    className="mt-1 sm:mt-4 text-xs sm:text-sm text-gray-600"
-                    key={i}
-                  >
-                    - {item}
-                  </p>
-                );
-              })} */}
               {oneTrainingData.tujuan}
             </p>
           </div>
@@ -252,16 +218,6 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
               Catatan:
             </h2>
             <ul className="flex flex-col gap-2 sm:gap-3 mt-2 sm:mt-4 whitespace-pre-line">
-              {/* {JSON.parse(oneTrainingData.catatan).map((item, i) => {
-                return (
-                  <li
-                    className="font-regular text-xs sm:text-sm text-green"
-                    key={i}
-                  >
-                    - {item}
-                  </li>
-                );
-              })} */}
               {oneTrainingData.catatan}
             </ul>
           </div>
@@ -269,7 +225,6 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
       </Suspense>
     );
   }
-};
 
 // export const runtime = "edge";
 export default PelatihanDetail;

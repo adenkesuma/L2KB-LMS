@@ -139,7 +139,7 @@ const Login = () => {
       </main>
 
       {showSuccessPopup ? (
-        <div className="z-30 bg-red-600 w-96 rounded-xl p-12">
+        <div className="z-30 border border-gray-300 text-green w-96 rounded-xl p-12">
           <p className="text-white">Selamat anda berhasil mendaftar</p>
         </div>
       ) : (

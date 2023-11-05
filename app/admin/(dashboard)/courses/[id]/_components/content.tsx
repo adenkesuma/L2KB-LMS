@@ -180,7 +180,11 @@ function AdminCourseDetailContent({
                     );
                   })
                 ) : (
-                  <p className="text-center w-full">No participant</p>
+                  <tbody>
+                    <tr className="text-sm font-medium text-gray-800">
+                      <td className="p-8" colSpan={5}>No Participant</td>
+                    </tr>
+                  </tbody>
                 )}
               </table>
             </div>
