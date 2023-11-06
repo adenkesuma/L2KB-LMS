@@ -66,7 +66,7 @@ function UpdateProfileForm() {
         router.refresh();
       } else {
         toast.error("Successfully update profile");
-        console.log(await update.data.response);
+        // console.log(await update.data.response);
       }
     } catch (error) {
       console.log(error);
@@ -101,7 +101,6 @@ function UpdateProfileForm() {
   useEffect(() => {
     reset(userData);
   }, [userData, reset]);
-
 
   return (
     <div className="bg-white rounded-xl border border-gray-200 mt-4 sm:mt-8">

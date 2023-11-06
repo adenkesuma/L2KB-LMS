@@ -82,8 +82,6 @@ const Navbar: FC = () => {
     }
   }, [userAuth?.accessToken]);
 
-  console.log(userData)
-
   return (
     <>
       {hiddenPath || adminHiddenPath ? (
