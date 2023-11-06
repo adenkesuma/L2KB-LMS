@@ -1,11 +1,9 @@
 // @ts-nocheck
 
 import { FC, Suspense } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import moment from "moment";
 import { notFound } from "next/navigation";
-import { cookies } from "next/headers";
 
 import {
   getMyTraining,
@@ -18,30 +16,17 @@ import { getCookie } from "../../../../lib/services/cookie.service";
 type PelatihanDetailType = { params: { id: string } };
 
 const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
-  // console.log(params.id);
-  // const cookieStore = cookies();
-  // const accessKey = cookieStore.get("accessKey")?.value;
   const accessKey = await getCookie("accessKey");
 
   const oneTrainingData = await getOneTrainingData(params.id);
   if (!oneTrainingData) {
     return notFound();
   }
-  const myTrainingData = await getMyTraining(accessKey);
-  // console.log(myTrainingData);
-  // let trainingId = null;
-  // // id compare
-  // if (myTrainingData) {
-  //   trainingId = myTrainingData[0].training_id;
-  // }
-  // const myTrainingId = oneTrainingData.id;
 
+  const myTrainingData = await getMyTraining(accessKey);
   const isRegistered = myTrainingData?.find(
     (data) => data.training.id === params.id
   );
-
-  // console.log(myTrainingData[0].training_id)
-  // console.log(oneTrainingData.id)
 
   return (
     <Suspense fallback={<Loading />}>
