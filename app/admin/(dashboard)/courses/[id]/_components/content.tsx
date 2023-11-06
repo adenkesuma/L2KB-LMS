@@ -210,6 +210,7 @@ function AdminCourseDetailContent({
                                       method: "POST",
                                       headers: {
                                         "Content-Type": "application/json",
+                                         Authorization: `Bearer ${adminAK}`
                                       },
                                       body: JSON.stringify({
                                         training_id: trainingData.id,
