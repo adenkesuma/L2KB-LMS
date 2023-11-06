@@ -9,6 +9,7 @@ import { ITrainingCandidate } from "../../page";
 import { Button } from "../../../../../../components/ui/button";
 import { APP_URL } from "../../../../../../lib/config";
 import LoadingIcon from "../../../../../../components/icons/loading-icon";
+import Modal from "./modal";
 
 function TrainingCandidateFileContent({
   trainingCandidate,
@@ -28,6 +29,8 @@ function TrainingCandidateFileContent({
   adminAK: string;
 }) {
   const [isLoading, setIsLoading] = useState(false);
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [selectedImageUrl, setSelectedImageUrl] = useState("");
 
   const onAccept = async (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
@@ -76,6 +79,18 @@ function TrainingCandidateFileContent({
     }
   };
 
+  // Fungsi untuk membuka modal
+  const openModal = (imageUrl: string) => {
+    setSelectedImageUrl(imageUrl);
+    setModalOpen(true);
+  };
+
+  // Fungsi untuk menutup modal
+  const closeModal = () => {
+    setSelectedImageUrl("");
+    setModalOpen(false);
+  };
+
   return (
     <>
       <div className="mt-6 gap-10 pt-4 px-4 pb-4 xl:pt-8 xl:px-8 xl:pb-8 border border-gray-200 rounded-xl bg-white">
@@ -95,17 +110,6 @@ function TrainingCandidateFileContent({
         </div>
 
         <div className="mt-8">
-          {/* <div className="flex flex-col gap-2">
-            <label className="font-medium text-xs text-gray-600 lg:text-sm">
-              Pesan (akan dikirim ke email peserta)
-            </label>
-            <textarea
-              rows={6}
-              cols={50}
-              className="border rounded-xl p-2 border-gray-300"
-            />
-          </div> */}
-
           {trainingCandidate?.accepted !== null ? (
             "peserta sudah diterma maupun ditolak, eak pgn tau ya hehe"
           ) : (
@@ -157,7 +161,14 @@ function TrainingCandidateFileContent({
                     </tr>
                   </thead>
                   <tbody className="text-gray-600 text-sm font-normal">
-                    <tr className="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:hover:bg-gray-100">
+                    <tr
+                      className="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:hover:bg-gray-100"
+                      onClick={() =>
+                        openModal(
+                          `${APP_URL}/admin/p2kb/documents/training-candidate/${trainingCandidate?.id}/${fileList?.sip}`
+                        )
+                      }
+                    >
                       <td className="whitespace-nowrap px-3 xl:px-6 py-2 xl:py-4 font-medium w-2/4">
                         <div className="flex flex-col gap-2">
                           <span className="text-sm">No SIP:</span>
@@ -168,7 +179,6 @@ function TrainingCandidateFileContent({
                       </td>
                       <td className="whitespace-nowrap px-3 xl:px-6 py-2 xl:py-4 w-2/4">
                         <div className="flex flex-col gap-2">
-                          <span className="text-sm">Foto SIP</span>
                           <Image
                             src={`${APP_URL}/admin/p2kb/documents/training-candidate/${trainingCandidate?.id}/${fileList?.sip}`}
                             width={1000}
@@ -180,7 +190,14 @@ function TrainingCandidateFileContent({
                       </td>
                     </tr>
 
-                    <tr className="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:hover:bg-gray-100">
+                    <tr 
+                      className="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:hover:bg-gray-100"
+                      onClick={() =>
+                        openModal(
+                          `${APP_URL}/admin/p2kb/documents/training-candidate/${trainingCandidate?.id}/${fileList?.str}`
+                        )
+                      } 
+                    >
                       <td className="whitespace-nowrap px-3 xl:px-6 py-2 xl:py-4 font-medium w-2/4">
                         <div className="flex flex-col gap-2">
                           <span className="text-sm">No STR:</span>
@@ -191,7 +208,6 @@ function TrainingCandidateFileContent({
                       </td>
                       <td className="whitespace-nowrap px-3 xl:px-6 py-2 xl:py-4 w-2/4">
                         <div className="flex flex-col gap-2">
-                          <span className="text-sm">Foto STR</span>
                           <Image
                             src={`${APP_URL}/admin/p2kb/documents/training-candidate/${trainingCandidate?.id}/${fileList?.str}`}
                             width={1000}
@@ -203,7 +219,14 @@ function TrainingCandidateFileContent({
                       </td>
                     </tr>
 
-                    <tr className="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:hover:bg-gray-100">
+                    <tr 
+                      className="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:hover:bg-gray-100"
+                       onClick={() =>
+                        openModal(
+                          `${APP_URL}/admin/p2kb/documents/training-candidate/${trainingCandidate?.id}/${fileList?.serkom}`
+                        )
+                      }
+                    >
                       <td className="whitespace-nowrap px-3 xl:px-6 py-2 xl:py-4 font-medium w-2/4">
                         <div className="flex flex-col gap-2">
                           <span className="text-sm">No SERKOM:</span>
@@ -214,7 +237,6 @@ function TrainingCandidateFileContent({
                       </td>
                       <td className="whitespace-nowrap px-3 xl:px-6 py-2 xl:py-4 w-2/4">
                         <div className="flex flex-col gap-2">
-                          <span className="text-sm">Foto SERKOM</span>
                           <Image
                             src={`${APP_URL}/admin/p2kb/documents/training-candidate/${trainingCandidate?.id}/${fileList?.serkom}`}
                             width={1000}
@@ -226,7 +248,14 @@ function TrainingCandidateFileContent({
                       </td>
                     </tr>
 
-                    <tr className="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:hover:bg-gray-100">
+                    <tr 
+                      className="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:hover:bg-gray-100"
+                      onClick={() =>
+                        openModal(
+                          `${APP_URL}/admin/p2kb/documents/training-candidate/${trainingCandidate?.id}/${fileList?.ijazah}`
+                        )
+                      }
+                    >
                       <td className="whitespace-nowrap px-3 xl:px-6 py-2 xl:py-4 font-medium w-2/4">
                         <div className="flex flex-col gap-2">
                           <span className="text-sm">No Ijazah:</span>
@@ -237,7 +266,6 @@ function TrainingCandidateFileContent({
                       </td>
                       <td className="whitespace-nowrap px-3 xl:px-6 py-2 xl:py-4 w-2/4">
                         <div className="flex flex-col gap-2">
-                          <span className="text-sm">Foto Ijazah</span>
                           <Image
                             src={`${APP_URL}/admin/p2kb/documents/training-candidate/${trainingCandidate?.id}/${fileList?.ijazah}`}
                             width={1000}
@@ -249,7 +277,14 @@ function TrainingCandidateFileContent({
                       </td>
                     </tr>
 
-                    <tr className="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:hover:bg-gray-100">
+                    <tr 
+                      className="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:hover:bg-gray-100"
+                      onClick={() =>
+                        openModal(
+                          `${APP_URL}/admin/p2kb/documents/training-candidate/${trainingCandidate?.id}/${fileList?.pdki}`
+                        )
+                      }
+                    >
                       <td className="whitespace-nowrap px-3 xl:px-6 py-2 xl:py-4 font-medium w-2/4">
                         <div className="flex flex-col gap-2">
                           <span className="text-sm">
@@ -262,9 +297,6 @@ function TrainingCandidateFileContent({
                       </td>
                       <td className="whitespace-nowrap px-3 xl:px-6 py-2 xl:py-4 w-2/4">
                         <div className="flex flex-col gap-2">
-                          <span className="text-sm">
-                            Foto Kartu Anggota PDKI
-                          </span>
                           <Image
                             src={`${APP_URL}/admin/p2kb/documents/training-candidate/${trainingCandidate?.id}/${fileList?.pdki}`}
                             width={1000}
@@ -276,7 +308,14 @@ function TrainingCandidateFileContent({
                       </td>
                     </tr>
 
-                    <tr className="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:hover:bg-gray-100">
+                    <tr 
+                      className="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:hover:bg-gray-100"
+                      onClick={() =>
+                        openModal(
+                          `${APP_URL}/admin/p2kb/documents/training-candidate/${trainingCandidate?.id}/${fileList?.ktp}`
+                        )
+                      } 
+                    >
                       <td className="whitespace-nowrap px-3 xl:px-6 py-2 xl:py-4 font-medium w-2/4">
                         <div className="flex flex-col gap-2">
                           <span className="text-sm">No KTP:</span>
@@ -287,7 +326,6 @@ function TrainingCandidateFileContent({
                       </td>
                       <td className="whitespace-nowrap px-3 xl:px-6 py-2 xl:py-4 w-2/4">
                         <div className="flex flex-col gap-2">
-                          <span className="text-sm">Foto KTP</span>
                           <Image
                             src={`${APP_URL}/admin/p2kb/documents/training-candidate/${trainingCandidate?.id}/${fileList?.ktp}`}
                             width={1000}
@@ -299,7 +337,14 @@ function TrainingCandidateFileContent({
                       </td>
                     </tr>
 
-                    <tr className="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:hover:bg-gray-100">
+                    <tr 
+                      className="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:hover:bg-gray-100"
+                      onClick={() =>
+                        openModal(
+                          `${APP_URL}/admin/p2kb/documents/training-candidate/${trainingCandidate?.id}/${fileList?.paid}`
+                        )
+                      }
+                    >
                       <td className="whitespace-nowrap px-3 xl:px-6 py-2 xl:py-4 font-medium w-2/4">
                         <div className="flex flex-col gap-2">
                           <span className="text-sm">No ATM:</span>
@@ -310,7 +355,6 @@ function TrainingCandidateFileContent({
                       </td>
                       <td className="whitespace-nowrap px-3 xl:px-6 py-2 xl:py-4 w-2/4">
                         <div className="flex flex-col gap-2">
-                          <span className="text-sm">Foto Bukti Pembayaran</span>
                           <Image
                             src={`${APP_URL}/admin/p2kb/documents/training-candidate/${trainingCandidate?.id}/${fileList?.paid}`}
                             width={1000}
@@ -328,6 +372,11 @@ function TrainingCandidateFileContent({
           </div>
         </div>
       </div>
+
+      {/* modal image detail */}
+      {isModalOpen && (
+        <Modal imageUrl={selectedImageUrl} onClose={closeModal} />
+      )}
     </>
   );
 }

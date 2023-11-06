@@ -111,7 +111,7 @@ const Sidebar = () => {
                   </span>
                 </Link>
 
-                <Link
+                {/* <Link
                   href="/admin/certificate"
                   className={`text-white relative group py-3 px-3 delay-75 duration-75 ${
                     activePath[2] === "certificate" ? "bg-opacity-green" : ""
@@ -125,7 +125,7 @@ const Sidebar = () => {
                   <span className="text-xs text-white md:hidden xl:block">
                     Sertifikat
                   </span>
-                </Link>
+                </Link> */}
               </nav>
             </div>
 
@@ -215,7 +215,7 @@ const Sidebar = () => {
                     </span>
                   </Link>
 
-                  <Link
+                  {/* <Link
                     href="/admin/certificate"
                     className={`text-white relative group py-3 px-3 delay-75 duration-75 ${
                       activePath[2] === "certificate" ? "bg-opacity-green" : ""
@@ -229,7 +229,7 @@ const Sidebar = () => {
                     <span className="text-xs text-white md:hidden xl:block xl:text-sm">
                       Sertifikat
                     </span>
-                  </Link>
+                  </Link> */}
                 </nav>
               </div>
 

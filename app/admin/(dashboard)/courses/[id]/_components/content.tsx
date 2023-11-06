@@ -91,6 +91,12 @@ function AdminCourseDetailContent({
                     <th scope="col" className="px-3 xl:px-6 p-2 xl:py-4">
                       Detail
                     </th>
+                    <th scope="col" className="px-3 xl:px-6 p-2 xl:py-4">
+                      Status Kehadiran
+                    </th>
+                    <th scope="col" className="px-3 xl:px-6 p-2 xl:py-4">
+                      Sertifikat
+                    </th>
                   </tr>
                 </thead>
                 {trainingData?.trainingCandidates.length !== 0 ? (
@@ -119,12 +125,12 @@ function AdminCourseDetailContent({
                           <td className="whitespace-nowrap px-3 xl:px-6 py-2 xl:py-4">
                             <span
                               className={rc(
-                                "rounded-sm p-2 text-sm",
+                                "font-medium p-2 text-sm",
                                 data.accepted !== null
                                   ? data.accepted
-                                    ? "text-green bg-emerald-100"
-                                    : "text-red-500 bg-red-100"
-                                  : "text-gray-600 bg-gray-100"
+                                    ? "text-green bg-emerald-100 rounded-lg"
+                                    : "text-red-500 bg-red-100 rounded-lg"
+                                  : "text-gray-600 bg-gray-100 rounded-lg"
                               )}
                             >
                               {data.accepted !== null
@@ -134,7 +140,7 @@ function AdminCourseDetailContent({
                                 : "Belum diaktivasi"}
                             </span>
                           </td>
-                          <td className="flex items-center whitespace-nowrap px-6 py-4 space-x-4">
+                          <td className="whitespace-nowrap px-6 py-4 space-x-4">
                             <Button
                               onClick={() =>
                                 router.push(`/admin/participant/${data.id}`)
@@ -146,6 +152,8 @@ function AdminCourseDetailContent({
                               Show document
                             </Button>
 
+                          </td>
+                          <td className="whitespace-nowrap px-6 py-4 space-x-4">
                             {!data.attend && data.accepted ? (
                               <Button
                                 variant="default"
@@ -180,12 +188,13 @@ function AdminCourseDetailContent({
                             ) : (
                               <div className="flex gap-1 items-center">
                                 <Cross1Icon className="text-red-500" />
-                                <p className="text-red-500">Not included</p>
+                                <p className="text-red-500 text-sm font-medium">Not included</p>
                               </div>
                             )}
-
+                          </td>
+                          <td className="whitespace-nowrap px-6 py-4 space-x-4">
                             {data.certificateGenerated ? (
-                              "Has"
+                              <p className="text-green bg-opacity-green text-xs font-medium p-2 rounded-xl text-center">Sertifikat Telah Diterima</p>
                             ) : (
                               <Button
                                 onClick={async (e) => {
@@ -218,22 +227,22 @@ function AdminCourseDetailContent({
                                     // console.log(object);
                                     console.log("object");
                                     console.log(gen);
-                                    toast.error("Something went gagal");
+                                    toast.error("Gagal mengenerate sertifikat");
                                   }
                                 }}
                                 className={rc(
                                   buttonVariants({ variant: "default" })
-                                )}
+                                ) + `flex items-center gap-2 text-sm font-medium`}
                               >
                                 <UploadIcon />{" "}
                                 {genSertiLoading ? (
                                   <LoadingIcon />
                                 ) : (
-                                  "Apalah Serti"
+                                  "Luncurkan Sertifikat"
                                 )}
                               </Button>
                             )}
-                          </td>
+                            </td>
                         </tr>
                       </tbody>
                     );
