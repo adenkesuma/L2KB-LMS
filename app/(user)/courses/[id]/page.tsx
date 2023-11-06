@@ -13,6 +13,21 @@ import Loading from "../../../../components/loading";
 import RegisterBanner from "../_components/registerBanner";
 import { getCookie } from "../../../../lib/services/cookie.service";
 
+export const memberOptions = [
+  {
+    value: "anggota_biasa",
+    label: "Anggota Biasa : Sp KKLP",
+  },
+  {
+    value: "anggota_luar_biasa",
+    label: "Anggota Luar Biasa (Umum) : Dokter yang bukan Sp KKLP",
+  },
+  {
+    value: "anggota_muda",
+    label: "Anggota Muda : PPDS KKLP",
+  },
+];
+
 type PelatihanDetailType = { params: { id: string } };
 
 const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
@@ -163,9 +178,9 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
             Target Peserta
           </h2>
           <p className="mt-1 sm:mt-4 text-xs sm:text-sm text-gray-600">
-            {/* Anggota Biasa : Sp KKLP */}
-            {/* {oneTrainingData.target_candidate.map((item) => item)} */}
-            {oneTrainingData.target_candidate}
+            {memberOptions.map((item) => {
+              return item.value === oneTrainingData.member ? item.label : ''
+            })}
           </p>
         </div>
         {/* kriteria peserta */}
@@ -173,7 +188,7 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
           <h2 className="font-semibold text-gray-800 text-base sm:text-[24px]">
             Kriteria peserta harus terpenuhi semua, yaitu sebagai berikut
           </h2>
-          <p className="flex flex-col gap-2 sm:gap-3 mt-1 sm:mt-4 whitespace-pre-line">
+          <p className="flex flex-col gap-2 sm:gap-3 mt-1 sm:mt-4 whitespace-pre-line text-xs sm:text-sm text-gray-600">
             {oneTrainingData.kriteria}
           </p>
         </div>
@@ -182,7 +197,7 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
           <h2 className="font-semibold text-gray-800 text-base sm:text-[24px]">
             Kompetensi
           </h2>
-          <ul className="flex flex-col gap-2 sm:gap-3 mt-1 sm:mt-4 whitespace-pre-line">
+          <ul className="flex flex-col gap-2 sm:gap-3 mt-1 sm:mt-4 whitespace-pre-line text-xs sm:text-sm text-gray-600">
             {oneTrainingData.kompetensi}
           </ul>
         </div>
@@ -191,7 +206,7 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
           <h2 className="font-semibold text-base sm:text-[24px] text-gray-800">
             Tujuan Pelatihan
           </h2>
-          <p className="whitespace-pre-line">
+          <p className="whitespace-pre-line mt-1 sm:mt-4 text-xs sm:text-sm text-gray-600">
             {oneTrainingData.tujuan}
           </p>
         </div>
