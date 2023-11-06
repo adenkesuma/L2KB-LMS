@@ -36,7 +36,7 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
   // }
   // const myTrainingId = oneTrainingData.id;
 
-  const isRegistered = myTrainingData?.filter(
+  const isRegistered = myTrainingData?.find(
     (data) => data.training.id === params.id
   );
 
