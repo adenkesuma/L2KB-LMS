@@ -57,12 +57,6 @@ const Certificate = async () => {
               <div key={data.training.id}>
                 {data.certificateGenerated ? (
                   <>
-                    <Link
-                      href={`https://api.pdkindonesia.com/p2kb/admin/certificate/${data.id}`}
-                      target="_blank"
-                    >
-                      {data.training.nama}
-                    </Link>
                     <UserCertificate link={`https://api.pdkindonesia.com/p2kb/admin/certificate/${data.id}`} />
                   </>
                 ) : (

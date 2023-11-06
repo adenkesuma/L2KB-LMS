@@ -1,6 +1,6 @@
-import Card from "@/components/card";
 import { getMyTraining } from "@/lib/services/training-data.service";
 import { cookies } from "next/headers";
+import moment from "moment";
 import Link from "next/link";
 
 const History = async () => {
@@ -26,8 +26,6 @@ const History = async () => {
     trainingDone?.forEach((item) => {
       totalSkp += item.training.skp
     })
-
-    // console.log(trainingDone)
 
     return (
       <main className="pt-4 sm:pt-6 lg:pt-12 min-h-screen">
@@ -75,12 +73,6 @@ const History = async () => {
               {totalSkp}
             </span>
           </h1>
-
-          <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-8">
-            {/* {myTrainingData?.map((data) => {
-              return <Card data={data.training} key={data.training.id} />;
-            })} */}
-          </div>
         </div>
 
         <div className="rounded-xl overflow-hidden sm:rounded-2xl border border-gray-200 mt-4 sm:mt-8 bg-white p-2 sm:p-4">
@@ -113,27 +105,30 @@ const History = async () => {
                     </thead>
 
                     <tbody className="text-gray-600 text-xs sm:text-sm font-normal">
-                      <tr className="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:hover:bg-gray-100">
-                        <td className="whitespace-nowrap px-6 py-4 font-medium">
-                          1
-                        </td>
-                        <td className="whitespace-nowrap px-6 py-4">
-                          Pelatihan skrining bayi baru lahir, bagi Dokter dan
-                          Bidan
-                        </td>
-                        <td className="whitespace-nowrap px-6 py-4">
-                          {shortText}
-                        </td>
-                        <td className="whitespace-nowrap px-6 py-4">
-                          23 - Oktober - 2023
-                        </td>
-                        <td className="whitespace-nowrap px-6 py-4">Belawan</td>
-                        <td className="whitespace-nowrap px-6 py-4">
-                          <span className="py-2 px-4 rounded-xl bg-opacity-green text-green font-semibold">
-                            Selesai
-                          </span>
-                        </td>
-                      </tr>
+                      {trainingDone?.map((item, idx) => (
+                        <tr key={item.id} className="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:hover:bg-gray-100">
+                          <td className="whitespace-nowrap px-6 py-4">
+                            {idx+1}
+                          </td>
+                          <td className="whitespace-nowrap px-6 py-4">
+                            {item.training.nama.slice(0, 30)}...
+                          </td>
+                          <td className="whitespace-nowrap px-6 py-4">
+                            {item.training.deskripsi.slice(0, 50)}...
+                          </td>
+                          <td className="whitespace-nowrap px-6 py-4">
+                            {moment(item.training.training_end).format("DD MMMM yyyy")}
+                          </td>
+                          <td className="whitespace-nowrap px-6 py-4">
+                            {item.training.location}
+                          </td>
+                          <td className="whitespace-nowrap px-6 py-4">
+                            <span className="py-2 px-4 rounded-xl bg-opacity-green text-green font-semibold">
+                              Selesai
+                            </span>
+                          </td>
+                        </tr>
+                      ))}
                     </tbody>
 
                   </table>

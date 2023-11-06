@@ -270,7 +270,7 @@ function RegisterTrainingForm({ training_id }: { training_id: string }) {
         </div>
         <div className="flex flex-col gap-2">
           <label className="font-medium text-xs sm:text-sm">
-            <span>Ketikan No ATM {"( Surat Izin Praktik )"}</span>
+            <span>Ketikan No ATM anda</span>
             <span className="text-red-600">*</span>
           </label>
           <input

@@ -20,6 +20,8 @@ async function MyCourseContent() {
       totalSkp += item.training.skp;
     });
 
+    console.log(myTrainingData)
+
     return (
       <div className="mt-4 sm:mt-6 lg:mt-12">
         <h1 className="text-xl text-gray-800 font-medium">
