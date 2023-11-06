@@ -194,7 +194,7 @@ function AdminCourseDetailContent({
                             )}
                           </td>
                           <td className="whitespace-nowrap px-6 py-4 space-x-4">
-                            {data.certificateGenerated ? (
+                            {data.certificateGenerated && data.attend ? (
                               <p className="text-green bg-opacity-green text-xs font-medium p-2 rounded-xl text-center">
                                 Sertifikat Telah Diterima
                               </p>
@@ -238,6 +238,7 @@ function AdminCourseDetailContent({
                                   rc(buttonVariants({ variant: "default" })) +
                                   `flex items-center gap-2 text-sm font-medium`
                                 }
+                                disabled={!data.attend}
                               >
                                 <UploadIcon />{" "}
                                 {genSertiLoading ? (
