@@ -18,6 +18,9 @@ const Card: FC<{
     );
   }, [data]);
 
+  const currentDate = new Date();
+  const registerType = new Date(data.regis_end) <= currentDate
+
   return (
     <div className="rounded-xl bg-white p-2 sm:p-3 border">
       <figure>
@@ -46,7 +49,7 @@ const Card: FC<{
           <p className="text-xs font-regular text-gray-600">
             Kondisi:{" "}
             <span className="font-semibold text-gray-700">
-              Pendaftaran Aktif
+              {registerType ? "Pendaftaran ditutup" : "Pendaftaran Aktif"}
             </span>
           </p>
           <p className="text-xs font-regular text-gray-600">

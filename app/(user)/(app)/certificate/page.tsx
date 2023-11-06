@@ -5,7 +5,7 @@ import { getMyTraining } from "@/lib/services/training-data.service";
 import UserCertificate from "./_components/userCertificate";
 
 const Certificate = async () => {
-    const cookieStore = cookies();
+  const cookieStore = cookies();
   const accessKey = cookieStore.get("accessKey")?.value;
 
   if (accessKey) {

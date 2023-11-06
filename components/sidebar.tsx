@@ -81,24 +81,6 @@ const Sidebar = () => {
                   </span>
                 </Link>
 
-                {/* <Link
-                  href="/admin/participant-achievements"
-                  className={`text-white relative group py-3 px-3 delay-75 duration-75 ${
-                    activePath[2] === "participant-achievements"
-                      ? "bg-opacity-green"
-                      : ""
-                  } flex justify-center xl:justify-start items-center gap-4 rounded-lg`}
-                >
-                  <Image
-                    src={Achievement}
-                    alt="participant achievements icon"
-                    className="w-[14px]"
-                  />
-                  <span className="text-xs text-white md:hidden xl:block">
-                    Pencapaian Peserta
-                  </span>
-                </Link> */}
-
                 <Link
                   href="/admin/guideline"
                   className={`text-white relative group py-3 px-3 delay-75 duration-75 ${
@@ -111,21 +93,21 @@ const Sidebar = () => {
                   </span>
                 </Link>
 
-                {/* <Link
-                  href="/admin/certificate"
+                <Link
+                  href="/admin/profile"
                   className={`text-white relative group py-3 px-3 delay-75 duration-75 ${
                     activePath[2] === "certificate" ? "bg-opacity-green" : ""
                   } flex justify-center xl:justify-start items-center gap-4 rounded-lg`}
                 >
                   <Image
-                    src={Certificate}
+                    src={User}
                     alt="Certificate"
                     className="w-[14px]"
                   />
                   <span className="text-xs text-white md:hidden xl:block">
-                    Sertifikat
+                    Profile User
                   </span>
-                </Link> */}
+                </Link>
               </nav>
             </div>
 
@@ -185,24 +167,6 @@ const Sidebar = () => {
                     </span>
                   </Link>
 
-                  {/* <Link
-                    href="/admin/participant-achievements"
-                    className={`text-white relative group py-3 px-3 delay-75 duration-75 ${
-                      activePath[2] === "participant-achievements"
-                        ? "bg-opacity-green"
-                        : ""
-                    } flex justify-center xl:justify-start items-center gap-4 rounded-lg`}
-                  >
-                    <Image
-                      src={Achievement}
-                      alt="participant achievements icon"
-                      className="w-[14px]"
-                    />
-                    <span className="text-xs text-white md:hidden xl:block xl:text-sm">
-                      Pencapaian Peserta
-                    </span>
-                  </Link> */}
-
                   <Link
                     href="/admin/guideline"
                     className={`text-white relative group py-3 px-3 delay-75 duration-75 ${
@@ -215,21 +179,21 @@ const Sidebar = () => {
                     </span>
                   </Link>
 
-                  {/* <Link
-                    href="/admin/certificate"
+                  <Link
+                    href="/admin/profile"
                     className={`text-white relative group py-3 px-3 delay-75 duration-75 ${
                       activePath[2] === "certificate" ? "bg-opacity-green" : ""
                     } flex justify-center xl:justify-start items-center gap-4 rounded-lg`}
                   >
                     <Image
-                      src={Certificate}
+                      src={User}
                       alt="Certificate"
                       className="w-[14px]"
                     />
                     <span className="text-xs text-white md:hidden xl:block xl:text-sm">
-                      Sertifikat
+                      Profil User
                     </span>
-                  </Link> */}
+                  </Link>
                 </nav>
               </div>
 

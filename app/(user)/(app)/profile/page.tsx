@@ -38,6 +38,7 @@ export interface UserData {
   email_verified: boolean;
   createdAt: string;
   updatedAt: string;
+  skp: number;
   profile: ProfileData;
 }
 

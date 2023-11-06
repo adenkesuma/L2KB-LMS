@@ -23,23 +23,16 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
   if (!oneTrainingData) {
     return notFound();
   }
-// <<<<<<< HEAD
-//   const myTrainingData = await getMyTraining(accessKey);
-//   // console.log(myTrainingData);
-//   let trainingId = null;
-//   // id compare
-//   if (myTrainingData) {
-//     trainingId = myTrainingData[0].training_id;
-//   }
-//   const myTrainingId = oneTrainingData.id;
-
-// =======
 
   const myTrainingData = await getMyTraining(accessKey);
 
   const isRegistered = myTrainingData?.find(
     (data) => data.training.id === params.id
   );
+
+  // get current date
+  const currentDate = new Date();
+  const registerType = new Date(oneTrainingData.regis_end) <= currentDate
 
   return (
     <Suspense fallback={<Loading />}>
@@ -51,7 +44,7 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
           <p className="font-regular text-xs sm:text-sm text-gray-600 pr-6 border-r border-gray-400">
             Kondisi:{" "}
             <span className="font-semibold text-green">
-              Pendaftaran Aktif
+              {registerType ? "Pendaftaran Ditutup" : "Pendaftaran Aktif"}
             </span>
           </p>
           <p className="font-regular text-xs sm:text-sm text-gray-600 pl-6">
@@ -138,10 +131,10 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
                 </button>
               ) : (
                 <Link
-                  href={`/courses/${oneTrainingData.id}/register`}
+                  href={registerType ? `#` : `/courses/${oneTrainingData.id}/register`}
                   className={`mt-6 text-center text-sm font-medium w-full p-2 rounded-xl bg-green text-white`}
                 >
-                  Daftar Sekarang
+                  {registerType ? "Pendaftaran di tutup" : "Daftar Sekarang"}
                 </Link>
               )}
             </div>

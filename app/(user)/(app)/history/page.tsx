@@ -4,9 +4,6 @@ import moment from "moment";
 import Link from "next/link";
 
 const History = async () => {
-  const text = "Skrining atau uji saring pada bayi baru lahir Neonatal Screening adalah istilah yang sering kita dengar, dan";
-  const shortText = text.slice(0, 50);
-
   const cookieStore = cookies();
   const accessKey = cookieStore.get("accessKey")?.value;
 
