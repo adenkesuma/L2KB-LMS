@@ -151,7 +151,6 @@ function AdminCourseDetailContent({
                             >
                               Show document
                             </Button>
-
                           </td>
                           <td className="whitespace-nowrap px-6 py-4 space-x-4">
                             {!data.attend && data.accepted ? (
@@ -188,13 +187,17 @@ function AdminCourseDetailContent({
                             ) : (
                               <div className="flex gap-1 items-center">
                                 <Cross1Icon className="text-red-500" />
-                                <p className="text-red-500 text-sm font-medium">Not included</p>
+                                <p className="text-red-500 text-sm font-medium">
+                                  Not included
+                                </p>
                               </div>
                             )}
                           </td>
                           <td className="whitespace-nowrap px-6 py-4 space-x-4">
                             {data.certificateGenerated ? (
-                              <p className="text-green bg-opacity-green text-xs font-medium p-2 rounded-xl text-center">Sertifikat Telah Diterima</p>
+                              <p className="text-green bg-opacity-green text-xs font-medium p-2 rounded-xl text-center">
+                                Sertifikat Telah Diterima
+                              </p>
                             ) : (
                               <Button
                                 onClick={async (e) => {
@@ -225,14 +228,15 @@ function AdminCourseDetailContent({
                                   } else {
                                     setGenSertiLoading(false);
                                     // console.log(object);
-                                    console.log("object");
-                                    console.log(gen);
+                                    // console.log("object");
+                                    // console.log(gen);
                                     toast.error("Gagal mengenerate sertifikat");
                                   }
                                 }}
-                                className={rc(
-                                  buttonVariants({ variant: "default" })
-                                ) + `flex items-center gap-2 text-sm font-medium`}
+                                className={
+                                  rc(buttonVariants({ variant: "default" })) +
+                                  `flex items-center gap-2 text-sm font-medium`
+                                }
                               >
                                 <UploadIcon />{" "}
                                 {genSertiLoading ? (
@@ -242,7 +246,7 @@ function AdminCourseDetailContent({
                                 )}
                               </Button>
                             )}
-                            </td>
+                          </td>
                         </tr>
                       </tbody>
                     );

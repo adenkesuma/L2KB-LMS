@@ -32,14 +32,14 @@ export const userAuthStore = create<UserAuthStore>()(
         storage: createJSONStorage(() => sessionStorage),
         // skipHydration: true,
         onRehydrateStorage: (state) => {
-          console.log("hydration starts");
+          // console.log("hydration starts");
 
           // optional
           return (state, error) => {
             if (error) {
-              console.log("an error happened during hydration", error);
+              // console.log("an error happened during hydration", error);
             } else {
-              console.log("hydration finished");
+              // console.log("hydration finished");
             }
           };
         },

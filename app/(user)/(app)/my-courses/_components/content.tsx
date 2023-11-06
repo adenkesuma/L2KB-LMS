@@ -11,7 +11,7 @@ async function MyCourseContent() {
 
   if (accessKey) {
     const myTrainingData = await getMyTraining(accessKey);
-    console.log(myTrainingData);
+    // console.log(myTrainingData);
 
     // get skp
     let totalSkp = 0;

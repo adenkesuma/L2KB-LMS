@@ -127,7 +127,7 @@ function EditCourseForm({
         router.push("/admin/courses");
       } else {
         toast.error("Something went wrong");
-        console.log(await update.data.response);
+        // console.log(await update.data.response);
       }
     } catch (error) {
       console.log(error);
@@ -183,8 +183,8 @@ function EditCourseForm({
 
   useEffect(() => {
     if (prevData) {
-      console.log(1);
-      console.log("WOI", prevData);
+      // console.log(1);
+      // console.log("WOI", prevData);
       prevData.training_start = moment(prevData?.training_start).format(
         "yyyy-MM-DD"
       );

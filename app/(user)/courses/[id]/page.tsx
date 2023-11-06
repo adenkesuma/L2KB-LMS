@@ -29,12 +29,11 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
   // console.log(myTrainingData);
   let trainingId = null;
   // id compare
-  trainingId = myTrainingData[0]?.training_id;
-
+  if (myTrainingData) {
+    trainingId = myTrainingData[0].training_id;
+  }
   const myTrainingId = oneTrainingData.id;
 
-  // console.log(trainingId)
-  // console.log(myTrainingId)
 
   return (
     <Suspense fallback={<Loading />}>

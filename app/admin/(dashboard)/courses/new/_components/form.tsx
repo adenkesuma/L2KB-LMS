@@ -124,7 +124,7 @@ function NewCourseForm({ adminAK }: { adminAK: string }) {
         router.push("/admin/courses");
       } else {
         toast.error("Something went wrong");
-        console.log(await create.data.response);
+        // console.log(await create.data.response);
       }
     } catch (error) {
       console.log(error);
@@ -189,7 +189,7 @@ function NewCourseForm({ adminAK }: { adminAK: string }) {
           <label className="font-medium text-xs lg:text-sm">
             Upload Gambar
           </label>
-          <input 
+          <input
             // name="file"
             {...register("cover_image")}
             className="border rounded-xl p-2 border-gray-300"
@@ -219,7 +219,7 @@ function NewCourseForm({ adminAK }: { adminAK: string }) {
             className="border rounded-xl p-2 border-gray-300"
           ></textarea>
         </div>
-       {/* <div className="flex flex-col gap-2">
+        {/* <div className="flex flex-col gap-2">
           <label className="font-medium text-xs lg:text-sm">
             Target Peserta Pelatihan <span className="text-red-600">*</span>
           </label>
