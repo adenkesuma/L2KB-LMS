@@ -109,9 +109,15 @@ function TrainingCandidateFileContent({
           </h2>
         </div>
 
+        {trainingCandidate?.accepted ? (
+          <p className="mt-8 text-green font-bold italic text-2xl">Peserta Diterima</p>
+        ) : (
+          <p className="mt-8 text-red-600 font-bold italic text-2xl">Peserta Ditolak</p>
+        )}
+
         <div className="mt-8">
           {trainingCandidate?.accepted !== null ? (
-            "peserta sudah diterma maupun ditolak, eak pgn tau ya hehe"
+            <span></span>
           ) : (
             <div className="grid grid-cols-2 gap-x-2 mt-3 ">
               <Button

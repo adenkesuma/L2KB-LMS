@@ -6,7 +6,9 @@ import CardSkeleton from "../../../../components/skeleton/card-skeleton";
 import { ITrainingData } from "../../page";
 
 export interface IMyTraningData {
+  id: string;
   training: ITrainingData;
+  certificateGenerated: string;
 }
 
 async function MyCourses() {

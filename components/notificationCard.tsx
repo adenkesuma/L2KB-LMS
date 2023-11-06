@@ -13,10 +13,10 @@ const NotificationCard = () => {
             />
             <div className='flex flex-col gap-1'>
                 <h1 className='text-sm sm:text-xl text-gray-800 font-semibold line-clamp-1'>
-                    Selamat! Pendaftaran Anda Diterima untuk Pelatihan Unggulan Kami
+                    Selamat! Pendaftaran Anda Diterima
                 </h1>
                 <p className='text-xs sm:text-sm text-gray-600 line-clamp-1'>
-                   Kami dengan senang hati mengumumkan bahwa pendaftaran Anda untuk pelatihan unggulan kami telah diterima. Anda telah membuat langkah pertama menuju pengembangan diri yang luar biasa. Kami tak sabar untuk berbagi pengetahuan, keterampilan, dan pengalaman hebat bersama Anda. Informasi lebih lanjut segera mengikuti. Bersiaplah untuk perjalanan yang menarik ini!
+                   Kami dengan senang hati mengumumkan bahwa pendaftaran Anda telah diterima. Anda telah membuat langkah pertama menuju pengembangan diri yang luar biasa. Kami tak sabar untuk berbagi pengetahuan, keterampilan, dan pengalaman hebat bersama Anda. Informasi lebih lanjut segera mengikuti. Bersiaplah untuk perjalanan yang menarik ini!
                 </p>
             </div>
         </div>
