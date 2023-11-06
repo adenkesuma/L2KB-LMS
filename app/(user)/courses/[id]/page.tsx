@@ -1,11 +1,9 @@
 // @ts-nocheck
 
 import { FC, Suspense } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import moment from "moment";
 import { notFound } from "next/navigation";
-import { cookies } from "next/headers";
 
 import {
   getMyTraining,
@@ -25,15 +23,23 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
   if (!oneTrainingData) {
     return notFound();
   }
-  const myTrainingData = await getMyTraining(accessKey);
-  // console.log(myTrainingData);
-  let trainingId = null;
-  // id compare
-  if (myTrainingData) {
-    trainingId = myTrainingData[0].training_id;
-  }
-  const myTrainingId = oneTrainingData.id;
+// <<<<<<< HEAD
+//   const myTrainingData = await getMyTraining(accessKey);
+//   // console.log(myTrainingData);
+//   let trainingId = null;
+//   // id compare
+//   if (myTrainingData) {
+//     trainingId = myTrainingData[0].training_id;
+//   }
+//   const myTrainingId = oneTrainingData.id;
 
+// =======
+
+  const myTrainingData = await getMyTraining(accessKey);
+
+  const isRegistered = myTrainingData?.find(
+    (data) => data.training.id === params.id
+  );
 
   return (
     <Suspense fallback={<Loading />}>
