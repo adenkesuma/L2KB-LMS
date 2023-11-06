@@ -1,5 +1,4 @@
 "use client";
-
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useForm, SubmitHandler } from "react-hook-form";
@@ -14,6 +13,8 @@ import { NewCourseFormData } from "../../../new/page";
 import { ITrainingData } from "../../../../../../(user)/courses/page";
 import moment from "moment";
 import { memberOptions } from "../../../new/_components/form";
+import Image from "next/image";
+import { ArrowRightIcon } from "@radix-ui/react-icons";
 
 interface EditCourseFormData extends NewCourseFormData {}
 
@@ -30,7 +31,15 @@ function EditCourseForm({
   const [trainingType, setTrainingType] = useState<any[]>();
   const [trainingOrganizer, setTrainingOrganizer] = useState<any[]>();
   const [formData, setFormData] = useState<EditCourseFormData>();
+  const [coverImage, setCoverImage] = useState<File | null>();
+
   // console.log(prevData);
+
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setCoverImage(e.target.files[0]);
+    }
+  };
 
   const {
     register,
@@ -39,6 +48,7 @@ function EditCourseForm({
     setValue,
     reset,
     watch,
+    getValues,
   } = useForm<EditCourseFormData>();
 
   useEffect(() => {
@@ -85,17 +95,6 @@ function EditCourseForm({
 
   const onSubmit: SubmitHandler<EditCourseFormData> = async (data) => {
     try {
-      // console.log(1);
-      // console.log("HIUBADHSIBHDI", data);
-      // data.tujuan = data.tujuan.split("\n") as string[];
-      // data.kriteria = data.kriteria.split("\n") as string[];
-      // data.kompetensi = data.kompetensi.split("\n") as string[];
-      // data.catatan = data.catatan.split("\n") as string[];
-      // data.target_candidate = data.target_candidate.split("\n") as string[];
-      // @ts-ignore
-      // data.member = data.member.value;
-
-      // console.log(data);
       const formData = new FormData();
       for (const key in data) {
         if (data.hasOwnProperty(key)) {
@@ -107,6 +106,9 @@ function EditCourseForm({
           // @ts-ignore
           else formData.append(key, data[key]);
         }
+      }
+      if (coverImage) {
+        formData.append("cover_image", coverImage);
       }
       // formData.forEach((data, key) => console.log(key, data));
 
@@ -216,7 +218,7 @@ function EditCourseForm({
     }
   }, [prevData, reset]);
 
-  console.log(watch());
+  // console.log(watch());
 
   return (
     <form
@@ -225,12 +227,33 @@ function EditCourseForm({
     >
       <div className="w-full md:w-2/3 rounded-xl border border-gray-200 mt-8 bg-white p-4 flex flex-col gap-6">
         <h2 className="mb-2 font-semibold text-xl text-gray-800">Form</h2>
+        <div className="flex justify-center items-center gap-4">
+          <Image
+            src={`${process.env.NEXT_PUBLIC_P2KB_API}/img/training_cover/${prevData?.id}.webp`}
+            alt="guideline image"
+            width={1000}
+            height={1000}
+            className="rounded-lg h-28 lg:h-40 w-full bg-cover object-cover max-w-sm"
+          />
+          <ArrowRightIcon />
+          {coverImage ? (
+            <Image
+              src={URL.createObjectURL(coverImage)}
+              alt="guideline image"
+              width={1000}
+              height={1000}
+              className="rounded-lg h-28 lg:h-40 w-full bg-cover object-cover max-w-sm"
+            />
+          ) : (
+            <div className="block bg-gray-200 rounded-lg h-28 lg:h-40 w-full bg-cover object-cover max-w-sm" />
+          )}
+        </div>
         <div className="flex flex-col gap-2">
           <label className="font-medium text-xs lg:text-sm">
             Upload Gambar
           </label>
           <input
-            {...register("cover_image")}
+            onChange={handleImageChange}
             className="border rounded-xl p-2 border-gray-300"
             type="file"
             accept=".jpg,.jpeg,.png"

@@ -27,7 +27,7 @@ function CertificateViewer({ pdfUrl }: any) {
   return ( 
     <div 
         ref={viewerRef} 
-        className="w-96"
+        className="w-96 h-full"
         style={{ width: "100%", height: "600px" }} 
     />
   );
