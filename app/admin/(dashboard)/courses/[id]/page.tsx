@@ -3,6 +3,7 @@ import { getCookie } from "../../../../../lib/services/cookie.service";
 import { getOneTrainingDataAdmin } from "../../../../../lib/services/training-data.service";
 import AdminCourseDetailContent from "./_components/content";
 import DetailTraining from "./_components/detail-training";
+import NotificationForUsers from "./_components/notification";
 
 async function AdminCourseDetailPage({ params }: { params: { id: string } }) {
   const adminAK = await getCookie("adminAK");
@@ -17,6 +18,8 @@ async function AdminCourseDetailPage({ params }: { params: { id: string } }) {
         </h1>
 
         <DetailTraining params={params.id} />
+
+        <NotificationForUsers params={params.id} adminAK={adminAK} />
 
         <AdminCourseDetailContent
           trainingData={trainingData}

@@ -57,7 +57,7 @@ function AdminCourseDetailContent({
   };
 
   return (
-    <div className="mt-6">
+    <div className="mt-10">
       <div className="flex gap-4 items-center">
         <h2 className="text-xl font-semibold text-gray-700">
           Peserta Pelatihan
@@ -176,7 +176,7 @@ function AdminCourseDetailContent({
                                     <LoadingIcon /> Loading
                                   </>
                                 ) : (
-                                  "Mark as attend"
+                                  "Tandai Sebagai Hadir"
                                 )}
                               </Button>
                             ) : data.accepted ? (
@@ -187,14 +187,15 @@ function AdminCourseDetailContent({
                                   onClick={(e) => handleMAA(e, data.id)}
                                   variant="outline"
                                 >
-                                  Cancel mark
+                                  {/* Cancel mark */}
+                                  Batalkan Kehadiran
                                 </Button>{" "}
                               </div>
                             ) : (
                               <div className="flex gap-1 items-center">
                                 <Cross1Icon className="text-red-500" />
                                 <p className="text-red-500 text-sm font-medium">
-                                  Not included
+                                  Pendaftaran Ditolak
                                 </p>
                               </div>
                             )}
@@ -234,9 +235,6 @@ function AdminCourseDetailContent({
                                     );
                                   } else {
                                     setGenSertiLoading(false);
-                                    // console.log(object);
-                                    // console.log("object");
-                                    // console.log(gen);
                                     toast.error("Gagal mengenerate sertifikat");
                                   }
                                 }}
