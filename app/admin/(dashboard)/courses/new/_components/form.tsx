@@ -87,12 +87,6 @@ function NewCourseForm({ adminAK }: { adminAK: string }) {
 
   const onSubmit: SubmitHandler<NewCourseFormData> = async (data) => {
     try {
-      data.tujuan = data.tujuan.split("\n") as string[];
-      data.kriteria = data.kriteria.split("\n") as string[];
-      data.kompetensi = data.kompetensi.split("\n") as string[];
-      data.target_candidate = "[]";
-      data.catatan = data.catatan.split("\n") as string[];
-
       const formData = new FormData();
 
       for (const key in data) {
@@ -111,8 +105,6 @@ function NewCourseForm({ adminAK }: { adminAK: string }) {
         formData.append("cover_image", coverImage);
       }
 
-      formData.forEach((data, key) => console.log(key, data));
-
       const create = await axios.post(
         `${process.env.NEXT_PUBLIC_P2KB_API}/admin/training/create`,
         formData,
@@ -128,7 +120,6 @@ function NewCourseForm({ adminAK }: { adminAK: string }) {
         router.push("/admin/courses");
       } else {
         toast.error("Something went wrong");
-        // console.log(await create.data.response);
       }
     } catch (error) {
       console.log(error);

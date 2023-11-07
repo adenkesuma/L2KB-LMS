@@ -1,17 +1,20 @@
-import { getUsersProfile } from '@/lib/services/user-data.service'
-import { cookies } from 'next/headers';
+import { getCookie } from '@/lib/services/cookie.service';
+import ProfileList from './_components/list';
 
 const Profile = async () => {
-  const cookieStore = cookies();
-  const accessKey = cookieStore.get("accessKey")?.value;
+  const adminAK = await getCookie("adminAK");
 
-  const usersProfile = await getUsersProfile(accessKey)
+  if (adminAK) {
+    return (
+      <div className='min-h-screen mb-8 px-4 md:px-8 xl:px-14 pt-10'>
+        <div className="flex jsutify-between items-center">
+          <h1 className='font-bold text-xl md:text-2xl text-gray-800'>Users Profile</h1>
+        </div>
 
-  console.log(usersProfile)
-
-  return (
-    <div>Profile</div>
-  )
+        <ProfileList adminAK={adminAK} />
+      </div>
+    )
+  }
 }
 
 export default Profile

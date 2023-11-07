@@ -96,7 +96,7 @@ const Sidebar = () => {
                 <Link
                   href="/admin/profile"
                   className={`text-white relative group py-3 px-3 delay-75 duration-75 ${
-                    activePath[2] === "certificate" ? "bg-opacity-green" : ""
+                    activePath[2] === "profile" ? "bg-opacity-green" : ""
                   } flex justify-center xl:justify-start items-center gap-4 rounded-lg`}
                 >
                   <Image
@@ -105,7 +105,7 @@ const Sidebar = () => {
                     className="w-[14px]"
                   />
                   <span className="text-xs text-white md:hidden xl:block">
-                    Profile User
+                    Profile Users
                   </span>
                 </Link>
               </nav>
@@ -182,7 +182,7 @@ const Sidebar = () => {
                   <Link
                     href="/admin/profile"
                     className={`text-white relative group py-3 px-3 delay-75 duration-75 ${
-                      activePath[2] === "certificate" ? "bg-opacity-green" : ""
+                      activePath[2] === "profile" ? "bg-opacity-green" : ""
                     } flex justify-center xl:justify-start items-center gap-4 rounded-lg`}
                   >
                     <Image
@@ -191,7 +191,7 @@ const Sidebar = () => {
                       className="w-[14px]"
                     />
                     <span className="text-xs text-white md:hidden xl:block xl:text-sm">
-                      Profil User
+                      Profil Users
                     </span>
                   </Link>
                 </nav>

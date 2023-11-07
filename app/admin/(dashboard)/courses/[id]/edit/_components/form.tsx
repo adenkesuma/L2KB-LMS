@@ -96,6 +96,7 @@ function EditCourseForm({
   const onSubmit: SubmitHandler<EditCourseFormData> = async (data) => {
     try {
       const formData = new FormData();
+
       for (const key in data) {
         if (data.hasOwnProperty(key)) {
           // @ts-ignore
@@ -107,10 +108,10 @@ function EditCourseForm({
           else formData.append(key, data[key]);
         }
       }
+
       if (coverImage) {
         formData.append("cover_image", coverImage);
       }
-      // formData.forEach((data, key) => console.log(key, data));
 
       const update = await axios.put(
         `${process.env.NEXT_PUBLIC_P2KB_API}/admin/training/update?training_id=${id}`,
@@ -127,7 +128,6 @@ function EditCourseForm({
         router.push("/admin/courses");
       } else {
         toast.error("Something went wrong");
-        // console.log(await update.data.response);
       }
     } catch (error) {
       console.log(error);
@@ -150,6 +150,7 @@ function EditCourseForm({
     }
     return null;
   };
+  
   const filterTrainingOrganizer: (inputValue: string) => Promise<any> = async (
     inputValue: string
   ) => {
@@ -301,22 +302,6 @@ function EditCourseForm({
           <label className="font-medium text-xs lg:text-sm">
             Institusi Penyelenggara <span className="text-red-600">*</span>
           </label>
-          {/* <select
-            className="border rounded-xl p-2 border-gray-300 bg-white"
-            defaultValue="def"
-          >
-            <option value="def" disabled>
-              Pilih Institusi
-            </option>
-            <option value="pdki">Perhimpunan Dokter Keluarga Indonesia</option>
-            {trainingType?.map((item) => {
-              return (
-                <option value="pdki" key={item.i}>
-                  {item.name}
-                </option>
-              );
-            })}
-          </select> */}
           <AsyncSelect
             instanceId="organizer_type"
             getOptionLabel={(option) => `${option.nama}`}
