@@ -50,10 +50,6 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
   const currentDate = new Date();
   const registerType = new Date(oneTrainingData.regis_end) <= currentDate
 
-  const hasRegistered = () => {
-    toast.error("Kamu sudah terdaftar sebelumnya")
-  }
-
   return (
     <Suspense fallback={<Loading />}>
       <main className="pt-4 sm:pt-6 lg:pt-12 min-h-screen">
@@ -146,7 +142,7 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
                 </ul>
               </div>
               {isRegistered ? (
-                <button onClick={hasRegistered} className="bg-gray-300 text-gray-800 mt-6 text-center text-sm font-medium w-full p-2 rounded-xl">
+                <button className="bg-gray-300 text-gray-800 mt-6 text-center text-sm font-medium w-full p-2 rounded-xl">
                   Sudah Mendaftar
                 </button>
               ) : (

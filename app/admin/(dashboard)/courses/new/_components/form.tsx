@@ -121,7 +121,8 @@ function NewCourseForm({ adminAK }: { adminAK: string }) {
       } else {
         toast.error("Something went wrong");
       }
-    } catch (error) {
+    } catch (error: any) {
+      toast.error(error.response.data.message)
       console.log(error);
     }
   };

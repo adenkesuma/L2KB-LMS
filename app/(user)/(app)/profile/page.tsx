@@ -40,6 +40,7 @@ export interface UserData {
   updatedAt: string;
   skp: number;
   profile: ProfileData;
+  announces: []
 }
 
 async function UserProfile() {
