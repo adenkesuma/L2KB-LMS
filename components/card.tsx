@@ -6,6 +6,21 @@ import Link from "next/link";
 import moment from "moment";
 import { ITrainingData } from "../app/(user)/page";
 
+export const memberOptions = [
+  {
+    value: "anggota_biasa",
+    label: "Khusus Anggota Biasa",
+  },
+  {
+    value: "anggota_luar_biasa",
+    label: "Khusus Anggota Luar Biasa",
+  },
+  {
+    value: "anggota_muda",
+    label: "Khusus Anggota Muda",
+  },
+];
+
 const Card: FC<{
   data: ITrainingData;
 }> = ({ data }) => {
@@ -21,6 +36,8 @@ const Card: FC<{
   const currentDate = new Date();
   const registerType = new Date(data.regis_end) <= currentDate
 
+  console.log(data)
+
   return (
     <div className="rounded-xl bg-white p-2 sm:p-3 border">
       <figure>
@@ -33,8 +50,11 @@ const Card: FC<{
           onError={() => setImg("/assets/images/default-image-course.jpg")}
         />
       </figure>
-      <div className="p-1 text-center rounded-md border-gray-300 border-[1.4px] text-[10px] sm:text-xs font-medium text-green w-full sm:w-[150px] mt-4">
-        <span>Khusus Anggota Muda</span>
+      <div className="p-1 text-center rounded-md border-gray-300 border-[1.4px] text-[10px] sm:text-xs font-semibold text-green w-full mt-4">
+        {memberOptions.map((item) => {
+          return item.value === data.member ? item.label : ''
+        })}
+        {/* <span>Khusus Anggota Muda</span> */}
       </div>
 
       <div className="flex justify-between flex-col gap-2">

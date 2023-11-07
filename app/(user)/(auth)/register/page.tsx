@@ -400,8 +400,8 @@ const Register: React.FC = () => {
       </main>
 
       {showSuccessPopup ? (
-        <div className="z-30 bg-red-600 w-96 rounded-xl p-12">
-          <p className="text-white">Selamat anda berhasil mendaftar</p>
+        <div className="z-30 border border-gray-200 w-96 rounded-xl p-12">
+          <p className="text-green text-xl font-semibold">Selamat anda berhasil mendaftar</p>
         </div>
       ) : (
         <span className="hidden" />

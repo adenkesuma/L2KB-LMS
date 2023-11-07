@@ -29,6 +29,7 @@ export interface ITrainingData {
   id: string;
   nama: string;
   deskripsi: string;
+  member: string;
   quota: number;
   skp: number;
   tahun_pelaksanaan: number;

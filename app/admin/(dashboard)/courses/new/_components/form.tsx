@@ -11,6 +11,7 @@ import Select from "react-select";
 import { NewCourseFormData } from "../page";
 import { Button } from "../../../../../../components/ui/button";
 import LoadingIcon from "../../../../../../components/icons/loading-icon";
+import Image from "next/image";
 
 export const memberOptions = [
   {
@@ -31,6 +32,7 @@ function NewCourseForm({ adminAK }: { adminAK: string }) {
   const router = useRouter();
   const [trainingType, setTrainingType] = useState<any[]>();
   const [trainingOrganizer, setTrainingOrganizer] = useState<any[]>();
+  const [coverImage, setCoverImage] = useState<File | null>();
 
   const {
     register,
@@ -85,17 +87,14 @@ function NewCourseForm({ adminAK }: { adminAK: string }) {
 
   const onSubmit: SubmitHandler<NewCourseFormData> = async (data) => {
     try {
-      // console.log(1);
-      // console.log(data);
       data.tujuan = data.tujuan.split("\n") as string[];
       data.kriteria = data.kriteria.split("\n") as string[];
       data.kompetensi = data.kompetensi.split("\n") as string[];
-      // data.target_candidate = data.target_candidate.split("\n") as string[];
       data.target_candidate = "[]";
       data.catatan = data.catatan.split("\n") as string[];
 
-      // console.log(data);
       const formData = new FormData();
+
       for (const key in data) {
         if (data.hasOwnProperty(key)) {
           // @ts-ignore
@@ -107,7 +106,12 @@ function NewCourseForm({ adminAK }: { adminAK: string }) {
           else formData.append(key, data[key]);
         }
       }
-      // formData.forEach((data, key) => console.log(key, data));
+
+      if (coverImage) {
+        formData.append("cover_image", coverImage);
+      }
+
+      formData.forEach((data, key) => console.log(key, data));
 
       const create = await axios.post(
         `${process.env.NEXT_PUBLIC_P2KB_API}/admin/training/create`,
@@ -147,6 +151,7 @@ function NewCourseForm({ adminAK }: { adminAK: string }) {
     }
     return null;
   };
+
   const filterTrainingOrganizer: (inputValue: string) => Promise<any> = async (
     inputValue: string
   ) => {
@@ -178,6 +183,12 @@ function NewCourseForm({ adminAK }: { adminAK: string }) {
       }, 1000);
     });
 
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setCoverImage(e.target.files[0]);
+    }
+  };
+
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
@@ -185,13 +196,23 @@ function NewCourseForm({ adminAK }: { adminAK: string }) {
     >
       <div className="w-full md:w-2/3 rounded-xl border border-gray-200 mt-8 bg-white p-4 flex flex-col gap-6">
         <h2 className="mb-2 font-semibold text-xl text-gray-800">Form</h2>
+         {coverImage ? (
+          <Image
+            src={URL.createObjectURL(coverImage)}
+            alt="guideline image"
+            width={1000}
+            height={1000}
+            className="rounded-lg h-28 lg:h-48 w-full bg-cover object-cover max-w-sm"
+          />
+        ) : (
+          <div className="block bg-gray-200 rounded-lg h-28 lg:h-48 w-full bg-cover object-cover max-w-sm" />
+        )}
         <div className="flex flex-col gap-2">
           <label className="font-medium text-xs lg:text-sm">
             Upload Gambar
           </label>
           <input
-            // name="file"
-            {...register("cover_image")}
+            onChange={handleImageChange}
             className="border rounded-xl p-2 border-gray-300"
             type="file"
             accept=".jpg,.jpeg,.png"
@@ -219,42 +240,13 @@ function NewCourseForm({ adminAK }: { adminAK: string }) {
             className="border rounded-xl p-2 border-gray-300"
           ></textarea>
         </div>
-        {/* <div className="flex flex-col gap-2">
-          <label className="font-medium text-xs lg:text-sm">
-            Target Peserta Pelatihan <span className="text-red-600">*</span>
-          </label>
-          <select
-            {...register("target_candidate")}
-            className="border rounded-xl p-2 border-gray-300 bg-white"
-          >
-            <option value="anggota biasa">Anggota Biasa : Sp KKLP</option>
-            <option value="anggota luar biasa">
-              Anggota Luar Biasa {"(Umum)"} : Dokter yang bukan Sp KKLP
-            </option>
-            <option value="anggota muda">Anggota Muda : PPDS KKLP</option>
-          </select>
-        </div> */}
+      
 
         <div className="flex flex-col gap-2">
           <label className="font-medium text-xs lg:text-sm">
             Institusi Penyelenggara <span className="text-red-600">*</span>
           </label>
-          {/* <select
-            className="border rounded-xl p-2 border-gray-300 bg-white"
-            defaultValue="def"
-          >
-            <option value="def" disabled>
-              Pilih Institusi
-            </option>
-            <option value="pdki">Perhimpunan Dokter Keluarga Indonesia</option>
-            {trainingType?.map((item) => {
-              return (
-                <option value="pdki" key={item.i}>
-                  {item.name}
-                </option>
-              );
-            })}
-          </select> */}
+        
           <AsyncSelect
             instanceId="organizer_type"
             getOptionLabel={(option) => `${option.nama}`}
@@ -493,12 +485,6 @@ function NewCourseForm({ adminAK }: { adminAK: string }) {
             "Simpan"
           )}
         </Button>
-        {/* <button
-          type="submit"
-          className="text-center text-white font-medium mt-2 p-2 rounded-xl bg-green"
-        >
-          Simpan
-        </button> */}
       </aside>
     </form>
   );
