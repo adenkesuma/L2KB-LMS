@@ -31,6 +31,7 @@ const ProfileList = ({ adminAK } : { adminAK: string }) => {
         fetchUsersProfile();
     }, [adminAK]);
 
+
   return (
     <div>
         <div className="rounded-xl overflow-hidden sm:rounded-2xl border border-gray-200 mt-4 sm:mt-8 bg-white p-2 sm:p-4">

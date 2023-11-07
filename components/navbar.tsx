@@ -17,6 +17,7 @@ import { userAuthStore } from "../store/user-auth.store";
 import { deleteCookie } from "../lib/services/cookie.service";
 import { UserData } from "@/app/(user)/(app)/profile/page";
 import ProfileNavbar from "./profileNavbar";
+import { getProfile } from "@/lib/services/profile";
 
 const Navbar: FC = () => {
   const router = useRouter();

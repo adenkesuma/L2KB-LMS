@@ -18,7 +18,6 @@ interface UserLogin {
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState<Boolean>(false);
-  const [showSuccessPopup, setShowSuccessPopup] = useState<Boolean>(false);
   const [userLogin, setUserLogin] = useState<UserLogin>({
     email: "",
     password: "",
@@ -130,14 +129,6 @@ const Login = () => {
           </Link>
         </p>
       </main>
-
-      {showSuccessPopup ? (
-        <div className="z-30 border border-gray-300 text-green w-96 rounded-xl p-12">
-          <p className="text-white">Selamat anda berhasil mendaftar</p>
-        </div>
-      ) : (
-        <span className="hidden" />
-      )}
     </>
   );
 };

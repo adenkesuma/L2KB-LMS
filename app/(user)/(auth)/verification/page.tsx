@@ -6,6 +6,7 @@ import Link from "next/link";
 
 import Logo from "@/public/assets/logo/logo.png";
 import axios from "axios";
+import { toast } from "sonner";
 
 const Verification = () => {
   const [email, setEmail] = useState<string>("");
@@ -24,7 +25,7 @@ const Verification = () => {
 
       if (response.status === 200) {
         setIsVerified(true);
-
+        toast.success("Berhasil Verifikasi Email")
         window.location.href = "/login";
       }
     } catch (error) {

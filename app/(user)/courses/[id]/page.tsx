@@ -12,6 +12,7 @@ import {
 import Loading from "../../../../components/loading";
 import RegisterBanner from "../_components/registerBanner";
 import { getCookie } from "../../../../lib/services/cookie.service";
+import { toast } from "sonner";
 
 export const memberOptions = [
   {
@@ -48,6 +49,10 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
   // get current date
   const currentDate = new Date();
   const registerType = new Date(oneTrainingData.regis_end) <= currentDate
+
+  const hasRegistered = () => {
+    toast.error("Kamu sudah terdaftar sebelumnya")
+  }
 
   return (
     <Suspense fallback={<Loading />}>
@@ -141,7 +146,7 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
                 </ul>
               </div>
               {isRegistered ? (
-                <button className="bg-gray-300 text-gray-800 mt-6 text-center text-sm font-medium w-full p-2 rounded-xl">
+                <button onClick={hasRegistered} className="bg-gray-300 text-gray-800 mt-6 text-center text-sm font-medium w-full p-2 rounded-xl">
                   Sudah Mendaftar
                 </button>
               ) : (

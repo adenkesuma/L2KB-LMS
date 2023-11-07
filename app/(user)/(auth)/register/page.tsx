@@ -3,12 +3,13 @@
 import { useState, ChangeEvent, FormEvent } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 
 import Logo from "@/public/assets/logo/logo.png";
 import UserProfile from "../../(app)/profile/page";
 import Visible from "@/public/assets/icons/visible.svg";
 import Invisible from "@/public/assets/icons/invisible.svg";
+import { toast } from "sonner";
 
 interface UserProfile {
   nik: number;
@@ -103,14 +104,16 @@ const Register: React.FC = () => {
 
       if (response.status === 200) {
         setShowSuccessPopup(true);
+        toast.success("Berhasil membuat akun")
 
         setTimeout(() => {
           setShowSuccessPopup(false);
           window.location.href = "/verification";
         }, 3000);
       }
-    } catch (err) {
-      console.log(err);
+    } catch (err: any) {
+      toast.error(err.response.data.message)
+      // console.log(err.response);
     }
   };
 

@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 
 import RegisterTrainingForm from "./_components/form";
 import { getProfile } from "../../../../../lib/services/profile";
+import { getOneTrainingData } from "@/lib/services/training-data.service";
 
 export interface IRegisterTrainingData {
   // [key: string]: any;
@@ -27,16 +28,19 @@ export interface IRegisterTrainingData {
 async function Register({ params }: { params: { id: string } }) {
   const profile = await getProfile();
 
+  const oneTrainingData = await getOneTrainingData(params.id);
+
   if (!profile) {
     redirect("/login");
   }
+
   return (
     <main className="flex flex-col gap-18 justify-center items-center min-h-screen pb-8">
       <h1 className="font-bold text-xl sm:text-2xl lg:text-[38px]">
         Daftar Pelatihan
       </h1>
 
-      <RegisterTrainingForm training_id={params.id} />
+      <RegisterTrainingForm price={oneTrainingData?.price} training_id={params.id} />
     </main>
   );
 }

@@ -31,10 +31,10 @@ const ForgotPassword = () => {
     const data = await response.json()
 
     if (response.status === 200) {
-      toast('Kode Verifikasi telah dikirim ke alamat email anda')
+      toast.success('Kode Verifikasi telah dikirim ke alamat email anda')
       window.location.href = "/forgot-password/verify";
     } else {
-      toast('Terjadi kesalahan. Mohon periksa kembali alamat email anda')
+      toast.error('Terjadi kesalahan. Mohon periksa kembali alamat email anda')
     }
   };
 

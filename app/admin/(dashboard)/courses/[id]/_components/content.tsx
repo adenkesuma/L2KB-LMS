@@ -86,6 +86,9 @@ function AdminCourseDetailContent({
                       No SERKOM
                     </th>
                     <th scope="col" className="px-3 xl:px-6 p-2 xl:py-4">
+                      Email
+                    </th>
+                    <th scope="col" className="px-3 xl:px-6 p-2 xl:py-4">
                       Status
                     </th>
                     <th scope="col" className="px-3 xl:px-6 p-2 xl:py-4">
@@ -111,16 +114,19 @@ function AdminCourseDetailContent({
                             {i + 1}
                           </td>
                           <td className="whitespace-nowrap px-3 xl:px-6 py-2 xl:py-4">
-                            {data.nama_lengkap}
+                            {data?.nama_lengkap}
                           </td>
                           <td className="whitespace-nowrap px-3 xl:px-6 py-2 xl:py-4">
-                            {data.no_sip}
+                            {data?.no_sip}
                           </td>
                           <td className="whitespace-nowrap px-3 xl:px-6 py-2 xl:py-4">
-                            {data.no_str}
+                            {data?.no_str}
                           </td>
                           <td className="whitespace-nowrap px-3 xl:px-6 py-2 xl:py-4">
-                            {data.no_serkom}
+                            {data?.no_serkom}
+                          </td>
+                          <td className="whitespace-nowrap px-3 xl:px-6 py-2 xl:py-4">
+                            {/* {data?.email} */}
                           </td>
                           <td className="whitespace-nowrap px-3 xl:px-6 py-2 xl:py-4">
                             <span
