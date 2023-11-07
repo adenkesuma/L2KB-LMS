@@ -31,10 +31,12 @@ const HeroBanner: FC<{ data: ITrainingData[] }> = ({ data }) => {
     );
   };
 
+  console.log(data)
+
   return (
     <header className="mt-4 sm:mt-6">
       <div className="relative h-52 lg:h-[80vh]">
-        {data.map((item, index) => (
+        {data?.map((item, index) => (
           <ImageBanner data={item} index={index} key={item.id} currentIndex={currentIndex} /> 
         ))}
 
@@ -57,7 +59,7 @@ const HeroBanner: FC<{ data: ITrainingData[] }> = ({ data }) => {
       </div>
 
       <div className="flex justify-center mt-4">
-        {data.map((item, index) => (
+        {data?.map((item, index) => (
           <span
             key={item.id}
             className={`w-2 h-2 mx-1 rounded-full bg-gray-400 ${

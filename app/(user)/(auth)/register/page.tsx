@@ -191,7 +191,7 @@ const Register: React.FC = () => {
 
             <div className="flex flex-col gap-2">
               <label className="font-medium text-xs sm:text-sm flex justify-between items-center">
-                <span>No NPA PDKI</span>
+                <span>NPA PDKI</span>
                 <span className="italic text-xs text-orange-500">{`"opsional"`}</span>
               </label>
               <input
@@ -233,8 +233,8 @@ const Register: React.FC = () => {
                 <option hidden disabled value="">
                   - Pilih Jenis Kelamin -
                 </option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
+                <option value="male">Pria</option>
+                <option value="female">Wanita</option>
               </select>
             </div>
 
