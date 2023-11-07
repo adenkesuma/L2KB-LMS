@@ -51,6 +51,8 @@ function UpdateProfileForm() {
         }
       }
 
+      console.log(data)
+
       const update = await axios.put(
         `${process.env.NEXT_PUBLIC_P2KB_API}/profile/update`,
         formData,
@@ -110,14 +112,7 @@ function UpdateProfileForm() {
           <h2 className="text-base sm:text-[28px] font-semibold text-gray-800">
             Foto Profil
           </h2>
-          {/* TO-DO: DISABLED CACHE FETCHING??? */}
-          {/* <Image
-            src={`${process.env.NEXT_PUBLIC_P2KB_API}/img/profile_picture/${userData?.id}.webp`}
-            alt="foto profil"
-            className="rounded-[50%] w-36 h-36 object-cover bg-cover"
-            width={36}
-            height={36}
-          /> */}
+    
           <ProfilePicture data={userData?.id} />
 
           {/* change profile */}
@@ -236,16 +231,6 @@ function UpdateProfileForm() {
             </select>
           </div>
 
-          {/* <div className="flex flex-col gap-2">
-              <label className="font-medium text-xs sm:text-sm">
-                Pendidikan Terakhir
-              </label>
-              <input
-                type="text"
-                className="border rounded-xl p-2 border-gray-300"
-                {...register("profile.pendidikan")}
-              />
-            </div> */}
 
           <div className="flex flex-col gap-2">
             <label className="font-medium text-xs sm:text-sm">Agama</label>
@@ -255,10 +240,6 @@ function UpdateProfileForm() {
               {...register("profile.agama")}
             />
           </div>
-        </div>
-
-        {/* right form */}
-        <div className="flex flex-col gap-6">
           <div className="flex flex-col gap-2">
             <label className="font-medium text-xs sm:text-sm">
               Nomor Telepon
@@ -349,6 +330,10 @@ function UpdateProfileForm() {
             />
           </div>
 
+        </div>
+
+        {/* right form */}
+        <div className="flex flex-col gap-6">
           <div className="flex flex-col gap-2">
             <label className="font-medium text-xs sm:text-sm">
               Alamat Instansi
@@ -378,6 +363,141 @@ function UpdateProfileForm() {
               type="text"
               className="border rounded-xl p-2 border-gray-300"
               {...register("profile.alamat")}
+            />
+          </div>
+
+          {/* no atm */}
+          <div className="flex flex-col gap-2">
+            <label className="font-medium text-xs sm:text-sm">
+              <span>Ketikan No ATM</span>
+              <span className="text-red-600">*</span>
+            </label>
+            <input
+              type="text"
+              className="border bg-white rounded-xl p-2 border-gray-300"
+              {...register("no_atm")}
+            />
+          </div>
+
+          {/* SIP */}
+          <div className="flex flex-col gap-2">
+            <label className="font-medium text-xs sm:text-sm">
+              <span>SIP {"( Surat Izin Praktik )"}</span>
+              <span className="text-red-600">*</span>
+            </label>
+            <input
+              type="file"
+              className="border bg-white rounded-xl p-2 border-gray-300"
+              {...register("sip_file")}
+            />
+          </div>
+          <div className="flex flex-col gap-2">
+            <label className="font-medium text-xs sm:text-sm">
+              <span>Ketikan No Surat SIP {"( Surat Izin Praktik )"}</span>
+              <span className="text-red-600">*</span>
+            </label>
+            <input
+              type="text"
+              className="border bg-white rounded-xl p-2 border-gray-300"
+              {...register("no_sip")}
+            />
+          </div>
+
+          {/* STR */}
+          <div className="flex flex-col gap-2">
+            <label className="font-medium text-xs sm:text-sm">
+              <span>STR {"( Surat Tanda Registrasi )"}</span>
+              <span className="text-red-600">*</span>
+            </label>
+            <input
+              type="file"
+              className="bg-white border rounded-xl p-2 border-gray-300"
+              {...register("str_file")}
+            />
+          </div>
+          <div className="flex flex-col gap-2">
+            <label className="font-medium text-xs sm:text-sm">
+              <span>Ketikan No Surat STR {"( Surat Tanda Registrasi )"}</span>
+              <span className="text-red-600">*</span>
+            </label>
+            <input
+              type="text"
+              className="border bg-white rounded-xl p-2 border-gray-300"
+              {...register("no_str")}
+            />
+          </div>
+
+          {/* SERKOM */}
+          <div className="flex flex-col gap-2">
+            <label className="font-medium text-xs sm:text-sm">
+              <span>Upload SERKOM {"( Surtifikat Kompetensi )"}</span>
+              <span className="text-red-600">*</span>
+            </label>
+            <input
+              type="file"
+              className="border bg-white rounded-xl p-2 border-gray-300"
+              {...register("serkom_file")}
+            />
+          </div>
+          <div className="flex flex-col gap-2">
+            <label className="font-medium text-xs sm:text-sm">
+              <span>Ketikan No SERKOM {"( Surtifikat Kompetensi )"}</span>
+              <span className="text-red-600">*</span>
+            </label>
+            <input
+              type="text"
+              className="border bg-white rounded-xl p-2 border-gray-300"
+              {...register("no_serkom")}
+            />
+          </div>
+
+          {/* Ijajah Pengakuan */}
+          <div className="flex flex-col gap-2">
+            <label className="font-medium text-xs sm:text-sm">
+              <span>Upload Ijajah Pengakuan Universitas/Institusi</span>
+              <span className="text-red-600">*</span>
+            </label>
+            <input
+              type="file"
+              className="border bg-white rounded-xl p-2 border-gray-300"
+              {...register("ijazah_file")}
+            />
+          </div>
+          <div className="flex flex-col gap-2">
+            <label className="font-medium text-xs sm:text-sm">
+              <span>Ketikan No Ijajah</span>
+              <span className="text-red-600">*</span>
+            </label>
+            <input
+              type="text"
+              className="border bg-white rounded-xl p-2 border-gray-300"
+              {...register("no_ijazah")}
+            />
+          </div>
+
+          {/* Kartu Anggota PDKI (opsional) */}
+          <div className="flex flex-col gap-2">
+            <label className="font-medium text-xs sm:text-sm flex justify-between items-center">
+              <span>Upload Kartu Anggota PDKI</span>
+              <span className="text-end italic text-xs text-orange-500">{`"Opsional"`}</span>
+            </label>
+            <input
+              type="file"
+              className="border bg-white rounded-xl p-2 border-gray-300"
+              {...register("pdki_file")}
+            />
+          </div>
+
+          {/* KTP */}
+          <div className="flex flex-col gap-2">
+            <label className="font-medium text-xs sm:text-sm">
+              <span>Upload Foto KTP</span>
+              <span className="text-red-600">*</span>
+            </label>
+            <input
+              type="file"
+              className="border bg-white rounded-xl p-2 border-gray-300"
+              {...register("ktp_file")}
             />
           </div>
         </div>

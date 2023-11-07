@@ -31,7 +31,7 @@ async function Register({ params }: { params: { id: string } }) {
     redirect("/login");
   }
   return (
-    <main className="pt-4 sm:pt-6 lg:pt-12 min-h-screen pb-8">
+    <main className="flex flex-col gap-18 justify-center items-center min-h-screen pb-8">
       <h1 className="font-bold text-xl sm:text-2xl lg:text-[38px]">
         Daftar Pelatihan
       </h1>

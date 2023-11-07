@@ -4,7 +4,7 @@ import { ChangeEvent, FormEvent, useState, useEffect } from "react";
 import Image from "next/image";
 import axios from "axios";
 import Link from "next/link";
-import Logo from "@/public/assets/logo/kolegium.png";
+import Logo from "@/public/assets/logo/logo.png";
 import Visible from "@/public/assets/icons/visible.svg";
 import Invisible from "@/public/assets/icons/invisible.svg";
 import useStore from "../../../../store/use-store";
@@ -53,13 +53,6 @@ const Login = () => {
       if (response.status === 200) {
         await setCookie(response.data.accessToken);
         userAuth?.setAccessToken(response.data.accessToken);
-        // window.location.href = "/update_data";
-
-        // setShowSuccessPopup(true);
-
-        // setTimeout(() => {
-        //   setShowSuccessPopup(false);
-        // }, 5000);
       }
     } catch (err) {
       console.log(err);
@@ -70,9 +63,9 @@ const Login = () => {
     <>
       <main className="h-screen w-full flex flex-col items-center justify-center">
         <Link href="/">
-          <Image src={Logo} alt="logo" className="w-12 sm:w-20 block mx-auto" />
+          <Image src={Logo} alt="logo" className="w-16 sm:w-28 block mx-auto" />
         </Link>
-        <h1 className="font-bold mt-2 sm:mt-4 text-xl sm:text-4xl text-center mb-6 sm:mb-12">
+        <h1 className="font-bold mt-2 sm:mt-6 text-xl sm:text-4xl text-center mb-6 sm:mb-12">
           Masuk
         </h1>
 

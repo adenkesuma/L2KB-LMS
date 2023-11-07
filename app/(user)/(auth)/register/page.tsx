@@ -1,12 +1,14 @@
 "use client";
+
 import { useState, ChangeEvent, FormEvent } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import Logo from "@/public/assets/logo/kolegium.png";
+import axios from "axios";
+
+import Logo from "@/public/assets/logo/logo.png";
 import UserProfile from "../../(app)/profile/page";
 import Visible from "@/public/assets/icons/visible.svg";
 import Invisible from "@/public/assets/icons/invisible.svg";
-import axios from "axios";
 
 interface UserProfile {
   nik: number;
@@ -23,7 +25,7 @@ interface UserProfile {
 }
 
 interface User {
-  npa_pdki: number;
+  npa_pdki?: number;
   nama: string;
   email: string;
   password: string;
@@ -116,9 +118,9 @@ const Register: React.FC = () => {
     <>
       <main className="p-4 mt-4 mb-8 min-h-screen">
         <Link href="/">
-          <Image src={Logo} alt="logo" className="w-12 sm:w-20 block mx-auto" />
+          <Image src={Logo} alt="logo" className="w-16 sm:w-28 block mx-auto" />
         </Link>
-        <h1 className="font-bold text-xl sm:text-[38px] mt-2 sm:mt-4 text-center mb-12">
+        <h1 className="font-bold text-xl sm:text-[38px] mt-2 sm:mt-6 text-center mb-12">
           Daftar Akun
         </h1>
 

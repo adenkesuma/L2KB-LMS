@@ -4,16 +4,15 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import Logo from "@/public/assets/logo/kolegium-white.svg";
+
+import Logo from "@/public/assets/logo/white-logo.png";
 import Logout from "@/public/assets/icons/logout.svg";
 import Education from "@/public/assets/icons/education.svg";
+import Users from "@/public/assets/icons/users.svg"
 import User from "@/public/assets/icons/white-user.svg";
-import Achievement from "@/public/assets/icons/achievement.svg";
 import Guide from "@/public/assets/icons/guide.svg";
 import HamburgerMenu from "@/public/assets/icons/menu.svg";
 import Close from "@/public/assets/icons/close.svg";
-import ActivateUser from "@/app/admin/(dashboard)/participant/page";
-import Certificate from "@/public/assets/icons/certificate.svg";
 import { deleteCookie } from "../lib/services/cookie.service";
 
 const Sidebar = () => {
@@ -49,7 +48,7 @@ const Sidebar = () => {
           >
             <div>
               <figure className="mx-auto flex justify-center">
-                <Image src={Logo} alt="logo" className="w-14 lg:w-16" />
+                <Image src={Logo} alt="logo" className="w-16 md:w-24 lg:w-28" />
               </figure>
 
               <nav className="mt-12 flex flex-col gap-6">
@@ -100,7 +99,7 @@ const Sidebar = () => {
                   } flex justify-center xl:justify-start items-center gap-4 rounded-lg`}
                 >
                   <Image
-                    src={User}
+                    src={Users}
                     alt="Certificate"
                     className="w-[14px]"
                   />
@@ -186,7 +185,7 @@ const Sidebar = () => {
                     } flex justify-center xl:justify-start items-center gap-4 rounded-lg`}
                   >
                     <Image
-                      src={User}
+                      src={Users}
                       alt="Certificate"
                       className="w-[14px]"
                     />

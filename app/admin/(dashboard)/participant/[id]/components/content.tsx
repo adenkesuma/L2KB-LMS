@@ -109,7 +109,9 @@ function TrainingCandidateFileContent({
           </h2>
         </div>
 
-        {trainingCandidate?.accepted ? (
+        {trainingCandidate?.accepted === null ? ( 
+          <p className="mt-8 text-gray-800 font-bold italic text-2xl">Menunggu Respon Admin</p>
+        ) : trainingCandidate?.accepted ? (
           <p className="mt-8 text-green font-bold italic text-2xl">Peserta Diterima</p>
         ) : (
           <p className="mt-8 text-red-600 font-bold italic text-2xl">Peserta Ditolak</p>

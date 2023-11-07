@@ -1,8 +1,10 @@
 "use client";
+
 import { useState, useEffect, ChangeEvent } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Logo from "@/public/assets/logo/kolegium.png";
+
+import Logo from "@/public/assets/logo/logo.png";
 import axios from "axios";
 
 const Verification = () => {
@@ -47,9 +49,9 @@ const Verification = () => {
   return (
     <main className="h-screen w-full flex flex-col items-center justify-center">
       <Link href="/">
-        <Image src={Logo} alt="logo" className="w-12 sm:w-20 block mx-auto" />
+        <Image src={Logo} alt="logo" className="w-16 sm:w-28 block mx-auto" />
       </Link>
-      <h1 className="font-bold mt-2 sm:mt-4 text-xl sm:text-[38px] text-center mb-6 sm:mb-12">
+      <h1 className="font-bold mt-2 sm:mt-6 text-xl sm:text-[38px] text-center mb-6 sm:mb-12">
         {isVerified ? "Email Anda Telah Diverifikasi" : "Verifikasi Akun Kamu"}
       </h1>
 

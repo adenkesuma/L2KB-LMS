@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import Link from "next/link";
 
@@ -11,6 +9,9 @@ function ActivateUserContent({
 }: {
   trainingCandidates: ITrainingCandidate[];
 }) {
+
+  console.log(trainingCandidates)
+
   return (
     <div className="rounded-2xl border border-gray-200 mt-6 bg-white p-4 overflow-hidden">
       <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">

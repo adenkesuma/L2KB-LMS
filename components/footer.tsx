@@ -1,9 +1,6 @@
 "use client";
 import { useParams } from "next/navigation";
-import Image from "next/image";
-import Link from "next/link";
 import { FC } from "react";
-import Logo from "@/public/assets/logo/kolegium.png";
 
 import { usePathname } from "next/navigation";
 

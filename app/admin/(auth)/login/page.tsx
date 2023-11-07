@@ -1,8 +1,7 @@
-import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-import Logo from "@/public/assets/logo/kolegium.png";
+import Logo from "@/public/assets/logo/logo.png";
 import AdminLoginForm from "./_components/form";
 
 function AdminLoginPage() {

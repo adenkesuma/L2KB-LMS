@@ -5,9 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import axios from "axios";
 
-import Logo from "@/public/assets/logo/pdki.svg";
+import Logo from "@/public/assets/logo/logo.png";
 import Notification from "@/public/assets/icons/notification.svg";
-import Profile from "@/public/assets/user.png";
 import Close from "@/public/assets/icons/close.svg";
 import Logout from "@/public/assets/icons/green-logout.svg";
 import HamburgerMenu from "@/public/assets/icons/menu.svg";
@@ -89,7 +88,7 @@ const Navbar: FC = () => {
       ) : (
         <div className="flex justify-between items-center py-2 lg:p-4 container px-4 sm:px-0 lg:px-14 mx-auto">
           <Link href="/">
-            <Image src={Logo} alt="Logo" className="sm:w-16 lg:w-18 w-12" />
+            <Image src={Logo} alt="Logo" className="sm:w-20 md:w-24 lg:w-28 w-16" />
           </Link>
 
           {/* ipad, desktop view  navigate */}

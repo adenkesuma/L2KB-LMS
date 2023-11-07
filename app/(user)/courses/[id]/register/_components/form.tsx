@@ -30,13 +30,7 @@ function RegisterTrainingForm({ training_id }: { training_id: string }) {
       const formData = new FormData();
 
       const fileKeys = [
-        "sip_file",
-        "ktp_file",
-        "str_file",
         "paid_file",
-        "pdki_file",
-        "ijazah_file",
-        "serkom_file",
       ];
 
       fileKeys.forEach((key) => {
@@ -83,215 +77,32 @@ function RegisterTrainingForm({ training_id }: { training_id: string }) {
 
   return (
     <form
-      className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-20 mt-4 sm:mt-8"
+      className="flex flex-col gap-10 justify-center items-center mt-4 sm:mt-8"
       onSubmit={handleSubmit(onSubmit)}
     >
-      <div className="flex flex-col gap-6">
-        <div className="flex flex-col gap-2">
-          <label className="font-medium text-xs sm:text-sm">
-            <span>Ketikan Nama Lengkap</span>
-            <span className="text-red-600">*</span>
-          </label>
-          <input
-            type="text"
-            className="border bg-white rounded-xl p-2 border-gray-300"
-            {...register("nama_lengkap")}
-          />
-        </div>
-
-        <div className="flex flex-col gap-2">
-          <label className="font-medium text-xs sm:text-sm">
-            <span>Ketikan Nama Lengkap Beserta Gelar</span>
-            <span className="text-red-600">*</span>
-          </label>
-          <input
-            type="text"
-            className="bg-white border rounded-xl p-2 border-gray-300"
-            {...register("nama_lengkap_gelar")}
-          />
-        </div>
-
-        {/* SIP */}
-        <div className="flex flex-col gap-2">
-          <label className="font-medium text-xs sm:text-sm">
-            <span>SIP {"( Surat Izin Praktik )"}</span>
-            <span className="text-red-600">*</span>
-          </label>
-          <input
-            type="file"
-            className="border bg-white rounded-xl p-2 border-gray-300"
-            {...register("sip_file")}
-          />
-        </div>
-        <div className="flex flex-col gap-2">
-          <label className="font-medium text-xs sm:text-sm">
-            <span>Ketikan No Surat SIP {"( Surat Izin Praktik )"}</span>
-            <span className="text-red-600">*</span>
-          </label>
-          <input
-            type="text"
-            className="border bg-white rounded-xl p-2 border-gray-300"
-            {...register("no_sip")}
-          />
-        </div>
-
-        {/* STR */}
-        <div className="flex flex-col gap-2">
-          <label className="font-medium text-xs sm:text-sm">
-            <span>STR {"( Surat Tanda Registrasi )"}</span>
-            <span className="text-red-600">*</span>
-          </label>
-          <input
-            type="file"
-            className="bg-white border rounded-xl p-2 border-gray-300"
-            {...register("str_file")}
-          />
-        </div>
-        <div className="flex flex-col gap-2">
-          <label className="font-medium text-xs sm:text-sm">
-            <span>Ketikan No Surat STR {"( Surat Tanda Registrasi )"}</span>
-            <span className="text-red-600">*</span>
-          </label>
-          <input
-            type="text"
-            className="border bg-white rounded-xl p-2 border-gray-300"
-            {...register("no_str")}
-          />
-        </div>
-
-        {/* SERKOM */}
-        <div className="flex flex-col gap-2">
-          <label className="font-medium text-xs sm:text-sm">
-            <span>Upload SERKOM {"( Surtifikat Kompetensi )"}</span>
-            <span className="text-red-600">*</span>
-          </label>
-          <input
-            type="file"
-            className="border bg-white rounded-xl p-2 border-gray-300"
-            {...register("serkom_file")}
-          />
-        </div>
-        <div className="flex flex-col gap-2">
-          <label className="font-medium text-xs sm:text-sm">
-            <span>Ketikan No SERKOM {"( Surtifikat Kompetensi )"}</span>
-            <span className="text-red-600">*</span>
-          </label>
-          <input
-            type="text"
-            className="border bg-white rounded-xl p-2 border-gray-300"
-            {...register("no_serkom")}
-          />
-        </div>
+      {/* Bukti pembayaran */}
+      <div className="flex flex-col gap-2">
+        <label className="font-medium text-xs sm:text-sm">
+          <span>Upload Bukti Pembayaran</span>
+          <span className="text-red-600">*</span>
+        </label>
+        <input
+          type="file"
+          className="border bg-white rounded-xl p-2 border-gray-300"
+          {...register("paid_file")}
+        />
       </div>
-      <div className="flex flex-col gap-6">
-        {/* Ijajah Pengakuan */}
-        <div className="flex flex-col gap-2">
-          <label className="font-medium text-xs sm:text-sm">
-            <span>Upload Ijajah Pengakuan Universitas/Institusi</span>
-            <span className="text-red-600">*</span>
-          </label>
-          <input
-            type="file"
-            className="border bg-white rounded-xl p-2 border-gray-300"
-            {...register("ijazah_file")}
-          />
-        </div>
-        <div className="flex flex-col gap-2">
-          <label className="font-medium text-xs sm:text-sm">
-            <span>Ketikan No Ijajah</span>
-            <span className="text-red-600">*</span>
-          </label>
-          <input
-            type="text"
-            className="border bg-white rounded-xl p-2 border-gray-300"
-            {...register("no_ijazah")}
-          />
-        </div>
 
-        {/* Kartu Anggota PDKI (opsional) */}
-        <div className="flex flex-col gap-2">
-          <label className="font-medium text-xs sm:text-sm flex justify-between items-center">
-            <span>Upload Kartu Anggota PDKI</span>
-            <span className="text-end italic text-xs text-orange-500">{`"Opsional"`}</span>
-          </label>
-          <input
-            type="file"
-            className="border bg-white rounded-xl p-2 border-gray-300"
-            {...register("pdki_file")}
-          />
-        </div>
-        <div className="flex flex-col gap-2">
-          <label className="font-medium text-xs sm:text-sm flex justify-between items-center">
-            <span>Ketikan No Kartu Anggota PDKI</span>
-            <span className="text-end italic text-xs text-orange-500">{`"Opsional"`}</span>
-          </label>
-          <input
-            type="text"
-            className="border rounded-xl p-2 border-gray-300"
-            {...register("no_pdki")}
-          />
-        </div>
-
-        {/* KTP */}
-        <div className="flex flex-col gap-2">
-          <label className="font-medium text-xs sm:text-sm">
-            <span>Upload Foto KTP</span>
-            <span className="text-red-600">*</span>
-          </label>
-          <input
-            type="file"
-            className="border bg-white rounded-xl p-2 border-gray-300"
-            {...register("ktp_file")}
-          />
-        </div>
-        <div className="flex flex-col gap-2">
-          <label className="font-medium text-xs sm:text-sm">
-            <span>Ketikan No KTP {"( Kartu Tanda Penduduk )"}</span>
-            <span className="text-red-600">*</span>
-          </label>
-          <input
-            type="text"
-            className="border bg-white rounded-xl p-2 border-gray-300"
-            {...register("no_ktp")}
-          />
-        </div>
-
-        {/* Bukti pembayaran */}
-        <div className="flex flex-col gap-2">
-          <label className="font-medium text-xs sm:text-sm">
-            <span>Upload Bukti Pembayaran</span>
-            <span className="text-red-600">*</span>
-          </label>
-          <input
-            type="file"
-            className="border bg-white rounded-xl p-2 border-gray-300"
-            {...register("paid_file")}
-          />
-        </div>
-        <div className="flex flex-col gap-2">
-          <label className="font-medium text-xs sm:text-sm">
-            <span>Ketikan No ATM anda</span>
-            <span className="text-red-600">*</span>
-          </label>
-          <input
-            type="text"
-            className="border bg-white rounded-xl p-2 border-gray-300"
-            {...register("no_atm")}
-          />
-        </div>
-
-        {/* button daftar */}
-        <div className="flex flex-col items-center sm:items-start gap-4 mt-4 sm:mt-8">
-          <p className="text-xs sm:text-sm italic text-green text-center sm:text-start">{` "Tunggu beberapa saat setelah anda mendaftar, admin akan memberikan informasi selanjutnya lerkait pendaftaran anda melalui notifikasi dan gmail anda" `}</p>
-
-          <button
-            // onClick={redirect('/courses')}
-            className="text-center text-sm w-[240px] text-white font-medium mt-2 p-2 rounded-xl bg-green"
-          >
-            Daftar Pelatihan
-          </button>
-        </div>
-      </div>
+      {/* button daftar */}
+      <p className="text-xs max-w-xl sm:text-sm italic text-green text-center">
+        {` "Tunggu beberapa saat setelah anda mendaftar, admin akan memberikan informasi selanjutnya lerkait pendaftaran anda melalui notifikasi dan gmail anda" `}
+      </p>
+      <button
+        type="submit"
+        className="text-center text-sm w-[240px] text-white font-medium mt-2 p-2 rounded-xl bg-green"
+      >
+        Daftar Pelatihan
+      </button>
     </form>
   );
 }
