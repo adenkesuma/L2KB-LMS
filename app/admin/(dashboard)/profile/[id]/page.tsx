@@ -7,7 +7,9 @@ const UserProfileDetail = async ({ params } : UserProfileType) => {
     const adminAK = await getCookie("adminAK");
 
     return (
-        <UserDetail params={params.id} adminAK={adminAK} />
+        <div className='min-h-screen mb-8 px-4 md:px-8 xl:px-14 pt-10'>
+            <UserDetail params={params.id} adminAK={adminAK} />
+        </div>
     )
 }
 
