@@ -64,24 +64,24 @@ const ProfileList = ({ adminAK } : { adminAK: string }) => {
 
                     <tbody className="text-gray-600 text-xs sm:text-sm font-normal">
                       {usersProfile?.map((item, idx) => (
-                        <tr key={item.id} className="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:hover:bg-gray-100">
+                        <tr key={item?.id} className="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:hover:bg-gray-100">
                           <td className="whitespace-nowrap px-6 py-4">
                             {idx+1}
                           </td>
                           <td className="whitespace-nowrap px-6 py-4">
-                            {item.nama}
+                            {item?.nama}
                           </td>
                           <td className="whitespace-nowrap px-6 py-4">
-                            {item.email}
+                            {item?.email}
                           </td>
                           <td className="whitespace-nowrap px-6 py-4">
-                            {item.profile.jenis_kelamin}
+                            {item?.profile?.jenis_kelamin}
                           </td>
                           <td className="whitespace-nowrap px-6 py-4">
-                            {item.skp}
+                            {item?.skp}
                           </td>
                           <td className="whitespace-nowrap px-6 py-4">
-                            <Link href={`/admin/profile/${item.id}`} className="bg-green px-4 text-white font-medium text-xs lg:text-sm py-2 rounded-lg">
+                            <Link href={`/admin/profile/${item?.id}`} className="bg-green px-4 text-white font-medium text-xs lg:text-sm py-2 rounded-lg">
                                 Lihat detail
                             </Link>
                           </td>
