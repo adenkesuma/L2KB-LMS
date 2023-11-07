@@ -150,7 +150,7 @@ function EditCourseForm({
     }
     return null;
   };
-  
+
   const filterTrainingOrganizer: (inputValue: string) => Promise<any> = async (
     inputValue: string
   ) => {
@@ -207,9 +207,9 @@ function EditCourseForm({
         prevData.tujuan = JSON.parse(prevData.tujuan).join("\n");
         prevData.kompetensi = JSON.parse(prevData.kompetensi).join("\n");
         prevData.kriteria = JSON.parse(prevData.kriteria).join("\n");
-        prevData.target_candidate = JSON.parse(prevData.target_candidate).join(
-          "\n"
-        );
+        // prevData.target_candidate = JSON.parse(prevData.target_candidate).join(
+        //   "\n"
+        // );
       } catch (error) {
         // console.error("Error parsing JSON:", error);
       }
