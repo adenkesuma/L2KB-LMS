@@ -68,7 +68,7 @@ const UserDetail: FC<UserDetailProps> = ({ params, adminAK }) => {
                         <p className="text-sm text-gray-700 font-medium">Status Pegawai: {userDetail?.profile.status_pegawai}</p>
                     </div>
                     <div className="flex flex-col gap-2">
-                        <p className="text-sm text-gray-700 font-medium">Jenis Kelamin: {userDetail?.profile.jenis_kelamin}</p>
+                        <p className="text-sm text-gray-700 font-medium">Jenis Kelamin: {userDetail?.profile?.jenis_kelamin}</p>
                         <p className="text-sm text-gray-700 font-medium">Pekerjaan: {userDetail?.profile.pekerjaan}</p>
                         <p className="text-sm text-gray-700 font-medium">Pangkat: {userDetail?.profile.pangkat}</p>
                         <p className="text-sm text-gray-700 font-medium">Alamat: {userDetail?.profile.alamat}</p>
