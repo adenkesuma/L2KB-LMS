@@ -69,7 +69,7 @@ const History = async () => {
 
         <div className="mt-4 sm:mt-6 lg:mt-12">
           <h1 className="text-2xl text-gray-800 font-semibold">
-            Total SKP: <span className="text-green font-bold">
+            Total SKP Saya: <span className="text-green font-bold">
               {totalSkp}
             </span>
           </h1>
@@ -110,6 +110,9 @@ const History = async () => {
                             <th scope="col" className="px-6 py-4">
                               Status
                             </th>
+                            <th scope="col" className="px-6 py-4">
+                              Lihat
+                            </th>
                           </tr>
                         </thead>
 
@@ -120,10 +123,10 @@ const History = async () => {
                                 {idx+1}
                               </td>
                               <td className="whitespace-nowrap px-6 py-4">
-                                {item.training.nama.slice(0, 30)}...
+                                {item.training.nama.slice(0, 20)}...
                               </td>
                               <td className="whitespace-nowrap px-6 py-4">
-                                {item.training.deskripsi.slice(0, 50)}...
+                                {item.training.deskripsi.slice(0, 30)}...
                               </td>
                               <td className="whitespace-nowrap px-6 py-4">
                                 {moment(item.training.training_end).format("DD MMMM yyyy")}
@@ -135,6 +138,11 @@ const History = async () => {
                                 <span className="py-2 px-4 rounded-xl bg-opacity-green text-green font-semibold">
                                   Selesai
                                 </span>
+                              </td>
+                               <td className="whitespace-nowrap px-6 py-4">
+                                  <Link className="bg-green py-2 px-4 rounded-lg text-white" href={`/courses/${item.training?.id}`}>
+                                    Detail
+                                  </Link>
                               </td>
                             </tr>
                           ))}

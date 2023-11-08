@@ -70,7 +70,7 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
           </p>
         </div>
         <div className="flex flex-col lg:flex-row gap-4 sm:gap-8 mt-4 relative">
-          <figure className="block w-full lg:w-[68%]">
+          <figure className="block w-full lg:w-[68%] h-full">
             <RegisterBanner trainingId={oneTrainingData?.id} />
           </figure>
           <div className="sticky top-20 w-full lg:w-[32%] h-full max-h-[calc(100vh-9rem)]">
@@ -157,7 +157,7 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
    
         </div>
         {/* Deskripsi */}
-        <div className="mt-6 sm:mt-10 w-full lg:w-[68%]">
+        <div className="mt-6 w-full lg:w-[68%]">
           <h2 className="font-semibold text-gray-800 text-base sm:text-[24px]">
             Deskripsi
           </h2>

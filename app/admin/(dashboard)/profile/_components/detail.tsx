@@ -1,7 +1,6 @@
 "use client"
 
 import { UserData } from "@/app/(user)/(app)/profile/page";
-import Image from "next/image";
 import axios from "axios";
 import { useState, useEffect, FC } from "react"
 import ProfilePicture from "@/components/profilePicture";

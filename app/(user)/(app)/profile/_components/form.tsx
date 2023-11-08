@@ -393,24 +393,22 @@ function UpdateProfileForm() {
           <div className="flex flex-col gap-2">
             <label className="font-medium text-xs sm:text-sm">
               <span>SIP {"( Surat Izin Praktik )"}</span>
-              <span className="text-red-600">*</span>
             </label>
             <input
               type="file"
               className="border bg-white rounded-xl p-2 border-gray-300"
-              {...register("sip_file", { valueAsNumber: true, required: true })}
+              {...register("sip_file", { valueAsNumber: true })}
               required
             />
           </div>
           <div className="flex flex-col gap-2">
             <label className="font-medium text-xs sm:text-sm">
               <span>Ketikan No Surat SIP {"( Surat Izin Praktik )"}</span>
-              <span className="text-red-600">*</span>
             </label>
             <input
               type="number"
               className="border bg-white rounded-xl p-2 border-gray-300"
-              {...register("no_sip")}
+              {...register("no_sip", { valueAsNumber: true })}
               required
             />
           </div>
@@ -419,21 +417,23 @@ function UpdateProfileForm() {
           <div className="flex flex-col gap-2">
             <label className="font-medium text-xs sm:text-sm">
               <span>STR {"( Surat Tanda Registrasi )"}</span>
+              <span className="text-red-600">*</span>
             </label>
             <input
               type="file"
               className="bg-white border rounded-xl p-2 border-gray-300"
-              {...register("str_file")}
+              {...register("str_file", { required: true })}
             />
           </div>
           <div className="flex flex-col gap-2">
             <label className="font-medium text-xs sm:text-sm">
+              <span className="text-red-600">*</span>
               <span>Ketikan No Surat STR {"( Surat Tanda Registrasi )"}</span>
             </label>
             <input
               type="number"
               className="border bg-white rounded-xl p-2 border-gray-300"
-              {...register("no_str", { valueAsNumber: true })}
+              {...register("no_str", { valueAsNumber: true, required: true })}
             />
           </div>
 
@@ -462,7 +462,7 @@ function UpdateProfileForm() {
           {/* Ijajah Pengakuan */}
           <div className="flex flex-col gap-2">
             <label className="font-medium text-xs sm:text-sm">
-              <span>Upload Ijajah Pengakuan Universitas/Institusi</span>
+              <span>Upload Ijazah Pengakuan Universitas/Institusi</span>
             </label>
             <input
               type="file"
@@ -472,7 +472,7 @@ function UpdateProfileForm() {
           </div>
           <div className="flex flex-col gap-2">
             <label className="font-medium text-xs sm:text-sm">
-              <span>Ketikan No Ijajah</span>
+              <span>Ketikan No Ijazah</span>
             </label>
             <input
               type="number"

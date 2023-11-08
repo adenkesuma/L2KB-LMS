@@ -6,6 +6,9 @@ import NotificationCard from "@/components/notificationCard";
 import useStore from "@/store/use-store";
 import { userAuthStore } from "@/store/user-auth.store";
 import { UserData } from "../(app)/profile/page";
+import Image from "next/image";
+
+import NoDataImage from "@/public/assets/images/no-data.png"
 
 interface Announce {
   createdAt: string;
@@ -56,9 +59,21 @@ const Notification = () => {
       </div>
 
       <div>
-        {sortedAnnounces?.map((item, idx) => (
-          <NotificationCard key={idx} announce={item} />
-        ))}
+         {sortedAnnounces?.length === 0 ? (
+            <Image
+              src={NoDataImage}
+              alt="no data"
+              className="w-3/4 mx-auto"
+              width={1000}
+              height={1000}
+            />
+            ) : (
+              sortedAnnounces?.map((item, idx) => (
+                <NotificationCard key={idx} announce={item} />
+              ))
+            )  
+          }
+
       </div>
     </main>
   );

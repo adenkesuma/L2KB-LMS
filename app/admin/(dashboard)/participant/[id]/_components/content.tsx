@@ -102,7 +102,6 @@ function TrainingCandidateFileContent({
     );
   }, [trainingCandidate]);
 
-  console.log(trainingCandidate)
 
   return (
     <>

@@ -15,6 +15,7 @@ import { rc } from "../../../../../../lib/utils";
 import { ITrainingData } from "../../../../../(user)/courses/page";
 import { Button, buttonVariants } from "../../../../../../components/ui/button";
 import LoadingIcon from "../../../../../../components/icons/loading-icon";
+import CertificateUploadModal from "./modal";
 
 function AdminCourseDetailContent({
   trainingData,
@@ -26,6 +27,8 @@ function AdminCourseDetailContent({
   const router = useRouter();
   const [markAttendLoading, setMarkAttendLoading] = useState(false);
   const [genSertiLoading, setGenSertiLoading] = useState(false);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [selectedFile, setSelectedFile] = useState(null);
 
   const handleMAA = async (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
@@ -54,9 +57,18 @@ function AdminCourseDetailContent({
     window.location.reload();
   };
 
+  const handleUpload = (file: any) => {
+    setSelectedFile(file);
+    setIsPopupOpen(false);
+  };
+
+  const closeModal = () => {
+    setIsPopupOpen(false);
+  };
+
 
   return (
-    <div className="mt-10">
+    <div className="mt-10 relative">
       <div className="flex gap-4 items-center">
         <h2 className="text-xl font-semibold text-gray-700">
           Peserta Pelatihan
@@ -88,7 +100,10 @@ function AdminCourseDetailContent({
                       Status
                     </th>
                     <th scope="col" className="px-3 xl:px-6 p-2 xl:py-4">
-                      Sertifikat
+                      Generate Sertifikat
+                    </th>
+                    <th scope="col" className="px-3 xl:px-6 p-2 xl:py-4">
+                      Upload Sertifikat Manual
                     </th>
                   </tr>
                 </thead>
@@ -136,7 +151,7 @@ function AdminCourseDetailContent({
                                 buttonVariants({ variant: "default" })
                               )}
                             >
-                              Show document
+                              Lihat Data
                             </Button>
                           </td>
                           <td className="whitespace-nowrap px-6 py-4 space-x-4">
@@ -234,6 +249,25 @@ function AdminCourseDetailContent({
                               </Button>
                             )}
                           </td>
+                          <td className="whitespace-nowrap px-6 py-4 space-x-4">
+                          {data.certificateGenerated && data.attend ? (
+                              <p className="text-green bg-opacity-green text-xs font-medium p-2 rounded-xl text-center">
+                                Sertifikat Telah Diterima
+                              </p>
+                            ) : (
+                              <Button
+                                className="flex gap-2 items-center"
+                                onClick={() => setIsPopupOpen(true)}
+                              >
+                                <UploadIcon />{" "}
+                                {genSertiLoading ? (
+                                  <LoadingIcon />
+                                ) : (
+                                  "Upload Sertifikat"
+                                )}
+                              </Button>
+                            )}
+                          </td>
                         </tr>
                       </tbody>
                     );
@@ -252,6 +286,17 @@ function AdminCourseDetailContent({
           </div>
         </div>
       </div>
+
+      {isPopupOpen && 
+        <CertificateUploadModal
+          isOpen={isPopupOpen}
+          onClose={closeModal}
+          onUpload={handleUpload}
+          adminAK={adminAK}
+          trainingId={trainingData?.trainingCandidates}
+          candidateId={trainingData?.trainingCandidates}
+        />
+      }
     </div>
   );
 }
