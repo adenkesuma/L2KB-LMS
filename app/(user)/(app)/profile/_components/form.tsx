@@ -543,6 +543,17 @@ function UpdateProfileForm() {
               {...register("ktp_file")}
             />
           </div>
+
+          <div className="flex flex-col gap-2">
+            <label className="font-medium text-xs sm:text-sm">
+              <span>Ketikan No ATM</span>
+            </label>
+            <input
+              type="number"
+              className="border bg-white rounded-xl p-2 border-gray-300"
+              {...register("profile.no_atm", { valueAsNumber: true })}
+            />
+          </div>
         </div>
 
         {/* button daftar */}
