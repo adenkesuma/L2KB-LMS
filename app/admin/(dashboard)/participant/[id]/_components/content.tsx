@@ -102,24 +102,37 @@ function TrainingCandidateFileContent({
     );
   }, [trainingCandidate]);
 
+  console.log(trainingCandidate)
 
   return (
     <>
       <div className="mt-6 gap-10 pt-4 px-4 pb-4 xl:pt-8 xl:px-8 xl:pb-8 border border-gray-200 rounded-xl bg-white flex">
         <div className="w-1/3">
           <div className="flex flex-col items-start gap-3 lg:gap-0">
-            <h2 className="flex flex-row gap-1 xl:gap-2 text-xs md:text-sm font-semibold text-gray-600">
+            <h1 className="flex flex-row mb-1 gap-1 xl:gap-2 text-sm md:text-xl font-semibold text-gray-600">
               <span>Nama Lengkap: </span>
-              <span className="font-bold text-sm lg:text-base text-green">
+              <span className="font-bold text-green">
                 {trainingCandidate?.user?.nama}
               </span>
-            </h2>
-            <h2 className="flex flex-row gap-1 xl:gap-2 text-xs md:text-sm font-semibold text-gray-600">
+            </h1>
+            <p className="flex flex-row gap-1 xl:gap-2 text-xs md:text-sm font-medium text-gray-600">
               <span>Email: </span>
-              <span className="text-sm lg:text-base font-bold text-green">
+              <span className="text-sm lg:text-base font-medium text-green">
                 {trainingCandidate?.user?.email}
               </span>
-            </h2>
+            </p>
+            <p className="flex flex-row gap-1 xl:gap-2 text-xs md:text-sm font-medium text-gray-600">
+              <span>Jenis Kelamin: </span>
+              <span className="text-sm lg:text-base font-medium text-green">
+                {trainingCandidate?.user?.profile?.jenis_kelamin}
+              </span>
+            </p>
+            <p className="flex flex-row gap-1 xl:gap-2 text-xs md:text-sm font-medium text-gray-600">
+              <span>Status Anggota: </span>
+              <span className="text-sm lg:text-base font-medium text-green">
+                {trainingCandidate?.user?.profile?.status_anggota}
+              </span>
+            </p>
           </div>
 
           {trainingCandidate?.accepted === null ? ( 

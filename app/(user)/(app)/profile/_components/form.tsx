@@ -3,13 +3,10 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-import Image from "next/image";
-import Link from "next/link";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
-import Profile from "@/public/assets/user.png";
 import useStore from "../../../../../store/use-store";
 import { userAuthStore } from "../../../../../store/user-auth.store";
 import { rc } from "../../../../../lib/utils";
@@ -31,9 +28,9 @@ function UpdateProfileForm() {
 
   const onSubmit: SubmitHandler<UserData> = async (data) => {
     try {
-      // console.log("1", data.profile_picture);
       const formData = new FormData();
       const profile = data.profile;
+
       if (data.profile_picture) {
         formData.append("profile_picture", data.profile_picture[0]);
       } else {
@@ -51,8 +48,6 @@ function UpdateProfileForm() {
         }
       }
 
-      console.log(data)
-
       const update = await axios.put(
         `${process.env.NEXT_PUBLIC_P2KB_API}/profile/update`,
         formData,
@@ -64,14 +59,15 @@ function UpdateProfileForm() {
         }
       );
       if (update.status) {
-        toast("Successfully update profile");
+        toast.success("Berhasil memperbarui profil");
         router.refresh();
       } else {
-        toast.error("Successfully update profile");
+        toast.error("Gagal memperbarui profil");
         // console.log(await update.data.response);
       }
-    } catch (error) {
-      console.log(error);
+    } catch (error: any) {
+      toast.error(error.response.data.message)
+      // console.log(error);
     }
   };
 
@@ -148,7 +144,7 @@ function UpdateProfileForm() {
             <input
               type="number"
               className="border rounded-xl p-2 border-gray-300"
-              {...register("npa_pdki")}
+              {...register("npa_pdki", { valueAsNumber: true })}
             />
           </div>
 
@@ -162,13 +158,18 @@ function UpdateProfileForm() {
           </div>
 
           <div className="flex flex-col gap-2">
-            <label className="font-medium text-xs sm:text-sm">Email</label>
+            <label className="font-medium text-xs sm:text-sm">
+              Email
+              <span className="text-red-600">*</span>
+            </label>
             <input
               type="email"
+              required
               className="border rounded-xl p-2 border-gray-300"
               {...register("email", {
                 // disabled: true,
               })}
+
               // disabled
             />
           </div>
@@ -176,11 +177,13 @@ function UpdateProfileForm() {
           <div className="flex flex-col gap-2">
             <label className="font-medium text-xs sm:text-sm">
               Nama Lengkap
+              <span className="text-red-600">*</span>
             </label>
             <input
               type="text"
               className="border rounded-xl p-2 border-gray-300"
-              {...register("nama")}
+              {...register("nama", { required: true })}
+              required
             />
           </div>
 
@@ -198,36 +201,42 @@ function UpdateProfileForm() {
           <div className="flex flex-col gap-2">
             <label className="font-medium text-xs sm:text-sm">
               Tempat lahir
+              <span className="text-red-600">*</span>
             </label>
             <input
               type="text"
               className="border rounded-xl p-2 border-gray-300"
-              {...register("profile.tempat_lahir")}
+              {...register("profile.tempat_lahir", { required: true })}
+              required
             />
           </div>
 
           <div className="flex flex-col gap-2">
             <label className="font-medium text-xs sm:text-sm">
-              Tanggal lahir
+              Tanggal lahir 
+              <span className="text-red-600">*</span>
             </label>
             <input
               type="date"
               className="border rounded-xl p-2 border-gray-300"
-              {...register("profile.tanggal_lahir")}
+              {...register("profile.tanggal_lahir", { required: true })}
+              required
             />
           </div>
 
           <div className="flex flex-col gap-2">
             <label className="font-medium text-xs sm:text-sm">
               Pilih Jenis Kelamin Anda
+              <span className="text-red-600">*</span>
             </label>
             <select
               className="border rounded-xl p-2 border-gray-300 bg-white"
-              {...register("profile.jenis_kelamin")}
+              {...register("profile.jenis_kelamin", { required: true })}
+              required
             >
               <option value="">- Pilih jenis kelamin -</option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
+              <option value="male">Pria</option>
+              <option value="female">Wanita</option>
             </select>
           </div>
 
@@ -243,11 +252,13 @@ function UpdateProfileForm() {
           <div className="flex flex-col gap-2">
             <label className="font-medium text-xs sm:text-sm">
               Nomor Telepon
+              <span className="text-red-600">*</span>
             </label>
             <input
               type="number"
               className="border rounded-xl p-2 border-gray-300"
               {...register("profile.nomor_hp")}
+              required
             />
           </div>
 
@@ -370,12 +381,11 @@ function UpdateProfileForm() {
           <div className="flex flex-col gap-2">
             <label className="font-medium text-xs sm:text-sm">
               <span>Ketikan No ATM</span>
-              <span className="text-red-600">*</span>
             </label>
             <input
-              type="text"
+              type="number"
               className="border bg-white rounded-xl p-2 border-gray-300"
-              {...register("no_atm")}
+              {...register("no_atm", { valueAsNumber: true })}
             />
           </div>
 
@@ -388,7 +398,8 @@ function UpdateProfileForm() {
             <input
               type="file"
               className="border bg-white rounded-xl p-2 border-gray-300"
-              {...register("sip_file")}
+              {...register("sip_file", { valueAsNumber: true, required: true })}
+              required
             />
           </div>
           <div className="flex flex-col gap-2">
@@ -397,9 +408,10 @@ function UpdateProfileForm() {
               <span className="text-red-600">*</span>
             </label>
             <input
-              type="text"
+              type="number"
               className="border bg-white rounded-xl p-2 border-gray-300"
               {...register("no_sip")}
+              required
             />
           </div>
 
@@ -407,7 +419,6 @@ function UpdateProfileForm() {
           <div className="flex flex-col gap-2">
             <label className="font-medium text-xs sm:text-sm">
               <span>STR {"( Surat Tanda Registrasi )"}</span>
-              <span className="text-red-600">*</span>
             </label>
             <input
               type="file"
@@ -418,12 +429,11 @@ function UpdateProfileForm() {
           <div className="flex flex-col gap-2">
             <label className="font-medium text-xs sm:text-sm">
               <span>Ketikan No Surat STR {"( Surat Tanda Registrasi )"}</span>
-              <span className="text-red-600">*</span>
             </label>
             <input
-              type="text"
+              type="number"
               className="border bg-white rounded-xl p-2 border-gray-300"
-              {...register("no_str")}
+              {...register("no_str", { valueAsNumber: true })}
             />
           </div>
 
@@ -431,7 +441,6 @@ function UpdateProfileForm() {
           <div className="flex flex-col gap-2">
             <label className="font-medium text-xs sm:text-sm">
               <span>Upload SERKOM {"( Surtifikat Kompetensi )"}</span>
-              <span className="text-red-600">*</span>
             </label>
             <input
               type="file"
@@ -442,12 +451,11 @@ function UpdateProfileForm() {
           <div className="flex flex-col gap-2">
             <label className="font-medium text-xs sm:text-sm">
               <span>Ketikan No SERKOM {"( Surtifikat Kompetensi )"}</span>
-              <span className="text-red-600">*</span>
             </label>
             <input
-              type="text"
+              type="number"
               className="border bg-white rounded-xl p-2 border-gray-300"
-              {...register("no_serkom")}
+              {...register("no_serkom", { valueAsNumber: true })}
             />
           </div>
 
@@ -455,7 +463,6 @@ function UpdateProfileForm() {
           <div className="flex flex-col gap-2">
             <label className="font-medium text-xs sm:text-sm">
               <span>Upload Ijajah Pengakuan Universitas/Institusi</span>
-              <span className="text-red-600">*</span>
             </label>
             <input
               type="file"
@@ -466,12 +473,11 @@ function UpdateProfileForm() {
           <div className="flex flex-col gap-2">
             <label className="font-medium text-xs sm:text-sm">
               <span>Ketikan No Ijajah</span>
-              <span className="text-red-600">*</span>
             </label>
             <input
-              type="text"
+              type="number"
               className="border bg-white rounded-xl p-2 border-gray-300"
-              {...register("no_ijazah")}
+              {...register("no_ijazah", { valueAsNumber: true })}
             />
           </div>
 
@@ -479,7 +485,6 @@ function UpdateProfileForm() {
           <div className="flex flex-col gap-2">
             <label className="font-medium text-xs sm:text-sm flex justify-between items-center">
               <span>Upload Kartu Anggota PDKI</span>
-              <span className="text-end italic text-xs text-orange-500">{`"Opsional"`}</span>
             </label>
             <input
               type="file"
@@ -492,7 +497,6 @@ function UpdateProfileForm() {
           <div className="flex flex-col gap-2">
             <label className="font-medium text-xs sm:text-sm">
               <span>Upload Foto KTP</span>
-              <span className="text-red-600">*</span>
             </label>
             <input
               type="file"
