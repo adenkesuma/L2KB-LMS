@@ -73,7 +73,17 @@ function UpdateProfileForm() {
       }
       for (const key in profile) {
         if (profile.hasOwnProperty(key)) {
-          formData.append(key, profile[key]);
+          console.log(profile[key], typeof profile[key] === "undefined");
+          // if (
+          //   typeof profile[key] === "string" ||
+          //   typeof profile[key] === "number"
+          // )
+          {
+            if (!profile[key]) {
+              formData.delete(key);
+            }
+            formData.append(key, profile[key]);
+          }
         }
       }
 
@@ -422,7 +432,7 @@ function UpdateProfileForm() {
             <input
               type="number"
               className="border bg-white rounded-xl p-2 border-gray-300"
-              {...register("profile.no_sip", { valueAsNumber: true })}
+              {...register("profile.no_sip")}
             />
           </div>
           <div className="flex flex-col gap-2">
@@ -432,8 +442,7 @@ function UpdateProfileForm() {
             <input
               type="number"
               className="border bg-white rounded-xl p-2 border-gray-300"
-              {...register("profile.no_npa", { valueAsNumber: true })}
-              required
+              {...register("profile.no_npa")}
             />
           </div>
 
@@ -483,7 +492,7 @@ function UpdateProfileForm() {
             <input
               type="number"
               className="border bg-white rounded-xl p-2 border-gray-300"
-              {...register("profile.no_serkom", { valueAsNumber: true })}
+              {...register("profile.no_serkom")}
             />
           </div>
 
@@ -515,7 +524,7 @@ function UpdateProfileForm() {
             <input
               type="number"
               className="border bg-white rounded-xl p-2 border-gray-300"
-              {...register("profile.no_ijazah", { valueAsNumber: true })}
+              {...register("profile.no_ijazah")}
             />
           </div>
 
