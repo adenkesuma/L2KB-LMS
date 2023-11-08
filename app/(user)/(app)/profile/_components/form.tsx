@@ -413,7 +413,6 @@ function UpdateProfileForm() {
               type="file"
               className="border bg-white rounded-xl p-2 border-gray-300"
               {...register("sip_file", { valueAsNumber: true })}
-              required
             />
           </div>
           <div className="flex flex-col gap-2">
@@ -424,18 +423,16 @@ function UpdateProfileForm() {
               type="number"
               className="border bg-white rounded-xl p-2 border-gray-300"
               {...register("profile.no_sip", { valueAsNumber: true })}
-              required
             />
           </div>
           <div className="flex flex-col gap-2">
             <label className="font-medium text-xs sm:text-sm">
-              <span>Ketikan No Npa </span>
+              <span>Ketikan NPA Id </span>
             </label>
             <input
               type="number"
               className="border bg-white rounded-xl p-2 border-gray-300"
               {...register("profile.no_npa", { valueAsNumber: true })}
-              required
             />
           </div>
 

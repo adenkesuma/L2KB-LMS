@@ -150,7 +150,23 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
                   </li>
                 </ul>
               </div>
-              {accessKey !== null | accessKey !== undefined ? (
+
+              {
+                isRegistered ? (
+                 <button className="bg-gray-300 text-gray-800 mt-6 text-center text-sm font-medium w-full p-2 rounded-xl">
+                   Sudah Mendaftar
+                 </button>
+                ) : (
+                  <Link
+                    href={registerType ? `#` : `/courses/${oneTrainingData.id}/register`}
+                    className={`mt-6 text-center text-sm font-medium w-full p-2 rounded-xl bg-green text-white`}
+                  >
+                    {registerType ? "Pendaftaran di tutup" : "Daftar Sekarang"}
+                  </Link>  
+                )
+              }
+
+              {/* {accessKey !== null | accessKey !== undefined ? (
                 statusWithUnderscore === oneTrainingData?.member ? (
                   <Link
                     href={registerType ? `#` : `/courses/${oneTrainingData.id}/register`}
@@ -186,7 +202,7 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
                     {registerType ? "Pendaftaran di tutup" : "Daftar Sekarang"}
                   </Link>  
                  )
-              )}
+              )} */}
             </div>
           </div>
    
