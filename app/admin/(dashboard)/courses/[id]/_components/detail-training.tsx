@@ -9,7 +9,7 @@ const DetailTraining = async ({ params } : { params: string }) => {
     // console.log(oneTrainingData)
 
     return (
-        <div className="rounded-lg border border-gray-200 p-8 mt-6 flex gap-10">
+        <div className="rounded-2xl border border-gray-200 p-8 mt-6 flex gap-10">
             <Banner data={oneTrainingData?.id}/>
 
             <div>
