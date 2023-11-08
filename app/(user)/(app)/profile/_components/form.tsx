@@ -13,6 +13,7 @@ import { rc } from "../../../../../lib/utils";
 import LoadingIcon from "../../../../../components/icons/loading-icon";
 import { UserData } from "../page";
 import ProfilePicture from "@/components/profilePicture";
+import Image from "next/image";
 
 function UpdateProfileForm() {
   const router = useRouter();
@@ -28,6 +29,7 @@ function UpdateProfileForm() {
 
   const onSubmit: SubmitHandler<UserData> = async (data) => {
     try {
+      console.log(data);
       const formData = new FormData();
       const profile = data.profile;
 
@@ -35,6 +37,33 @@ function UpdateProfileForm() {
         formData.append("profile_picture", data.profile_picture[0]);
       } else {
         formData.delete("profile_picture");
+      }
+
+      const fileList = [
+        data.sip_file,
+        data.str_file,
+        data.serkom_file,
+        data.ktp_file,
+        data.pdki_file,
+        data.ijazah_file,
+      ];
+      const keyList = [
+        "sip_file",
+        "str_file",
+        "serkom_file",
+        "ktp_file",
+        "pdki_file",
+        "ijazah_file",
+      ];
+
+      for (const key in fileList) {
+        console.log(fileList[key]);
+        if (fileList[key]) {
+          console.log(1);
+          formData.append(keyList[key], fileList[key][0]);
+        } else {
+          formData.delete(fileList[key]);
+        }
       }
 
       for (const key in data) {
@@ -66,7 +95,7 @@ function UpdateProfileForm() {
         // console.log(await update.data.response);
       }
     } catch (error: any) {
-      toast.error(error.response.data.message)
+      toast.error(error.response.data.message);
       // console.log(error);
     }
   };
@@ -108,7 +137,7 @@ function UpdateProfileForm() {
           <h2 className="text-base sm:text-[28px] font-semibold text-gray-800">
             Foto Profil
           </h2>
-    
+
           <ProfilePicture data={userData?.id} />
 
           {/* change profile */}
@@ -213,7 +242,7 @@ function UpdateProfileForm() {
 
           <div className="flex flex-col gap-2">
             <label className="font-medium text-xs sm:text-sm">
-              Tanggal lahir 
+              Tanggal lahir
               <span className="text-red-600">*</span>
             </label>
             <input
@@ -239,7 +268,6 @@ function UpdateProfileForm() {
               <option value="female">Wanita</option>
             </select>
           </div>
-
 
           <div className="flex flex-col gap-2">
             <label className="font-medium text-xs sm:text-sm">Agama</label>
@@ -340,7 +368,6 @@ function UpdateProfileForm() {
               {...register("profile.instansi")}
             />
           </div>
-
         </div>
 
         {/* right form */}
@@ -396,7 +423,18 @@ function UpdateProfileForm() {
             <input
               type="number"
               className="border bg-white rounded-xl p-2 border-gray-300"
-              {...register("no_sip", { valueAsNumber: true })}
+              {...register("profile.no_sip", { valueAsNumber: true })}
+              required
+            />
+          </div>
+          <div className="flex flex-col gap-2">
+            <label className="font-medium text-xs sm:text-sm">
+              <span>Ketikan No Npa </span>
+            </label>
+            <input
+              type="number"
+              className="border bg-white rounded-xl p-2 border-gray-300"
+              {...register("profile.no_npa", { valueAsNumber: true })}
               required
             />
           </div>
@@ -421,7 +459,10 @@ function UpdateProfileForm() {
             <input
               type="number"
               className="border bg-white rounded-xl p-2 border-gray-300"
-              {...register("no_str", { valueAsNumber: true, required: true })}
+              {...register("profile.no_str", {
+                valueAsNumber: true,
+                required: true,
+              })}
             />
           </div>
 
@@ -443,11 +484,21 @@ function UpdateProfileForm() {
             <input
               type="number"
               className="border bg-white rounded-xl p-2 border-gray-300"
-              {...register("no_serkom", { valueAsNumber: true })}
+              {...register("profile.no_serkom", { valueAsNumber: true })}
             />
           </div>
 
           {/* Ijajah Pengakuan */}
+          {/* <figure>
+            <Image
+              src={img}
+              alt="thumnail pelatihan image"
+              className="rounded-lg h-28 lg:h-40 w-full bg-cover object-cover"
+              width={2000}
+              height={100}
+              // onError={() => setImg("/assets/images/default-image-course.jpg")}
+            />
+          </figure> */}
           <div className="flex flex-col gap-2">
             <label className="font-medium text-xs sm:text-sm">
               <span>Upload Ijazah Pengakuan Universitas/Institusi</span>
@@ -465,7 +516,7 @@ function UpdateProfileForm() {
             <input
               type="number"
               className="border bg-white rounded-xl p-2 border-gray-300"
-              {...register("no_ijazah", { valueAsNumber: true })}
+              {...register("profile.no_ijazah", { valueAsNumber: true })}
             />
           </div>
 
