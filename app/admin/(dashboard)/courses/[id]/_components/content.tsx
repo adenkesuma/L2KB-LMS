@@ -30,6 +30,8 @@ function AdminCourseDetailContent({
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   // const [selectedFile, setSelectedFile] = useState(null);
 
+  console.log(trainingData)
+
   const handleMAA = async (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
     candidate_id: string

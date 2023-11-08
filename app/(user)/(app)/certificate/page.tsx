@@ -13,7 +13,7 @@ const Certificate = async () => {
 
   if (accessKey) {
     const myTrainingData = await getMyTraining(accessKey);
-    
+
     return (
       <main className="pt-4 sm:pt-6 lg:pt-12 min-h-screen">
         <div className="flex border-b border-gray-200 pb-8 justify-between flex-col lg:flex-row items-start lg:items-end">
