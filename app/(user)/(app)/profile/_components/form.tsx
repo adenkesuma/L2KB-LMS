@@ -29,7 +29,7 @@ function UpdateProfileForm() {
 
   const onSubmit: SubmitHandler<UserData> = async (data) => {
     try {
-      console.log(data);
+      // console.log(data);
       const formData = new FormData();
       const profile = data.profile;
 
@@ -57,9 +57,9 @@ function UpdateProfileForm() {
       ];
 
       for (const key in fileList) {
-        console.log(fileList[key]);
+        // console.log(fileList[key]);
         if (fileList[key]) {
-          console.log(1);
+          // console.log(1);
           formData.append(keyList[key], fileList[key][0]);
         } else {
           formData.delete(fileList[key]);
@@ -73,17 +73,15 @@ function UpdateProfileForm() {
       }
       for (const key in profile) {
         if (profile.hasOwnProperty(key)) {
-          console.log(profile[key], typeof profile[key] === "undefined");
+          // console.log(profile[key], typeof profile[key] === "undefined");
           // if (
           //   typeof profile[key] === "string" ||
           //   typeof profile[key] === "number"
           // )
-          {
-            if (!profile[key]) {
-              formData.delete(key);
-            }
-            formData.append(key, profile[key]);
-          }
+
+          if (!profile[key]) {
+            formData.delete(key);
+          } else formData.append(key, profile[key]);
         }
       }
 
