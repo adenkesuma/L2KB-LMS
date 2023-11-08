@@ -56,7 +56,7 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
   const registerType = new Date(oneTrainingData.regis_end) <= currentDate
 
   const status: string | null = userData?.profile?.status_anggota;
-  const statusWithUnderscore: string | null = status.replace(/\s/g, "_");
+  const statusWithUnderscore: string | null = status?.replace(/\s/g, "_");
 
   return (
     <Suspense fallback={<Loading />}>
@@ -82,6 +82,7 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
           <figure className="block w-full lg:w-[68%] h-full">
             <RegisterBanner trainingId={oneTrainingData?.id} />
           </figure>
+
           <div className="sticky top-20 w-full lg:w-[32%] h-full max-h-[calc(100vh-9rem)]">
             <div className="p-3 md:p-4 bg-white rounded-xl flex justify-between flex-col border sticky top-0">
               <div className="">
@@ -149,33 +150,42 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
                   </li>
                 </ul>
               </div>
-              {statusWithUnderscore === oneTrainingData?.member ? (
-                isRegistered ? (
-                  <button className="bg-gray-300 text-gray-800 mt-6 text-center text-sm font-medium w-full p-2 rounded-xl">
-                    Sudah Mendaftar
-                  </button>
-                ) : (
+              {accessKey !== null | accessKey !== undefined ? (
+                statusWithUnderscore === oneTrainingData?.member ? (
                   <Link
                     href={registerType ? `#` : `/courses/${oneTrainingData.id}/register`}
                     className={`mt-6 text-center text-sm font-medium w-full p-2 rounded-xl bg-green text-white`}
                   >
                     {registerType ? "Pendaftaran di tutup" : "Daftar Sekarang"}
                   </Link>
+                ) : (
+                  <>
+                    <div className="mt-6 text-center text-sm font-medium w-full p-2 rounded-xl bg-green text-white">
+                      Status Anggota Berbeda
+                    </div>
+                    <div className="border border-gray-200 p-3 rounded-lg mt-6">
+                      <p className="text-xs font-medium text-green">
+                        Kamu tidak di izinkan mengikuti pelatihan dikarenakan pelatihan ini khusus: {" "}
+                        {memberOptions.map((item) => {
+                          return item.value === oneTrainingData?.member ? item.label : ''
+                        })}                      
+                      </p>
+                    </div>
+                  </>
                 )
               ) : (
-                <>
-                  <div className="mt-6 text-center text-sm font-medium w-full p-2 rounded-xl bg-green text-white">
-                    Status Anggota Berbeda
-                  </div>
-                  <div className="border border-gray-200 p-3 rounded-lg mt-6">
-                    <p className="text-xs font-medium text-green">
-                      Kamu tidak di izinkan mengikuti pelatihan dikarenakan pelatihan ini khusus: {" "}
-                      {memberOptions.map((item) => {
-                        return item.value === oneTrainingData?.member ? item.label : ''
-                      })}                      
-                    </p>
-                  </div>
-                </>
+                isRegistered ? (
+                 <button className="bg-gray-300 text-gray-800 mt-6 text-center text-sm font-medium w-full p-2 rounded-xl">
+                   Sudah Mendaftar
+                 </button>
+                 ) : (
+                  <Link
+                    href={registerType ? `#` : `/courses/${oneTrainingData.id}/register`}
+                    className={`mt-6 text-center text-sm font-medium w-full p-2 rounded-xl bg-green text-white`}
+                  >
+                    {registerType ? "Pendaftaran di tutup" : "Daftar Sekarang"}
+                  </Link>  
+                 )
               )}
             </div>
           </div>
