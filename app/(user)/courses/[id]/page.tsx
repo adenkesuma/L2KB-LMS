@@ -12,7 +12,6 @@ import {
 import Loading from "../../../../components/loading";
 import RegisterBanner from "../_components/registerBanner";
 import { getCookie } from "../../../../lib/services/cookie.service";
-import { toast } from "sonner";
 
 const memberOptions = [
   {
@@ -83,7 +82,7 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
                 <ul className="flex flex-col justify-start mt-4 sm:mt-6 gap-2">
                   <li className="font-regular text-xs sm:text-sm text-gray-600">
                     Jumlah SKP:{" "}
-                    <span className="font-semibold text-green">4 SKP</span>
+                    <span className="font-semibold text-green">{oneTrainingData?.skp}</span>
                   </li>
                   <li className="font-reguler te text-xs sm:text-sm text-gray-600">
                     Tahun Pelaksanaan:{" "}
@@ -155,12 +154,7 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
               )}
             </div>
           </div>
-          {/* <Link
-          href={`/courses/${params.id}/register`}
-          className="mt-6 text-center text-white text-sm font-medium w-full p-2 rounded-xl bg-green"
-        >
-          Daftar Sekarang
-        </Link> */}
+   
         </div>
         {/* Deskripsi */}
         <div className="mt-6 sm:mt-10 w-full lg:w-[68%]">
@@ -168,8 +162,6 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
             Deskripsi
           </h2>
           <p className="mt-1 sm:mt-4 text-xs sm:text-sm text-gray-600">
-            {/* Skrining atau uji saring pada bayi baru lahir Neonatal Screening
-        adalah istilah yang sering kita dengar */}
             {oneTrainingData.deskripsi}
           </p>
         </div>
@@ -180,7 +172,7 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
           </h2>
           <p className="mt-1 sm:mt-4 text-xs sm:text-sm text-gray-600">
             {memberOptions.map((item) => {
-              return item.value === oneTrainingData.member ? item.label : ''
+              return item.value === oneTrainingData?.member ? item.label : ''
             })}
           </p>
         </div>
@@ -214,7 +206,7 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
         {/* catatan */}
         <div className="mt-6 sm:mt-10 bg-opacity-green p-6 rounded-xl sm:rounded-2xl w-full lg:w-[68%] mb-8 sm:mb-20">
           <h2 className="font-semibold text-green text-base sm:text-[24px]">
-            Catatan:
+            Informasi Pelatihan:
           </h2>
           <ul className="flex flex-col gap-2 sm:gap-3 mt-2 sm:mt-4 whitespace-pre-line">
             {oneTrainingData.catatan}

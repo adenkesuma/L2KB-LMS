@@ -6,7 +6,7 @@ import Link from "next/link";
 import moment from "moment";
 import { ITrainingData } from "../app/(user)/page";
 
-export const memberOptions = [
+const memberOptions = [
   {
     value: "anggota_biasa",
     label: "Khusus Anggota Biasa",
@@ -35,8 +35,6 @@ const Card: FC<{
 
   const currentDate = new Date();
   const registerType = new Date(data.regis_end) <= currentDate
-
-  console.log(data)
 
   return (
     <div className="rounded-xl bg-white p-2 sm:p-3 border">

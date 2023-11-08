@@ -279,6 +279,18 @@ function NewCourseForm({ adminAK }: { adminAK: string }) {
             // value={getValues("member")}
           />
         </div>
+        
+        <div className="flex flex-col gap-2">
+          <label className="font-medium text-xs lg:text-sm">
+            Informasi Pelatihan <span className="text-red-600">*</span>
+          </label>
+          <textarea
+            rows={6}
+            cols={50}
+            {...register("catatan")}
+            className="border rounded-xl p-2 border-gray-300"
+          ></textarea>
+        </div>
 
         <div className="flex flex-col gap-2">
           <label className="font-medium text-xs lg:text-sm">
@@ -316,17 +328,6 @@ function NewCourseForm({ adminAK }: { adminAK: string }) {
           ></textarea>
         </div>
 
-        <div className="flex flex-col gap-2">
-          <label className="font-medium text-xs lg:text-sm">
-            Catatan <span className="text-red-600">*</span>
-          </label>
-          <textarea
-            rows={6}
-            cols={50}
-            {...register("catatan")}
-            className="border rounded-xl p-2 border-gray-300"
-          ></textarea>
-        </div>
       </div>
       <aside className="w-full md:w-1/3 rounded-xl border border-gray-200 mt-8 bg-white p-4 flex flex-col gap-6">
         <h2 className="mb-2 font-semibold text-xl text-gray-800">Terbitkan</h2>

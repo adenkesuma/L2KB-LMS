@@ -14,7 +14,7 @@ const NotificationCard = ({ announce }: any) => {
                 className='bg-opacity-green sm:p-4 p-2 rounded-lg w-10 sm:w-14 block'
             />
             <div className='flex flex-col gap-1'>
-                <span className='text-green font-semibold text-xs xl:text-sm mb-2'>{moment(announce?.createdAt).format("HH:mm:ss")}</span>
+                <span className='text-green font-semibold text-xs xl:text-sm mb-2'>{moment(announce?.createdAt).format("HH:mm:ss - DD MMMM yyyy")}</span>
                 <h1 className='text-sm sm:text-base text-gray-800 font-semibold'>
                     {announce.title}
                 </h1>

@@ -88,7 +88,7 @@ function AdminLoginForm() {
           )}
         />
         <div className="mx-auto flex justify-center pt-4">
-          <Button type="submit" disabled={form.formState.isSubmitting}>
+          <Button type="submit" className="w-44" disabled={form.formState.isSubmitting}>
             {form.formState.isSubmitting ? (
               <>
                 <LoadingIcon />
