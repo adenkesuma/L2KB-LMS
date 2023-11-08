@@ -26,12 +26,13 @@ interface ProfileData {
   tempat_lahir: string;
   updatedAt: string;
   user_id: string;
+  no_npa: number;
 }
 
 interface Announces {
   title: string;
   description: string;
-  createdAt: string; 
+  createdAt: string;
 }
 
 export interface UserData {
@@ -46,7 +47,7 @@ export interface UserData {
   updatedAt: string;
   skp: number;
   profile: ProfileData;
-  announces: Announces[]
+  announces: Announces[];
 }
 
 async function UserProfile() {
