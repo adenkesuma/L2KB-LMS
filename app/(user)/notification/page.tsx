@@ -7,6 +7,10 @@ import useStore from "@/store/use-store";
 import { userAuthStore } from "@/store/user-auth.store";
 import { UserData } from "../(app)/profile/page";
 
+interface Announce {
+  createdAt: string;
+}
+
 const Notification = () => {
   const userAuth = useStore(userAuthStore, (state) => state);
   const [userData, setUserData] = useState<UserData>();
@@ -36,6 +40,13 @@ const Notification = () => {
     }
   }, [userAuth?.accessToken]);
 
+  // sort data berdasarkan terbaru
+  const sortedAnnounces: Announce[] | undefined = userData?.announces.slice().sort((a, b) => {
+    return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+  });
+
+  console.log(sortedAnnounces)
+
   return (
     <main className="min-h-screen pt-4 sm:pt-6 lg:pt-12">
       <div className="flex flex-col gap-4 sm:flex-row justify-between items-start sm:items-end">
@@ -47,7 +58,7 @@ const Notification = () => {
       </div>
 
       <div>
-        {userData?.announces.map((item, idx) => (
+        {sortedAnnounces?.map((item, idx) => (
           <NotificationCard key={idx} announce={item} />
         ))}
       </div>

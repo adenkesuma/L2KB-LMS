@@ -10,6 +10,7 @@ import Invisible from "@/public/assets/icons/invisible.svg";
 import useStore from "../../../../store/use-store";
 import { userAuthStore } from "../../../../store/user-auth.store";
 import { setCookie } from "./action";
+import { toast } from "sonner";
 
 interface UserLogin {
   email: string;
@@ -50,6 +51,7 @@ const Login = () => {
       );
 
       if (response.status === 200) {
+        toast.success("Anda berhasil login")
         await setCookie(response.data.accessToken);
         userAuth?.setAccessToken(response.data.accessToken);
       }

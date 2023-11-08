@@ -20,6 +20,7 @@ export interface ITrainingCandidate {
   updatedAt: Date;
   user_id: string;
   training_id: string;
+  user: any
 }
 
 const ParticipantPage = async () => {
@@ -28,7 +29,6 @@ const ParticipantPage = async () => {
   if (adminAK) {
     const trainingCandidates = await getAllTrainingCandidate(adminAK);
 
-    console.log(trainingCandidates)
 
     return (
       <div className="min-h-screen mb-8 px-4 md:px-8 xl:px-14 pt-10">

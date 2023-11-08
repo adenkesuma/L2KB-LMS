@@ -14,7 +14,7 @@ import RegisterBanner from "../_components/registerBanner";
 import { getCookie } from "../../../../lib/services/cookie.service";
 import { toast } from "sonner";
 
-export const memberOptions = [
+const memberOptions = [
   {
     value: "anggota_biasa",
     label: "Anggota Biasa : Sp KKLP",

@@ -10,8 +10,6 @@ function ActivateUserContent({
   trainingCandidates: ITrainingCandidate[];
 }) {
 
-  console.log(trainingCandidates)
-
   return (
     <div className="rounded-2xl border border-gray-200 mt-6 bg-white p-4 overflow-hidden">
       <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -27,13 +25,7 @@ function ActivateUserContent({
                     Nama
                   </th>
                   <th scope="col" className="px-3 xl:px-6 p-2 xl:py-4">
-                    No SIP
-                  </th>
-                  <th scope="col" className="px-3 xl:px-6 p-2 xl:py-4">
-                    No STR
-                  </th>
-                  <th scope="col" className="px-3 xl:px-6 p-2 xl:py-4">
-                    No SERKOM
+                    Email
                   </th>
                   <th scope="col" className="px-3 xl:px-6 p-2 xl:py-4">
                     Status
@@ -54,16 +46,10 @@ function ActivateUserContent({
                         {i + 1}
                       </td>
                       <td className="whitespace-nowrap px-3 xl:px-6 py-2 xl:py-4">
-                        {data.nama_lengkap}
+                        {data?.user?.nama}
                       </td>
                       <td className="whitespace-nowrap px-3 xl:px-6 py-2 xl:py-4">
-                        {data.no_sip}
-                      </td>
-                      <td className="whitespace-nowrap px-3 xl:px-6 py-2 xl:py-4">
-                        {data.no_str}
-                      </td>
-                      <td className="whitespace-nowrap px-3 xl:px-6 py-2 xl:py-4">
-                        {data.no_serkom}
+                        {data?.user?.email}
                       </td>
                       <td className="whitespace-nowrap px-3 xl:px-6 py-2 xl:py-4">
                         <span

@@ -1,8 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from "next/link";
-import moment from "moment";
 import { toast } from "sonner";
 import {
   ArrowLeftIcon,
@@ -56,6 +54,8 @@ function AdminCourseDetailContent({
     window.location.reload();
   };
 
+  console.log(trainingData)
+
   return (
     <div className="mt-10">
       <div className="flex gap-4 items-center">
@@ -75,15 +75,6 @@ function AdminCourseDetailContent({
                     </th>
                     <th scope="col" className="px-3 xl:px-6 p-2 xl:py-4">
                       Nama
-                    </th>
-                    <th scope="col" className="px-3 xl:px-6 p-2 xl:py-4">
-                      No SIP
-                    </th>
-                    <th scope="col" className="px-3 xl:px-6 p-2 xl:py-4">
-                      No STR
-                    </th>
-                    <th scope="col" className="px-3 xl:px-6 p-2 xl:py-4">
-                      No SERKOM
                     </th>
                     <th scope="col" className="px-3 xl:px-6 p-2 xl:py-4">
                       Email
@@ -114,19 +105,10 @@ function AdminCourseDetailContent({
                             {i + 1}
                           </td>
                           <td className="whitespace-nowrap px-3 xl:px-6 py-2 xl:py-4">
-                            {data?.nama_lengkap}
+                            {data?.user?.nama}
                           </td>
                           <td className="whitespace-nowrap px-3 xl:px-6 py-2 xl:py-4">
-                            {data?.no_sip}
-                          </td>
-                          <td className="whitespace-nowrap px-3 xl:px-6 py-2 xl:py-4">
-                            {data?.no_str}
-                          </td>
-                          <td className="whitespace-nowrap px-3 xl:px-6 py-2 xl:py-4">
-                            {data?.no_serkom}
-                          </td>
-                          <td className="whitespace-nowrap px-3 xl:px-6 py-2 xl:py-4">
-                            {/* {data?.email} */}
+                            {data?.user?.email}
                           </td>
                           <td className="whitespace-nowrap px-3 xl:px-6 py-2 xl:py-4">
                             <span

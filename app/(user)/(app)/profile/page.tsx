@@ -28,6 +28,12 @@ interface ProfileData {
   user_id: string;
 }
 
+interface Announces {
+  title: string;
+  description: string;
+  createdAt: string; 
+}
+
 export interface UserData {
   [key: string]: any;
   id: string;
@@ -40,7 +46,7 @@ export interface UserData {
   updatedAt: string;
   skp: number;
   profile: ProfileData;
-  announces: []
+  announces: Announces[]
 }
 
 async function UserProfile() {

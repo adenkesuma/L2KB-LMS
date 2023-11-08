@@ -3,7 +3,7 @@ import {
   getTrainingCandidateFileList,
 } from "../../../../../lib/services/training-candidate.service";
 import { getCookie } from "../../../../../lib/services/cookie.service";
-import TrainingCandidateFileContent from "./components/content";
+import TrainingCandidateFileContent from "./_components/content";
 
 const ActivateUserDetail = async ({ params }: { params: { id: string } }) => {
   const adminAK = await getCookie("adminAK");
