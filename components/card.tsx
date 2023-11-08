@@ -19,6 +19,10 @@ const memberOptions = [
     value: "anggota_muda",
     label: "Khusus Anggota Muda",
   },
+  {
+    value: "semua",
+    label: "Semua"
+  }
 ];
 
 const Card: FC<{

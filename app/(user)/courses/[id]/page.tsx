@@ -1,6 +1,6 @@
 // @ts-nocheck
 
-import { FC, Suspense } from "react";
+import { FC, Suspense, useEffect } from "react";
 import Link from "next/link";
 import moment from "moment";
 import { notFound } from "next/navigation";
@@ -12,6 +12,7 @@ import {
 import Loading from "../../../../components/loading";
 import RegisterBanner from "../_components/registerBanner";
 import { getCookie } from "../../../../lib/services/cookie.service";
+import { getUserData } from "@/lib/services/user-data.service";
 
 const memberOptions = [
   {
@@ -26,6 +27,10 @@ const memberOptions = [
     value: "anggota_muda",
     label: "Anggota Muda : PPDS KKLP",
   },
+  {
+    value: "semua",
+    label: "Semua"
+  }
 ];
 
 type PelatihanDetailType = { params: { id: string } };
@@ -40,6 +45,7 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
   }
 
   const myTrainingData = await getMyTraining(accessKey);
+  const userData = await getUserData(accessKey);
 
   const isRegistered: boolean | null = myTrainingData?.find(
     (data) => data?.training_id === params.id
@@ -48,6 +54,9 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
   // get current date
   const currentDate = new Date();
   const registerType = new Date(oneTrainingData.regis_end) <= currentDate
+
+  const status: string | null = userData?.profile?.status_anggota;
+  const statusWithUnderscore: string | null = status.replace(/\s/g, "_");
 
   return (
     <Suspense fallback={<Loading />}>
@@ -140,17 +149,33 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
                   </li>
                 </ul>
               </div>
-              {isRegistered ? (
-                <button className="bg-gray-300 text-gray-800 mt-6 text-center text-sm font-medium w-full p-2 rounded-xl">
-                  Sudah Mendaftar
-                </button>
+              {statusWithUnderscore === oneTrainingData?.member ? (
+                isRegistered ? (
+                  <button className="bg-gray-300 text-gray-800 mt-6 text-center text-sm font-medium w-full p-2 rounded-xl">
+                    Sudah Mendaftar
+                  </button>
+                ) : (
+                  <Link
+                    href={registerType ? `#` : `/courses/${oneTrainingData.id}/register`}
+                    className={`mt-6 text-center text-sm font-medium w-full p-2 rounded-xl bg-green text-white`}
+                  >
+                    {registerType ? "Pendaftaran di tutup" : "Daftar Sekarang"}
+                  </Link>
+                )
               ) : (
-                <Link
-                  href={registerType ? `#` : `/courses/${oneTrainingData.id}/register`}
-                  className={`mt-6 text-center text-sm font-medium w-full p-2 rounded-xl bg-green text-white`}
-                >
-                  {registerType ? "Pendaftaran di tutup" : "Daftar Sekarang"}
-                </Link>
+                <>
+                  <div className="mt-6 text-center text-sm font-medium w-full p-2 rounded-xl bg-green text-white">
+                    Status Anggota Berbeda
+                  </div>
+                  <div className="border border-gray-200 p-3 rounded-lg mt-6">
+                    <p className="text-xs font-medium text-green">
+                      Kamu tidak di izinkan mengikuti pelatihan dikarenakan pelatihan ini khusus: {" "}
+                      {memberOptions.map((item) => {
+                        return item.value === oneTrainingData?.member ? item.label : ''
+                      })}                      
+                    </p>
+                  </div>
+                </>
               )}
             </div>
           </div>

@@ -26,6 +26,10 @@ export const memberOptions = [
     value: "anggota_muda",
     label: "Anggota Muda : PPDS KKLP",
   },
+  {
+    value: "semua",
+    label: "Semua"
+  }
 ];
 
 function NewCourseForm({ adminAK }: { adminAK: string }) {
