@@ -413,7 +413,6 @@ function UpdateProfileForm() {
               type="file"
               className="border bg-white rounded-xl p-2 border-gray-300"
               {...register("sip_file", { valueAsNumber: true })}
-              required
             />
           </div>
           <div className="flex flex-col gap-2">
@@ -424,7 +423,6 @@ function UpdateProfileForm() {
               type="number"
               className="border bg-white rounded-xl p-2 border-gray-300"
               {...register("profile.no_sip", { valueAsNumber: true })}
-              required
             />
           </div>
           <div className="flex flex-col gap-2">
@@ -449,6 +447,7 @@ function UpdateProfileForm() {
               type="file"
               className="bg-white border rounded-xl p-2 border-gray-300"
               {...register("str_file", { required: true })}
+              required
             />
           </div>
           <div className="flex flex-col gap-2">
@@ -544,7 +543,7 @@ function UpdateProfileForm() {
             />
           </div>
 
-          <div className="flex flex-col gap-2">
+          {/* <div className="flex flex-col gap-2">
             <label className="font-medium text-xs sm:text-sm">
               <span>Ketikan No ATM</span>
             </label>
@@ -553,7 +552,7 @@ function UpdateProfileForm() {
               className="border bg-white rounded-xl p-2 border-gray-300"
               {...register("profile.no_atm", { valueAsNumber: true })}
             />
-          </div>
+          </div> */}
         </div>
 
         {/* button daftar */}
