@@ -377,18 +377,6 @@ function UpdateProfileForm() {
             />
           </div>
 
-          {/* no atm */}
-          <div className="flex flex-col gap-2">
-            <label className="font-medium text-xs sm:text-sm">
-              <span>Ketikan No ATM</span>
-            </label>
-            <input
-              type="number"
-              className="border bg-white rounded-xl p-2 border-gray-300"
-              {...register("no_atm", { valueAsNumber: true })}
-            />
-          </div>
-
           {/* SIP */}
           <div className="flex flex-col gap-2">
             <label className="font-medium text-xs sm:text-sm">

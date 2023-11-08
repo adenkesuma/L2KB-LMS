@@ -41,8 +41,8 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
 
   const myTrainingData = await getMyTraining(accessKey);
 
-  const isRegistered = myTrainingData?.find(
-    (data) => data.training.id === params.id
+  const isRegistered: boolean | null = myTrainingData?.find(
+    (data) => data?.training_id === params.id
   );
 
   // get current date

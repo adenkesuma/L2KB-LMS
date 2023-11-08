@@ -82,6 +82,9 @@ const Navbar: FC = () => {
     }
   }, [userAuth?.accessToken]);
 
+  console.log(userData)
+
+
   return (
     <>
       {hiddenPath || adminHiddenPath ? (
@@ -144,6 +147,9 @@ const Navbar: FC = () => {
                     href="/notification"
                     className="group py-[7px] px-2 border border-gray-300 flex items-center justify-center relative rounded-[50%]"
                   >
+                    <div className="bg-red-600 flex justify-center items-center rounded-full w-5 h-5 absolute -top-2 -right-2">
+                      <p className="text-xs text-white font-semibold">{userData?.announces.length}</p>
+                    </div>
                     <Image src={Notification} alt="bell icon" className="w-5" />
                     <span className="opacity-0 absolute bg-white border border-slate-200 delay-100 text-slate-500 text-xs rounded-md mt-20 mr-8 p-1 whitespace-nowrap group-hover:opacity-100 group-hover:py-1 group-hover:px-3">
                       Notifikasi
