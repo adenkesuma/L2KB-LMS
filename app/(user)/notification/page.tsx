@@ -45,8 +45,6 @@ const Notification = () => {
     return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
   });
 
-  console.log(sortedAnnounces)
-
   return (
     <main className="min-h-screen pt-4 sm:pt-6 lg:pt-12">
       <div className="flex flex-col gap-4 sm:flex-row justify-between items-start sm:items-end">

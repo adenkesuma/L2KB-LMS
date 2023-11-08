@@ -31,7 +31,6 @@ const HeroBanner: FC<{ data: ITrainingData[] }> = ({ data }) => {
     );
   };
 
-  console.log(data)
 
   return (
     <header className="mt-4 sm:mt-6">

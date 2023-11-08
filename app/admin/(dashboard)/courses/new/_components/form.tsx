@@ -123,7 +123,6 @@ function NewCourseForm({ adminAK }: { adminAK: string }) {
       }
     } catch (error: any) {
       toast.error(error.response.data.message)
-      console.log(error);
     }
   };
 

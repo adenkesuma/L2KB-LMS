@@ -54,7 +54,6 @@ function AdminCourseDetailContent({
     window.location.reload();
   };
 
-  console.log(trainingData)
 
   return (
     <div className="mt-10">
@@ -86,7 +85,7 @@ function AdminCourseDetailContent({
                       Detail
                     </th>
                     <th scope="col" className="px-3 xl:px-6 p-2 xl:py-4">
-                      Status Kehadiran
+                      Status
                     </th>
                     <th scope="col" className="px-3 xl:px-6 p-2 xl:py-4">
                       Sertifikat

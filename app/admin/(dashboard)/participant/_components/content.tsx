@@ -36,7 +36,7 @@ function ActivateUserContent({
                 </tr>
               </thead>
               <tbody className="text-gray-600 text-xs lg:text-sm font-normal">
-                {trainingCandidates.map((data, i) => {
+                {trainingCandidates?.map((data, i) => {
                   return (
                     <tr
                       key={i}

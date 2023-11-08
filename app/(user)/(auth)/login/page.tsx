@@ -55,8 +55,8 @@ const Login = () => {
         await setCookie(response.data.accessToken);
         userAuth?.setAccessToken(response.data.accessToken);
       }
-    } catch (err) {
-      console.log(err);
+    } catch (err: any) {
+      toast.error(err.response.data.message)
     }
   };
 

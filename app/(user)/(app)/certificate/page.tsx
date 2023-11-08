@@ -1,8 +1,11 @@
 import Link from "next/link";
 import { cookies } from "next/headers";
+import Image from "next/image";
 
 import { getMyTraining } from "@/lib/services/training-data.service";
 import UserCertificate from "./_components/userCertificate";
+import NoDataImage from "@/public/assets/images/no-data.png";
+
 
 const Certificate = async () => {
   const cookieStore = cookies();
@@ -10,7 +13,6 @@ const Certificate = async () => {
 
   if (accessKey) {
     const myTrainingData = await getMyTraining(accessKey);
-    console.log(myTrainingData);
     
     return (
       <main className="pt-4 sm:pt-6 lg:pt-12 min-h-screen">
@@ -52,21 +54,31 @@ const Certificate = async () => {
         </div>
 
         <div className="flex flex-col gap-4 sm:gap-8 mt-4 sm:mt-8">
-          {myTrainingData?.map((data) => {
-            return (
-              <div key={data.training.id}>
-                {data.certificateGenerated ? (
-                  <>
-                    <UserCertificate link={`https://api.pdkindonesia.com/p2kb/admin/certificate/${data.id}`} />
-                  </>
-                ) : (
-                  <p>
-                    {data.training.nama} - {data.id} - TIDAK ADa
-                  </p>
-                )}
-              </div>
-            );
-          })}
+
+          {myTrainingData?.length === 0 ? (
+            <Image
+              src={NoDataImage}
+              alt="no data"
+              className="w-3/4 mx-auto"
+              width={1000}
+              height={1000}
+            />
+          ) : (
+            myTrainingData?.map((data) => {
+              return (
+                <div key={data.training.id}>
+                  {data.certificateGenerated ? (
+                    <>
+                      <UserCertificate link={`${process.env.NEXT_PUBLIC_P2KB_API}/admin/certificate/${data.id}`} />
+                    </>
+                  ) : 
+                    ""
+                  }
+                </div>
+              );
+            })) 
+          }
+
         </div>
       </main>
     );

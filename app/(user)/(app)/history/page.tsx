@@ -3,6 +3,9 @@ import { cookies } from "next/headers";
 import moment from "moment";
 import Link from "next/link";
 
+import NoDataImage from "@/public/assets/images/no-data.png"
+import Image from "next/image";
+
 const History = async () => {
   const cookieStore = cookies();
   const accessKey = cookieStore.get("accessKey")?.value;
@@ -72,68 +75,79 @@ const History = async () => {
           </h1>
         </div>
 
-        <div className="rounded-xl overflow-hidden sm:rounded-2xl border border-gray-200 mt-4 sm:mt-8 bg-white p-2 sm:p-4">
-          <div className="flex flex-col">
-            <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
-              <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
-                <div className="overflow-hidden">
-                  <table className="min-w-full text-left text-sm font-light">
-                    <thead className="border-b font-medium text-green text-xs sm:text-sm">
-                      <tr>
-                        <th scope="col" className="px-6 py-4">
-                          No
-                        </th>
-                        <th scope="col" className="px-6 py-4">
-                          Nama Pelatihan
-                        </th>
-                        <th scope="col" className="px-6 py-4">
-                          Deskripsi
-                        </th>
-                        <th scope="col" className="px-6 py-4">
-                          Tanggal Selesai
-                        </th>
-                        <th scope="col" className="px-6 py-4">
-                          Lokasi Pelatihan
-                        </th>
-                        <th scope="col" className="px-6 py-4">
-                          Status
-                        </th>
-                      </tr>
-                    </thead>
+        {trainingDone?.length === 0 ? (
+          <Image
+            src={NoDataImage}
+            alt="no data"
+            className="w-3/4 mx-auto"
+            width={1000}
+            height={1000}
+          />
+          ) : (
+            <div className="rounded-xl overflow-hidden sm:rounded-2xl border border-gray-200 mt-4 sm:mt-8 bg-white p-2 sm:p-4">
+              <div className="flex flex-col">
+                <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                  <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+                    <div className="overflow-hidden">
+                      <table className="min-w-full text-left text-sm font-light">
+                        <thead className="border-b font-medium text-green text-xs sm:text-sm">
+                          <tr>
+                            <th scope="col" className="px-6 py-4">
+                              No
+                            </th>
+                            <th scope="col" className="px-6 py-4">
+                              Nama Pelatihan
+                            </th>
+                            <th scope="col" className="px-6 py-4">
+                              Deskripsi
+                            </th>
+                            <th scope="col" className="px-6 py-4">
+                              Tanggal Selesai
+                            </th>
+                            <th scope="col" className="px-6 py-4">
+                              Lokasi Pelatihan
+                            </th>
+                            <th scope="col" className="px-6 py-4">
+                              Status
+                            </th>
+                          </tr>
+                        </thead>
 
-                    <tbody className="text-gray-600 text-xs sm:text-sm font-normal">
-                      {trainingDone?.map((item, idx) => (
-                        <tr key={item.id} className="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:hover:bg-gray-100">
-                          <td className="whitespace-nowrap px-6 py-4">
-                            {idx+1}
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4">
-                            {item.training.nama.slice(0, 30)}...
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4">
-                            {item.training.deskripsi.slice(0, 50)}...
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4">
-                            {moment(item.training.training_end).format("DD MMMM yyyy")}
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4">
-                            {item.training.location}
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4">
-                            <span className="py-2 px-4 rounded-xl bg-opacity-green text-green font-semibold">
-                              Selesai
-                            </span>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
+                        <tbody className="text-gray-600 text-xs sm:text-sm font-normal">
+                          {trainingDone?.map((item, idx) => (
+                            <tr key={item.id} className="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:hover:bg-gray-100">
+                              <td className="whitespace-nowrap px-6 py-4">
+                                {idx+1}
+                              </td>
+                              <td className="whitespace-nowrap px-6 py-4">
+                                {item.training.nama.slice(0, 30)}...
+                              </td>
+                              <td className="whitespace-nowrap px-6 py-4">
+                                {item.training.deskripsi.slice(0, 50)}...
+                              </td>
+                              <td className="whitespace-nowrap px-6 py-4">
+                                {moment(item.training.training_end).format("DD MMMM yyyy")}
+                              </td>
+                              <td className="whitespace-nowrap px-6 py-4">
+                                {item.training.location}
+                              </td>
+                              <td className="whitespace-nowrap px-6 py-4">
+                                <span className="py-2 px-4 rounded-xl bg-opacity-green text-green font-semibold">
+                                  Selesai
+                                </span>
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
 
-                  </table>
+                      </table>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+          )  
+        }
       </main>
 
     );

@@ -129,8 +129,9 @@ function EditCourseForm({
       } else {
         toast.error("Something went wrong");
       }
-    } catch (error) {
-      console.log(error);
+    } catch (error: any) {
+      toast.error(error.response.data.message)
+      // console.log(error);
     }
   };
 
@@ -198,7 +199,7 @@ function EditCourseForm({
         const ftr = memberOptions.filter((data) => {
           return data.value == prevData.member;
         });
-        console.log("ftr", ftr[0]);
+        // console.log("ftr", ftr[0]);
         prevData.member = ftr[0] as any;
       }
 
@@ -214,7 +215,7 @@ function EditCourseForm({
         // console.error("Error parsing JSON:", error);
       }
 
-      console.log(prevData);
+      // console.log(prevData);
       reset(prevData as any);
     }
   }, [prevData, reset]);

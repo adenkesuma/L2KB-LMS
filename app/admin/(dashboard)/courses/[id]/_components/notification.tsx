@@ -29,7 +29,7 @@ const NotificationForUsers = ({ params, adminAK }: any) => {
           });
 
           if (response.ok) {
-            toast.success("Data berhasil di buat")
+            toast.success("Notifikasi berhasil di buat")
             setTitle("")
             setDescription("")
           } else {

@@ -36,7 +36,7 @@ export async function getUsersProfile(
     
     return response.data.data
   } catch (error) {
-    console.log("Error fetching user data:", error)
+    // console.log("Error fetching user data:", error)
     return null
   }
 }

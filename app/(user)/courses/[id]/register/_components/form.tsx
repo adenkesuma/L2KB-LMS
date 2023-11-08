@@ -63,8 +63,6 @@ function RegisterTrainingForm({ training_id, price }: { training_id: string, pri
           }
         }
 
-        //   formData.forEach((data) => console.log(data));
-
         const register = await axios.post(
           `${process.env.NEXT_PUBLIC_P2KB_API}/training/register?training_id=${training_id}`,
           formData,
@@ -86,7 +84,6 @@ function RegisterTrainingForm({ training_id, price }: { training_id: string, pri
 
     } catch (error: any) {
       toast.error(error.response.data.message)
-      console.log(error);
     }
   };
 

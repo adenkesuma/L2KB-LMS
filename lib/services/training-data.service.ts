@@ -49,7 +49,7 @@ export async function getOneTrainingData(
     const res = await get.json();
     return await res.data;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     return null;
   }
 }
@@ -72,7 +72,7 @@ export async function getOneTrainingDataAdmin(
     const res = await get.json();
     return await res.data;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     return null;
   }
 }
@@ -91,7 +91,7 @@ export async function getMyTraining(
     const res = await get.json();
     return await res.data;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     return null;
   }
 }
