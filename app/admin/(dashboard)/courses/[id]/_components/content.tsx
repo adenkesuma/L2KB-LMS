@@ -187,7 +187,7 @@ function AdminCourseDetailContent({
                               <div className="flex gap-1 items-center">
                                 <Cross1Icon className="text-red-500" />
                                 <p className="text-red-500 text-sm font-medium">
-                                  Pendaftaran Ditolak
+                                  Belum di aktivasi
                                 </p>
                               </div>
                             )}

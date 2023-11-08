@@ -51,6 +51,7 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
     (data) => data?.training_id === params.id
   );
 
+
   // get current date
   const currentDate = new Date();
   const registerType = new Date(oneTrainingData.regis_end) <= currentDate
@@ -151,18 +152,43 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
                 </ul>
               </div>
 
-              {
-                isRegistered ? (
-                 <button className="bg-gray-300 text-gray-800 mt-6 text-center text-sm font-medium w-full p-2 rounded-xl">
-                   Sudah Mendaftar
-                 </button>
+              { isRegistered ? (
+                  isRegistered ? (
+                     <button className="bg-gray-300 text-gray-800 mt-6 text-center text-sm font-medium w-full p-2 rounded-xl">
+                       Sudah Mendaftar
+                     </button>
+                    ) : (
+                      <Link
+                        href={
+                          registerType ? `#` : oneTrainingData?.quota === 0 ? 
+                          `#` : statusWithUnderscore === oneTrainingData?.member || oneTrainingData?.member === "semua" ? 
+                          `/courses/${oneTrainingData.id}/register` : `#`
+                        }
+                        className={`mt-6 text-center text-sm font-medium w-full p-2 rounded-xl bg-green text-white`}
+                      >
+                        {
+                          registerType ? "Pendaftaran di tutup" :
+                          oneTrainingData?.quota === 0 ? "Kuota Penuh" : 
+                          statusWithUnderscore === oneTrainingData?.member || oneTrainingData?.member === "semua" ? "Daftar Sekarang" : "Tidak di izinkan mendaftar"
+                        }
+                      </Link>  
+                  ) 
                 ) : (
-                  <Link
-                    href={registerType ? `#` : `/courses/${oneTrainingData.id}/register`}
-                    className={`mt-6 text-center text-sm font-medium w-full p-2 rounded-xl bg-green text-white`}
+                  <Link 
+                    href={
+                      registerType ? `#` : oneTrainingData?.quota === 0 ? 
+                      `#` : statusWithUnderscore === oneTrainingData?.member || oneTrainingData?.member === "semua" ? 
+                      `/courses/${oneTrainingData.id}/register` : `#`
+                    }
+                    className="mt-6 text-center text-sm w-full p-2 rounded-xl bg-green text-white"
                   >
-                    {registerType ? "Pendaftaran di tutup" : "Daftar Sekarang"}
-                  </Link>  
+                    {
+                      registerType ? "Pendaftaran di tutup" :
+                      oneTrainingData?.quota === 0 ? "Kuota Penuh" :
+                      statusWithUnderscore === oneTrainingData?.member || oneTrainingData?.member === "semua" ?
+                      "Daftar Sekarang" : "Tidak di izinkan mendaftar"
+                    }
+                  </Link>
                 )
               }
 
@@ -203,6 +229,19 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
                   </Link>  
                  )
               )} */}
+
+              {statusWithUnderscore === oneTrainingData?.member || oneTrainingData?.member === "semua" ? (
+                ""
+              ) : (
+                <div className="border border-gray-200 p-3 rounded-lg mt-6">
+                  <p className="text-xs font-medium text-orange-500">
+                    Kamu tidak di izinkan mengikuti pelatihan ini dikarenakan pelatihan ini khusus: {" "}
+                    {memberOptions.map((item) => {
+                      return item.value === oneTrainingData?.member ? item.label : ''
+                    })}                      
+                  </p>
+                </div>
+              )}
             </div>
           </div>
    

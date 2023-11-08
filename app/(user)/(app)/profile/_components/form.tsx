@@ -475,7 +475,7 @@ function UpdateProfileForm() {
           {/* SERKOM */}
           <div className="flex flex-col gap-2">
             <label className="font-medium text-xs sm:text-sm">
-              <span>Upload SERKOM {"( Surtifikat Kompetensi )"}</span>
+              <span>Upload SERKOM {"( Sertifikat Kompetensi )"}</span>
             </label>
             <input
               type="file"
@@ -485,7 +485,7 @@ function UpdateProfileForm() {
           </div>
           <div className="flex flex-col gap-2">
             <label className="font-medium text-xs sm:text-sm">
-              <span>Ketikan No SERKOM {"( Surtifikat Kompetensi )"}</span>
+              <span>Ketikan No SERKOM {"( Sertifikat Kompetensi )"}</span>
             </label>
             <input
               type="number"

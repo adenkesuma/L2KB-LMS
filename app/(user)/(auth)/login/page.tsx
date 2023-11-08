@@ -52,6 +52,7 @@ const Login = () => {
 
       if (response.status === 200) {
         toast.success("Anda berhasil login")
+        // window.location.href = "/profile";
         await setCookie(response.data.accessToken);
         userAuth?.setAccessToken(response.data.accessToken);
       }

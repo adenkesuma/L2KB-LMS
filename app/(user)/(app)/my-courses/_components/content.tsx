@@ -32,10 +32,10 @@ async function MyCourseContent() {
 
     return (
       <div className="mt-4 sm:mt-6 lg:mt-12">
-        <h1 className="text-xl text-gray-800 font-medium">
+        {/* <h1 className="text-xl text-gray-800 font-medium">
           Total skp yang akan saya dapatkan:{" "}
           <span className="text-green text-2xl font-bold">{totalSkp}</span>
-        </h1>
+        </h1> */}
 
           {myTraining?.length === 0 ? (
             <Image
