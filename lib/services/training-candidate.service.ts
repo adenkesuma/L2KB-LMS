@@ -62,11 +62,11 @@ export async function getTrainingCandidateFileList(
   const res = await get.json();
   const files = res.data as string[];
 
-  const obj = files.map((file) => {
+  const obj = files?.map((file) => {
     const name = file.split(".")[0];
     return { name, file };
   });
-  const result = obj.reduce((acc: any, { name, file }) => {
+  const result = obj?.reduce((acc: any, { name, file }) => {
     acc[name] = file;
     return acc;
   }, {});

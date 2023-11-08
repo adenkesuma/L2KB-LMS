@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { toast } from "sonner";
 import axios from "axios";
@@ -91,6 +91,18 @@ function TrainingCandidateFileContent({
     setModalOpen(false);
   };
 
+  
+  const [img, setImg] = useState(
+    `${APP_URL}/admin/p2kb/documents/training-candidate/${trainingCandidate?.id}/${fileList?.paid}`
+  );
+
+  useEffect(() => {
+    setImg(
+      `${APP_URL}/admin/p2kb/documents/training-candidate/${trainingCandidate?.id}/${fileList?.paid}`
+    );
+  }, [trainingCandidate]);
+
+
   return (
     <>
       <div className="mt-6 gap-10 pt-4 px-4 pb-4 xl:pt-8 xl:px-8 xl:pb-8 border border-gray-200 rounded-xl bg-white flex">
@@ -164,12 +176,14 @@ function TrainingCandidateFileContent({
           <div className="mb-3 flex flex-col gap-2">
             <span className="text-sm font-semibold text-gray-600">Bukti Pembayaran: </span>
           </div>
+
           <Image
-            src={`${APP_URL}/admin/p2kb/documents/training-candidate/${trainingCandidate?.id}/${fileList?.paid}`}
+            src={img}
             width={1000}
             height={1000}
             alt="foto sip"
             className="rounded-lg border border-gray-200 w-full bg-cover bg-bottom object-cover"
+            onError={() => setImg("/assets/images/free-training.jpg")}
           />
         </div>
       </div>
