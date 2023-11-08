@@ -437,7 +437,7 @@ function UpdateProfileForm() {
           </div>
           <div className="flex flex-col gap-2">
             <label className="font-medium text-xs sm:text-sm">
-              <span>Ketikan No Npa </span>
+              <span>Ketikan NPA Id </span>
             </label>
             <input
               type="number"
@@ -496,17 +496,6 @@ function UpdateProfileForm() {
             />
           </div>
 
-          {/* Ijajah Pengakuan */}
-          {/* <figure>
-            <Image
-              src={img}
-              alt="thumnail pelatihan image"
-              className="rounded-lg h-28 lg:h-40 w-full bg-cover object-cover"
-              width={2000}
-              height={100}
-              // onError={() => setImg("/assets/images/default-image-course.jpg")}
-            />
-          </figure> */}
           <div className="flex flex-col gap-2">
             <label className="font-medium text-xs sm:text-sm">
               <span>Upload Ijazah Pengakuan Universitas/Institusi</span>
