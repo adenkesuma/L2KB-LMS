@@ -10,6 +10,8 @@ import UserProfile from "../../(app)/profile/page";
 import Visible from "@/public/assets/icons/visible.svg";
 import Invisible from "@/public/assets/icons/invisible.svg";
 import { toast } from "sonner";
+import Select from "react-select";
+import { memberOptions } from "../../../admin/(dashboard)/courses/new/_components/form";
 
 interface UserProfile {
   nik: number;
@@ -22,7 +24,7 @@ interface UserProfile {
   alamat_instansi: string;
   nomor_hp: string;
   status_pegawai: "pns" | "non pns";
-  status_anggota: "anggota biasa" | "anggota luar biasa" | "anggota muda";
+  status_anggota: "anggota_biasa" | "anggota_luar_biasa" | "anggota_muda";
 }
 
 interface User {
@@ -52,7 +54,7 @@ const Register: React.FC = () => {
       alamat_instansi: "",
       nomor_hp: "",
       status_pegawai: "pns",
-      status_anggota: "anggota biasa",
+      status_anggota: "anggota_biasa",
     },
   });
 
@@ -104,7 +106,7 @@ const Register: React.FC = () => {
 
       if (response.status === 200) {
         setShowSuccessPopup(true);
-        toast.success("Berhasil membuat akun")
+        toast.success("Berhasil membuat akun");
 
         setTimeout(() => {
           setShowSuccessPopup(false);
@@ -112,7 +114,7 @@ const Register: React.FC = () => {
         }, 3000);
       }
     } catch (err: any) {
-      toast.error(err.response.data.message)
+      toast.error(err.response.data.message);
       // console.log(err.response);
     }
   };
@@ -150,7 +152,7 @@ const Register: React.FC = () => {
                   - Pilih Status Kepegawaian -
                 </option>
                 <option value="pns">PNS</option>
-                <option value="non pns">Non PNS</option>
+                <option value="non_pns">Non PNS</option>
               </select>
             </div>
 
@@ -159,7 +161,7 @@ const Register: React.FC = () => {
                 <span>Pilih Role Anda</span>
                 <span className="text-red-600">*</span>
               </label>
-              <select
+              {/* <select
                 value={userRegister.profile.status_anggota}
                 onChange={handleChange}
                 className="border rounded-xl p-2 border-gray-300 bg-white"
@@ -174,7 +176,27 @@ const Register: React.FC = () => {
                   Anggota Luar Biasa {"(Umum)"} : Dokter yang bukan Sp KKLP
                 </option>
                 <option value="anggota muda">Anggota Muda : PPDS KKLP</option>
-              </select>
+              </select> */}
+              <Select
+                instanceId="member"
+                className="basic-single"
+                classNamePrefix="select"
+                defaultValue="Pilih sasaran peserta"
+                getOptionLabel={(option: any) => `${option.label}`}
+                name="color"
+                options={memberOptions.filter((item) => item.value !== "semua")}
+                onChange={(data: any) =>
+                  setUserRegister({
+                    ...userRegister,
+                    profile: {
+                      ...userRegister.profile,
+                      status_anggota: data.value,
+                    },
+                  })
+                }
+                // getOptionValue={(option: any) => `${option.value}`}
+                // value={getValues("member")}
+              />
             </div>
 
             <div className="flex flex-col gap-2">
@@ -406,7 +428,9 @@ const Register: React.FC = () => {
 
       {showSuccessPopup ? (
         <div className="z-30 border border-gray-200 w-96 rounded-xl p-12">
-          <p className="text-green text-xl font-semibold">Selamat anda berhasil mendaftar</p>
+          <p className="text-green text-xl font-semibold">
+            Selamat anda berhasil mendaftar
+          </p>
         </div>
       ) : (
         <span className="hidden" />
