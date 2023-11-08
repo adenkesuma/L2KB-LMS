@@ -56,7 +56,6 @@ const Card: FC<{
         {memberOptions.map((item) => {
           return item.value === data.member ? item.label : ''
         })}
-        {/* <span>Khusus Anggota Muda</span> */}
       </div>
 
       <div className="flex justify-between flex-col gap-2">

@@ -11,6 +11,21 @@ import { APP_URL } from "../../../../../../lib/config";
 import LoadingIcon from "../../../../../../components/icons/loading-icon";
 import Modal from "./modal";
 
+const memberOptions = [
+  {
+    value: "anggota_biasa",
+    label: "Anggota Biasa",
+  },
+  {
+    value: "anggota_luar_biasa",
+    label: "Anggota Luar Biasa",
+  },
+  {
+    value: "anggota_muda",
+    label: "Anggota Muda",
+  },
+];
+
 function TrainingCandidateFileContent({
   trainingCandidate,
   fileList,
@@ -129,7 +144,9 @@ function TrainingCandidateFileContent({
             <p className="flex flex-row gap-1 xl:gap-2 text-xs md:text-sm font-medium text-gray-600">
               <span>Status Anggota: </span>
               <span className="text-sm lg:text-base font-medium text-green">
-                {trainingCandidate?.user?.profile?.status_anggota}
+                {memberOptions.map((item) => {
+                  return item.value === trainingCandidate?.user?.profile?.status_anggota ? item.label : ''
+                })}
               </span>
             </p>
           </div>

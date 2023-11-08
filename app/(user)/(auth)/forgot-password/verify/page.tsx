@@ -38,10 +38,10 @@ const VerifyPassword: FC = () => {
         })
 
         if (response.status === 200) {
-            toast('Kata sandi anda berhasil terubah')
+            toast.success('Kata sandi anda berhasil terubah')
             window.location.href = "/login";
         } else {
-            toast('Terjadi kesalahan. Mohon periksa kembali data yang anda masukan')
+            toast.error('Terjadi kesalahan. Mohon periksa kembali data yang anda masukan')
         }
     }
 
