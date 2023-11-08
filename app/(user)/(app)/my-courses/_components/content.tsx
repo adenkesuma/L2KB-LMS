@@ -18,7 +18,7 @@ async function MyCourseContent() {
       
     // filter training data by training_end
     const myTraining = myTrainingData?.filter(item => {
-      const trainingEnd = new Date(item.training.training_end);
+      const trainingEnd = new Date(item.training?.training_end);
       return trainingEnd >= currentDate;
     });
 

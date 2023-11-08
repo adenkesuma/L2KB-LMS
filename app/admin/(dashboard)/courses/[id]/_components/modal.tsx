@@ -5,21 +5,18 @@ import axios from "axios";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 
-function CertificateUploadModal({ onClose, onUpload, adminAK, trainingId, candidateId }: any) {
-  const [selectedFile, setSelectedFile] = useState(null);
+function CertificateUploadModal({ onClose, adminAK, trainingId, candidateId }: any) {
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [isUploading, setIsUploading] = useState(false);
 
-  console.log(trainingId)
-  console.log(candidateId)
-
-  const handleUpload = async () => {
+   const handleUpload = async () => {
     if (selectedFile) {
       setIsUploading(true);
 
       const formData = new FormData();
       formData.append("certificate_file", selectedFile);
-      formData.append("training_id", trainingId?.training_id);
-      formData.append("candidate_id", candidateId?.id);
+      formData.append("training_id", trainingId);
+      formData.append("candidate_id", candidateId);
 
       try {
         const response = await axios.post(
@@ -34,8 +31,7 @@ function CertificateUploadModal({ onClose, onUpload, adminAK, trainingId, candid
         );
 
         if (response.status) {
-          toast.success("Successfully create course");
-          onUpload(selectedFile);
+          toast.success("Berhasil Mengirim sertifikat");
           setIsUploading(false);
           setSelectedFile(null);
           onClose();
@@ -52,14 +48,23 @@ function CertificateUploadModal({ onClose, onUpload, adminAK, trainingId, candid
   };
 
   return (
-    <div className={`fixed top-0 left-0 w-full h-full flex items-center justify-center z-50`}>
+    <div className={`fixed top-0 bg-[rgba(0,0,0,0.4)] left-0 w-full h-full flex items-center justify-center z-50`}>
       <div className="modal-content bg-white border border-gray-200 p-8 rounded-lg">
         <h2 className="text-xl font-semibold mb-3">Upload Sertifikat</h2>
 
         <input
           type="file"
           accept=".pdf"
-          onChange={(e) => setSelectedFile(e.target.files[0])}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => { 
+            const files: FileList | null = e.target.files;
+            if (files) {
+              const file: File | null = files[0];
+
+              if (file) {
+                setSelectedFile(file);
+              }
+            }
+          }}
           className="p-4 border-gray-200 border rounded-lg text-gray-800 font-medium text-sm mb-6"
         />
         

@@ -19,7 +19,7 @@ const History = async () => {
       
     // filter training data by training_end
     const trainingDone = myTrainingData?.filter(item => {
-      const trainingEndDate = new Date(item.training.training_end);
+      const trainingEndDate = new Date(item.training?.training_end);
       return trainingEndDate <= currentDate;
     });
 

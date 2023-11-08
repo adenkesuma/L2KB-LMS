@@ -28,7 +28,7 @@ function AdminCourseDetailContent({
   const [markAttendLoading, setMarkAttendLoading] = useState(false);
   const [genSertiLoading, setGenSertiLoading] = useState(false);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const [selectedFile, setSelectedFile] = useState(null);
+  // const [selectedFile, setSelectedFile] = useState(null);
 
   const handleMAA = async (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
@@ -57,15 +57,9 @@ function AdminCourseDetailContent({
     window.location.reload();
   };
 
-  const handleUpload = (file: any) => {
-    setSelectedFile(file);
-    setIsPopupOpen(false);
-  };
-
   const closeModal = () => {
     setIsPopupOpen(false);
   };
-
 
   return (
     <div className="mt-10 relative">
@@ -258,6 +252,7 @@ function AdminCourseDetailContent({
                               <Button
                                 className="flex gap-2 items-center"
                                 onClick={() => setIsPopupOpen(true)}
+                                disabled={!data.attend}
                               >
                                 <UploadIcon />{" "}
                                 {genSertiLoading ? (
@@ -269,6 +264,16 @@ function AdminCourseDetailContent({
                             )}
                           </td>
                         </tr>
+
+                        {isPopupOpen && 
+                          <CertificateUploadModal
+                            isOpen={isPopupOpen}
+                            onClose={closeModal}
+                            adminAK={adminAK}
+                            trainingId={data?.training_id}
+                            candidateId={data?.id}
+                          />
+                        }
                       </tbody>
                     );
                   })
@@ -287,16 +292,6 @@ function AdminCourseDetailContent({
         </div>
       </div>
 
-      {isPopupOpen && 
-        <CertificateUploadModal
-          isOpen={isPopupOpen}
-          onClose={closeModal}
-          onUpload={handleUpload}
-          adminAK={adminAK}
-          trainingId={trainingData?.trainingCandidates}
-          candidateId={trainingData?.trainingCandidates}
-        />
-      }
     </div>
   );
 }

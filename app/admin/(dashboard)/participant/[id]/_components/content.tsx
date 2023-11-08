@@ -153,7 +153,7 @@ function TrainingCandidateFileContent({
                 >
                   {isLoading ? (
                     <>
-                      <LoadingIcon /> sedang menolak
+                      <LoadingIcon /> loading
                     </>
                   ) : (
                     "Terima peserta"
@@ -166,7 +166,7 @@ function TrainingCandidateFileContent({
                 >
                   {isLoading ? (
                     <>
-                      <LoadingIcon /> sedang menolak
+                      <LoadingIcon /> loading
                     </>
                   ) : (
                     "Tolak peserta"
