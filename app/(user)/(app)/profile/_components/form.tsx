@@ -13,12 +13,12 @@ import { rc } from "../../../../../lib/utils";
 import LoadingIcon from "../../../../../components/icons/loading-icon";
 import { UserData } from "../page";
 import ProfilePicture from "@/components/profilePicture";
-import Image from "next/image";
 
 function UpdateProfileForm() {
   const router = useRouter();
   const userAuth = useStore(userAuthStore, (state) => state);
   const [userData, setUserData] = useState<UserData>();
+  const [files, setFiles] = useState();
 
   const {
     register,
@@ -104,7 +104,6 @@ function UpdateProfileForm() {
       }
     } catch (error: any) {
       toast.error(error.response.data.message);
-      // console.log(error);
     }
   };
 
@@ -130,6 +129,32 @@ function UpdateProfileForm() {
 
     if (userAuth?.accessToken !== undefined) {
       fetchUserData();
+    }
+  }, [userAuth?.accessToken]);
+
+  useEffect(() => {
+    const fetchDataFiles = async () => {
+      try {
+        const response = await axios.get(
+          `${process.env.NEXT_PUBLIC_P2KB_API}/documents/profile/my/str_file.jpeg`,
+          {
+            headers: {
+              Authorization: `Bearer ${userAuth?.accessToken}`,
+            },
+          }
+        );
+
+        if (response.status === 200) {
+          console.log(response.data)
+          setFiles(response.data);
+        }
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+
+    if (userAuth?.accessToken !== undefined) {
+      fetchDataFiles();
     }
   }, [userAuth?.accessToken]);
 
@@ -450,12 +475,19 @@ function UpdateProfileForm() {
               <span>STR {"( Surat Tanda Registrasi )"}</span>
               <span className="text-red-600">*</span>
             </label>
-            <input
-              type="file"
-              className="bg-white border rounded-xl p-2 border-gray-300"
-              {...register("str_file", { required: true })}
-              required
-            />
+            {files ? (
+                <div className="p-2 border rounded-xl bg-white border-gray-200">
+                  <p className="text-green font-medium lg:text-sm text-xs">File STR berhasil di upload</p>
+                </div>
+              ) : (
+                <input
+                  type="file"
+                  className="bg-white border rounded-xl p-2 border-gray-300"
+                  {...register("str_file", { required: true })}
+                  required
+                />
+              )
+            }
           </div>
           <div className="flex flex-col gap-2">
             <label className="font-medium text-xs sm:text-sm">

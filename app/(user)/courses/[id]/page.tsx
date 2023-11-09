@@ -1,6 +1,6 @@
 // @ts-nocheck
 
-import { FC, Suspense, useEffect } from "react";
+import { FC, Suspense } from "react";
 import Link from "next/link";
 import moment from "moment";
 import { notFound } from "next/navigation";
@@ -44,13 +44,16 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
     return notFound();
   }
 
+  const userDataProfile = await getUserData(accessKey);
+
+  // console.log(userDataProfile?.profile?.no_str)
+
   const myTrainingData = await getMyTraining(accessKey);
   const userData = await getUserData(accessKey);
 
   const isRegistered: boolean | null = myTrainingData?.find(
     (data) => data?.training_id === params.id
   );
-
 
   // get current date
   const currentDate = new Date();
@@ -152,95 +155,81 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
                 </ul>
               </div>
 
-              { isRegistered ? (
-                  isRegistered ? (
-                     <button className="bg-gray-300 text-gray-800 mt-6 text-center text-sm font-medium w-full p-2 rounded-xl">
-                       Sudah Mendaftar
-                     </button>
-                    ) : (
-                      <Link
-                        href={
-                          registerType ? `#` : oneTrainingData?.quota === 0 ? 
-                          `#` : statusWithUnderscore === oneTrainingData?.member || oneTrainingData?.member === "semua" ? 
-                          `/courses/${oneTrainingData.id}/register` : `#`
-                        }
-                        className={`mt-6 text-center text-sm font-medium w-full p-2 rounded-xl bg-green text-white`}
-                      >
-                        {
-                          registerType ? "Pendaftaran di tutup" :
-                          oneTrainingData?.quota === 0 ? "Kuota Penuh" : 
-                          statusWithUnderscore === oneTrainingData?.member || oneTrainingData?.member === "semua" ? "Daftar Sekarang" : "Tidak di izinkan mendaftar"
-                        }
-                      </Link>  
-                  ) 
-                ) : (
-                  <Link 
-                    href={
-                      registerType ? `#` : oneTrainingData?.quota === 0 ? 
-                      `#` : statusWithUnderscore === oneTrainingData?.member || oneTrainingData?.member === "semua" ? 
-                      `/courses/${oneTrainingData.id}/register` : `#`
-                    }
-                    className="mt-6 text-center text-sm w-full p-2 rounded-xl bg-green text-white"
-                  >
-                    {
-                      registerType ? "Pendaftaran di tutup" :
-                      oneTrainingData?.quota === 0 ? "Kuota Penuh" :
-                      statusWithUnderscore === oneTrainingData?.member || oneTrainingData?.member === "semua" ?
-                      "Daftar Sekarang" : "Tidak di izinkan mendaftar"
-                    }
-                  </Link>
-                )
-              }
-
-              {/* {accessKey !== null | accessKey !== undefined ? (
-                statusWithUnderscore === oneTrainingData?.member ? (
-                  <Link
-                    href={registerType ? `#` : `/courses/${oneTrainingData.id}/register`}
-                    className={`mt-6 text-center text-sm font-medium w-full p-2 rounded-xl bg-green text-white`}
-                  >
-                    {registerType ? "Pendaftaran di tutup" : "Daftar Sekarang"}
-                  </Link>
-                ) : (
-                  <>
-                    <div className="mt-6 text-center text-sm font-medium w-full p-2 rounded-xl bg-green text-white">
-                      Status Anggota Berbeda
-                    </div>
-                    <div className="border border-gray-200 p-3 rounded-lg mt-6">
-                      <p className="text-xs font-medium text-green">
-                        Kamu tidak di izinkan mengikuti pelatihan dikarenakan pelatihan ini khusus: {" "}
-                        {memberOptions.map((item) => {
-                          return item.value === oneTrainingData?.member ? item.label : ''
-                        })}                      
-                      </p>
-                    </div>
-                  </>
-                )
-              ) : (
+              {/* logika di button pendaftaran */}
+              { userDataProfile ? (
                 isRegistered ? (
-                 <button className="bg-gray-300 text-gray-800 mt-6 text-center text-sm font-medium w-full p-2 rounded-xl">
-                   Sudah Mendaftar
-                 </button>
-                 ) : (
-                  <Link
-                    href={registerType ? `#` : `/courses/${oneTrainingData.id}/register`}
-                    className={`mt-6 text-center text-sm font-medium w-full p-2 rounded-xl bg-green text-white`}
-                  >
-                    {registerType ? "Pendaftaran di tutup" : "Daftar Sekarang"}
-                  </Link>  
-                 )
-              )} */}
-
-              {statusWithUnderscore === oneTrainingData?.member || oneTrainingData?.member === "semua" ? (
-                ""
+                   <button className="bg-gray-300 text-gray-800 mt-6 text-center text-sm font-medium w-full p-2 rounded-xl">
+                     Sudah Mendaftar
+                   </button>
+                  ) : (
+                    // userDataProfile?.profile?.no_str ? ""
+                    <Link
+                      href={
+                        registerType ? `#` : 
+                        oneTrainingData?.quota === 0 ? `#` : 
+                        statusWithUnderscore === oneTrainingData?.member || oneTrainingData?.member === "semua" ? 
+                        userDataProfile?.profile?.no_str ? `/courses/${oneTrainingData?.id}/register` :
+                        userDataProfile?.profile?.no_str === 0 || userDataProfile?.profile?.no_str === null ? "/profile" :
+                        `/courses/${oneTrainingData.id}/register` : `#`
+                      }
+                      className={`mt-6 text-center text-sm font-medium w-full p-2 rounded-xl bg-green text-white`}
+                    >
+                      {
+                        registerType ? "Pendaftaran di tutup" :
+                        oneTrainingData?.quota === 0 ? "Kuota Penuh" : 
+                        statusWithUnderscore === oneTrainingData?.member || oneTrainingData?.member === "semua" ? 
+                        userDataProfile?.profile?.no_str ? "Daftar Sekarang" : 
+                        userDataProfile?.profile?.no_str === 0 || userDataProfile?.profile?.no_str === null ?  
+                        "Lengkapi Profile" : "Daftar Sekarang" : "Daftar Sekarang"
+                      }
+                    </Link>  
+                ) 
               ) : (
-                <div className="border border-gray-200 p-3 rounded-lg mt-6">
-                  <p className="text-xs font-medium text-orange-500">
-                    Kamu tidak di izinkan mengikuti pelatihan ini dikarenakan pelatihan ini khusus: {" "}
-                    {memberOptions.map((item) => {
-                      return item.value === oneTrainingData?.member ? item.label : ''
-                    })}                      
-                  </p>
-                </div>
+                <Link 
+                  href={
+                    registerType ? `#` : oneTrainingData?.quota === 0 ? 
+                    `#` : `/courses/${oneTrainingData.id}`
+                  }
+                  className="mt-6 text-center text-sm w-full p-2 rounded-xl bg-green text-white"
+                >
+                  {
+                    registerType ? "Pendaftaran di tutup" :
+                    oneTrainingData?.quota === 0 ? "Kuota Penuh" : "Daftar Sekarang"
+                  }
+                </Link>
+              )}
+
+              {/* cek apakah data profile user sudah terpenuhi semua yg required nya */}
+              {userDataProfile ? (
+                userDataProfile?.profile?.no_str === 0 || userDataProfile?.profile?.no_str === null ? (
+                  <div className="border border-gray-200 p-3 rounded-lg mt-6">
+                    <p className="text-xs font-medium text-green">
+                      Lengkapi terlebih dahulu data penting di profile kamu, data yang perlu di isi ditandai dengan tanda <span className="text-red-600">*</span> berwarna merah di bagian profile kamu
+                    </p>
+                  </div>
+                ) : (
+                  ""
+                )
+              ) : (
+                ""
+              )}
+
+              {/* cek apakah pelatihan target candidate nya sesuai dengan status anggota user */}
+              { userDataProfile ? (
+                statusWithUnderscore === oneTrainingData?.member || oneTrainingData?.member === "semua" ? (
+                  ""
+                ) : (
+                  <div className="border border-gray-200 p-3 rounded-lg mt-6">
+                    <p className="text-xs font-medium text-orange-500">
+                      Kamu tidak di izinkan mengikuti pelatihan ini dikarenakan pelatihan ini khusus: {" "}
+                      {memberOptions.map((item) => {
+                        return item.value === oneTrainingData?.member ? item.label : ''
+                      })}                      
+                    </p>
+                  </div>
+                )
+              ) : (
+                ""
               )}
             </div>
           </div>
