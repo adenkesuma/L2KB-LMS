@@ -11,7 +11,7 @@ export default function UserLayout({
       <nav className="bg-white sticky top-0 z-50 border-b">
         <Navbar />
       </nav>
-      <div className="container px-4 sm:px-0 lg:px-14 mx-auto">{children}</div>
+      <div className="container px-4 sm:px-0 lg:px-14 mx-auto min-h-screen">{children}</div>
       <Footer />
     </>
   );

@@ -10,6 +10,7 @@ import Notification from "@/public/assets/icons/notification.svg";
 import Close from "@/public/assets/icons/close.svg";
 import Logout from "@/public/assets/icons/green-logout.svg";
 import HamburgerMenu from "@/public/assets/icons/menu.svg";
+import arrow from "@/public/assets/icons/arrow-right.svg"
 
 import { useParams, usePathname, useRouter } from "next/navigation";
 import useStore from "../store/use-store";
@@ -17,12 +18,13 @@ import { userAuthStore } from "../store/user-auth.store";
 import { deleteCookie } from "../lib/services/cookie.service";
 import { UserData } from "@/app/(user)/(app)/profile/page";
 import ProfileNavbar from "./profileNavbar";
-import { getProfile } from "@/lib/services/profile";
 
 const Navbar: FC = () => {
   const router = useRouter();
   const pathname = usePathname();
   const params = useParams();
+  const [isActiveOne, setIsActiveOne] = useState<Boolean>(false);
+  const [isActiveTwo, setIsActiveTwo] = useState<Boolean>(false);
   const [showNavigate, setShowNavigate] = useState<Boolean>(false);
   const [userData, setUserData] = useState<UserData>();
 
@@ -82,9 +84,6 @@ const Navbar: FC = () => {
     }
   }, [userAuth?.accessToken]);
 
-  console.log(userData)
-
-
   return (
     <>
       {hiddenPath || adminHiddenPath ? (
@@ -97,19 +96,107 @@ const Navbar: FC = () => {
 
           {/* ipad, desktop view  navigate */}
           <div className="hidden lg:flex justify-center items-center gap-4 lg:gap-8">
-            <ul className="flex justify-center items-center gap-10">
-              <li>
-                <a
-                  href="/guideline"
+
+            <ul className="flex justify-center items-center gap-10 relative">
+            {/* panduan / visi misi / struktur organisasi */}
+              <button onClick={() => { 
+                  setIsActiveOne(!isActiveOne) 
+                  setIsActiveTwo(false)
+                }} className="flex justify-center gap-3 items-center">
+                <p
                   className={`${
-                    pathname === "/guideline"
+                    pathname === "/guideline" || pathname === "/vision-and-mission" || pathname === "/organization-structure"
                       ? "border-b text-green border-green"
                       : ""
                   } hover:text-green hover:border-b hover:border-green text-sm delay-75 font-medium text-gray-800`}
                 >
-                  Panduan
-                </a>
-              </li>
+                  {
+                    pathname === "/guideline" ? "Panduan" :
+                    pathname === "/vision-and-mission" ? "Visi dan Misi" : 
+                    pathname === "/organization-structure" ? "Struktur Organisaasi" : "Panduan"
+                  }
+                </p>
+                <Image
+                  src={arrow}
+                  alt="arrow down"
+                  className={`${isActiveOne ? "rotate-90" : "rotate-[270deg]"} mt-1 duration-75 delay-75 w-2`}
+                />
+              </button>
+
+              {isActiveOne && 
+                <ul className="w-44 absolute top-10 right-[60%] bg-green p-3 rounded-xl flex flex-col gap-3">
+                  <li className="w-full bg-opacity-green p-1 rounded-md">
+                    <a
+                      href="/guideline"
+                      className={`hover:text-gray-300 hover:border-b hover:border-green text-sm delay-75 font-medium text-white`}
+                    >
+                     Panduan
+                    </a>
+                  </li>   
+                  <li className="bg-opacity-green p-1 rounded-md w-full">
+                    <a
+                      href="/organization-structure"
+                      className={`hover:text-gray-300 hover:border-b hover:border-green text-sm delay-75 font-medium text-white`}
+                    >
+                     Struktur Organisasi
+                    </a>
+                  </li>   
+                  <li className="bg-opacity-green p-1 rounded-md w-full">
+                    <a
+                      href="/vision-and-mission"
+                      className={`hover:text-gray-300 hover:border-b hover:border-green text-sm delay-75 font-medium text-white`}
+                    >
+                      Visi dan Misi
+                    </a>
+                  </li>   
+                </ul>
+              }
+
+              {/* galeri dan fasilitas */}
+              <button onClick={() => { 
+                  setIsActiveTwo(!isActiveTwo)
+                  setIsActiveOne(false)
+                }} className="flex justify-center gap-3 items-center">
+                <p
+                  className={`${
+                    pathname === "/facilities" || pathname === "/gallery"
+                      ? "border-b text-green border-green"
+                      : ""
+                  } hover:text-green hover:border-b hover:border-green text-sm delay-75 font-medium text-gray-800`}
+                >
+                  {
+                    pathname === "/facilities" ? "Fasilitas" :
+                    pathname === "/gallery" ? "Galeri" : "Fasilitas" 
+                  }
+                </p>
+                <Image
+                  src={arrow}
+                  alt="arrow down"
+                  className={`${isActiveTwo ? "rotate-90" : "rotate-[270deg]"} mt-1 duration-75 delay-75 w-2`}
+                />
+              </button>
+
+              {isActiveTwo && 
+                <ul className="w-44 absolute top-10 right-[16%] bg-green p-3 rounded-xl flex flex-col gap-3">
+                  <li className="w-full bg-opacity-green p-1 rounded-md">
+                    <a
+                      href="/facilities"
+                      className={`hover:text-gray-300 hover:border-b hover:border-green text-sm delay-75 font-medium text-white`}
+                    >
+                      Fasilitas
+                    </a>
+                  </li>   
+                  <li className="bg-opacity-green p-1 rounded-md w-full">
+                    <a
+                      href="/gallery"
+                      className={`hover:text-gray-300 hover:border-b hover:border-green text-sm delay-75 font-medium text-white`}
+                    >
+                      Galeri
+                    </a>
+                  </li>   
+                </ul>
+              }
+
               <li>
                 <a
                   href="/courses"
