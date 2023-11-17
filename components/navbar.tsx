@@ -124,7 +124,7 @@ const Navbar: FC = () => {
               </button>
 
               {isActiveOne && 
-                <ul className="w-44 absolute top-10 right-[60%] bg-green p-3 rounded-xl flex flex-col gap-3">
+                <ul className="w-44 absolute top-10 right-[60%] bg-green border p-3 rounded-xl flex flex-col gap-3">
                   <li className="w-full bg-opacity-green p-1 rounded-md">
                     <a
                       href="/guideline"
@@ -177,7 +177,7 @@ const Navbar: FC = () => {
               </button>
 
               {isActiveTwo && 
-                <ul className="w-44 absolute top-10 right-[16%] bg-green p-3 rounded-xl flex flex-col gap-3">
+                <ul className="w-44 absolute top-10 right-[16%] border bg-green p-3 rounded-xl flex flex-col gap-3">
                   <li className="w-full bg-opacity-green p-1 rounded-md">
                     <a
                       href="/facilities"
@@ -289,7 +289,31 @@ const Navbar: FC = () => {
                 <Image src={Close} alt="close icon" className="w-6" />
               </button>
               <div className="flex flex-col items-end p-8 gap-8 mt-44">
-                <ul className="flex justify-center flex-col items-center gap-4">
+                <ul className="flex justify-center flex-col items-end gap-4">
+                  <li>
+                    <a
+                      href="/organization-structure"
+                      className={`${
+                        pathname === "/organization-structure"
+                          ? "border-b text-white border-white"
+                          : ""
+                      } hover:border-b text-sm hover:border-white delay-75 font-medium text-white`}
+                    >
+                      Struktur Organisasi
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/vision-and-mission"
+                      className={`${
+                        pathname === "/vision-and-mission"
+                          ? "border-b text-white border-white"
+                          : ""
+                      } hover:border-b text-sm hover:border-white delay-75 font-medium text-white`}
+                    >
+                      Visi dan Misi
+                    </a>
+                  </li>
                   <li>
                     <a
                       href="/guideline"
@@ -300,6 +324,30 @@ const Navbar: FC = () => {
                       } hover:border-b text-sm hover:border-white delay-75 font-medium text-white`}
                     >
                       Panduan
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/facilities"
+                      className={`${
+                        pathname === "/facilities"
+                          ? "border-b text-white border-white"
+                          : ""
+                      } hover:border-b text-sm hover:border-white delay-75 font-medium text-white`}
+                    >
+                      Fasilitas
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/gallery"
+                      className={`${
+                        pathname === "/gallery"
+                          ? "border-b text-white border-white"
+                          : ""
+                      } hover:border-b text-sm hover:border-white delay-75 font-medium text-white`}
+                    >
+                      Galeri
                     </a>
                   </li>
                   <li>

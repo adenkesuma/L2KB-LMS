@@ -14,6 +14,7 @@ import Guide from "@/public/assets/icons/guide.svg";
 import HamburgerMenu from "@/public/assets/icons/menu.svg";
 import Close from "@/public/assets/icons/close.svg";
 import { deleteCookie } from "../lib/services/cookie.service";
+import ImageIcon from "@/public/assets/icons/image.svg"
 
 const Sidebar = () => {
   const pathname = usePathname();
@@ -81,18 +82,6 @@ const Sidebar = () => {
                 </Link>
 
                 <Link
-                  href="/admin/guideline"
-                  className={`text-white relative group py-3 px-3 delay-75 duration-75 ${
-                    activePath[2] === "guideline" ? "bg-opacity-green" : ""
-                  } flex justify-center xl:justify-start items-center gap-4 rounded-lg`}
-                >
-                  <Image src={Guide} alt="guideline" className="w-[14px]" />
-                  <span className="text-xs text-white md:hidden xl:block">
-                    Panduan Pelatihan
-                  </span>
-                </Link>
-
-                <Link
                   href="/admin/profile"
                   className={`text-white relative group py-3 px-3 delay-75 duration-75 ${
                     activePath[2] === "profile" ? "bg-opacity-green" : ""
@@ -107,6 +96,67 @@ const Sidebar = () => {
                     Profile Users
                   </span>
                 </Link>
+
+                <Link
+                  href="/admin/guideline"
+                  className={`text-white relative group py-3 px-3 delay-75 duration-75 ${
+                    activePath[2] === "guideline" ? "bg-opacity-green" : ""
+                  } flex justify-center xl:justify-start items-center gap-4 rounded-lg`}
+                >
+                  <Image src={Guide} alt="guideline" className="w-[14px]" />
+                  <span className="text-xs text-white md:hidden xl:block">
+                    Panduan Pelatihan
+                  </span>
+                </Link>
+
+                <Link
+                  href="/admin/vision-and-mission"
+                  className={`text-white relative group py-3 px-3 delay-75 duration-75 ${
+                    activePath[2] === "vision-and-mission" ? "bg-opacity-green" : ""
+                  } flex justify-center xl:justify-start items-center gap-4 rounded-lg`}
+                >
+                  <Image src={ImageIcon} alt="image icon" className="w-[14px]" />
+                  <span className="text-xs text-white md:hidden xl:block">
+                    Visi dan Misi
+                  </span>
+                </Link>
+
+                <Link
+                  href="/admin/organization-structure"
+                  className={`text-white relative group py-3 px-3 delay-75 duration-75 ${
+                    activePath[2] === "organization-structure" ? "bg-opacity-green" : ""
+                  } flex justify-center xl:justify-start items-center gap-4 rounded-lg`}
+                >
+                  <Image src={ImageIcon} alt="image icon" className="w-[14px]" />
+                  <span className="text-xs text-white md:hidden xl:block">
+                    Struktur Organisasi
+                  </span>
+                </Link>
+
+                <Link
+                  href="/admin/facilities"
+                  className={`text-white relative group py-3 px-3 delay-75 duration-75 ${
+                    activePath[2] === "facilities" ? "bg-opacity-green" : ""
+                  } flex justify-center xl:justify-start items-center gap-4 rounded-lg`}
+                >
+                  <Image src={ImageIcon} alt="image icon" className="w-[14px]" />
+                  <span className="text-xs text-white md:hidden xl:block">
+                    Fasilitas
+                  </span>
+                </Link>
+
+                <Link
+                  href="/admin/gallery"
+                  className={`text-white relative group py-3 px-3 delay-75 duration-75 ${
+                    activePath[2] === "gallery" ? "bg-opacity-green" : ""
+                  } flex justify-center xl:justify-start items-center gap-4 rounded-lg`}
+                >
+                  <Image src={ImageIcon} alt="image icon" className="w-[14px]" />
+                  <span className="text-xs text-white md:hidden xl:block">
+                    Galeri
+                  </span>
+                </Link>
+
               </nav>
             </div>
 
@@ -120,6 +170,7 @@ const Sidebar = () => {
               </span>
             </button>
           </div>
+
 
           {/* phone navigate */}
           {showNavigate ? (
@@ -191,6 +242,54 @@ const Sidebar = () => {
                     />
                     <span className="text-xs text-white md:hidden xl:block xl:text-sm">
                       Profil Users
+                    </span>
+                  </Link>
+
+                  <Link
+                    href="/admin/vision-and-mission"
+                    className={`text-white relative group py-3 px-3 delay-75 duration-75 ${
+                      activePath[2] === "vision-and-mission" ? "bg-opacity-green" : ""
+                    } flex justify-center xl:justify-start items-center gap-4 rounded-lg`}
+                  >
+                    <Image src={ImageIcon} alt="image icon" className="w-[14px]" />
+                    <span className="text-xs text-white md:hidden xl:block">
+                      Visi dan Misi
+                    </span>
+                  </Link>
+
+                  <Link
+                    href="/admin/organization-structure"
+                    className={`text-white relative group py-3 px-3 delay-75 duration-75 ${
+                      activePath[2] === "organization-structure" ? "bg-opacity-green" : ""
+                    } flex justify-center xl:justify-start items-center gap-4 rounded-lg`}
+                  >
+                    <Image src={ImageIcon} alt="image icon" className="w-[14px]" />
+                    <span className="text-xs text-white md:hidden xl:block">
+                      Struktur Organisasi
+                    </span>
+                  </Link>
+
+                  <Link
+                    href="/admin/facilities"
+                    className={`text-white relative group py-3 px-3 delay-75 duration-75 ${
+                      activePath[2] === "facilities" ? "bg-opacity-green" : ""
+                    } flex justify-center xl:justify-start items-center gap-4 rounded-lg`}
+                  >
+                    <Image src={ImageIcon} alt="image icon" className="w-[14px]" />
+                    <span className="text-xs text-white md:hidden xl:block">
+                      Fasilitas
+                    </span>
+                  </Link>
+
+                  <Link
+                    href="/admin/gallery"
+                    className={`text-white relative group py-3 px-3 delay-75 duration-75 ${
+                      activePath[2] === "gallery" ? "bg-opacity-green" : ""
+                    } flex justify-center xl:justify-start items-center gap-4 rounded-lg`}
+                  >
+                    <Image src={ImageIcon} alt="image icon" className="w-[14px]" />
+                    <span className="text-xs text-white md:hidden xl:block">
+                      Galeri
                     </span>
                   </Link>
                 </nav>
