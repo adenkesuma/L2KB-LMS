@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import defaultImage from "@/public/assets/images/no-data.png"
 
 const OrganizationStructure = () => {
   return (
@@ -8,11 +7,11 @@ const OrganizationStructure = () => {
 
       <figure className='mt-4 sm:mt-6 lg:mt-12'>
         <Image
-          src={defaultImage}
-          alt="guideline image"
+          src={`${process.env.NEXT_PUBLIC_PDKI_API}/organization-structure/index.jpg`}
+          alt="organization structure image"
           width={1000}
           height={1000}
-          className="w-full"
+          className="w-full border border-gray-200 rounded-md"
         />
       </figure>
     </main>
