@@ -18,7 +18,12 @@ function UpdateProfileForm() {
   const router = useRouter();
   const userAuth = useStore(userAuthStore, (state) => state);
   const [userData, setUserData] = useState<UserData>();
-  const [files, setFiles] = useState();
+  const [strFile, setStrFile] = useState();
+  const [sipFile, setSipFile] = useState();
+  const [serkomFile, setSerkomFile] = useState();
+  const [ijazahFile, setIjazahFile] = useState();
+  const [kartuFile, setKartuFile] = useState();
+  const [ktpFile, setKtpFile] = useState()
 
   const {
     register,
@@ -57,7 +62,6 @@ function UpdateProfileForm() {
       ];
 
       for (const key in fileList) {
-        // console.log(fileList[key]);
         if (fileList[key]) {
           // console.log(1);
           formData.append(keyList[key], fileList[key][0]);
@@ -73,11 +77,6 @@ function UpdateProfileForm() {
       }
       for (const key in profile) {
         if (profile.hasOwnProperty(key)) {
-          // console.log(profile[key], typeof profile[key] === "undefined");
-          // if (
-          //   typeof profile[key] === "string" ||
-          //   typeof profile[key] === "number"
-          // )
 
           if (!profile[key]) {
             formData.delete(key);
@@ -146,7 +145,137 @@ function UpdateProfileForm() {
 
         if (response.status === 200) {
           console.log(response.data)
-          setFiles(response.data);
+          setStrFile(response.data);
+        }
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+
+    if (userAuth?.accessToken !== undefined) {
+      fetchDataFiles();
+    }
+  }, [userAuth?.accessToken]);
+
+  useEffect(() => {
+    const fetchDataFiles = async () => {
+      try {
+        const response = await axios.get(
+          `${process.env.NEXT_PUBLIC_P2KB_API}/documents/profile/my/sip_file.jpeg`,
+          {
+            headers: {
+              Authorization: `Bearer ${userAuth?.accessToken}`,
+            },
+          }
+        );
+
+        if (response.status === 200) {
+          console.log(response.data)
+          setSipFile(response.data);
+        }
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+
+    if (userAuth?.accessToken !== undefined) {
+      fetchDataFiles();
+    }
+  }, [userAuth?.accessToken]);
+
+  useEffect(() => {
+    const fetchDataFiles = async () => {
+      try {
+        const response = await axios.get(
+          `${process.env.NEXT_PUBLIC_P2KB_API}/documents/profile/my/serkom_file.jpeg`,
+          {
+            headers: {
+              Authorization: `Bearer ${userAuth?.accessToken}`,
+            },
+          }
+        );
+
+        if (response.status === 200) {
+          console.log(response.data)
+          setSerkomFile(response.data);
+        }
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+
+    if (userAuth?.accessToken !== undefined) {
+      fetchDataFiles();
+    }
+  }, [userAuth?.accessToken]);
+
+  useEffect(() => {
+    const fetchDataFiles = async () => {
+      try {
+        const response = await axios.get(
+          `${process.env.NEXT_PUBLIC_P2KB_API}/documents/profile/my/ijazah_file.jpeg`,
+          {
+            headers: {
+              Authorization: `Bearer ${userAuth?.accessToken}`,
+            },
+          }
+        );
+
+        if (response.status === 200) {
+          console.log(response.data)
+          setIjazahFile(response.data);
+        }
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+
+    if (userAuth?.accessToken !== undefined) {
+      fetchDataFiles();
+    }
+  }, [userAuth?.accessToken]);
+
+  useEffect(() => {
+    const fetchDataFiles = async () => {
+      try {
+        const response = await axios.get(
+          `${process.env.NEXT_PUBLIC_P2KB_API}/documents/profile/my/pdki_file.jpeg`,
+          {
+            headers: {
+              Authorization: `Bearer ${userAuth?.accessToken}`,
+            },
+          }
+        );
+
+        if (response.status === 200) {
+          console.log(response.data)
+          setKartuFile(response.data);
+        }
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+
+    if (userAuth?.accessToken !== undefined) {
+      fetchDataFiles();
+    }
+  }, [userAuth?.accessToken]);
+
+  useEffect(() => {
+    const fetchDataFiles = async () => {
+      try {
+        const response = await axios.get(
+          `${process.env.NEXT_PUBLIC_P2KB_API}/documents/profile/my/ktp_file.jpeg`,
+          {
+            headers: {
+              Authorization: `Bearer ${userAuth?.accessToken}`,
+            },
+          }
+        );
+
+        if (response.status === 200) {
+          console.log(response.data)
+          setKtpFile(response.data);
         }
       } catch (error) {
         console.error("Error fetching user data:", error);
@@ -442,11 +571,17 @@ function UpdateProfileForm() {
             <label className="font-medium text-xs sm:text-sm">
               <span>SIP {"( Surat Izin Praktik )"}</span>
             </label>
-            <input
-              type="file"
-              className="border bg-white rounded-xl p-2 border-gray-300"
-              {...register("sip_file", { valueAsNumber: true })}
-            />
+            {sipFile ? (
+              <div className="p-2 border rounded-xl bg-white border-gray-200">
+                <p className="text-green font-medium lg:text-sm text-xs">File SIP berhasil di upload</p>
+              </div>
+            ) : (
+              <input
+                type="file"
+                className="border bg-white rounded-xl p-2 border-gray-300"
+                {...register("sip_file", { valueAsNumber: true })}
+              />
+            )}
           </div>
           <div className="flex flex-col gap-2">
             <label className="font-medium text-xs sm:text-sm">
@@ -475,7 +610,7 @@ function UpdateProfileForm() {
               <span>STR {"( Surat Tanda Registrasi )"}</span>
               <span className="text-red-600">*</span>
             </label>
-            {files ? (
+            {strFile ? (
                 <div className="p-2 border rounded-xl bg-white border-gray-200">
                   <p className="text-green font-medium lg:text-sm text-xs">File STR berhasil di upload</p>
                 </div>
@@ -509,11 +644,17 @@ function UpdateProfileForm() {
             <label className="font-medium text-xs sm:text-sm">
               <span>Upload SERKOM {"( Sertifikat Kompetensi )"}</span>
             </label>
-            <input
-              type="file"
-              className="border bg-white rounded-xl p-2 border-gray-300"
-              {...register("serkom_file")}
-            />
+            {serkomFile ? (
+              <div className="p-2 border rounded-xl bg-white border-gray-200">
+                <p className="text-green font-medium lg:text-sm text-xs">File SERKOM berhasil di upload</p>
+              </div>
+            ) : (
+              <input
+                type="file"
+                className="border bg-white rounded-xl p-2 border-gray-300"
+                {...register("serkom_file")}
+              />
+            )}
           </div>
           <div className="flex flex-col gap-2">
             <label className="font-medium text-xs sm:text-sm">
@@ -530,11 +671,17 @@ function UpdateProfileForm() {
             <label className="font-medium text-xs sm:text-sm">
               <span>Upload Ijazah Pengakuan Universitas/Institusi</span>
             </label>
-            <input
-              type="file"
-              className="border bg-white rounded-xl p-2 border-gray-300"
-              {...register("ijazah_file")}
-            />
+            {ijazahFile ? (
+              <div className="p-2 border rounded-xl bg-white border-gray-200">
+                <p className="text-green font-medium lg:text-sm text-xs">File Ijazah berhasil di upload</p>
+              </div>
+            ) : (
+              <input
+                type="file"
+                className="border bg-white rounded-xl p-2 border-gray-300"
+                {...register("ijazah_file")}
+              />
+            )}
           </div>
           <div className="flex flex-col gap-2">
             <label className="font-medium text-xs sm:text-sm">
@@ -552,11 +699,17 @@ function UpdateProfileForm() {
             <label className="font-medium text-xs sm:text-sm flex justify-between items-center">
               <span>Upload Kartu Anggota PDKI</span>
             </label>
-            <input
-              type="file"
-              className="border bg-white rounded-xl p-2 border-gray-300"
-              {...register("pdki_file")}
-            />
+            {kartuFile ? (
+              <div className="p-2 border rounded-xl bg-white border-gray-200">
+                <p className="text-green font-medium lg:text-sm text-xs">File Kartu Anggota PDKI berhasil di upload</p>
+              </div>
+            ) : (
+              <input
+                type="file"
+                className="border bg-white rounded-xl p-2 border-gray-300"
+                {...register("pdki_file")}
+              />
+            )}
           </div>
 
           {/* KTP */}
@@ -564,23 +717,19 @@ function UpdateProfileForm() {
             <label className="font-medium text-xs sm:text-sm">
               <span>Upload Foto KTP</span>
             </label>
-            <input
-              type="file"
-              className="border bg-white rounded-xl p-2 border-gray-300"
-              {...register("ktp_file")}
-            />
+            {ktpFile ? (
+              <div className="p-2 border rounded-xl bg-white border-gray-200">
+                <p className="text-green font-medium lg:text-sm text-xs">File KTP berhasil di upload</p>
+              </div>
+            ) : (
+              <input
+                type="file"
+                className="border bg-white rounded-xl p-2 border-gray-300"
+                {...register("ktp_file")}
+              />
+            )}
           </div>
 
-          {/* <div className="flex flex-col gap-2">
-            <label className="font-medium text-xs sm:text-sm">
-              <span>Ketikan No ATM</span>
-            </label>
-            <input
-              type="number"
-              className="border bg-white rounded-xl p-2 border-gray-300"
-              {...register("profile.no_atm", { valueAsNumber: true })}
-            />
-          </div> */}
         </div>
 
         {/* button daftar */}

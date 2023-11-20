@@ -28,16 +28,14 @@ const InputImage = ({ adminAK }: { adminAK: string | null | undefined }) => {
       const formData = new FormData();
       formData.append("vision_mission_image", selectedImage);
 
-      console.log(formData)
-
       try {
         const response = await axios.post(
           `${process.env.NEXT_PUBLIC_P2KB_API}/upload-vision-mission`,
           formData,
           {
             headers: {
-              Authorization: `Bearer ${adminAK}`,
-            },
+              Authorization: `Bearer ${adminAK}`
+            }
           }
         );
 
