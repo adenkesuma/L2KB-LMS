@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import defaultImage from "@/public/assets/images/no-data.png"
 
 const VisionAndMission = () => {
   return (
