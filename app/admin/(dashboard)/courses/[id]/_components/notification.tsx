@@ -4,22 +4,18 @@ import { ChangeEvent, FormEvent, useState } from 'react';
 import { Button } from '@/components/ui/button'
 import { toast } from 'sonner';
 
-const NotificationForUsers = ({ params, adminAK }: any) => {
-    // const [formData, setFormData] = useState({
-    //     title: '',
-    //     description: '',
-    // });
-
+const NotificationForUsers = ({ params, adminAK, trainingData }: any) => {
     const [title, setTitle] = useState<string>('');
     const [description, setDescription] = useState<string>('');
+    const [option, setOption] = useState('');
 
     const handleFormSubmit = async (e: FormEvent) => {
         e.preventDefault();
 
-        const formData = { title, description }
+        const formData = { title, description, option }
 
         try {
-          const response = await fetch(`${process.env.NEXT_PUBLIC_P2KB_API}/admin/training/announce/${params}`, {
+          const response = await fetch(`${process.env.NEXT_PUBLIC_P2KB_API}/admin/training/announce/${params}/${option}`, {
             method: 'POST',
             headers: {
                 Authorization: `Bearer ${adminAK}`,
@@ -75,6 +71,20 @@ const NotificationForUsers = ({ params, adminAK }: any) => {
                     onChange={(e) => setDescription(e.target.value)}
                     className="border rounded-xl p-2 border-gray-300"
                   ></textarea>
+                </div>
+
+                <div className="flex flex-col gap-2 mt-6">
+                  <label className="font-medium text-xs lg:text-sm">
+                    Kirim ke:
+                  </label>
+
+                  <select value={option} onChange={(e) => setOption(e.target.value)} className='p-2 border border-gray-300 rounded-lg bg-white'>
+                    <option value="">Semua orang</option>
+                    {trainingData?.trainingCandidates.map((data: any, i: any) => (
+                      <option value={data?.user?.id} key={i}>{data?.user?.nama}</option>
+                    ))}
+                  </select>
+
                 </div>
 
                 <Button className='w-40 mt-6' type='submit'>Kirim</Button>

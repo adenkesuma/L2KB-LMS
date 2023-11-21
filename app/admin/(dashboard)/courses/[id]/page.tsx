@@ -19,7 +19,11 @@ async function AdminCourseDetailPage({ params }: { params: { id: string } }) {
 
         <DetailTraining params={params.id} />
 
-        <NotificationForUsers params={params.id} adminAK={adminAK} />
+        <NotificationForUsers 
+          params={params.id} 
+          trainingData={trainingData}
+          adminAK={adminAK} 
+        />
 
         <AdminCourseDetailContent
           trainingData={trainingData}
