@@ -1,9 +1,9 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import defaultData from "@/public/assets/images/default-image-course.jpg"
 import Image from "next/image"
 import axios from "axios"
+import Link from "next/link"
 
 const GetAllFacilities = ({ adminAK } : { adminAK: string | null | undefined }) => {
     const [allFacilities, setAllFacilities] = useState<[]>();
@@ -34,14 +34,19 @@ const GetAllFacilities = ({ adminAK } : { adminAK: string | null | undefined }) 
 
           <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 lg:gap-8 md:gap-6 gap-4">
               {allFacilities?.map((item: any) => (
-                <Image
+                  <Link
+                    href={`/admin/facilities/${item.id}`}
                     key={item.id}
-                    src={`${process.env.NEXT_PUBLIC_PDKI_API}/facility/${item.id}.jpg`}
-                    width={1000}
-                    height={1000}
-                    alt="fasilitas"
-                    className="w-full h-80 bg-center bg-cover rounded-md object-cover border"
-                />
+                    className="w-full"
+                  >
+                    <Image
+                        src={`${process.env.NEXT_PUBLIC_PDKI_API}/facility/${item.id}.jpg`}
+                        width={1000}
+                        height={1000}
+                        alt="fasilitas"
+                        className="w-full h-80 bg-center bg-cover rounded-md object-cover border"
+                    />
+                </Link>
               ))}
           </div>
       </div>
