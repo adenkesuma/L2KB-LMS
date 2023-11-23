@@ -48,7 +48,7 @@ function CertificateUploadModal({ onClose, adminAK, trainingId, candidateId }: a
   };
 
   return (
-    <div className={`fixed top-0 bg-[rgba(0,0,0,0.4)] left-0 w-full h-full flex items-center justify-center z-50`}>
+    <div className={`fixed top-0 bg-[rgba(0,0,0,0.1)] left-0 w-full h-full flex items-center justify-center z-50`}>
       <div className="modal-content bg-white border border-gray-200 p-8 rounded-lg">
         <h2 className="text-xl font-semibold mb-3">Upload Sertifikat</h2>
 

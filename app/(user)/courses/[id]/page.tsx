@@ -98,10 +98,16 @@ const PelatihanDetail: FC<PelatihanDetailType> = async ({ params }) => {
                     Jumlah SKP:{" "}
                     <span className="font-semibold text-green">{oneTrainingData?.skp}</span>
                   </li>
-                  <li className="font-reguler te text-xs sm:text-sm text-gray-600">
+                  <li className="font-reguler text-xs sm:text-sm text-gray-600">
                     Tahun Pelaksanaan:{" "}
                     <span className="font-semibold text-green">
                       {oneTrainingData?.tahun_pelaksanaan}
+                    </span>
+                  </li>
+                  <li className="font-reguler text-xs sm:text-sm text-gray-600">
+                    Tipe Pelatihan: {" "}
+                    <span className="font-semibold text-green">
+                      {oneTrainingData?.trainingType?.nama}
                     </span>
                   </li>
                   <li className="font-reguler text-xs sm:text-sm text-gray-600">

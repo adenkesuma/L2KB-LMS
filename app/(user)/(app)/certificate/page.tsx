@@ -66,8 +66,8 @@ const Certificate = async () => {
           ) : (
             myTrainingData?.map((data) => {
               return (
-                <div key={data.training.id}>
-                  {data.certificateGenerated ? (
+                <div key={data?.training?.id}>
+                  {data?.certificateGenerated ? (
                     <>
                       <UserCertificate link={`${process.env.NEXT_PUBLIC_P2KB_API}/admin/certificate/${data.id}`} />
                     </>

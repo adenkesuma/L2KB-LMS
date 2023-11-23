@@ -16,6 +16,7 @@ import { ITrainingData } from "../../../../../(user)/courses/page";
 import { Button, buttonVariants } from "../../../../../../components/ui/button";
 import LoadingIcon from "../../../../../../components/icons/loading-icon";
 import CertificateUploadModal from "./modal";
+import ModalSKP from "./modal-skp";
 
 function AdminCourseDetailContent({
   trainingData,
@@ -28,9 +29,10 @@ function AdminCourseDetailContent({
   const [markAttendLoading, setMarkAttendLoading] = useState(false);
   const [genSertiLoading, setGenSertiLoading] = useState(false);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-  // const [selectedFile, setSelectedFile] = useState(null);
-
-  console.log(trainingData)
+  const [isOpen, setIsOpen] = useState(false);
+  const [candidateId, setCandidateId] = useState("");
+  const [userId, setUserId] = useState("");
+  const [trainingId, setTrainingId] = useState("");
 
   const handleMAA = async (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
@@ -59,10 +61,57 @@ function AdminCourseDetailContent({
     window.location.reload();
   };
 
+const handleGenerateCertificate = async (
+  e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+  candidateId: string,
+  trainingId: string,
+  namaLengkap: string
+) => {
+  e.preventDefault();
+  setGenSertiLoading(true);
+
+  const post = await fetch(
+    `${process.env.NEXT_PUBLIC_P2KB_API}/admin/certificate/generate`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+         Authorization: `Bearer ${adminAK}`
+      },
+      body: JSON.stringify({
+        training_id: trainingId,
+        candidate_id: candidateId,
+      }),
+    }
+  );
+  const gen = await post.json();
+
+  if (post.ok && gen.statusCode === 200) {
+    setGenSertiLoading(false);
+    toast.success(
+      "Berhasil generate sertifikat dari peserta " + namaLengkap
+    );
+  } else {
+    setGenSertiLoading(false);
+    toast.error("Gagal mengenerate sertifikat");
+  }
+}
+
+  const handleCandidateTrainingID = (popup: boolean, candidateId: string, trainingId: string) => {
+    setIsPopupOpen(popup);
+    setCandidateId(candidateId);
+    setTrainingId(trainingId);
+  }
+
+  const handleUserID = (open: boolean, userId: string) => {
+    setUserId(userId);
+    setIsOpen(open);
+  };
+
   const closeModal = () => {
     setIsPopupOpen(false);
   };
-
+ 
   return (
     <div className="mt-10 relative">
       <div className="flex gap-4 items-center">
@@ -100,6 +149,9 @@ function AdminCourseDetailContent({
                     </th>
                     <th scope="col" className="px-3 xl:px-6 p-2 xl:py-4">
                       Upload Sertifikat Manual
+                    </th>
+                    <th scope="col" className="px-3 xl:px-6 p-2 xl:py-4">
+                      Upload SKP Manual
                     </th>
                   </tr>
                 </thead>
@@ -173,8 +225,6 @@ function AdminCourseDetailContent({
                               </Button>
                             ) : data.accepted ? (
                               <div className="flex gap-1 items-center">
-                                {/* <CheckIcon className="text-green" /> */}
-                                {/* <p className="text-green">Attended</p> */}
                                 <Button
                                   onClick={(e) => handleMAA(e, data.id)}
                                   variant="outline"
@@ -199,37 +249,7 @@ function AdminCourseDetailContent({
                               </p>
                             ) : (
                               <Button
-                                onClick={async (e) => {
-                                  e.preventDefault();
-                                  setGenSertiLoading(true);
-
-                                  const post = await fetch(
-                                    `${process.env.NEXT_PUBLIC_P2KB_API}/admin/certificate/generate`,
-                                    {
-                                      method: "POST",
-                                      headers: {
-                                        "Content-Type": "application/json",
-                                         Authorization: `Bearer ${adminAK}`
-                                      },
-                                      body: JSON.stringify({
-                                        training_id: trainingData.id,
-                                        candidate_id: data.id,
-                                      }),
-                                    }
-                                  );
-                                  const gen = await post.json();
-
-                                  if (post.ok && gen.statusCode === 200) {
-                                    setGenSertiLoading(false);
-                                    toast.success(
-                                      "Berhasil generate sertifikat dari peserta " +
-                                        data.nama_lengkap
-                                    );
-                                  } else {
-                                    setGenSertiLoading(false);
-                                    toast.error("Gagal mengenerate sertifikat");
-                                  }
-                                }}
+                                onClick={(e) => handleGenerateCertificate(e, data?.id, data?.training_id, data?.nama_lengkap)}
                                 className={
                                   rc(buttonVariants({ variant: "default" })) +
                                   `flex items-center gap-2 text-sm font-medium`
@@ -253,7 +273,7 @@ function AdminCourseDetailContent({
                             ) : (
                               <Button
                                 className="flex gap-2 items-center"
-                                onClick={() => setIsPopupOpen(true)}
+                                onClick={() => handleCandidateTrainingID(true, data?.id, data?.training_id)}
                                 disabled={!data.attend}
                               >
                                 <UploadIcon />{" "}
@@ -265,15 +285,31 @@ function AdminCourseDetailContent({
                               </Button>
                             )}
                           </td>
+                          <td className="whitespace-nowrap px-6 py-4 space-x-4">
+                              <Button 
+                                className="flex gap-2 items-center"
+                                onClick={() => handleUserID(true, data?.user?.id)}
+                                disabled={!data.attend}
+                              >
+                                Upload manual
+                              </Button>
+                          </td>
                         </tr>
 
                         {isPopupOpen && 
                           <CertificateUploadModal
-                            isOpen={isPopupOpen}
                             onClose={closeModal}
                             adminAK={adminAK}
-                            trainingId={data?.training_id}
-                            candidateId={data?.id}
+                            trainingId={trainingId}
+                            candidateId={candidateId}
+                          />
+                        }
+
+                        {isOpen && 
+                          <ModalSKP 
+                            onClose={() => setIsOpen(false)}
+                            userId={userId}
+                            adminAK={adminAK}
                           />
                         }
                       </tbody>

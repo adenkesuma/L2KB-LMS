@@ -32,6 +32,8 @@ export const memberOptions = [
   }
 ];
 
+const trainingTypeOptions = ["Seminar, Webinar, Workshop"]
+
 function NewCourseForm({ adminAK }: { adminAK: string }) {
   const router = useRouter();
   const [trainingType, setTrainingType] = useState<any[]>();
