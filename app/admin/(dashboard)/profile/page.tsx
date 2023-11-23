@@ -1,6 +1,6 @@
 import { getCookie } from '@/lib/services/cookie.service';
 import ProfileList from './_components/list';
-import { Button } from '@/components/ui/button';
+import ExportData from './_components/export';
 
 const Profile = async () => {
   const adminAK = await getCookie("adminAK");
@@ -10,11 +10,8 @@ const Profile = async () => {
       <div className='min-h-screen mb-8 px-4 md:px-8 xl:px-14 pt-10'>
         <div className="flex justify-between items-center">
           <h1 className='font-bold text-xl md:text-2xl text-gray-800'>Users Profile</h1>
-
-          <Button
-          >
-            Export Data
-          </Button>
+          
+          <ExportData adminAK={adminAK} />
         </div>
 
         <ProfileList adminAK={adminAK} />
