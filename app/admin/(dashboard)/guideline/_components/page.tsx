@@ -7,9 +7,9 @@ import { Button } from "../../../../../components/ui/button";
 import { toast } from "sonner";
 import LoadingIcon from "../../../../../components/icons/loading-icon";
 
-export const revalidate = 0;
+// export const revalidate = 0;
 
-const GuidelineInput = ({ adminAK } : { adminAK: string }) => {
+const GuidelineInput = ({ adminAK } : { adminAK: string | null | undefined } ) => {
   const [selectedImage, setSelectedImage] = useState<File | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 

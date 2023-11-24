@@ -7,7 +7,7 @@ import { Button } from "../../../../../components/ui/button";
 import { toast } from "sonner";
 import LoadingIcon from "../../../../../components/icons/loading-icon";
 
-export const revalidate = 0;
+// export const revalidate = 0;
 
 const OrganizationStructureInput = ({ adminAK } : { adminAK: string | null | undefined }) => {
   const [selectedImage, setSelectedImage] = useState<File | null>(null);
