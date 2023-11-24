@@ -1,17 +1,15 @@
 "use client";
 
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 import { Button } from "../../../../../components/ui/button";
 import { toast } from "sonner";
 import LoadingIcon from "../../../../../components/icons/loading-icon";
 
 export const revalidate = 0;
 
-const GuidelineInput = ({ adminAK } : { adminAK: string | null | undefined }) => {
-  const router = useRouter();
+const GuidelineInput = ({ adminAK } : { adminAK: string }) => {
   const [selectedImage, setSelectedImage] = useState<File | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
