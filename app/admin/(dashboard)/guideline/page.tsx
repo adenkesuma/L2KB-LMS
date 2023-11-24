@@ -1,5 +1,5 @@
 import { getCookie } from '@/lib/services/cookie.service'
-import GuidelineInput from './_components/page'
+import GuidelineInput from './_components/guideline-input'
 
 const Guideline = async () => {
     const adminAK = await getCookie('adminAK')

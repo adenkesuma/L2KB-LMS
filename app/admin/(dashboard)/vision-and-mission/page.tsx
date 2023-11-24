@@ -1,5 +1,5 @@
 import { getCookie } from '@/lib/services/cookie.service';
-import InputImage from './_components/page'
+import InputImage from './_components/visi-mission-input'
 
 const VisionAndMission = async () => {
     const adminAK = await getCookie("adminAK");

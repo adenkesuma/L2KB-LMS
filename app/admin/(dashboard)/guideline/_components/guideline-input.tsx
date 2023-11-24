@@ -9,7 +9,7 @@ import LoadingIcon from "../../../../../components/icons/loading-icon";
 
 // export const revalidate = 0;
 
-const GuidelineInput = ({ adminAK } : { adminAK: string | null | undefined } ) => {
+const GuidelineInput = ({ adminAK } : { adminAK: string | null | undefined }) => {
   const [selectedImage, setSelectedImage] = useState<File | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
