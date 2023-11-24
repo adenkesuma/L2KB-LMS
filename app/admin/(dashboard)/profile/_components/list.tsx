@@ -8,32 +8,41 @@ import Image from "next/image";
 import NoDataImage from "@/public/assets/images/no-data.png"
 import { UserData } from "@/app/(user)/(app)/profile/page";
 
+const StatusAnggota = [
+  { key: "anggota_biasa", value: "anggota biasa" },
+  { key: "anggota_luar_biasa", value: "anggota luar biasa" },
+  { key: "anggota_muda", value: "anggota muda" }
+];
+
 const ProfileList = ({ adminAK } : { adminAK: string }) => {
-    const [usersProfile, setUsersProfile] = useState<UserData[]>()
-
-    useEffect(() => {
-        const fetchUsersProfile = async () => {
-          try {
-            const response = await axios.get(
-              `${process.env.NEXT_PUBLIC_P2KB_API}/admin/profile`,
-              {
-                headers: {
-                  Authorization: `Bearer ${adminAK}`,
-                },
-              }
-            );
-
-            if (response.status === 200) {
-              setUsersProfile(response.data.data);
+  const [usersProfile, setUsersProfile] = useState<UserData[]>()
+  useEffect(() => {
+      const fetchUsersProfile = async () => {
+        try {
+          const response = await axios.get(
+            `${process.env.NEXT_PUBLIC_P2KB_API}/admin/profile`,
+            {
+              headers: {
+                Authorization: `Bearer ${adminAK}`,
+              },
             }
-          } catch (error) {
-            console.error("Error fetching user data:", error);
+          );
+          if (response.status === 200) {
+            
+            setUsersProfile(response.data.data);
           }
-        };
-
-        fetchUsersProfile();
+        } catch (error) {
+          console.error("Error fetching user data:", error);
+        }
+      };
+      fetchUsersProfile();
     }, [adminAK]);
-
+    
+  const sortedData = usersProfile?.sort((a, b) => {
+    const date1 = new Date(a.createdAt).getTime();
+    const date2 = new Date(b.createdAt).getTime();
+    return date2 - date1;
+  })
 
   return (
     <div>
@@ -64,7 +73,7 @@ const ProfileList = ({ adminAK } : { adminAK: string }) => {
                                 Email
                             </th>
                             <th scope="col" className="px-6 py-4">
-                                Jenis Kelamin
+                              Status Anggota
                             </th>
                             <th scope="col" className="px-6 py-4">
                                 SKP
@@ -76,7 +85,7 @@ const ProfileList = ({ adminAK } : { adminAK: string }) => {
                         </thead>
 
                         <tbody className="text-gray-600 text-xs sm:text-sm font-normal">
-                          {usersProfile?.map((item, idx) => (
+                          {sortedData?.map((item, idx) => (
                             <tr key={item?.id} className="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:hover:bg-gray-100">
                               <td className="whitespace-nowrap px-6 py-4">
                                 {idx+1}
@@ -88,7 +97,9 @@ const ProfileList = ({ adminAK } : { adminAK: string }) => {
                                 {item?.email}
                               </td>
                               <td className="whitespace-nowrap px-6 py-4">
-                                {item?.profile?.jenis_kelamin}
+                                {StatusAnggota.map((status) => (
+                                  status.key === item?.profile?.status_anggota && status.value 
+                                ))}
                               </td>
                               <td className="whitespace-nowrap px-6 py-4">
                                 {item?.skp}

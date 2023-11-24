@@ -1,6 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
+import axios from "axios"
 import { useState } from "react"
 import * as XLSX from "xlsx"
 
@@ -11,22 +12,22 @@ const ExportData = ({ adminAK } : { adminAK : string }) => {
     try {
         setLoading(true);
 
-        const response = await fetch(`${process.env.NEXT_PUBLIC_P2KB_API}/admin/export/profile`, {
-            method: 'GET',
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_P2KB_API}/admin/export/profile`, {
             headers: {
                Authorization: `Bearer ${adminAK}`,
               'Content-Type': 'application/json',
             },
+            responseType: 'arraybuffer' // response tpe sebagai array buffer untuk XLSX
         });
 
         
-        if (!response.ok) {
+        if (response.status !== 200) {
             throw new Error('Gagal mengambil data');
         }
         
-        const data = await response.json();
+        const data = new Uint8Array(response.data); 
 
-        const ws = XLSX.utils.json_to_sheet(data);
+        const ws = XLSX.read(data, {type: 'array'}).Sheets.Sheet1;
         const wb = XLSX.utils.book_new();
         XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
   
@@ -41,7 +42,7 @@ const ExportData = ({ adminAK } : { adminAK : string }) => {
   }
   return (
     <Button disabled={loading} onClick={handleExportClick}>
-        {loading ? 'Loading...' : 'Export to csv'}
+        {loading ? 'Loading...' : 'Export to Excel'}
     </Button>
   )
 }
